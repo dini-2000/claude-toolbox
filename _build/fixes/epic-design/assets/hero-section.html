@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pressed at Sunrise</title>
+  <meta name="description" content="Cold-pressed orange juice, bottled within hours of picking.">
+
+  <!--
+    epic-design boilerplate: a pinned 2.5D hero and one content section.
+    Techniques (references/):
+      depth-system.md       six depth layers, companions, float loops, scatter on exit
+      motion-system.md      Pattern 1 parallax, Pattern 2 pin, Pattern 9 elastic drop,
+                            IntersectionObserver reveals
+      text-animations.md    Technique 1 split converge (the engine splits the words)
+      performance.md        perf-lite on touch screens and low-power devices
+      accessibility.md      skip link, Motion toggle, reduced motion, alt text
+    Swap first: the tokens at the top of hero-section.css, the product image
+    (keep --hero-w / --hero-h at its ratio), the copy, the .deco shapes.
+    Single-file delivery: paste hero-section.css into a <style> in <head>,
+    and put the two GSAP tags (without defer) and then hero-section.js in a
+    <script> at the end of <body>.
+  -->
+
+  <link rel="stylesheet" href="hero-section.css">
+
+  <script>
+    // Keep animated elements hidden until hero-section.js sets their start
+    // states. If the scripts never run, show everything after 3 seconds.
+    document.documentElement.classList.add('motion-pending');
+    setTimeout(function () { document.documentElement.classList.remove('motion-pending'); }, 3000);
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script defer src="hero-section.js"></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Label stays "Motion"; aria-pressed carries the state -->
+  <button class="motion-toggle" type="button" aria-pressed="true" hidden>
+    <span class="motion-toggle-dot" aria-hidden="true"></span>
+    Motion
+  </button>
+
+  <main id="main-content">
+
+    <!-- HERO: pinned for --scene-height of scroll, then exits -->
+    <section class="scene" data-scene="hero" data-pin style="--scene-height: 250vh" aria-labelledby="hero-title">
+      <div class="scene-inner">
+
+        <!-- Depth 0: far background -->
+        <div class="layer depth-0" data-depth="0" aria-hidden="true">
+          <div class="bg-gradient"></div>
+        </div>
+
+        <!-- Depth 1: glow behind the product -->
+        <div class="layer depth-1" data-depth="1" aria-hidden="true">
+          <div class="glow-blob glow-primary"></div>
+          <div class="glow-blob glow-secondary"></div>
+        </div>
+
+        <!-- Depth 2: companions hug the product's edges; swap the shapes
+             for <img class="deco float-loop" src="..." alt=""> -->
+        <div class="layer depth-2" data-depth="2" aria-hidden="true">
+          <div class="companion companion-right"><div class="deco float-loop"></div></div>
+          <div class="companion companion-left"><div class="deco deco-ring float-loop"></div></div>
+          <div class="companion companion-lower"><div class="deco float-loop"></div></div>
+        </div>
+
+        <!-- Depth 3: the hero product. One owner per transform:
+             stage (scroll exit) > wrapper (drop and shake) > image (float) -->
+        <div class="layer depth-3" data-depth="3">
+          <div class="product-stage">
+            <div class="drop-wrapper">
+              <img class="product-hero float-loop" width="230" height="500"
+                   alt="Glass bottle of orange juice with a cream label and a purple cap"
+                   src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 230 500'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%23b34700'/%3E%3Cstop offset='.45' stop-color='%23ff9900'/%3E%3Cstop offset='1' stop-color='%23a33c00'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%232d0b4e'/%3E%3Cstop offset='.5' stop-color='%235b2a8a'/%3E%3Cstop offset='1' stop-color='%232d0b4e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='85' y='8' width='60' height='48' rx='8' fill='url(%23c)'/%3E%3Cpath d='M92 54H138V94C138 112 200 134 200 190V452C200 474 186 492 164 492H66C44 492 30 474 30 452V190C30 134 92 112 92 94Z' fill='url(%23g)'/%3E%3Crect x='30' y='250' width='170' height='130' fill='%23fdf4e7'/%3E%3Ccircle cx='115' cy='315' r='38' fill='%23ff6b00'/%3E%3Ccircle cx='115' cy='315' r='26' fill='%23ffb347'/%3E%3Cpath d='M115 289V341M89 315H141M97 297L133 333M133 297L97 333' stroke='%23ff6b00' stroke-width='3'/%3E%3Cpath d='M56 130C44 180 44 400 50 450' stroke='%23fff' stroke-opacity='.35' stroke-width='10' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+            </div>
+          </div>
+        </div>
+
+        <!-- Depth 4: copy. The h1 is split into words by hero-section.js;
+             mark the halves yourself with .word-left / .word-right spans -->
+        <div class="layer depth-4" data-depth="4">
+          <div class="hero-copy">
+            <div class="hero-head">
+              <p class="eyebrow" data-animate="fade-in">Limited release</p>
+              <h1 id="hero-title" class="hero-title split-text" data-animate="converge">Pressed at sunrise</h1>
+            </div>
+            <div class="hero-foot">
+              <p class="hero-sub" data-animate="fade-up">Cold-pressed oranges, bottled within hours of picking.</p>
+              <a class="cta-btn" href="#features" data-animate="scale-in">See how it's made</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depth 5: sparkles; --x and --y place each one, --s sizes it -->
+        <div class="layer depth-5" data-depth="5" aria-hidden="true">
+          <span class="particle float-loop" style="--x: 18%; --y: 24%; --s: 14px"></span>
+          <span class="particle float-loop" style="--x: 80%; --y: 18%; --s: 10px"></span>
+          <span class="particle float-loop" style="--x: 70%; --y: 70%; --s: 16px"></span>
+          <span class="particle float-loop" style="--x: 26%; --y: 78%; --s: 9px"></span>
+          <span class="particle float-loop" style="--x: 88%; --y: 46%; --s: 12px"></span>
+          <span class="particle float-loop" style="--x: 9%; --y: 52%; --s: 11px"></span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTENT SECTION: no pin; layers drift, cards reveal as they enter -->
+    <section class="scene scene--light" id="features" data-scene="features" aria-labelledby="features-title">
+      <div class="scene-inner">
+        <div class="layer depth-0" data-depth="0" aria-hidden="true">
+          <div class="bg-paper"></div>
+        </div>
+        <div class="layer depth-2" data-depth="2" aria-hidden="true">
+          <div class="ring"></div>
+        </div>
+        <div class="layer depth-4" data-depth="4">
+          <div class="features">
+            <h2 id="features-title" data-animate="fade-up">From grove to glass in a day</h2>
+            <p class="lede" data-animate="fade-up">We pick, press and chill each batch the same morning, so nothing sits in a tank.</p>
+            <ul class="feature-grid">
+              <li class="feature-card" data-animate="fade-up">
+                <h3>Picked ripe</h3>
+                <p>Oranges stay on the tree until they are sweet enough to drink as they are.</p>
+              </li>
+              <li class="feature-card" data-animate="fade-up">
+                <h3>Pressed cold</h3>
+                <p>A slow hydraulic press keeps the juice below 8&nbsp;°C from start to finish.</p>
+              </li>
+              <li class="feature-card" data-animate="fade-up">
+                <h3>Shipped chilled</h3>
+                <p>Bottles leave the same day and reach you within 48 hours.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,71 @@
+skill	reason
+ab-test-setup	near-duplicate of ab-testing (kept the fuller copy)
+agent-workflow-designer	near-duplicate of agent-designer (kept the fuller copy)
+agenthub	lacks its scripts; replaced by agenthub, taken whole from upstream
+analytics	near-duplicate of analytics-tracking (kept the fuller copy)
+app-store-optimization	near-duplicate of aso (kept the fuller copy)
+autoresearch-agent	lacks its scripts; replaced by autoresearch-agent, taken whole from upstream
+board	lacks its scripts; replaced by hub-board, taken whole from upstream
+browser-automation	headline features include bot-detection evasion (fingerprint spoofing); scripts missing
+claude-api	outdated (pins claude-opus-4-8 as 'non-negotiable'); would replace Claude Code's maintained claude-api skill
+competitors	near-duplicate of competitor-alternatives (kept the fuller copy)
+cro	near-duplicate of page-cro (kept the fuller copy)
+cs-onboard	near-duplicate of onboard (kept the fuller copy)
+database-schema-designer	near-duplicate of database-designer (kept the fuller copy)
+docx	stale copy of anthropic-skills:docx, scripts missing
+email-sequence	near-duplicate of emails (kept the fuller copy)
+eval	lacks its scripts; replaced by hub-eval, taken whole from upstream
+extract	self-improving family: writes skills from memory
+free-tools	near-duplicate of free-tool-strategy (kept the fuller copy)
+handoff	near-duplicate of skills-handoff (kept the fuller copy)
+launch-strategy	near-duplicate of launch (kept the fuller copy)
+local-seo-manager	near-duplicate of seo-local (kept the fuller copy)
+loop	lacks its scripts; replaced by ar-loop, taken whole from upstream
+mcp-server-builder	near-duplicate of mcp-builder (kept the fuller copy)
+merge	lacks its scripts; replaced by hub-merge, taken whole from upstream
+notebooklm	drives Google sign-in through a 'stealth' automated browser; scripts missing
+onboarding	near-duplicate of onboarding-cro (kept the fuller copy)
+paid-ads	near-duplicate of ads (kept the fuller copy)
+paywalls	near-duplicate of paywall-upgrade-cro (kept the fuller copy)
+pdf	stale copy of anthropic-skills:pdf
+popup-cro	near-duplicate of popups (kept the fuller copy)
+post-mortem	near-duplicate of postmortem (kept the fuller copy)
+pptx	stale copy of anthropic-skills:pptx, scripts missing
+pricing	near-duplicate of pricing-strategy (kept the fuller copy)
+pricing-strategist	near-duplicate of pricing-strategy (kept the fuller copy)
+programmatic-seo	near-duplicate of seo-programmatic (kept the fuller copy)
+promote	self-improving family: writes memory into CLAUDE.md
+referrals	near-duplicate of referral-program (kept the fuller copy)
+remember	self-improving family: appends straight to MEMORY.md at a wrongly computed path
+resume	lacks its scripts; replaced by ar-resume, taken whole from upstream
+revenue-operations	near-duplicate of revops (kept the fuller copy)
+run	lacks its scripts; replaced by hub-run, taken whole from upstream
+schema	near-duplicate of schema-markup (kept the fuller copy)
+security-guidance	lacks its scripts; replaced by security-guidance, taken whole from upstream
+self-improving-agent	self-improving family: rewrites MEMORY.md and CLAUDE.md, competing with Claude Code's own memory
+seo-schema	near-duplicate of schema-markup (kept the fuller copy)
+setup	lacks its scripts; replaced by ar-setup, taken whole from upstream
+signup-flow-cro	near-duplicate of signup (kept the fuller copy)
+skill-creator	stale copy of anthropic-skills:skill-creator, assets missing
+skills-arquiteto-de-empresa	identical copy of arquiteto-de-empresa
+skills-chaos-engineering	identical copy of chaos-engineering
+skills-chief-ai-officer-advisor	identical copy of chief-ai-officer-advisor
+skills-chief-customer-officer-advisor	identical copy of chief-customer-officer-advisor
+skills-chief-data-officer-advisor	identical copy of chief-data-officer-advisor
+skills-eu-ai-act-specialist	identical copy of eu-ai-act-specialist
+skills-feature-flags-architect	identical copy of feature-flags-architect
+skills-general-counsel-advisor	identical copy of general-counsel-advisor
+skills-init	lacks its scripts; replaced by hub-init, taken whole from upstream
+skills-iso42001-specialist	identical copy of iso42001-specialist
+skills-kubernetes-operator	identical copy of kubernetes-operator
+skills-review	self-improving family: memory pruning
+skills-run	lacks its scripts; replaced by ar-run, taken whole from upstream
+skills-slo-architect	identical copy of slo-architect
+skills-status	lacks its scripts; replaced by hub-status, taken whole from upstream
+skills-vpe-advisor	identical copy of vpe-advisor
+social-content	near-duplicate of social (kept the fuller copy)
+social-media-manager	near-duplicate of social (kept the fuller copy)
+spawn	lacks its scripts; replaced by hub-spawn, taken whole from upstream
+status	self-improving family: clashes with the built-in /status
+using-superpowers	coercive meta-rules ('even a 1% chance a skill applies, you MUST invoke it'; ranks itself above default behaviour)
+xlsx	stale copy of anthropic-skills:xlsx, scripts missing

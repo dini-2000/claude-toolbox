@@ -1,0 +1,2 @@
+# LF everywhere, so setup.sh still runs in Git Bash after a Windows checkout (core.autocrlf=true)
+* text=auto eol=lf

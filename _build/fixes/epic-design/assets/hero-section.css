@@ -1,0 +1,516 @@
+/* =========================================================================
+   hero-section.css: the epic-design CSS system
+   Pairs with hero-section.html (structure) and hero-section.js (motion).
+
+   1 Tokens            4 Float loops          7 Following section
+   2 Base, a11y        5 Hero composition     8 Motion toggle
+   3 Scenes, depth     6 Headline and copy    9 Modes: perf-lite, no-motion,
+                                                reduced motion
+
+   Transform owners. A running CSS animation outranks inline styles in the
+   cascade, so an element with a float loop ignores GSAP's inline transform.
+   Each moving thing therefore gets its own element (see hero-section.js).
+   GSAP also folds the CSS translate, rotate and scale properties into its
+   own transform the first time it moves an element and sets them to none
+   inline, so nothing here uses them: centring is done with position and
+   margins, and the depth scale is a plain transform that GSAP reads and keeps.
+   ========================================================================= */
+
+/* 1 TOKENS ---------------------------------------------------------------- */
+:root {
+  /* Brand: swap these first (palette from references/examples.md, Example 1) */
+  --brand-color: #ff6b00;
+  --brand-color-2: #ff9900;
+  --bg-deep: #0a0014;
+  --bg-mid: #2d0b4e;
+  --ink: #fdf4e7;              /* text on dark scenes */
+  --ink-muted: #d9cfe6;        /* keep 4.5:1 or more against --bg-deep */
+  --paper: #fdf4e7;            /* light scenes */
+  --ink-dark: #1d0b2e;         /* text on light scenes */
+  --ink-dark-muted: #4a3a5c;
+  --focus-ring: #7cc4ff;
+  --font-display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+                  "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-display);
+
+  /* Depth system (references/depth-system.md). hero-section.js reads the
+     factors, so tune parallax strength here. */
+  --depth-0-factor: 0.10;
+  --depth-1-factor: 0.25;
+  --depth-2-factor: 0.50;
+  --depth-3-factor: 0.80;
+  --depth-4-factor: 1.00;
+  --depth-5-factor: 1.20;
+
+  --depth-0-blur: 8px;
+  --depth-1-blur: 4px;
+
+  --depth-0-scale: 0.70;
+  --depth-1-scale: 0.85;
+  --depth-2-scale: 1.00;
+  --depth-3-scale: 1.05;
+  --depth-4-scale: 1.00;
+  --depth-5-scale: 1.10;
+
+  /* Composition: one hero; companions at 15-25% of its display size */
+  --hero-h: min(48vh, 92vw);                     /* product height */
+  --hero-w: calc(var(--hero-h) * 0.46);          /* its width: match your image's ratio */
+  --hero-half-w: calc(var(--hero-w) / 2);
+  --companion: clamp(52px, calc(var(--hero-h) * 0.2), 120px);
+  --companion-gap: clamp(8px, 2vw, 28px);
+}
+
+/* 2 BASE AND ACCESSIBILITY ------------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* No `scroll-behavior: smooth` here: ScrollTrigger scrolls to the top for an
+   instant to measure, and smooth scrolling delays that jump, so pins land in
+   the wrong place after a resize. hero-section.js smooth-scrolls in-page
+   links itself. */
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg-deep);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  overflow-x: clip;            /* words fly in from off screen */
+}
+
+img { display: block; max-width: 100%; }
+
+/* Visually hidden, still read by screen readers (holds split headlines' text) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Skip link: first element in <body> (references/accessibility.md, 4) */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  z-index: 10000;
+  padding: 12px 20px;
+  background: #005fcc;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus { top: 0; }
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+:focus:not(:focus-visible) { outline: none; }
+
+/* Animated elements stay hidden until hero-section.js has set their start
+   states, so the finished layout never flashes first. The inline script in
+   <head> lifts this after 3 s if the engine never runs. */
+.motion-pending [data-animate],
+.motion-pending .drop-wrapper { visibility: hidden; }
+
+/* 3 SCENES AND DEPTH LAYERS ----------------------------------------------- */
+.scene {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.scene-inner {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  isolation: isolate;          /* glow blending stays inside the scene */
+}
+.scene[data-pin] .scene-inner {
+  height: 100vh;
+  height: 100svh;
+}
+
+/* A pinned scene gets its scroll length only while motion runs. Static and
+   reduced-motion pages keep it one screen tall. */
+.motion-on .scene[data-pin] { height: var(--scene-height, 200vh); }
+
+/* Skip rendering of off-screen scenes (references/performance.md). Never on a
+   pinned scene: content-visibility adds layout and paint containment, and a
+   pinned element is position: fixed inside it. */
+.scene:not([data-pin]) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 100vh;
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transform-origin: 50% 50%;
+}
+
+/* Depth 0 is oversized: after its 0.70 scale it still covers the frame
+   (160% x 0.70 = 112%), with room for parallax drift. */
+.depth-0 {
+  z-index: 0;
+  inset: -30%;
+  filter: blur(var(--depth-0-blur));
+  transform: scale(var(--depth-0-scale));
+}
+.depth-1 {
+  z-index: 1;
+  filter: blur(var(--depth-1-blur));
+  transform: scale(var(--depth-1-scale));
+  mix-blend-mode: screen;      /* glow adds light */
+}
+.depth-2 { z-index: 2; transform: scale(var(--depth-2-scale)); }
+.depth-3 { z-index: 3; transform: scale(var(--depth-3-scale)); }
+.depth-4 { z-index: 4; pointer-events: auto; }
+.depth-5 { z-index: 5; transform: scale(var(--depth-5-scale)); }
+
+/* Closer objects cast stronger shadows */
+.depth-2 .deco { filter: drop-shadow(0 10px 20px rgb(0 0 0 / 0.20)); }
+.depth-3 .product-hero { filter: drop-shadow(0 25px 50px rgb(0 0 0 / 0.35)); }
+
+/* 4 FLOAT LOOPS (references/depth-system.md) ------------------------------ */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0px); }
+  50%      { transform: translateY(-18px); }
+}
+@keyframes float-rotate {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%      { transform: translateY(-12px) rotate(2deg); }
+  66%      { transform: translateY(-6px) rotate(-1deg); }
+}
+@keyframes float-breathe {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.04); }
+}
+@keyframes float-orbit {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  25%  { transform: translate(8px, -12px) rotate(2deg); }
+  50%  { transform: translate(0, -20px) rotate(0deg); }
+  75%  { transform: translate(-8px, -12px) rotate(-2deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.depth-2 .float-loop { animation: float-y 10s ease-in-out infinite; }
+.depth-3 .float-loop { animation: float-orbit 8s ease-in-out infinite; }
+.depth-5 .float-loop { animation: float-rotate 6s ease-in-out infinite; }
+
+/* Stagger elements that share a depth */
+.float-loop:nth-child(2), .companion:nth-child(2) .float-loop { animation-delay: -2s; }
+.float-loop:nth-child(3), .companion:nth-child(3) .float-loop { animation-delay: -4s; }
+.float-loop:nth-child(4) { animation-delay: -1.5s; }
+.float-loop:nth-child(5) { animation-delay: -3s; }
+.float-loop:nth-child(6) { animation-delay: -5s; }
+
+/* hero-section.js marks on-screen scenes .is-active: layers are promoted to
+   their own GPU layer only then, and loops pause off screen. */
+.motion-on .scene.is-active .layer { will-change: transform; }
+.motion-on .scene:not(.is-active) .float-loop,
+.motion-on .scene:not(.is-active) .glow-blob { animation-play-state: paused; }
+
+/* 5 HERO COMPOSITION ------------------------------------------------------ */
+/* Depth 0: far background */
+.bg-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 50% at 50% 45%, var(--bg-mid) 0%, transparent 70%),
+    radial-gradient(35% 30% at 72% 22%, rgb(255 107 0 / 0.14) 0%, transparent 70%),
+    linear-gradient(180deg, var(--bg-deep) 0%, #14002b 55%, var(--bg-deep) 100%);
+}
+
+/* Depth 1: glow behind the product */
+.glow-blob {
+  --size: min(600px, 90vw);
+  position: absolute;
+  width: var(--size);
+  aspect-ratio: 1;
+  margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2);   /* centred on left/top */
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--brand-color) 0%, transparent 70%);
+  filter: blur(80px);
+  opacity: 0.45;
+  mix-blend-mode: screen;
+  animation: float-breathe 12s ease-in-out infinite;
+}
+.glow-primary { left: 50%; top: 56%; }
+.glow-secondary {
+  --size: min(380px, 60vw);
+  left: 28%;
+  top: 30%;
+  background: radial-gradient(circle, var(--brand-color-2) 0%, transparent 70%);
+  opacity: 0.3;
+  animation-delay: -6s;
+}
+
+/* Depth 3: the hero product. Owners: .product-stage (scroll scrub) >
+   .drop-wrapper (drop and shake) > .product-hero.float-loop (CSS float). */
+.product-stage {
+  position: absolute;
+  left: calc(50% - var(--hero-half-w));
+  top: calc(56% - var(--hero-h) / 2);          /* centre sits at 56% */
+  width: var(--hero-w);
+  height: var(--hero-h);
+}
+.drop-wrapper {
+  height: 100%;
+  transform-origin: 50% 100%;  /* the shake pivots on the base, like a landing */
+}
+.product-stage .product-hero { width: 100%; height: 100%; object-fit: contain; }
+/* A product placed straight in the layer, as in SKILL.md's skeleton, is
+   centred too; it floats and drifts but has no drop without .drop-wrapper */
+.depth-3 > .product-hero {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: auto;
+  height: var(--hero-h);
+}
+
+/* Depth 2: companions hug the product's edges (depth-system.md); top is
+   each one's centre */
+.companion {
+  --size: var(--companion);
+  position: absolute;
+  width: var(--size);
+  aspect-ratio: 1;
+  margin-top: calc(var(--size) / -2);
+}
+.companion-right { left: calc(50% + var(--hero-half-w) + var(--companion-gap)); top: 38%; }
+.companion-left {
+  --size: calc(var(--companion) * 0.8);
+  right: calc(50% + var(--hero-half-w) + var(--companion-gap));
+  top: 58%;
+}
+.companion-lower {
+  --size: calc(var(--companion) * 0.55);
+  left: calc(50% + var(--hero-half-w) * 0.6);
+  top: 77%;
+}
+
+/* Placeholder shapes; swap for <img class="deco float-loop" src="..." alt=""> */
+.deco {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 32% 28%, #ffe2b8 0 8%, var(--brand-color-2) 30%,
+                              var(--brand-color) 58%, #7a2500 100%);
+}
+.deco-ring {
+  background: none;
+  border: calc(var(--companion) * 0.12) solid var(--brand-color-2);
+}
+
+/* Depth 5: sparkles; place each with --x, --y and size it with --s */
+.particle {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--s, 12px);
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #fff 0%, var(--brand-color-2) 100%);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  opacity: 0.85;
+}
+
+/* 6 HEADLINE AND COPY ----------------------------------------------------- */
+.hero-copy {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  justify-items: center;
+  text-align: center;
+  padding: clamp(4.5rem, 13vh, 8rem) clamp(1rem, 4vw, 3rem) clamp(1.5rem, 6vh, 3.5rem);
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: var(--brand-color-2);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+/* Split converge (references/text-animations.md, Technique 1). The engine
+   wraps words in .title-half.title-left / .title-right > .word. */
+[data-animate="converge"] {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 0.25em;
+  overflow: visible;           /* words fly in from outside the viewport */
+}
+.hero-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 10.5vw, 9rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  text-shadow: 0 4px 30px rgb(10 0 20 / 0.45);
+}
+.title-half {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 0.25em;
+}
+.word { display: inline-block; }
+
+.hero-foot {
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 34rem;
+}
+.hero-sub {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.9em 1.6em;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--brand-color-2), var(--brand-color));
+  color: #1a0800;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgb(255 107 0 / 0.35);
+  transition: filter 0.3s ease, box-shadow 0.3s ease;
+}
+/* No transform on hover: the scale-in reveal owns this element's transform */
+.cta-btn:hover { filter: brightness(1.08); box-shadow: 0 14px 40px rgb(255 107 0 / 0.5); }
+
+/* 7 FOLLOWING SECTION ----------------------------------------------------- */
+.scene--light { color: var(--ink-dark); }
+.bg-paper {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(45% 55% at 80% 20%, #ffe1c2 0%, transparent 70%),
+    var(--paper);
+}
+.ring {
+  position: absolute;
+  right: -8vw;
+  top: 12%;
+  width: min(46vw, 520px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: clamp(18px, 3vw, 40px) solid rgb(255 107 0 / 0.14);
+}
+
+/* Content scenes size to their copy, so depth 4 stays in the flow */
+.scene:not([data-pin]) .depth-4 { position: relative; inset: auto; }
+
+.features {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: clamp(5rem, 14vh, 9rem) clamp(1rem, 5vw, 4rem);
+}
+.features h2 {
+  max-width: 16ch;
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.lede {
+  max-width: 38rem;
+  margin: 0;
+  color: var(--ink-dark-muted);
+  font-size: 1.125rem;
+}
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1.25rem;
+  margin: 3rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.feature-card {
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 20px 40px rgb(29 11 46 / 0.08);
+}
+.feature-card h3 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+.feature-card p { margin: 0; color: var(--ink-dark-muted); }
+
+/* 8 MOTION TOGGLE (references/accessibility.md, 6) ------------------------ */
+/* The label stays "Motion"; aria-pressed carries the state, and the dot shows it. */
+.motion-toggle {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid rgb(255 255 255 / 0.25);
+  border-radius: 999px;
+  background: rgb(10 0 20 / 0.72);
+  color: var(--ink);
+  font: 600 0.8rem/1 var(--font-body);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+.motion-toggle[hidden] { display: none; }   /* shown by hero-section.js */
+.motion-toggle-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+.motion-toggle[aria-pressed="true"] .motion-toggle-dot {
+  border-color: var(--brand-color-2);
+  background: var(--brand-color-2);
+}
+
+/* 9 MODES ----------------------------------------------------------------- */
+/* perf-lite: touch screens and low-power devices (references/performance.md).
+   The engine also leaves depth 0, 1 and 5 out of the parallax. */
+.perf-lite .float-loop { animation: none !important; }
+.perf-lite .glow-blob { display: none; }
+
+/* no-motion: set by the engine for the visitor's toggle or the OS setting */
+.no-motion .float-loop,
+.no-motion .glow-blob { animation: none !important; }
+
+/* Reduced motion with no JavaScript, or before the engine runs
+   (references/accessibility.md, 1). A visitor who turns motion on with the
+   toggle gets .motion-on, and these rules step aside for them. */
+@media (prefers-reduced-motion: reduce) {
+  html:not(.motion-on) *,
+  html:not(.motion-on) *::before,
+  html:not(.motion-on) *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  html:not(.motion-on) .float-loop,
+  html:not(.motion-on) .glow-blob { animation: none !important; }
+}

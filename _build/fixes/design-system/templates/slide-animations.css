@@ -1,0 +1,111 @@
+/* Slide animations: the animate-* classes that data/slide-layouts.csv names (animation_class).
+   Copy to the project's assets/css/slide-animations.css and link it after design-tokens.css.
+
+   A slide's animations run when the slide gets .is-visible (decks that scroll, as generate-slide.py makes them)
+   or .active (decks that show one slide at a time, as the slides skill makes them).
+   Content stays hidden until then only while <html> has .anim-ready, which the deck's script adds,
+   so without the script everything shows, unanimated. Reduced-motion users get no motion.
+   Names and timings follow the slides skill's deck template (references/html-template.md, "Animation Classes"). */
+
+:root {
+    --anim-duration: 600ms;
+    --anim-duration-short: 500ms;
+    --anim-ease: var(--primitive-easing-out, ease-out);
+    --anim-stagger: 100ms;
+    --anim-distance: 30px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+
+    /* Hidden until the slide is shown */
+    .anim-ready .slide:not(.is-visible):not(.active) :is(.animate-fade-up, .animate-scale, .animate-count, .animate-chart),
+    .anim-ready .slide:not(.is-visible):not(.active) :is(.animate-stagger, .animate-stagger-scale) > * {
+        opacity: 0;
+    }
+
+    /* Fade up: headlines, body copy, single blocks */
+    .slide:is(.is-visible, .active) .animate-fade-up {
+        animation: fadeUp var(--anim-duration) var(--anim-ease) both;
+    }
+
+    /* Scale: a hero number, an image, a single card */
+    .slide:is(.is-visible, .active) .animate-scale {
+        animation: scaleIn var(--anim-duration-short) var(--anim-ease) both;
+    }
+
+    /* Stagger: each child fades up after the one before (lists, card grids, timelines) */
+    .slide:is(.is-visible, .active) .animate-stagger > * {
+        animation: fadeUp var(--anim-duration-short) var(--anim-ease) both;
+    }
+
+    /* Stagger scale: each child scales in after the one before (metric grids, logos) */
+    .slide:is(.is-visible, .active) .animate-stagger-scale > * {
+        animation: scaleIn var(--anim-duration-short) var(--anim-ease) both;
+    }
+
+    .slide:is(.is-visible, .active) :is(.animate-stagger, .animate-stagger-scale) > :nth-child(1) { animation-delay: calc(var(--anim-stagger) * 1); }
+    .slide:is(.is-visible, .active) :is(.animate-stagger, .animate-stagger-scale) > :nth-child(2) { animation-delay: calc(var(--anim-stagger) * 2); }
+    .slide:is(.is-visible, .active) :is(.animate-stagger, .animate-stagger-scale) > :nth-child(3) { animation-delay: calc(var(--anim-stagger) * 3); }
+    .slide:is(.is-visible, .active) :is(.animate-stagger, .animate-stagger-scale) > :nth-child(4) { animation-delay: calc(var(--anim-stagger) * 4); }
+    .slide:is(.is-visible, .active) :is(.animate-stagger, .animate-stagger-scale) > :nth-child(5) { animation-delay: calc(var(--anim-stagger) * 5); }
+    .slide:is(.is-visible, .active) :is(.animate-stagger, .animate-stagger-scale) > :nth-child(6) { animation-delay: calc(var(--anim-stagger) * 6); }
+    .slide:is(.is-visible, .active) :is(.animate-stagger, .animate-stagger-scale) > :nth-child(7) { animation-delay: calc(var(--anim-stagger) * 7); }
+    .slide:is(.is-visible, .active) :is(.animate-stagger, .animate-stagger-scale) > :nth-child(n+8) { animation-delay: calc(var(--anim-stagger) * 8); }
+
+    /* Count: the number fades in here; the deck's script counts it up from zero */
+    .slide:is(.is-visible, .active) .animate-count {
+        animation: fadeUp var(--anim-duration) var(--anim-ease) both;
+        font-variant-numeric: tabular-nums;
+    }
+
+    /* Chart: the chart's box rises in; Chart.js animates the data itself */
+    .slide:is(.is-visible, .active) .animate-chart {
+        animation: slide-chart-in calc(var(--anim-duration) * 1.2) var(--anim-ease) both;
+        transform-origin: bottom center;
+    }
+
+    /* Pulse: a soft repeating pulse that draws the eye to a call to action */
+    .slide:is(.is-visible, .active) .animate-pulse {
+        animation: slide-pulse 2.4s ease-in-out 1s infinite;
+    }
+
+    /* Ken Burns: a slow zoom and drift on a background image */
+    .slide:is(.is-visible, .active) .animate-ken-burns {
+        animation: slide-ken-burns 18s ease-out both;
+        transform-origin: 60% 40%;
+    }
+}
+
+/* Print and PDF export: show every slide's content in its final state */
+@media print {
+    .slide :is(.animate-fade-up, .animate-scale, .animate-count, .animate-chart, .animate-pulse, .animate-ken-burns),
+    .slide :is(.animate-stagger, .animate-stagger-scale) > * {
+        opacity: 1 !important;
+        animation: none !important;
+    }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(var(--anim-distance)); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes slide-chart-in {
+    from { opacity: 0; transform: translateY(calc(var(--anim-distance) * 1.5)) scaleY(0.96); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes slide-pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.04); }
+}
+
+@keyframes slide-ken-burns {
+    from { transform: scale(1); }
+    to   { transform: scale(1.12) translate(-1.5%, -1%); }
+}

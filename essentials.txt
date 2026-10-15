@@ -1,0 +1,40 @@
+# Essentials: the skills to start with. `./setup.sh --essentials` installs only these.
+# One skill folder per line; lines starting with # are ignored.
+
+# Finding skills, writing and context
+skill-router
+stop-slop
+context-optimization
+
+# Planning and building
+brainstorming
+grill-me
+writing-plans
+executing-plans
+subagent-driven-development
+using-git-worktrees
+test-driven-development
+systematic-debugging
+verification-before-completion
+requesting-code-review
+receiving-code-review
+finishing-a-development-branch
+
+# Code quality
+karpathy-coder
+code-reviewer
+focused-fix
+codebase-onboarding
+
+# Front end and testing
+frontend-design
+webapp-testing
+
+# Research and documents
+deep-research
+research-summarizer
+doc-coauthoring
+
+# Extending Claude
+write-a-skill
+mcp-builder
