@@ -2,7 +2,7 @@
 
 Setup lays these files over the fetched skills, after `vendor/`. A SKILL.md here replaces the skill's text, and setup adds `disable-model-invocation: true` to it. Modified files keep their original licence (THIRD_PARTY_NOTICES.md). When an upstream skill changes, start again from its new text and re-apply only the changes listed here that upstream still lacks.
 
-Upstreams: nextlevelbuilder/ui-ux-pro-max-skill at 477bcb28 (3 Oct 2026) for banner-design, brand and design-system; alirezarezvani/claude-skills at 19392f7a (26 Aug 2026) for epic-design and autoresearch-agent; the pack's own built text for executing-plans (obra/superpowers), demo-video, engineering-advanced-skills, full-page-screenshot and universal-scraping-architect (alirezarezvani/claude-skills).
+Upstreams: nextlevelbuilder/ui-ux-pro-max-skill at 477bcb28 (3 Oct 2026) for banner-design, brand and design-system; alirezarezvani/claude-skills at 19392f7a (26 Aug 2026) for epic-design and autoresearch-agent; addyosmani/agent-skills at aeac41d4 (13 Oct 2026) for performance-optimization and security-and-hardening; the pack's own built text for executing-plans (obra/superpowers), demo-video, engineering-advanced-skills, full-page-screenshot and universal-scraping-architect (alirezarezvani/claude-skills).
 
 | File | Based on | Change |
 |------|----------|--------|
@@ -16,9 +16,17 @@ Upstreams: nextlevelbuilder/ui-ux-pro-max-skill at 477bcb28 (3 Oct 2026) for ban
 | design-system/scripts/generate-slide.py | upstream 477bcb28 | Finds the project folder as the skill's other scripts do; links the tokens and animation CSS relative to its output; dark deck; glow classes named primary and accent; uses the animate-* classes with a viewport observer and count-up; notes on missing CSS; `.text-secondary` uses `--color-foreground-secondary` (`--color-secondary` is a surface colour); badges fit their text; centred slides are centred above the footer; space between content and footer; literal ✓ and ◆ (html-token-validator.py reads `&#9670;` as a hex colour); reads `--json` input as UTF-8 |
 | design-system/templates/design-tokens-starter.json | upstream 477bcb28 | Adds the tokens generate-slide.py uses: violet, font families, sizes 5xl and 6xl, weights, line heights, glow shadows, easing, gradients, accent and surface colours, `button.primary`, `slide.*`, dark surfaces |
 | design-system/templates/slide-animations.css | new | The eight animate-* classes data/slide-layouts.csv names, with the slides skill's names and timings; run on `.active` or `.is-visible`; reduced motion and print handled |
+| differential-review/SKILL.md | upstream e1f86a39 | Without the plugin, the adversarial-modeler agent runs as a general-purpose subagent given agents/adversarial-modeler.md, shipped inside the skill |
+| differential-review/agents/adversarial-modeler.md | upstream e1f86a39 | `{baseDir}` paths point at the skill's folder, where the agent now sits, instead of the plugin root |
+| dimensional-analysis/SKILL.md | upstream e1f86a39 | Without the plugin, workers are created from the role prompts, as for Codex; the five prompts ship in the skill's agents/ |
 | engineering-advanced-skills/SKILL.md | the pack's text | Drops the Browser Automation row (that skill is omitted) |
 | epic-design/assets/hero-section.{html,css,js} | new | The boilerplate SKILL.md points to, built from its references; GSAP 3.12.5 + ScrollTrigger; motion toggle, reduced motion, lite mode on small devices |
 | epic-design/references/text-animations.md | upstream 19392f7a | Notes that SplitText is on jsDelivr from GSAP 3.13.0, not 3.12.5, and that CSS cannot set aria-hidden |
 | executing-plans/SKILL.md | the pack's text | Points at `references/`, where vendor/ puts using-superpowers' per-platform tool files (that skill is omitted) |
 | full-page-screenshot/SKILL.md | the pack's text | Cross-reference points at `pw` instead of the omitted browser-automation |
+| performance-optimization/references/optimization-patterns.md | upstream aeac41d4 | Links to performance-checklist.md point beside the file, where the shared checklist now sits, instead of the upstream repo's top-level references/ |
+| security-and-hardening/references/hardening-patterns.md | upstream aeac41d4 | Links to security-checklist.md point beside the file, where the shared checklist now sits, instead of the upstream repo's top-level references/ |
+| sharp-edges/SKILL.md | upstream e1f86a39 | Without the plugin, the sharp-edges-analyzer agent runs as a general-purpose subagent given agents/sharp-edges-analyzer.md, shipped inside the skill |
+| sharp-edges/agents/sharp-edges-analyzer.md | upstream e1f86a39 | `{baseDir}` paths point at the skill's folder, where the agent now sits, instead of the plugin root |
 | universal-scraping-architect/SKILL.md | the pack's text | Related skill is `pw` instead of the omitted browser-automation |
+| yara-rule-authoring/SKILL.md | upstream e1f86a39 | The script documentation link points at the plugin README, shipped inside the skill |

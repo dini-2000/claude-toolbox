@@ -1,24 +1,24 @@
 # Skills index
 
-483 skills from Claude Toolbox, grouped by area. `auto` skills are in Claude's skill list; the rest load on demand: read `~/.claude/skills/<name>/SKILL.md`, or the user runs `/<name>`.
+589 skills from Claude Toolbox, grouped by area. `auto` skills are in Claude's skill list; the rest load on demand: read `~/.claude/skills/<name>/SKILL.md`, or the user runs `/<name>`.
 
 Flags: `scripts-missing` = calls a script that was not shipped (do that step by hand or skip it); `refs-missing` = points to reference docs that were not shipped; `saves-to-~/.claude` = files notes under ~/.claude.
 
 ## Contents
-- Executive, board and strategy (74)
-- Finance and markets (89)
-- Compliance, risk, legal and quality (37)
+- Executive, board and strategy (82)
+- Finance and markets (115)
+- Compliance, risk, legal and quality (52)
 - SEO and AI search (28)
 - Sales and customers (16)
-- Marketing, growth and copy (52)
-- Product and project management (31)
-- Research and analysis (13)
-- Writing, docs and presentations (26)
-- Design, UI and media (25)
-- Testing and QA (16)
-- Cloud, DevOps and security (20)
-- AI agents, prompts and context (49)
-- Engineering and code (4)
+- Marketing, growth and copy (55)
+- Product and project management (37)
+- Research and analysis (15)
+- Writing, docs and presentations (36)
+- Design, UI and media (30)
+- Testing and QA (28)
+- Cloud, DevOps and security (26)
+- AI agents, prompts and context (56)
+- Engineering and code (10)
 
 ## Executive, board and strategy
 
@@ -111,6 +111,10 @@ Sections: Keywords; Session Protocol (Every Interaction); Invocation Syntax; Dec
 People leadership for scaling companies. Hiring strategy, compensation design, org structure, culture, and retention. Use when building hiring plans, designing comp frameworks, restructuring teams, managing performance, building culture, or when user mentions CHRO, HR, people strategy, talent, headcount, compensation, org design, retention, or performance management.
 Sections: Keywords; Quick Start; Core Responsibilities; Key Questions a CHRO Asks; People Metrics; Red Flags; Integration with Other C-Suite Roles; Detailed References; Proactive Triggers; Output Artifacts
 
+### chrome-mcp-troubleshooting
+Diagnose and fix Claude in Chrome MCP extension connectivity issues. Use when mcp__claude-in-chrome__* tools fail, return "Browser extension is not connected", or behave erratically.
+Sections: When to Use; When NOT to Use; The Claude.app vs Claude Code Conflict (Primary Issue); Quick Diagnosis; Critical Insight; Full Reset Procedure (Claude Code CLI); Other Common Causes; Diagnostic Deep Dive; File Reference; Summary
+
 ### ciso-advisor
 Security leadership for growth-stage companies. Risk quantification in dollars, compliance roadmap (SOC 2/ISO 27001/HIPAA/GDPR), security architecture strategy, incident response leadership, and board-level security reporting. Use when building security programs, justifying security budget, selecting compliance frameworks, managing incidents, assessing vendor risk, or when user mentions CISO, security strategy, compliance roadmap, zero trust, or board security reporting.
 Sections: Keywords; Quick Start; Core Responsibilities; Key Questions a CISO Asks; Security Metrics; Red Flags; Integration with Other C-Suite Roles; Detailed References; Proactive Triggers; Output Artifacts
@@ -193,6 +197,10 @@ Flags: saves-to-~/.claude
 Two-layer memory architecture for board meeting decisions. Manages raw transcripts (Layer 1) and approved decisions (Layer 2). Use when logging decisions after a board meeting, reviewing past decisions with /cs:decisions, or checking overdue action items with /cs:review. Invoked automatically by the board-meeting skill after Phase 5 founder approval.
 Sections: Keywords; Quick Start; Commands; Two-Layer Architecture; Decision Entry Format; YYYY-MM-DD — AGENDA ITEM TITLE; Conflict Detection; Logging Workflow (Post Phase 5); Marking Actions Complete; File Structure
 
+### doubt-driven-development
+Subjects every non-trivial decision to a fresh-context adversarial review before it stands. Use when you want every assumption cross-examined before proceeding, when stress-testing a plan for hidden failure modes, when correctness matters more than speed, when working in unfamiliar code, when stakes are high (production auth, security-sensitive logic, a high-stakes migration, irreversible operations), or any time a confident output would be cheaper to verify now than to debug later.
+Sections: Overview; When to Use; Loading Constraints; The Process; Common Rationalizations; Red Flags; Interaction with Other Skills; Verification
+
 ### execute
 Flags: saves-to-~/.claude
 /execute <decision> — Generate a 90-day execution plan with weekly milestones, DRIs, and check-in cadence from an approved decision. Use when a logged decision needs to become an operating plan — e.g. turning an approved market-entry call into weekly milestones with DRIs.
@@ -236,6 +244,10 @@ Sections: Rules (preserved + amplified); Workflow; Output Pattern; Tooling
 Docs-anchored grilling session — challenges a plan against the project's existing language (CONTEXT.md) and recorded decisions (docs/adr/), and updates those files inline as terminology and decisions crystallise. Use when user wants to stress-test a plan against documented domain language, or mentions "grill with docs".
 Sections: Domain awareness; During the session; Wrapper Additions
 
+### guidelines-advisor
+Smart contract development advisor based on Trail of Bits' best practices. Analyzes codebase to generate documentation/specifications, review architecture, check upgradeability patterns, assess implementation quality, identify pitfalls, review dependencies, and evaluate testing. Use when asking whether a smart contract project follows development best practices, reviewing on-chain/off-chain split, upgradeability, or delegatecall proxy patterns against guidelines, or seeking recommendations on contract design, inheritance, events, documentation, dependencies, or test strategy.
+Sections: Purpose; How This Works; Assessment Areas; Example Output; Deliverables; Assessment Process; Rationalizations (Do Not Skip); Notes; Ready to Begin
+
 ### hard-call
 /em:hard-call — Framework for decisions with no good options. Use when every option is painful and a structured 10/10/10 + regret-minimization pass is needed — e.g. choosing between a layoff and a down round, or killing a beloved product line.
 Sections: Why These Decisions Are Hard; The Framework; Decision-Specific Frameworks; The Avoiding-It Test
@@ -243,6 +255,14 @@ Sections: Why These Decisions Are Hard; The Framework; Decision-Specific Framewo
 ### hub-board
 Read, write, and browse the AgentHub message board for agent coordination. Use when the user runs /hub-board or asks to post, read, or inspect coordination messages between competing AgentHub agents.
 Sections: Usage; What It Does; Channels; Post Format; Result Summary; Board Rules
+
+### idea-refine
+Refines raw ideas into sharp, actionable concepts through structured divergent and convergent thinking. Use when an idea is still vague, when you need to stress-test assumptions before committing to a plan, or when you want to expand options before converging on one. Triggers on "ideate", "refine this idea", or "stress-test my plan".
+Sections: Overview; When to Use; How It Works; Usage; Output; Detailed Instructions; Problem Statement; Recommended Direction; Key Assumptions to Validate; MVP Scope
+
+### improve-codebase-architecture
+Scan a codebase for deepening opportunities, present them as a visual HTML report, then grill through whichever one you pick.
+Sections: Process
 
 ### inbox-setup
 One-time setup skill that builds a personalized inbox triage knowledge base via interactive interview. Interviews the user about their email patterns, business context, reply style, and priorities using grill-me discipline (one question at a time, forcing format where possible, dependency-ordered, each question explains why I'm asking), then generates the knowledge base files that power the companion 'inbox-triage' skill. Run this once before using inbox-triage for the first time. Re-run when business, pricing, or priorities change significantly. Triggers: 'set up my inbox', 'configure inbox triage', 'set up my email system', 'configure email triage', 'build my email knowledge base', 'initialize email management', 'set up inbox triage', 'onboard email triage', or any variation where someone wants to get the email triage system running for the first time.
@@ -308,6 +328,10 @@ Sections: Core Workflows; Reference Documentation; Common Commands
 When the user wants to plan, map, or restructure their website's page hierarchy, navigation, URL structure, or internal linking. Also use when the user mentions "sitemap," "site map," "visual sitemap," "site structure," "page hierarchy," "information architecture," "IA," "navigation design," "URL structure," "breadcrumbs," "internal linking strategy," "website planning," "what pages do I need," "how should I organize my site," or "site navigation." Use this whenever someone is planning what pages a website should have and how they connect. NOT for XML sitemaps (that's technical SEO — see seo-audit). For SEO audits, see seo-audit. For structured data, see schema.
 Sections: Before Planning; Site Types and Starting Points; Page Hierarchy Design; Navigation Design; URL Structure; Visual Sitemap Output (Mermaid); Internal Linking Strategy; Output Format; Task-Specific Questions; Related Skills
 
+### source-driven-development
+Grounds every implementation decision in official documentation. Use when you want to verify an approach against the official docs before implementing it, or when you want authoritative, source-cited code free from outdated patterns. Use when building with any framework or library where correctness matters.
+Sections: Overview; When to Use; The Process; Common Rationalizations; Red Flags; Verification
+
 ### strategic-alignment
 Cascades strategy from boardroom to individual contributor. Detects and fixes misalignment between company goals and team execution. Covers strategy articulation, cascade mapping, orphan goal detection, silo identification, communication gap analysis, and realignment protocols. Use when teams are pulling in different directions, OKRs don't connect, departments optimize locally at company expense, or when user mentions alignment, strategy cascade, silo, conflicting OKRs, or strategy communication.
 Sections: Keywords; Quick Start; Core Framework; Alignment Score; Key Questions for Alignment; Red Flags; Integration with Other C-Suite Roles; Detailed References
@@ -315,6 +339,10 @@ Sections: Keywords; Quick Start; Core Framework; Alignment Score; Key Questions 
 ### stress-test
 /em:stress-test — Business assumption stress testing. Use before betting on a plan whose core assumptions are unvalidated — e.g. stress-testing 'enterprise buyers will tolerate a 6-month pilot' or a hockey-stick revenue model.
 Sections: Why Most Assumptions Are Wrong; The Stress-Test Methodology; Stress Test Patterns by Assumption Type; The Stress Test Output
+
+### to-questionnaire
+Turn a decision you can't fully answer into a questionnaire for someone else to fill in.
+Sections: Document structure; Context; How to answer; <Theme heading>; Anything else?
 
 ### video-content-strategist
 Use when planning video content strategy, writing video scripts, optimizing YouTube channels, building short-form video pipelines (Reels, TikTok, Shorts), or repurposing long-form content into video. Triggers: 'start a YouTube channel', 'video content strategy', 'write a video script', 'repurpose into video', 'YouTube SEO', 'short-form video'. NOT for written blog content (use content-production). NOT for social captions without video (use social-media-manager).
@@ -328,7 +356,15 @@ Sections: Keywords; Quick Start; Key Questions (ask these first); Core Responsib
 /vpe-review <plan> — Throughput-first VP of Engineering interrogation of any plan that touches delivery, eng hiring, team structure, or production discipline. Use when cycle time balloons, DORA metrics slide, or before committing to an eng hiring wave or a reorg.
 Sections: When to Run; The Six VPE Questions; Workflow; Output Format; The Decision Being Made; Delivery Throughput (if applicable); Hiring Funnel (if applicable); Team Structure (if applicable); Production Discipline (if applicable); Verdict
 
+### vulnerability-triage-brocards
+This skill should be used when the user asks to "triage a vulnerability report", "assess a CVE", "evaluate a bug bounty submission", "decide if a finding is valid", "review a security finding", "dismiss a vulnerability", "should we fix this CVE", "prioritize a vulnerability report", or needs to determine whether an incoming vulnerability report warrants investigation. Applies 7 brocards (rules of thumb) to systematically accept, dismiss, or request more information on vulnerability reports, or needs to filter raw findings from agentic vulnerability discovery pipelines before human review.
+Sections: When to Use; When NOT to Use; Pipeline Position; Triage Workflow; Output Format; Triage Summary: Report ID or Title; Rationalizations to Reject; Detailed References
+
 ## Finance and markets
+
+### aflpp
+Sets up and runs AFL++ for multi-core fuzzing of C/C++ projects built with afl-clang-fast or afl-gcc-fast. Covers instrumentation modes, parallel main and secondary campaigns, persistent mode, corpus minimization, and crash triage. Use when scaling fuzzing across cores, fuzzing a mature C/C++ codebase, reading the afl-fuzz status screen, or moving on after libFuzzer has plateaued.
+Sections: When to Use; Quick Start; Installation; Writing a Harness; Compilation; Corpus Management; Running Campaigns; Environment Variables That Matter; Multi-Core Fuzzing; Coverage Analysis
 
 ### ai-security
 Use when assessing AI/ML systems for prompt injection, jailbreak vulnerabilities, model inversion risk, data poisoning exposure, or agent tool abuse. Covers MITRE ATLAS technique mapping, injection signature detection, and adversarial robustness scoring.
@@ -354,6 +390,10 @@ Sections: Prerequisites; Query Format; Output Format; Key Observations Pattern; 
 Retrieve market capitalization data for multiple companies at once using Octagon MCP. Use when comparing valuations across peers, screening by market cap, or analyzing a portfolio's composition by company size.
 Sections: Prerequisites; Workflow; Example Queries; Market Cap Categories; Comparative Analysis Framework; Use Cases; Market Cap Calculations; Data Considerations; Analysis Tips; Integration with Other Skills
 
+### burpsuite-project-parser
+Searches and explores Burp Suite project files (.burp) from the command line. Use when searching response headers or bodies with regex patterns, extracting security audit findings, dumping proxy history or site map data, or analyzing HTTP traffic captured in a Burp project.
+Sections: When to Use; Prerequisites; Quick Reference; Sub-Component Filters (USE THESE); Regex Search Operations; Other Operations; Output Limits (REQUIRED); Investigation Workflow; Understanding Results; Rationalizations to Reject
+
 ### business-investment-advisor
 Business investment analysis and capital allocation advisor. Use when evaluating whether to invest in equipment, real estate, a new business, hiring, technology, or any capital expenditure. Also use for ROI calculations, IRR, NPV, payback period, build vs buy decisions, lease vs buy analysis, vendor evaluation, or deciding where to allocate limited budget for maximum return.
 Sections: Before Starting; How This Skill Works; Core Analysis Framework; Decision Frameworks; Investment Scoring Rubric; Budget Allocation Framework; Proactive Triggers; Output Artifacts; Output Format; Communication
@@ -374,6 +414,10 @@ Sections: Prerequisites; Query Format; Output Format; Key Observations Pattern; 
 Use when assessing cloud infrastructure for security misconfigurations, IAM privilege escalation paths, S3 public exposure, open security group rules, or IaC security gaps. Covers AWS, Azure, and GCP posture assessment with MITRE ATT&CK mapping.
 Sections: Table of Contents; Overview; Cloud Posture Check Tool; IAM Policy Analysis; S3 Exposure Assessment; Security Group Analysis; IaC Security Review; Cloud Provider Coverage Matrix; Workflows; Anti-Patterns
 
+### codeql
+Scans a codebase for security vulnerabilities using CodeQL's interprocedural data flow and taint tracking analysis. Triggers on "run codeql", "codeql scan", "build codeql database", "SAST scan", "taint analysis", "dataflow analysis", or "find vulnerabilities in this repo". Covers Python, JavaScript/TypeScript, Go, Java/Kotlin, C/C++, C#, Ruby, and Swift. Supports "run all" (security-and-quality + security-experimental) and "important only" (high-precision) scan modes, and creates data extension models for project-specific sources and sinks. For fast single-file pattern matching, or when no build is available for a compiled language, use the semgrep skill; to parse SARIF that already exists rather than produce it, use the sarif-parsing skill.
+Sections: Essential Principles; Each Bash call is a fresh shell; Output Directory; Quick Start; Rationalizations to Reject; Workflow Selection; Reference Index; Success Criteria
+
 ### commodities-list
 Retrieve the full catalog of tradable commodities across energy, metals, and agriculture using Octagon MCP. Use when researching commodity markets, identifying trading firms, understanding market participants, and analyzing commodity sector coverage.
 Sections: Prerequisites; Workflow; Example Queries; Commodity Categories; Market Participants; Key Market Concepts; Company Analysis; Sector Trends; Common Use Cases; Analysis Tips
@@ -385,6 +429,22 @@ Sections: Prerequisites; Workflow; Example Queries; Common Commodity Symbols; Un
 ### company-market-cap
 Retrieve market capitalization data for a single company using Octagon MCP. Use when you need the current market value, valuation context, or size classification for any publicly traded stock.
 Sections: Prerequisites; Workflow; Example Queries; Understanding Market Cap; Size Classifications; Market Cap Analysis; Contextual Analysis; Factors Affecting Market Cap; Common Use Cases; Analysis Tips
+
+### constant-time-analysis
+Detects timing side-channel vulnerabilities in cryptographic code. Use when implementing or reviewing crypto code, encountering division on secrets, secret-dependent branches, or constant-time programming questions in C, C++, Go, Rust, Swift, Java, Kotlin, C#, PHP, JavaScript, TypeScript, Python, or Ruby.
+Sections: When to Use; When NOT to Use; Language Routing; Running the Analyzer; Interpreting Results; Triaging Findings; Limitations; Real-World Impact; References
+
+### cosmos-vulnerability-scanner
+Scans Cosmos SDK blockchain modules and CosmWasm contracts for consensus-critical vulnerabilities — chain halts, fund loss, state divergence. 25 core + 16 IBC + 10 EVM + 3 CosmWasm patterns. Use when auditing custom x/ modules, reviewing IBC integrations, or assessing pre-launch chain security. Updated for SDK v0.53.x.
+Sections: Purpose; When to Use; When NOT to Use; Essential Principles; Scanning Workflow; SEVERITY Title; Success Criteria; Resources
+
+### differential-review
+Performs security-focused differential review of code changes. Adapts analysis depth to codebase size, uses git blame for context, calculates blast radius by counting callers, checks test coverage of modified code, and generates a markdown report. Use when reviewing a PR, commit, or diff for security vulnerabilities, checking whether a change re-introduces a previously fixed bug, asking what else a change could break, or finding which modified code has no test covering it.
+Sections: Core Principles; Rationalizations (Do Not Skip); Quick Reference; Workflow Overview; Decision Tree; Agents; Quality Checklist; Integration; Example Usage; When NOT to Use This Skill
+
+### dwarf-expert
+Analyzes DWARF debug information in compiled binaries. Use when inspecting .debug_* sections, DIE trees, or DW_TAG_/DW_AT_ entries with dwarfdump/llvm-dwarfdump or readelf, verifying debug info with llvm-dwarfdump --verify, answering DWARF standard questions, or writing code that parses DWARF (libdwarf, pyelftools, gimli).
+Sections: Searching DIEs
 
 ### earnings-analyst-master
 Comprehensive earnings call analyst skill that orchestrates all Octagon earnings analysis skills. Use when analyzing earnings calls, extracting management insights, tracking guidance, and creating earnings-focused research reports.
@@ -442,6 +502,10 @@ Sections: Prerequisites; Workflow; Expected Output; Example Query; Example Respo
 Extract specific revenue guidance and growth projections from earnings call transcripts, including segment breakdown, constant currency adjustments, and M&A contributions.
 Sections: Prerequisites; Workflow; Expected Output; Example Query; Example Response; Revenue Guidance Components; Currency Impact Analysis; M&A Contribution Analysis; Segment Guidance Framework; Guidance Range Analysis
 
+### entry-point-analyzer
+Analyzes smart contract codebases to identify state-changing entry points for security auditing. Detects externally callable functions that modify state, categorizes them by access level (public, admin, role-restricted, contract-only), and generates structured audit reports. Excludes view/pure/read-only functions. Use when auditing smart contracts (Solidity, Vyper, Solana/Rust, Move, TON, CosmWasm) or when asked to find entry points, audit flows, external functions, access control patterns, or privileged operations.
+Sections: When to Use; When NOT to Use; Scope: State-Changing Functions Only; Workflow; Slither Integration (Solidity); Language Detection; Access Classification; Output Format; Summary; Public Entry Points (Unrestricted)
+
 ### env-secrets-manager
 Manage environment-variable hygiene and secrets safety across local development and production. Practical auditing, drift awareness, rotation readiness. Use when auditing .env files for committed secrets, planning a credential rotation, debugging missing-env-var production incidents, or hardening a new project against secrets leakage.
 Sections: Overview; Core Capabilities; When to Use; Quick Start; Recommended Workflow; Reference Docs; Common Pitfalls; Best Practices; Cloud Secret Store Integration; Secret Rotation Workflow
@@ -478,9 +542,21 @@ Sections: Prerequisites; Query Format; Output Format; Altman Z-Score Interpretat
 Analyze year-over-year growth in income statement items and financial metrics using Octagon MCP. Use when retrieving YoY Revenue Growth, Cost of Revenue Growth, Gross Profit Growth, Operating Income Growth, Net Income Growth, or comparing financial performance across fiscal periods for any public company.
 Sections: Prerequisites; Workflow; Example Queries; Key Metrics Explained; Analysis Tips
 
+### firebase-apk-scanner
+Scans Android APKs for Firebase security misconfigurations including open databases, storage buckets, authentication issues, and exposed cloud functions. Use when analyzing APK files for Firebase vulnerabilities, performing mobile app security audits, or testing Firebase endpoint security. For authorized security research only.
+Sections: When to Use; When NOT to Use; Rationalizations to Reject; Reference Documentation; How to Use This Skill; Workflow; Scan Summary; Extracted Configuration; Vulnerabilities Found; Remediation
+
 ### forex-list
 Retrieve a full listing of actively traded currency pairs in the global forex market using Octagon MCP. Use when researching forex markets, understanding currency pair categories, analyzing major/minor/exotic pairs, and identifying trading opportunities.
 Sections: Prerequisites; Workflow; Example Queries; Currency Pair Categories; Understanding Currency Pairs; Liquidity and Volume; Key Drivers by Pair; Trading Sessions; Volatility Characteristics; Common Use Cases
+
+### fp-check
+Systematically verifies suspected security bugs to eliminate false positives, producing a TRUE POSITIVE or FALSE POSITIVE verdict with documented evidence for each. Use when asked whether a specific finding is real, exploitable, or a false positive, or to verify or validate a suspected vulnerability — not for hunting or discovering new bugs.
+Sections: When to Use; When NOT to Use; Rationalizations to Reject; Step 0: Understand the Claim and Context; Route: Standard vs Deep Verification; Batch Triage; Final Summary; References
+
+### graph-evolution
+Compares Trailmark code graphs at two source code snapshots (git commits, tags, or directories) to surface security-relevant structural changes. Detects new attack paths, complexity shifts, blast radius growth, taint propagation changes, and privilege boundary modifications that text diffs miss. Use when comparing code between commits or tags, analyzing structural evolution, detecting attack surface growth, reviewing what changed between audit snapshots, or finding security-relevant changes that text diffs miss.
+Sections: When to Use; When NOT to Use; Rationalizations to Reject; Prerequisites; Quick Start; Decision Tree; Workflow; Diff Reference; Quality Checklist; Integration
 
 ### historical-financial-ratings
 Retrieve historical financial ratings and key metric scores over time using Octagon MCP. Use when analyzing overall ratings, return on assets, return on equity, discounted cash flow scores, debt-to-equity scores, and letter grades (A+, A, B, etc.) for any public company.
@@ -514,9 +590,25 @@ Sections: Persona; Prerequisites; Available CLI Workflows; Workflow; Output Spec
 Comprehensive market analyst skill that orchestrates all Octagon stock performance and market data skills. Use when conducting stock analysis, creating market reports, evaluating valuations, comparing sectors, or performing technical and sentiment analysis.
 Sections: Persona; Prerequisites; Available Skills; Workflow; Report Structure; Example: Full Analysis Query Sequence; Output Specifications; Analysis Framework; Analysis Tips; Compliance
 
+### mermaid-to-proverif
+Translates Mermaid sequenceDiagrams describing cryptographic protocols into ProVerif formal verification models (.pv files). Use when generating a ProVerif model, formally verifying a protocol, converting a Mermaid diagram to ProVerif, verifying protocol security properties (secrecy, authentication, forward secrecy), checking for replay attacks, or producing a .pv file from a sequence diagram.
+Sections: When to Use; When NOT to Use; Rationalizations to Reject; Workflow; Decision Tree; Example; Supporting Documentation
+
+### modern-cpp
+Guides C++ code toward modern idioms (C++20/23/26). Use when writing new C++ code, modernizing legacy patterns, or working on security-critical C++. Replaces raw pointers with smart pointers, SFINAE with concepts, printf with std::print, error codes with std::expected.
+Sections: When to Use This Skill; When NOT to Use This Skill; Anti-Patterns to Avoid; Decision Tree; Feature Tiers; Compiler Hardening Quick Reference; Rationalizations to Reject; Best Practices Checklist; Read Next
+
+### open-sourcing
+This skill should be used when the user asks to "open source this project", "prepare this repository for public release", "make this repo public", "check open-source readiness", "choose a license for this project", or "set up release automation" ahead of a public launch. Provides a release-readiness workflow covering secrets hygiene, licensing, documentation, CI, and language-specific packaging.
+Sections: When to Use; When NOT to Use; Workflow; Final Review; Additional Resources
+
 ### performance-profiler
 Systematic performance profiling for Node.js, Python, and Go applications. Identifies CPU, memory, and I/O bottlenecks, generates flamegraphs, analyzes bundle sizes, optimizes database queries, runs load tests with k6 and Artillery. Always measures before and after. Use when investigating a slow endpoint, planning a performance budget, or hunting a memory leak in production.
 Sections: Overview; Core Capabilities; When to Use; Quick Start; Golden Rule: Measure First; Node.js Profiling; References
+
+### post-patch-validation
+Validates security patches with reproducible baseline-versus-patched evidence, including original exploits, root-cause variants, behavior preservation, regressions, and newly introduced security failures. Use after a patch exists and before accepting, merging, or reporting it as fixed; also use when an AI-generated patch, remediation commit, pull request, or proposed upstream fix needs adversarial post-patch validation across any language.
+Sections: When to Use; When NOT to Use; Quick Start; Evidence Contract; Coverage Rules; Reading the result; Claude Dynamic Workflow; Rationalizations to Reject
 
 ### pr-review-expert
 Use when the user asks to review pull requests, analyze code changes, check for security issues in PRs, or assess code quality of diffs.
@@ -618,6 +710,10 @@ Sections: Prerequisites; Workflow; Example Queries; S-1 Key Sections; IPO Analys
 Analyze business segment performance and reporting from SEC filings using Octagon MCP. Use when researching segment revenue, operating income, margins, geographic breakdown, and segment restructuring from 10-K and 10-Q filings.
 Sections: Prerequisites; Workflow; Example Queries; Segment Reporting Framework; Key Metrics by Segment; Segment Performance Analysis; Geographic Segment Analysis; Segment Restructuring; Tracking Segment Trends; Inter-Company Comparison
 
+### second-opinion
+Gets independent code reviews from Codex or Antigravity for uncommitted changes, branch diffs, and commits. Use when the user requests an external review, a second opinion on code, a codex review, a gemini review, an antigravity review, or /second-opinion.
+Sections: Review choices; Input preparation; Provider references; Results and failures; Examples
+
 ### secrets-vault-manager
 Use when the user asks to set up secret management infrastructure, integrate HashiCorp Vault, configure cloud secret stores (AWS Secrets Manager, Azure Key Vault, GCP Secret Manager), implement secret rotation, or audit secret access patterns.
 Sections: Overview; HashiCorp Vault Patterns; Cloud Secret Store Integration; Secret Rotation Workflows; Dynamic Secrets; Audit Logging; Emergency Procedures; CI/CD Integration; Anti-Patterns; Tools
@@ -630,6 +726,14 @@ Sections: Prerequisites; Workflow; Example Queries; Understanding P/E Ratios; Se
 Retrieve a snapshot of market sector performance using Octagon MCP. Use when analyzing sector-wide metrics including revenue, EBITDA, net income, market cap, and enterprise value for companies within a specific sector and exchange.
 Sections: Prerequisites; Workflow; Example Queries; Key Performance Metrics; Understanding Sector Metrics; Sector Comparisons; Analysis Framework; Capital Structure Insights; Competitor Landscape; Common Use Cases
 
+### secure-workflow-guide
+Guides through Trail of Bits' 5-step secure development workflow. Runs Slither scans, checks special features (upgradeability/ERC conformance/token integration), generates visual security diagrams, helps document security properties for fuzzing/verification, and reviews manual security areas. Use when securing a smart contract end to end rather than hunting one bug, checking a project on every check-in or before deployment, triaging a Slither report, or asking where to start on smart contract security.
+Sections: Purpose; The 5-Step Workflow; How I Work; Rationalizations (Do Not Skip); Example Output; What You'll Get; Getting Help; Ready to Start
+
+### security-and-hardening
+Hardens code against vulnerabilities. Use when auditing an input handler for vulnerabilities, when handling user input, authentication, data storage, or external integrations, or when checking a login flow is safe against the OWASP Top Ten. Use when building any feature that accepts untrusted data, manages user sessions, or interacts with third-party services. Use when auditing dependencies for known vulnerabilities, triaging package-manager audit findings, or assessing supply-chain risk in a new package. Use when personal data or privacy compliance (GDPR, CCPA) is involved.
+Sections: Overview; When to Use; Process: Threat Model First; The Three-Tier Boundary System; Hardening Controls; Review Checklist; Common Rationalizations; Red Flags; Verification
+
 ### security-guidance
 PreToolUse security-anti-pattern hook for Claude Code. Catches 12 common security risks (command injection, XSS, SQL injection, unsafe deserialization, GitHub Actions workflow injection, eval/new Function code injection) BEFORE the Edit/Write/MultiEdit operation completes. Session-state caching prevents duplicate warnings on the same file+rule combo. Stdlib only — no dependencies. Use when you want a safety net during Claude Code sessions that touch security-sensitive code (auth, payments, user input handling, IaC). Disable with ENABLE_SECURITY_REMINDER=0 if you need to perform a verified-safe operation that would otherwise trip a pattern. Triggers — "add security hook", "block unsafe code", "detect command injection before write", "prevent SQL injection patterns", "security warning hook".
 Sections: What It Catches; How It Works; Installation; Configuration; Per-File Override Pattern; Why The Patterns Are Substring-Based (Not AST-Based); State Files; Debug Log; Source + Attribution; Anti-Patterns
@@ -637,6 +741,14 @@ Sections: What It Catches; How It Works; Installation; Configuration; Per-File O
 ### security-pen-testing
 Use when the user asks to perform security audits, penetration testing, vulnerability scanning, OWASP Top 10 checks, or offensive security assessments. Covers static analysis, dependency scanning, secret detection, API security testing, and pen test report generation.
 Sections: Table of Contents; Overview; OWASP Top 10 Systematic Audit; Static Analysis; Dependency Vulnerability Scanning; Secret Scanning; API Security Testing; Web Vulnerability Testing; Infrastructure Security; Pen Test Report Generation
+
+### semgrep
+Runs a Semgrep security scan over a codebase: detects languages, selects rulesets, presents the plan for explicit approval, then runs every approved ruleset through scripts/run-scans.sh, which batches the semgrep processes and writes scans.json, and merges the output to SARIF. Supports two scan modes, "run all" for full ruleset coverage and "important only" for security findings at medium-to-high confidence and impact. Uses Semgrep Pro for cross-file taint analysis when it is available. Use when asked to scan code for vulnerabilities, run a security audit with Semgrep, find bugs, or perform static analysis. For the same scan without the approval gate, use the /static-analysis:semgrep-scan workflow.
+Sections: Essential Principles; When to Use; When NOT to Use; Output Directory; Prerequisites; Scan Modes; Orchestration Architecture; Running it as a Workflow; Workflow; Workflow and agents
+
+### semgrep-rule-creator
+Creates custom Semgrep rules for detecting security vulnerabilities, bug patterns, and code patterns. Use when writing Semgrep rules or building custom static analysis detections.
+Sections: When to Use; When NOT to Use; Rationalizations to Reject; Anti-Patterns; Strictness Level; Overview; Quick Start; Quick Reference; Workflow; Documentation
 
 ### senior-backend
 Designs and implements backend systems including REST APIs, microservices, database architectures, authentication flows, and security hardening. Use when the user asks to "design REST APIs", "optimize database queries", "implement authentication", "build microservices", "review backend code", "set up GraphQL", "handle database migrations", or "load test APIs". Covers Node.js/Express/Fastify development, PostgreSQL optimization, API security, and backend architecture patterns.
@@ -653,6 +765,10 @@ Sections: Table of Contents; Core Capabilities; Workflows; Tool Reference; Secur
 ### senior-security
 Use when the user asks for STRIDE threat modeling, DREAD risk scoring, data-flow-diagram threat analysis, or a quick secret scan — or when a security request needs routing to the right specialist skill (pen-testing, incident response, cloud posture, red team, AI security, threat hunting, secure code review). This skill owns threat modeling; everything else routes to a sibling.
 Sections: Routing Table (read this first); What This Skill Owns: STRIDE Threat Modeling; References (load on demand)
+
+### sharp-edges
+Identifies error-prone APIs, dangerous configurations, and footgun designs that enable security mistakes. Use when reviewing API designs, configuration schemas, cryptographic library ergonomics, or evaluating whether code follows 'secure by default' and 'pit of success' principles. Triggers: footgun, misuse-resistant, secure defaults, API usability, dangerous configuration.
+Sections: When to Use; When NOT to Use; Agent; Core Principle; Rationalizations to Reject; Sharp Edge Categories; Analysis Workflow; Severity Classification; References; Quality Checklist
 
 ### ship-gate
 Pre-production audit that scans a codebase for security, database, deployment, code quality, AI/LLM, dependency, frontend, and observability issues. Intercepts deploy commands and blocks until critical items pass. Stack-agnostic. Use for "run ship gate", "am I ready to ship", "pre-launch audit", "can I deploy", "push to production", "go live checklist", "preflight check". Not for CI/CD setup or infra provisioning.
@@ -686,6 +802,26 @@ Sections: Prerequisites; Workflow; Example Queries; Understanding Time Periods; 
 Retrieve real-time stock quotes using Octagon MCP. Use when you need current price, day range, 52-week range, volume, market cap, and moving averages for any publicly traded stock.
 Sections: Prerequisites; Workflow; Example Queries; Key Quote Components; Quote Analysis Framework; Market Context; Common Use Cases; Analysis Tips; Integration with Other Skills
 
+### trailmark
+Builds and queries multi-language source and binary code graphs for security analysis. Includes pre-analysis passes for blast radius, taint propagation, privilege boundaries, entry point enumeration, proxy/unresolved-call tracking, type/reference queries, structural traversal, graph diffs, audit augmentation, declared cross-language/FFI/external links via `.trailmark/links.toml`, and SQL schema graphs. Use when analyzing call paths, mapping attack surface, finding complexity hotspots, enumerating entry points, tracing taint propagation, measuring blast radius, importing SARIF/weAudit/binary findings, linking source graphs across language or RPC boundaries, or building a code graph for audit prioritization. Feature-gate version-specific Trailmark APIs before using them; prefer `trailmark.parse.detect_languages()` or `--language auto` when the target language is unknown or polyglot.
+Sections: When to Use; When NOT to Use; Rationalizations to Reject; Installation; Version Gate; Quick Start; Pre-Analysis Passes; Language Selection; Repository Links (v0.5+); Graph Model
+
+### trailmark-finding-triage
+Performs graph-assisted triage of a single security finding, SARIF result, weAudit annotation, suspicious function, or report excerpt using Trailmark reachability, entrypoint paths, taint, privilege-boundary, blast-radius, caller/callee, and neighborhood evidence. Use when deciding whether one candidate issue is reachable, prioritizing a finding before PoC work, preparing evidence for exploit validation, or checking whether a static-analysis result is actionable.
+Sections: When to Use; When NOT to Use; Rationalizations to Reject; Workflow; Example Prompts
+
+### trailmark-review-gate
+Runs a Trailmark structural review gate over a branch, pull request, fix commit, release diff, or git ref range to detect new entrypoints, new tainted paths, removed validation or authorization calls, privilege-boundary drift, blast-radius growth, complexity growth, and newly reachable sensitive sinks. Use when reviewing a PR, branch, remediation commit, or release diff where graph-level security regressions should be checked before merge.
+Sections: When to Use; When NOT to Use; Rationalizations to Reject; Workflow; Requirements
+
+### wizard
+Generate an interactive bash wizard that walks a human through steps only they can perform. Use when provisioning infrastructure, setting up credentials or CI secrets, walking an unfamiliar third-party dashboard, or running a one-off migration or cutover. Don't invoke this for steps the agent can perform itself.
+Sections: Process
+
+### wycheproof
+Validates cryptographic implementations against Project Wycheproof's test vectors, which encode known attacks and edge cases across AES, RSA, ECDSA, ECDH, and more. Covers loading test vectors, mapping result flags onto pass and fail expectations, and reading a failure. Use when testing a crypto implementation against known attacks, checking a library against standard test vectors, or investigating why two implementations disagree on the same input.
+Sections: Background; When to Use; Quick Reference; Testing Workflow; Repository Structure; Supported Algorithms; Test File Structure; Implementation Guide; Common Vulnerabilities Detected; Case Study: Elliptic npm Package
+
 ## Compliance, risk, legal and quality
 
 ### a11y-audit
@@ -696,6 +832,10 @@ Sections: Description; Features; Usage; Example: React Component Audit; Tools Re
 Adversarial code review that breaks the self-review monoculture. Use when you want a genuinely critical review of recent changes, before merging a PR, or when you suspect Claude is being too agreeable about code quality. Forces perspective shifts through hostile reviewer personas that catch blind spots the author's mental model shares with the reviewer.
 Sections: Description; Features; Usage; Examples; Problem This Solves; Table of Contents; Quick Start; Review Workflow; The Three Personas; Severity Classification
 
+### agentic-actions-auditor
+Audits GitHub Actions workflows for security vulnerabilities in AI agent integrations including Claude Code Action, Gemini CLI, OpenAI Codex, and GitHub AI Inference. Detects attack vectors where attacker-controlled input reaches AI agents running in CI/CD pipelines, including env var intermediary patterns, direct expression injection, dangerous sandbox configurations, and wildcard user allowlists. Use when reviewing workflow files that invoke AI coding agents, auditing CI/CD pipeline security for prompt injection risks, or evaluating agentic action configurations.
+Sections: When to Use; When NOT to Use; Rationalizations to Reject; Audit Methodology; Detailed References
+
 ### ai-act-readiness
 /ai-act-readiness <system> — EU AI Act 6-question forcing interrogation. Use during AI-system intake, before EU deployment, or during annual compliance refresh as Article 113 obligations phase in (2025-02-02 / 2025-08-02 / 2026-08-02 / 2027-08-02).
 Sections: When to Run; The Six EU AI Act Questions; Workflow; Output Format; The Decision Being Made; Risk Classification; Conformity Assessment (if high-risk); Obligation Matrix; Transparency (Article 50); Cross-Framework Reuse
@@ -704,9 +844,25 @@ Sections: When to Run; The Six EU AI Act Questions; Workflow; Output Format; The
 /aims-audit <scope> — ISO/IEC 42001 AIMS internal-audit 6-question forcing interrogation. Use before certification stage 1, before annual internal audit cycles, or when onboarding a new AI system into an existing AIMS.
 Sections: When to Run; The Six AIMS Questions; Workflow; Output Format; The Decision Being Made; Gap Analysis (Clauses 4-10); AI Risk Register; Clause 9.2 Audit Plan; Cross-Framework Reuse; Verdict
 
+### algorand-vulnerability-scanner
+Scans Algorand smart contracts for 11 common vulnerabilities including rekeying attacks, unchecked transaction fees, missing field validations, and access control issues. Use when auditing Algorand projects (TEAL/PyTeal).
+Sections: 1. Purpose; 2. When to Use This Skill; 3. Platform Detection; 4. How This Skill Works; 5. Example Output; 6. Vulnerability Patterns (11 Patterns); 7. Scanning Workflow; 8. Reporting Format; SEVERITY Vulnerability Name (e.g., Missing RekeyTo Validation); 9. Priority Guidelines
+
 ### analytics-tracking
 Set up, audit, and debug analytics tracking implementation — GA4, Google Tag Manager, event taxonomy, conversion tracking, and data quality. Use when building a tracking plan from scratch, auditing existing analytics for gaps or errors, debugging missing events, or setting up GTM. Trigger keywords: GA4 setup, Google Tag Manager, GTM, event tracking, analytics implementation, conversion tracking, tracking plan, event taxonomy, custom dimensions, UTM tracking, analytics audit, missing events, tracking broken. NOT for analyzing marketing campaign data — use campaign-analytics for that. NOT for BI dashboards — use product-analytics for in-product event analysis.
 Sections: Before Starting; How This Skill Works; Event Taxonomy Design; GA4 Setup; Google Tag Manager Setup; Conversion Tracking: Platform-Specific; Cross-Platform Tracking; Data Quality; Proactive Triggers; Output Artifacts
+
+### audit-augmentation
+Augments Trailmark code graphs with external audit findings from SARIF static analysis results, weAudit annotation files, and version-gated Trailmark 0.4.x binary-analysis graph exports. Maps findings to graph nodes by file and line overlap, creates severity-based subgraphs, and enables cross-referencing findings with pre-analysis data (blast radius, taint, etc.). Use when projecting SARIF results onto a code graph, overlaying weAudit annotations, importing binary graph findings, cross-referencing Semgrep, CodeQL, or binary-analysis findings with call graph data, or visualizing audit findings in the context of code structure.
+Sections: When to Use; When NOT to Use; Rationalizations to Reject; Installation; Version Gate; Quick Start; Workflow; Annotation Format; Subgraphs Created; How Matching Works
+
+### audit-prep-assistant
+Prepares codebases for security review using Trail of Bits' checklist. Helps set review goals, runs static analysis tools, increases test coverage, removes dead code, ensures accessibility, and generates documentation (flowcharts, user stories, inline comments). Use when preparing your own codebase to be audited by someone else, getting a repository review-ready before an external security review, deciding what to fix before auditors start, or asking what assessors need from a project. For understanding unfamiliar code you are about to audit, use audit-context-building instead.
+Sections: Purpose; The Preparation Process; How I Work; Rationalizations (Do Not Skip); Example Output; REVIEW GOALS DOCUMENT; STATIC ANALYSIS REPORT; TEST COVERAGE REPORT; CODE SCOPE; BUILD INSTRUCTIONS
+
+### cairo-vulnerability-scanner
+Scans Cairo/StarkNet smart contracts for 6 critical vulnerabilities including felt252 arithmetic overflow, L1-L2 messaging issues, address conversion problems, and signature replay. Use when auditing StarkNet projects.
+Sections: 1. Purpose; 2. When to Use This Skill; 3. Platform Detection; 4. How This Skill Works; 5. Example Output; 6. Vulnerability Patterns (6 Patterns); 7. Scanning Workflow; 8. Reporting Format; CRITICAL Unchecked fromaddress in L1 Handler; 9. Priority Guidelines
 
 ### capa-officer
 CAPA system management for medical device QMS. Covers root cause analysis, corrective action planning, effectiveness verification, and CAPA metrics. Use when running CAPA investigations, 5-Why analysis, fishbone diagrams, root cause determination, corrective action tracking, effectiveness verification, or CAPA program optimization.
@@ -720,6 +876,14 @@ Sections: Purpose; When to use; Workflow; Scripts; Quick example; References; As
 Use when designing a prospective clinical study before submission — selecting and classifying endpoints (primary / key-secondary / exploratory, with surrogate-endpoint flagging), estimating sample size and power for two-arm designs (means / proportions / survival), or scoring a study plan for feasibility and a GO / GO-WITH-CONDITIONS / REDESIGN / NO-GO phase-gate decision. Every output is an ESTIMATE plus a named human owner (clinician / biostatistician / regulatory owner) — never clinical fact, never a finished protocol. Distinct from ra-qm-team, which handles the regulatory/QM submission (ISO 13485, EU MDR, FDA 510(k)/PMA/QSR), not the study design.
 Sections: Purpose; When to use; Workflow; Scripts; Onboarding & customization; Optimize with autoresearch (opt-in); References; Assumptions; Anti-patterns; Distinct from
 
+### code-maturity-assessor
+Systematic code maturity assessment using Trail of Bits' 9-category framework. Analyzes codebase for arithmetic safety, auditing practices, access controls, complexity, decentralization, documentation, MEV risks, low-level code, and testing, then produces a scorecard with evidence-based ratings and a priority-ordered roadmap. Use when assessing or scoring the maturity of a smart contract or blockchain codebase, producing a maturity scorecard or evaluation, or judging how mature, well-tested, or well-documented such a project is against a rubric.
+Sections: Purpose; How This Works; Rating System; The 9 Categories; Example Output; Assessment Process; Rationalizations (Do Not Skip); Report Format; Ready to Begin
+
+### code-review-and-quality
+Conducts multi-axis code review. Use before merging any change. Use when reviewing code written by yourself, another agent, or a human. Use when you need to assess code quality across multiple dimensions before it enters the main branch. Use when asked to review a diff or a pull request, even when the diff is pasted inline.
+Sections: Overview; When to Use; The Five-Axis Review; Structural Remedies; Change Sizing; Change Descriptions; Review Process; Multi-Model Review Pattern; Dead Code Hygiene; Review Speed
+
 ### code-reviewer
 Code review automation for TypeScript, JavaScript, Python, Go, Swift, Kotlin, C#, .NET, Java, C, C++, Rust, Ruby, PHP, and Dart/Flutter. Analyzes PRs for complexity and risk, checks code quality for SOLID violations and code smells, generates review reports. Use when reviewing pull requests, analyzing code quality, identifying issues, generating review checklists.
 Sections: How This Skill Is Organized; Tools; Adding a New Language; Regression Fixtures
@@ -732,6 +896,10 @@ Sections: Keywords; Quick Start; Key Questions (ask these first); Core Responsib
 /compliance-readiness <program> — Multi-framework compliance officer 6-question forcing interrogation of any compliance program. Use before starting a new framework, planning the annual audit calendar, or preparing for certification stage 1.
 Sections: When to Run; The Six Compliance Officer Questions; Workflow; Output Format; The Decision Being Made; Framework Set; Cross-Framework Overlap; Evidence Pool; Audit Calendar; Mock Audit Results (per framework)
 
+### constraint-driven-development
+Establishes a project's quality bar as a written contract and stops agents quietly lowering it. Interviews the user on which dimensions matter, supplies sane default thresholds when they have no number in mind, records everything in CONSTRAINTS.md, and watches the diff for a weakened bar — new @ts-ignore or eslint-disable suppressions, skipped or deleted tests, assertions stripped out, unimplemented stubs, thresholds edited down. Use when no quality bar is written down, when the user says "set up constraints" or "define our standards", when the user wants dimensions they care about — accessibility, web performance, coverage — set up as enforced constraints, when an agent keeps silencing checks or skipping tests to get to green, when you need a coverage or performance threshold and don't know what number to pick, or when an agent writes more code than anyone will read.
+Sections: Overview; When to Use; Loading Constraints; The Process; Floor (always enforced, no setup required); Enforced with numbers; Measured, not yet enforced; Exceptions; Sane Defaults; Escalation Path
+
 ### data-quality-auditor
 Audit datasets for completeness, consistency, accuracy, and validity. Profile data distributions, detect anomalies and outliers, surface structural issues, and produce an actionable remediation plan. Use when the user asks to check data quality, profile a dataset, hunt outliers or missing values, or validate data before analysis or model training.
 Sections: Entry Points; Tools; Data Quality Score (DQS); Proactive Risk Triggers; Output Artifacts; Remediation Playbook; Quality Loop; Communication Standard; Related Skills; References
@@ -739,6 +907,10 @@ Sections: Entry Points; Tools; Data Quality Score (DQS); Proactive Risk Triggers
 ### dependency-auditor
 Audit and manage dependencies across multi-language projects. Identifies vulnerabilities, license conflicts, transitive dependency risks, and safe-upgrade paths. Use when auditing third-party packages before release, investigating a CVE, planning a major version bump, or running a license-compliance review. Examples: 'audit our npm dependencies', 'do we have GPL contamination', 'plan the upgrade to React 19'.
 Sections: Quick Start; Supported Ecosystems; License Classification; Upgrade Risk Matrix; Scripts (accurate capability claims); CI Integration; Best Practices
+
+### dimensional-analysis
+Audits code for unit and decimal-scaling bugs and annotates it with dimensional comments recording the units of each value. Use when someone asks to audit or review code for unit confusion, decimals or scaling mismatches, WAD/RAY scale errors, or the wrong token's decimals; to annotate units in a codebase; or to perform a dimensional analysis of a DeFi protocol, offchain code, or other arithmetic-heavy codebase. Catches formulas that combine values carrying different units or scales.
+Sections: Host and dependency contract; Execution Mode; Scope and Coverage Guarantees; Annotation Format; When to Use; When NOT to Use; Reporting Scope; Red Flags; Rationalizations to Reject; Workflow Steps (Phases 1-4)
 
 ### eu-ai-act-specialist
 EU AI Act (Regulation (EU) 2024/1689) operational compliance for compliance teams. Three Article-level decisions: (1) What's the risk tier of this AI system — prohibited (Art. 5), high-risk (Art. 6 + Annex III), limited-risk (Art. 50), or minimal-risk? (2) For high-risk systems, what's the Article 43 conformity assessment route (Module A internal control vs Module H full QMS + notified body) and what goes in the Annex IV technical documentation? (3) Per organizational role (provider / deployer / importer / distributor / authorized representative), what are the active obligations and deadlines? Use during AI system intake review, when planning conformity assessment, or when scoping deployer obligations. Cites Articles + Annexes for every output. NOT executive AI strategy (see chief-ai-officer-advisor). NOT a legal substitute.
@@ -832,9 +1004,33 @@ Sections: When to Run; The Six SOC 2 Type II Questions; Workflow; Output Format;
 Use when the user asks to prepare for SOC 2 audits, map Trust Service Criteria, build control matrices, collect audit evidence, perform gap analysis, or assess SOC 2 Type I vs Type II readiness.
 Sections: Table of Contents; Overview; Trust Service Criteria; Control Matrix Generation; Gap Analysis Workflow; Evidence Collection; Audit Readiness Checklist; Vendor Management; Continuous Compliance; Anti-Patterns
 
+### solana-vulnerability-scanner
+Scans Solana programs for 6 critical vulnerabilities including arbitrary CPI, improper PDA validation, missing signer/ownership checks, and sysvar spoofing. Use when auditing Solana/Anchor programs.
+Sections: 1. Purpose; 2. When to Use This Skill; 3. Platform Detection; 4. How This Skill Works; 5. Example Output; 6. Vulnerability Patterns (6 Patterns); 7. Scanning Workflow; 8. Reporting Format; CRITICAL Arbitrary CPI - Unchecked Program ID; 9. Priority Guidelines
+
+### substrate-vulnerability-scanner
+Scans Substrate/Polkadot pallets for 7 critical vulnerabilities including arithmetic overflow, panic DoS, incorrect weights, and bad origin checks. Use when auditing Substrate runtimes or FRAME pallets.
+Sections: 1. Purpose; 2. When to Use This Skill; 3. Platform Detection; 4. How This Skill Works; 5. Vulnerability Patterns (7 Critical Patterns); 6. Scanning Workflow; 7. Priority Guidelines; 8. Testing Recommendations; 9. Additional Resources; 10. Quick Reference Checklist
+
+### supply-chain-risk-auditor
+Audits a project's dependencies for supply-chain risk: version-matched advisories for direct dependencies and the full lockfile tree, abandoned or archived upstreams, npm publisher concentration, and install-time script execution. Use when asked to audit dependencies, assess supply-chain or third-party package risk, or review a dependency tree before an engagement.
+Sections: Why the scripts do the measuring, not you; Workflow; Style for what you add; Reading the report; Rationalizations to reject; When not to use
+
 ### tech-debt-tracker
 Scan codebases for technical debt, score severity, track trends, and generate prioritized remediation plans. Use when users mention tech debt, code quality, refactoring priority, debt scoring, cleanup sprints, or code health assessment. Also use for legacy code modernization planning and maintenance cost estimation.
 Sections: Overview; What This Skill Provides; Quick Start — scan → prioritize → dashboard; Technical Debt Classification Framework; Common Pitfalls and How to Avoid Them
+
+### token-integration-analyzer
+Token integration and implementation analyzer based on Trail of Bits' token integration checklist. Analyzes token implementations for ERC20/ERC721 conformity, checks for 20+ weird token patterns, assesses contract composition and owner privileges, performs on-chain scarcity analysis, and evaluates how protocols handle non-standard tokens. Use when integrating or accepting arbitrary ERC20/ERC721 tokens, auditing a token implementation for standards conformity, or assessing risk from weird tokens such as fee-on-transfer, rebasing, missing return values, or blocklists.
+Sections: Purpose; How This Works; Assessment Categories; Example Output; EXECUTIVE SUMMARY; 1. GENERAL CONSIDERATIONS; 2. CONTRACT COMPOSITION; 3. OWNER PRIVILEGES; 4. ERC20 CONFORMITY; 5. WEIRD TOKEN PATTERN ANALYSIS
+
+### ton-vulnerability-scanner
+Scans TON (The Open Network) smart contracts for 3 critical vulnerabilities including integer-as-boolean misuse, fake Jetton contracts, and forward TON without gas checks. Use when auditing FunC contracts.
+Sections: 1. Purpose; 2. When to Use This Skill; 3. Platform Detection; 4. How This Skill Works; 5. Example Output; 6. Vulnerability Patterns (3 Patterns); 7. Scanning Workflow; 8. Reporting Format; CRITICAL Fake Jetton Contract - Missing Sender Validation; 9. Priority Guidelines
+
+### yara-rule-authoring
+Guides authoring of high-quality YARA-X detection rules for malware identification. Use when writing, reviewing, or optimizing YARA rules. Covers naming conventions, string selection, performance optimization, migration from legacy YARA, and false positive reduction. Triggers on: YARA, YARA-X, malware detection, threat hunting, IOC, signature, crx module, dex module.
+Sections: Core Principles; When to Use; When NOT to Use; Platform Considerations; String Selection; Condition Design; Before Writing: Is the Sample Packed?; Debugging False Positives; Rationalizations to Reject; Toolkit
 
 ## SEO and AI search
 
@@ -1126,6 +1322,10 @@ Sections: Before Starting; Core Philosophy; The ORB Framework; Five-Phase Launch
 When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation. Also use when the user mentions "lead magnet," "gated content," "content upgrade," "downloadable," "ebook," "cheat sheet," "checklist," "template download," "opt-in," "freebie," "PDF download," "resource library," "content offer," "email capture content," "Notion template," "spreadsheet template," or "what should I give away for emails." Use this for planning what to create and how to distribute it. For interactive tools as lead magnets, see free-tools. For writing the actual content, see copywriting. For the email sequence after capture, see emails.
 Sections: Before Planning; Lead Magnet Principles; Lead Magnet Types; Matching Lead Magnets to Buyer Stage; Gating Strategy; Landing Page & Delivery; Promotion & Distribution; Measuring Success; Output Format; Task-Specific Questions
 
+### libfuzzer
+Sets up and runs libFuzzer, the coverage-guided fuzzer built into LLVM, on C/C++ code that compiles with Clang. Covers harness structure, -fsanitize=fuzzer builds, corpus and dictionary management, sanitizer integration, and campaign triage. Use when writing or debugging an LLVMFuzzerTestOneInput harness, starting fuzzing on a C/C++ library, choosing between libFuzzer and AFL++, or working out why a libFuzzer run finds nothing.
+Sections: When to Use; Quick Start; Installation; Writing a Harness; Compilation; Corpus Management; Running Campaigns; Fuzzing Dictionary; Coverage Analysis; Sanitizer Integration
+
 ### marketing-context
 Create and maintain the marketing context document that all marketing skills read before starting. Use when the user mentions 'marketing context,' 'brand voice,' 'set up context,' 'target audience,' 'ICP,' 'style guide,' 'who is my customer,' 'positioning,' or wants to avoid repeating foundational information across marketing tasks. Run this at the start of any new project before using other marketing skills.
 Sections: How This Skill Works; Sections to Capture; Output Template; Validate the Result; Tips; Proactive Triggers; Output Artifacts; Communication; Related Skills
@@ -1197,6 +1397,14 @@ Sections: Before Starting; How This Skill Works; Referral vs. Affiliate — Choo
 ### runbook-generator
 Generate operational runbooks from a service name — deployment, incident response, maintenance, and rollback workflows. Templated structure customizable per environment. Use when documenting on-call procedures for a new service, standardizing incident response across teams, or producing runbooks before launching to production.
 Sections: Overview; Core Capabilities; When to Use; Quick Start; Recommended Workflow; Reference Docs; Common Pitfalls; Best Practices
+
+### sarif-parsing
+Parses and processes SARIF files from static analysis tools like CodeQL, Semgrep, or other scanners. Triggers on "parse sarif", "read scan results", "aggregate findings", "deduplicate alerts", or "process sarif output". Handles filtering, deduplication, format conversion, and CI/CD integration of SARIF data. Does NOT run scans — use the Semgrep or CodeQL skills for that.
+Sections: When to Use; When NOT to Use; SARIF Structure Overview; Tool Selection Guide; Strategy 1: Quick Analysis with jq; Strategy 2: Python with pysarif; Strategy 3: Python with sarif-tools; Strategy 4: Aggregating Multiple SARIF Files; Strategy 5: Extracting Actionable Data; Common Pitfalls and Solutions
+
+### shipping-and-launch
+Prepares production launches. Use when preparing to deploy to production, or when asking what needs to be in place before shipping. Use when you need a pre-launch checklist, when setting up monitoring, when planning a staged rollout, or when you need a rollback strategy.
+Sections: Overview; When to Use; The Pre-Launch Checklist; Feature Flag Strategy; Staged Rollout; Monitoring and Observability; Error Budget Release Gate; Rollback Strategy; Rollback Plan for Feature/Release; See Also
 
 ### signup
 When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the user mentions "signup conversions," "registration friction," "signup form optimization," "free trial signup," "reduce signup dropoff," "account creation flow," "people aren't signing up," "signup abandonment," "trial conversion rate," "nobody completes registration," "too many steps to sign up," or "simplify our signup." Use this whenever the user has a signup or registration flow that isn't performing. For post-signup onboarding, see onboarding. For lead capture forms (not account creation), see cro.
@@ -1276,6 +1484,10 @@ Sections: Name; Description; Features; Usage; Examples; Role; Workflow; System O
 Atlassian Confluence expert for creating and managing spaces, knowledge bases, and documentation. Configures space permissions and hierarchies, creates page templates with macros, sets up documentation taxonomies, designs page layouts, and manages content governance. Use when users need to build or restructure a Confluence space, design page hierarchies with permission structures, author or standardise documentation templates, embed Jira reports in pages, run knowledge base audits, or establish documentation standards and collaborative workflows.
 Sections: Atlassian MCP Integration; Workflows; Essential Macros; Page Layouts & Formatting; Templates Library; Space Permissions; Content Governance; Decision Framework; Handoff Protocols; Best Practices
 
+### crypto-protocol-diagram
+Extracts protocol message flow from source code, RFCs, academic papers, pseudocode, informal prose, ProVerif (.pv), or Tamarin (.spthy) models and generates Mermaid sequenceDiagrams with cryptographic annotations. Use when diagramming a crypto protocol, visualizing a handshake or key exchange flow, extracting message flow from a spec or RFC, diagramming a ProVerif or Tamarin model, or drawing sequence diagrams for TLS, Noise, Signal, X3DH, Double Ratchet, FROST, DH, or ECDH protocols.
+Sections: When to Use; When NOT to Use; Rationalizations to Reject; Workflow; Spec Workflow (S1–S5); Protocol Summary; Decision Tree; Examples; Supporting Documentation
+
 ### experiment-designer
 Use when planning product experiments, writing testable hypotheses, estimating sample size, prioritizing tests, or interpreting A/B outcomes with practical statistical rigor.
 Sections: When To Use; Core Workflow; Hypothesis Quality Checklist; Common Experiment Pitfalls; Statistical Interpretation Guardrails; Tooling
@@ -1284,6 +1496,10 @@ Sections: When To Use; Core Workflow; Hypothesis Quality Checklist; Common Exper
 Use when the user asks to fix, debug, or make a specific feature/module/area work end-to-end. Triggers: 'make X work', 'fix the Y feature', 'the Z module is broken', 'focus on [area]'. Not for quick single-bug fixes — this is for systematic deep-dive repair across all files and dependencies.
 Sections: When to Use; The Iron Law; Protocol — STRICTLY follow these 5 phases IN ORDER; Red Flags — STOP and Return to Current Phase; Common Rationalizations; Anti-Patterns — NEVER do these; Related Skills; Quick Reference
 
+### fuzzing-dictionary
+Builds and applies fuzzing dictionaries so a fuzzer can produce the keywords, magic bytes, and tokens a target expects. Covers extracting tokens from source, headers, binaries, and specifications, dictionary syntax, and wiring one into libFuzzer or AFL++. Use when fuzzing a parser, protocol, or file format, when coverage stalls at input validation, or when a target compares against fixed strings.
+Sections: Overview; When to Apply; Quick Reference; Step-by-Step; Common Patterns; Advanced Usage; Anti-Patterns; Tool-Specific Guidance; Troubleshooting; Related Skills
+
 ### industry-performance-snapshot
 Retrieve a daily overview of industry performance using Octagon MCP. Use when analyzing daily price movements, average changes, and performance trends for specific industries within an exchange.
 Sections: Prerequisites; Workflow; Example Queries; Understanding Daily Performance; Industry Categories; Analyzing Performance; Catalyst Analysis; Momentum Analysis; Sector Rotation Signals; Exchange Considerations
@@ -1291,6 +1507,10 @@ Sections: Prerequisites; Workflow; Example Queries; Understanding Daily Performa
 ### jira-expert
 Atlassian Jira expert for creating and managing projects, planning, product discovery, JQL queries, workflows, custom fields, automation, reporting, and all Jira features. Use when setting up or configuring Jira projects, writing JQL and advanced searches, creating dashboards, designing workflows, or performing technical Jira operations.
 Sections: Quick Start — Most Common Operations; Workflows; Advanced Features; JQL Functions Reference; Reporting Templates; Decision Framework; Handoff Protocols; Best Practices; Atlassian MCP Integration; Related Skills
+
+### planning-and-task-breakdown
+Breaks work into ordered tasks. Use when you have a spec or clear requirements and need to break work into implementable tasks. Use when a task feels too large to start, when you need to estimate scope, or when parallel work is possible.
+Sections: Overview; When to Use; The Planning Process; Task N: Short descriptive title; Checkpoint: After Tasks 1-3; Task Sizing Guidelines; Output Files; Plan Document Template; Overview; Architecture Decisions
 
 ### pm-skills
 Router/index for the 8 project-management skills bundled in this plugin (senior PM quant toolkit, scrum master, Jira/JQL, Confluence, Atlassian admin, Atlassian templates, meeting analyzer, team communications). Use when a PM request doesn't obviously match one skill and you need to pick the right one (e.g., 'our sprints feel off', 'audit our Jira permissions'). Bundles an Atlassian Remote MCP config (.mcp.json) for live Jira/Confluence access.
@@ -1324,6 +1544,10 @@ Sections: Routing table; Quick start; Related product-team plugins (packaged sep
 Use when preparing roadmap narratives, release notes, changelogs, or stakeholder updates tailored for executives, engineering teams, and customers.
 Sections: When To Use; Roadmap Formats; Stakeholder Update Patterns; Release Notes Guidance; Changelog Generation; Feature Announcement Framework; Communication Quality Checklist
 
+### ruzzy
+Sets up and runs Ruzzy, Trail of Bits' coverage-guided Ruby fuzzer and the only production-ready one for the language. Covers harness structure, fuzzing pure Ruby and the native C extensions in gems, and sanitizer builds. Use when fuzzing a Ruby library or gem, testing a Ruby C extension for memory safety, or asking how to fuzz Ruby at all.
+Sections: When to Use; Quick Start; Installation; Writing a Harness; Compilation; Running Campaigns; Sanitizer Integration; Real-World Examples; Troubleshooting; Related Skills
+
 ### scrum-master
 Advanced Scrum Master skill for data-driven agile team analysis and coaching. Use when the user asks about sprint planning, velocity tracking, retrospectives, standup facilitation, backlog grooming, story points, burndown charts, blocker resolution, or agile team health. Runs Python scripts to analyse sprint JSON exports from Jira or similar tools: velocity_analyzer.py for Monte Carlo sprint forecasting, sprint_health_scorer.py for multi-dimension health scoring, and retrospective_analyzer.py for action-item and theme tracking. Produces confidence-interval forecasts, health grade reports, and improvement-velocity trends for high-performing Scrum teams.
 Sections: Table of Contents; Analysis Tools & Usage; Input Requirements; Sprint Execution Workflows; Team Development Workflow; Key Metrics & Targets; Limitations; Related Skills
@@ -1340,6 +1564,10 @@ Sections: Table of Contents; Model Deployment Workflow; MLOps Pipeline Setup; LL
 Senior Project Manager for enterprise software, SaaS, and digital transformation projects. Specializes in portfolio management, quantitative risk analysis, resource optimization, stakeholder alignment, and executive reporting. Uses advanced methodologies including EMV analysis, Monte Carlo simulation, WSJF prioritization, and multi-dimensional health scoring. Use when a user needs help with project plans, project status reports, risk assessments, resource allocation, project roadmaps, milestone tracking, team capacity planning, portfolio health reviews, program management, or executive-level project reporting — especially for enterprise-scale initiatives with multiple workstreams, complex dependencies, or multi-million dollar budgets.
 Sections: Overview; Methodology & Frameworks; Assets & Templates; Implementation Workflows; Integration Strategies; Handoff Protocols; Success Metrics & KPIs; Continuous Improvement Framework; Related Skills
 
+### spec-driven-development
+Creates specs before coding. Use when starting a new project, feature, or significant change and no specification exists yet. Use when drafting a PRD or requirements document with objectives and scope, or when requirements are unclear, ambiguous, or only exist as a vague idea. Use when a single requirement spans several independently testable capabilities and needs decomposing into a capability map of modules before specifying.
+Sections: Overview; When to Use; The Gated Workflow; Objective; Tech Stack; Commands; Project Structure; Code Style; Testing Strategy; Boundaries
+
 ### spec-driven-workflow
 Use when the user asks to write specs before code, define acceptance criteria, plan features before implementation, generate tests from specifications, or follow spec-first development practices.
 Sections: Overview; The Spec Format; Bounded Autonomy Rules; Escalation: Brief Title; Workflow — 6 Phases; Self-Review Checklist; Integration with TDD Guide; Examples; Anti-Patterns; Cross-References
@@ -1351,6 +1579,10 @@ Sections: When to Use; Core Workflow; Spec Interpretation; Examples; Anti-Patter
 ### tc-tracker
 Use when the user asks to track technical changes, create change records, manage TC lifecycles, or hand off work between AI sessions. Covers init/create/update/status/resume/close/export workflows for structured code change documentation.
 Sections: Overview; Storage Layout; TC ID Convention; State Machine; Workflow Commands; Slash-Command Dispatcher; Session Handoff Format; Validation Rules (Always Enforced); Non-Blocking Bookkeeping Pattern; Retroactive Bulk Creation
+
+### variant-analysis
+Hunts for the other instances of a bug already found — the variants of one root cause across a codebase. Use immediately after a vulnerability, logic bug, or bad pattern turns up in a specific file and the question becomes where else it occurs, including the bare conversational form ("are there others like this?", "is this the same bug?"). Also for generalizing one known instance into a CodeQL or Semgrep query for its whole pattern family, and for triaging a set of look-alike candidates against a known root cause. Not for initial discovery with no bug in hand.
+Sections: When to Use; When NOT to Use; The Five Steps; Running it as a Workflow; What Makes Hunts Fail; Resources
 
 ## Research and analysis
 
@@ -1366,9 +1598,17 @@ Sections: Non-Generic Framing — The Differentiator; Agent Integrity Rules (Res
 NIH grant research skill for clinical researchers. Grill-me intake (research idea + career stage + preliminary data + environment + submission posture + known institute targets) locks down the funding strategy before any search runs. Runs a 5-facet Consensus positioning analysis (with draft Significance/Innovation language), maps the research to the right NIH institutes and study sections via RePORTER, finds NOSIs and funded overlap, and produces an editable Word document (.docx) with budget/scope-aware mechanism recommendations, submission timelines, and a mandatory program officer recommendation. Use when the user asks about research funding or makes any grant-related request (e.g., 'grants for [topic]', 'find grants for my research idea', 'what grants match my research', 'help me find NIH funding', 'grant opportunities for my research'). NIH-only scope — non-NIH funders (PCORI, DOD CDMRP, VA, foundations) are out of scope and flagged at intake.
 Sections: Agent Integrity Rules (Research-Pack Convention); Phase 1: Grill-Me Intake (6 forcing questions, one at a time); Phase 2A: Research Positioning (5 Consensus searches); Phase 2B: Institute Mapping + Grant Discovery (RePORTER POST); Mechanism Matching (Scope-Aware); Phase 3: DOCX Generation; Mandatory Program Officer Recommendation; Submission Timeline (Embedded in DOCX Section 7); Phase 4: Deliver; Tooling
 
+### interview-me
+Extracts what the user actually wants instead of what they think they should want. Achieves this through one-question-at-a-time interview until ~95% confidence about the underlying intent. Use when an ask is underspecified ("build me X" without "for whom" or "why now"), when the user explicitly invokes ("interview me", "grill me", "are we sure?", "stress-test my thinking"), or when you catch yourself silently filling in ambiguous requirements before any plan, spec, or code exists.
+Sections: Overview; When to Use; Loading Constraints; The Process; Output; Example; Interaction with Other Skills; Common Rationalizations; Red Flags; Verification
+
 ### interview-system-designer
 This skill should be used when the user asks to "design interview processes", "create hiring pipelines", "calibrate interview loops", "generate interview questions", "design competency matrices", "analyze interviewer bias", "create scoring rubrics", "build question banks", or "optimize hiring systems". Use for designing role-specific interview loops, competency assessments, and hiring calibration systems.
 Sections: Overview; Core Capabilities; Quick Start; Recommended Workflow; References; Common Pitfalls; Best Practices
+
+### libafl
+Builds custom fuzzers with LibAFL, the modular Rust fuzzing library. Covers composing observers, feedbacks, mutators, schedulers, and executors into a fuzzer for targets the standard tools do not fit. Use when writing a bespoke fuzzer or mutator, fuzzing a non-standard target or architecture, implementing a fuzzing research idea, or when libFuzzer and AFL++ lack the control you need.
+Sections: When to Use; Quick Start; Installation; Writing a Harness; Usage Modes; Writing a Custom Fuzzer; Compilation; Running Campaigns; Advanced Usage; Real-World Examples
 
 ### litreview
 Academic literature orientation skill that searches papers via free keyless APIs (PubMed E-utilities + OpenAlex) by default — with the Consensus MCP as an optional enhancement lane when connected — builds a strategic search plan using PICO (default) or SPIDER / Decomposition / hybrid as fallbacks, and synthesizes findings into a formatted Word (.docx) research guide. Grill-me intake (research question specificity + framework hint + tentative depth) before the recon search; a second forcing checkpoint after Phase 2 confirms framework + sub-areas + depth before searches consume budget. Configurable depth (5/10/20 queries) controls coverage vs. speed. Output is a 'launching pad' — an orientation guide that lets a researcher dive in confidently, not a finished review. Use when the user starts literature-oriented research (e.g., 'litreview on [topic]', 'literature review on [topic]', 'I'm starting a literature review on X', 'I'm writing a paper on X', 'help me research X', 'I'm doing research on X', 'can you help me research X'). Do NOT use for single one-off paper searches wanting a quick list — that's a plain PubMed/OpenAlex (or Consensus) query.
@@ -1412,6 +1652,10 @@ Sections: Table of Contents; Trigger Terms; Workflows; Tool Reference; Quick Ref
 Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations.
 Sections: DESIGN PHILOSOPHY CREATION; DEDUCING THE SUBTLE REFERENCE; CANVAS CREATION; FINAL STEP; MULTI-PAGE OPTION
 
+### cargo-fuzz
+Sets up and runs cargo-fuzz, the standard fuzzing tool for Cargo-based Rust projects. Covers cargo fuzz init, the nightly toolchain requirement, fuzz_target! harnesses, Arbitrary-derived structured inputs, sanitizer options, cargo fuzz coverage, and reproducing a crash artifact. Use when fuzzing a Rust crate, writing a fuzz_target!, exercising unsafe blocks or FFI in Rust, or triaging a cargo fuzz crash.
+Sections: When to Use; Quick Start; Installation; Writing a Harness; Structure-Aware Fuzzing; Running Campaigns; Sanitizer Integration; Coverage Analysis; Advanced Usage; Real-World Examples
+
 ### changelog-generator
 Produce consistent, auditable release notes from Conventional Commits. Separates commit parsing, semantic-bump logic, and changelog rendering for automated releases with editorial control. Use when cutting a release, generating CHANGELOG.md from git history, computing the next semantic version from commits, automating release notes in CI, or planning a hotfix/rollback. Examples: 'generate the changelog for v1.4.0', 'what version bump do these commits require', 'we need an emergency hotfix process'.
 Sections: Overview; Core Capabilities; When to Use; Key Workflows; Conventional Commit Rules; Script Interfaces; Common Pitfalls; Best Practices; Hotfix Severity & SLAs; Rollback Triggers
@@ -1428,9 +1672,25 @@ Sections: When to Offer This Workflow; Stage 1: Context Gathering; Stage 2: Refi
 Docker and container development agent skill and plugin for Dockerfile optimization, docker-compose orchestration, multi-stage builds, and container security hardening. Use when: user wants to optimize a Dockerfile, create or improve docker-compose configurations, implement multi-stage builds, audit container security, reduce image size, or follow container best practices. Covers build performance, layer caching, secret management, and production-ready container patterns.
 Sections: Slash Commands; When This Skill Activates; Workflow; Tooling; Multi-Stage Build Patterns; Base Image Decision Tree; Proactive Triggers; Installation; Related Skills
 
+### documentation-and-adrs
+Records decisions and documentation. Use when you need to document an architecture decision (ADR) or the reasoning behind a design choice, when changing public APIs, shipping features, or when you need to record context that future engineers and agents will need to understand the codebase.
+Sections: Overview; When to Use; Architecture Decision Records (ADRs); Status; Date; Context; Decision; Alternatives Considered; Consequences; Inline Documentation
+
+### domain-modeling
+Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, or recording or editing an ADR.
+Sections: File structure; During the session
+
 ### executing-plans
 Use when you have a written implementation plan to execute in a separate session with review checkpoints
 Sections: Overview; The Process; When to Stop and Ask for Help; When to Revisit Earlier Steps; Remember; Integration
+
+### harness-writing
+Designs and improves fuzzing harnesses for C/C++ and Rust. Covers mapping raw bytes onto a target API, generating structured inputs, avoiding non-determinism and false crashes, and deciding what to fuzz together. Use when writing a first LLVMFuzzerTestOneInput or fuzz_target! harness, when a campaign finds nothing or reports crashes that will not reproduce, or when the target API needs structured rather than raw input.
+Sections: Overview; When to Apply; Quick Reference; Step-by-Step; Common Patterns; Advanced Usage; Practical Harness Rules; Anti-Patterns; Tool-Specific Guidance; Troubleshooting
+
+### incremental-implementation
+Delivers changes incrementally in thin, verifiable slices. Use when implementing any feature or change that touches more than one file, or when picking up the next task from a plan. Use when rolling a change out behind a feature flag, when you're about to write a large amount of code at once, or when a task feels too big to land in one step.
+Sections: Overview; When to Use; The Increment Cycle; Slicing Strategies; Implementation Rules; Working with Agents; Increment Checklist; Common Rationalizations; Red Flags; Verification
 
 ### internal-comms
 A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.).
@@ -1460,6 +1720,10 @@ Sections: When to invoke; Pipeline; What gets rendered; Hard rules; Forcing-ques
 Converts a markdown deck (slides separated by three-dash horizontal rules or by `# ` H1 headings, with optional `<!-- notes: ... -->` presenter notes blocks) into a single-file HTML presentation with arrow-key / space / PgDn / PgUp / Home / End / P / Esc keyboard navigation, presenter mode (split view with current slide + speaker notes + clock + next-slide preview), URL-hash deep linking, and `@media print` page-per-slide for PDF export. Triggers when the markdown-html-orchestrator classifies an input as SLIDES, or when invoked directly via /md-slides. Reuses md-document's markdown parser for slide-body rendering and reads design-system tokens via config_loader.py. Refuses if input has no clear slide boundaries, produces a 1-slide deck, or `--strict-notes` is on with < 50% notes coverage. Use after orchestrator routing.
 Sections: When to invoke; Pipeline; What ships in the HTML; Hard rules; Forcing-question library (Matt Pocock grill discipline); Distinct from; Output artifact; References
 
+### modern-python
+Configures Python projects with modern tooling (uv, ruff, ty). Use when creating projects, writing standalone scripts, or migrating from pip/Poetry/mypy/black.
+Sections: When to Use This Skill; When NOT to Use This Skill; Anti-Patterns to Avoid; Decision Tree; Tool Overview; Quick Start: Minimal Project; Full Project Setup; Migration Guide; Quick Reference: uv Commands; Quick Reference: Dependency Groups
+
 ### named-persona-adversarial-review
 Code review through the lens of real engineers' documented philosophies (Torvalds, Thompson, Carmack, Kent Beck, Jobs, Cagan). Complements abstract-role adversarial review with named, sourced perspectives. Use when automated review findings feel generic, when a PR has architectural or UX impact, or when the author wants pre-submit hardening beyond standard checks.
 Sections: Example Output; Problem; Attribution discipline (read this first — it is the load-bearing rule); Rules; Persona Pools; Severity Levels; The Process; Integrity Check (Feynman); Exit Condition; When to Use
@@ -1480,6 +1744,14 @@ Sections: Workflow: Creating an Obsidian Note; Internal Links (Wikilinks); Embed
 Flags: saves-to-~/.claude
 /onboard — Founder interview that populates ~/.claude/company-context.md using the canonical 7-dimension cs-onboard schema. The first command to run when starting with c-level-agents. Use when setting up the virtual C-suite for a new company, or when advisors lack company context — e.g. before a first /boardroom or after a fundraise changes the numbers.
 Sections: What This Produces; The Interview (12 Questions); Output Format; Identity; Business; Financial; Team; Quarter; Routing Hints; Workflow
+
+### ossfuzz
+Enrolls a project in OSS-Fuzz, Google's free continuous fuzzing service for open source, and drives it locally. Covers project.yaml, Dockerfile and build.sh setup, the helper scripts, reproducing OSS-Fuzz crash reports, and the acceptance criteria. Use when setting up continuous fuzzing for an open-source project, reproducing an OSS-Fuzz bug report, or testing an OSS-Fuzz build before submitting it.
+Sections: Overview; When to Apply; Quick Reference; OSS-Fuzz Project Components; Step-by-Step: Running a Single Harness; Common Patterns; Docker Images in OSS-Fuzz; Advanced Usage; Anti-Patterns; Tool-Specific Guidance
+
+### pr
+Use when writing a PR body.
+Sections: Summary; Evidence; Merge Danger; Sections
 
 ### slides
 Create strategic HTML presentations with Chart.js, design tokens, responsive layouts, copywriting formulas, and contextual slide strategies.
@@ -1506,6 +1778,14 @@ Sections: Before Starting; How This Skill Works; The Extraction Pipeline; Proact
 Create new agent skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, build, or author a new skill.
 Sections: Process; Skill Structure; SKILL.md Template; Quick start; Workflows; Advanced features; Description Requirements; When to Add Scripts; When to Split Files; Review Checklist
 
+### writing-for-agents
+Writing documents for agents. Use when creating or editing skills, or modifying AGENTS.md or CLAUDE.md.
+Sections: Context pointers; The two loads; Information hierarchy; Steps and completion criteria; When to split; Leading words; Pruning
+
+### writing-lean-proofs
+Writes and reviews structured Lean 4 proofs and designs Lean libraries following Mathlib conventions. Use when proving theorems in Lean, formalizing mathematics or specifications in Lean 4, defining new types or definitions in a Lean library, reviewing Lean proofs for readability and maintainability, refactoring long tactic proofs into lemmas, filling in sorry placeholders in a Lean development, setting up CI or linters for a Lean project, diagnosing slow proofs or maxHeartbeats timeouts, or writing custom tactics, macros, or linters.
+Sections: Contents; When to Use; When NOT to Use; The workflow; The extraction ladder; Quick reference; Rationalizations to reject; References
+
 ### writing-plans
 Use when you have a spec or requirements for a multi-step task, before touching code
 Sections: Overview; Scope Check; File Structure; Task Right-Sizing; Bite-Sized Task Granularity; Plan Document Header; Global Constraints; Task Structure; No Placeholders; Remember
@@ -1524,6 +1804,10 @@ Sections: When to use; Pattern decision table; Workflow; References
 Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations.
 Sections: ALGORITHMIC PHILOSOPHY CREATION; DEDUCING THE CONCEPTUAL SEED; P5.JS IMPLEMENTATION; INTERACTIVE ARTIFACT CREATION; VARIATIONS & EXPLORATION; THE CREATIVE PROCESS; RESOURCES
 
+### api-and-interface-design
+Guides stable API and interface design. Use when designing APIs, module boundaries, or any public interface. Use when creating REST or GraphQL endpoints, defining type contracts between modules, or establishing boundaries between frontend and backend.
+Sections: Overview; When to Use; Core Principles; REST API Patterns; TypeScript Interface Patterns; Common Rationalizations; Red Flags; Verification
+
 ### api-design-reviewer
 Comprehensive REST API design review with automated linting, breaking-change detection, and design scorecards. Catches inconsistent conventions, missing versioning, and design smells before APIs ship. Use when reviewing a PR that adds or changes API endpoints, auditing an existing API for v2 migration, or establishing API standards for a team.
 Sections: Overview; Quick Start — run the tools first; Core Capabilities; REST Design Principles; Versioning Strategies; Pagination Patterns; Error Response Formats; Authentication and Authorization Patterns; Rate Limiting Implementation; HATEOAS (Hypermedia as the Engine of Application State)
@@ -1539,6 +1823,10 @@ Sections: When to Activate; Available Resources; Workflow; Banner Size Quick Ref
 ### brainstorming
 You MUST use this before any creative work - creating features, building components, adding functionality, or modifying behavior. Explores user intent, requirements and design before implementation.
 Sections: Anti-Pattern: "This Is Too Simple To Need A Design"; Checklist; Process Flow; The Process; After the Design; Key Principles; Visual Companion
+
+### codebase-design
+Shared vocabulary for designing deep modules. Use when the user wants to design or improve a module's interface, find deepening opportunities, decide where a seam goes, make code more testable or AI-navigable, or when another skill needs the deep-module vocabulary.
+Sections: Glossary; Deep vs shallow; Principles; Designing for testability; Relationships; Rejected framings; Going deeper
 
 ### database-designer
 Use when the user asks to design database schemas, plan data migrations, optimize queries, choose between SQL and NoSQL, or model data relationships.
@@ -1564,6 +1852,10 @@ Sections: Before Starting; Your Mindset; How This Skill Works; Step 1 — Unders
 Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.
 Sections: Ground it in the subject; Design principles; Process: brainstorm, explore, plan, critique, build, critique again; Restraint and self-critique; More on writing in design
 
+### frontend-ui-engineering
+Builds production-quality, accessible, responsive user-facing UIs. Use when building or modifying interfaces and pages, creating components, implementing layouts, meeting WCAG accessibility requirements, managing state, or when the output needs to look and feel production-quality rather than AI-generated.
+Sections: Overview; When to Use; Component Architecture; State Management; Design System Adherence; Accessibility (WCAG 2.1 AA); Responsive Design; Loading and Transitions; See Also; Common Rationalizations
+
 ### full-page-screenshot
 Use when the user asks to capture a full-page screenshot, long screenshot, or complete page capture of a web page. Handles SPA scroll containers, lazy-loaded images, and very tall pages via Chrome DevTools Protocol with zero external dependencies.
 Sections: Prerequisites; Workflow; Core Capabilities; How It Works; Anti-Patterns; Troubleshooting; Cross-References
@@ -1575,6 +1867,14 @@ Sections: Before Starting; Choosing Your Approach; AI Image Generation; Design T
 ### observability-designer
 Design production-ready observability strategies combining metrics, logs, and traces. Includes SLI/SLO design, golden-signals monitoring, alert optimization. Use when adding observability to a new service, refactoring alerting that is too noisy, or designing an SLO program before scaling production load.
 Sections: Overview; Quick Start; Core Competencies; Scripts Overview; Integration Patterns; Advanced Patterns; Best Practices
+
+### performance-optimization
+Optimizes application performance across frontend, backend, queries, and databases. Use when performance requirements exist, when you suspect performance regressions, when Core Web Vitals or load times need improvement, when N+1 query patterns need fixing, or when profiling reveals bottlenecks.
+Sections: Overview; When to Use; Core Web Vitals Targets; The Optimization Workflow; See Also; Common Rationalizations; Red Flags; Verification
+
+### prototype
+Build a throwaway prototype to answer a design question. Use when the user wants to sanity-check whether a state model or logic feels right, or explore what a UI should look like.
+Sections: Pick a branch; Rules that apply to both
 
 ### remotion
 Best practices for Remotion - Video creation in React
@@ -1618,9 +1918,49 @@ Sections: Design & Style Guidelines; Quick Start; Reference
 
 ## Testing and QA
 
+### address-sanitizer
+Builds and runs code under AddressSanitizer to catch buffer overflows, use-after-free, and other memory errors during fuzzing or tests. Covers -fsanitize=address builds, ASAN_OPTIONS, reading the crash report, LeakSanitizer, and the overhead and platform trade-offs. Use when fuzzing C/C++ or Rust that has unsafe blocks or FFI, when debugging a memory corruption crash, or when reading an ASan stack trace.
+Sections: Overview; When to Apply; Quick Reference; Step-by-Step; Common Patterns; Advanced Usage; Anti-Patterns; Tool-Specific Guidance; Troubleshooting; Related Skills
+
 ### api-test-suite-builder
 Use when the user asks to generate API tests, create integration test suites, test REST endpoints, or build contract tests.
 Sections: Overview; Core Capabilities; When to Use; Route Detection; Test Generation Patterns; Example Test Files; Generating Tests from Route Scan; Common Pitfalls; Best Practices
+
+### atheris
+Sets up and runs Atheris, the coverage-guided Python fuzzer built on libFuzzer. Covers TestOneInput harnesses, FuzzedDataProvider, instrumenting both pure Python and native C extensions, and running under AddressSanitizer. Use when fuzzing a Python package, hunting memory corruption in a Python C extension, or choosing between Atheris and Hypothesis for a Python target.
+Sections: When to Use; Quick Start; Installation; Writing a Harness; Fuzzing Pure Python Code; Fuzzing Python C Extensions; Corpus Management; Running Campaigns; Sanitizer Integration; Advanced Usage
+
+### browser-testing-with-devtools
+Tests in real browsers via Chrome DevTools MCP. Use when building or debugging anything that runs in a browser. Use when you need to inspect the DOM, capture console errors, analyze network requests, profile performance, or verify visual output with real runtime data. Requires the chrome-devtools MCP server to be configured.
+Sections: Overview; When to Use; Setting Up Chrome DevTools MCP; Security Boundaries; The DevTools Debugging Workflow; Writing Test Plans for Complex UI Bugs; Test Plan: Task completion animation bug; Screenshot-Based Verification; Console Analysis Patterns; Accessibility Verification with DevTools
+
+### constant-time-testing
+Measures timing side channels in cryptographic implementations by running them, using dudect for statistical analysis and Timecop over Valgrind for dynamic tracing. Covers the formal, symbolic, dynamic, and statistical tool categories and how to read a result. Use when testing whether a running implementation is constant-time, measuring timing variance on a compiled binary, or investigating a suspected timing attack. Not for statically inspecting compiler output — the constant-time-analysis plugin covers that.
+Sections: Background; When to Use; Quick Reference; Constant-Time Tooling Categories; Testing Workflow; Tools and Approaches; Implementation Guide; Common Vulnerabilities; Case Studies; Advanced Usage
+
+### coverage-analysis
+Measures and interprets what a fuzzing campaign actually reaches, using llvm-cov, lcov, or a fuzzer's own coverage output. Covers baselining a new campaign, reading coverage reports, and turning uncovered regions into harness, seed, or dictionary work. Use when a fuzzer plateaus, when judging whether a harness is effective, after changing a harness, or when asking why some code is never reached.
+Sections: Overview; When to Apply; Quick Reference; Ideal Coverage Workflow; Step-by-Step; Common Patterns; Advanced Usage; Anti-Patterns; Tool-Specific Guidance; Troubleshooting
+
+### debugging-and-error-recovery
+Guides systematic root-cause debugging. Use when tests fail, builds break, something that worked yesterday broke, behavior doesn't match expectations, or you encounter any unexpected error. Use when you need to figure out what broke and why — a systematic approach to finding and fixing the root cause rather than guessing.
+Sections: Overview; When to Use; The Stop-the-Line Rule; The Triage Checklist; Error-Specific Patterns; Safe Fallback Patterns; Instrumentation Guidelines; Common Rationalizations; Treating Error Output as Untrusted Data; Red Flags
+
+### fuzzing-obstacles
+Patches past the barriers that stop a fuzzer making progress — checksum and hash verification, magic-value validation, time-based seeds, and other non-deterministic global state. Covers locating the blocking check, neutering it behind a fuzzing build flag, and avoiding the false positives a patch can introduce. Use when a fuzzer is stuck at validation, when coverage shows large regions behind a checksum, or when valid inputs are impractical to generate.
+Sections: Overview; When to Apply; Quick Reference; Step-by-Step; Common Patterns; Advanced Usage; Anti-Patterns; Tool-Specific Guidance; Troubleshooting; Related Skills
+
+### genotoxic
+Graph-informed mutation testing triage. Parses codebases with Trailmark, runs mutation testing and necessist, then uses survived mutants, unnecessary test statements, and call graph data to identify false positives, missing test coverage, and fuzzing targets. Use when triaging survived mutants, analyzing mutation testing results, identifying test gaps, finding fuzzing targets from weak tests, running mutation frameworks (including circomvent and cairo-mutants), or using necessist.
+Sections: When to Use; When NOT to Use; Prerequisites; Rationalizations to Reject; Quick Start; Workflow Overview; Decision Tree; Phase 1: Build Code Graph and Run Pre-Analysis; Phase 2: Run Mutation Testing; Phase 2b: Run Necessist (Optional)
+
+### mutation-testing
+Configures mewt or muton campaigns, analyzes surviving mutants, and investigates bugs exposed by testing gaps. Use when setting up mutation testing, reviewing campaign results, identifying equivalent mutants, or finding bugs from surviving mutations.
+Sections: When to Use; When NOT to Use; Routing; Essential Commands; What Results Mean; Interpreting Mutation Types
+
+### property-based-testing
+Writes, reviews, and debugs property-based tests — Hypothesis, fast-check, proptest, jqwik, rapid, and Echidna or Medusa for Solidity invariants. Use whenever tests should cover a whole input domain instead of a hand-picked list of examples: encode/decode and serialize/deserialize pairs, parsers, canonicalizers and normalizers, validators, numeric and Decimal types, comparators and sort order, data structures, and smart-contract state invariants. Also use when adding cases to an existing @given, fast-check, or proptest suite, when judging whether existing property tests assert anything real, and when a generator has shrunk a counterexample and you need to tell a wrong property from a genuine bug. Not for coverage-guided binary fuzzing (libFuzzer, AFL), mutation-testing campaigns, static analysis, benchmarking, or end-to-end UI tests.
+Sections: Property catalog; The two ways a property test asserts nothing; Where to look next; Introducing PBT to a project that lacks it
 
 ### pw
 Production-grade Playwright testing toolkit. Use when the user mentions Playwright tests, end-to-end testing, browser automation, fixing flaky tests, test migration, CI/CD testing, or test suites. Generate tests, fix flaky failures, migrate from Cypress/Selenium, sync with TestRail, run on BrowserStack. 55 templates, 3 agents, smart reporting.
@@ -1666,6 +2006,10 @@ Sections: Prerequisites; Capabilities; MCP Tools Used; Test Annotation Format; O
 Generates unit tests, integration tests, and E2E tests for React/Next.js applications. Scans components to create Jest + React Testing Library test stubs, analyzes Istanbul/LCOV coverage reports to surface gaps, scaffolds Playwright test files from Next.js routes, mocks API calls with MSW, creates test fixtures, and configures test runners. Use when the user asks to "generate tests", "write unit tests", "analyze test coverage", "scaffold E2E tests", "set up Playwright", "configure Jest", "implement testing patterns", or "improve test quality".
 Sections: Quick Start; Tools Overview; QA Workflows; Reference Documentation; Common Patterns Quick Reference; Common Commands
 
+### setup-pre-commit
+Set up Husky pre-commit hooks with lint-staged (Prettier), type checking, and tests in the current repo. Use when user wants to add pre-commit hooks, set up Husky, configure lint-staged, or add commit-time formatting/typechecking/testing.
+Sections: What This Sets Up; Steps; Notes
+
 ### skill-tester
 Validate, test, and score the quality of skills within the claude-skills ecosystem. Comprehensive meta-skill: structure validation, Python script testing (syntax + imports + runtime + output format), multi-dimensional quality scoring with letter grades and tier classification (BASIC/STANDARD/POWERFUL). Use when authoring a new skill, auditing existing skills for tier promotion, setting up pre-commit hooks for skill quality, or integrating skill QA into CI.
 Sections: Quick Start (exact, runnable from repo root); What Each Tool Checks; Tier Classification; CI Integration; Verification Loop; Troubleshooting
@@ -1678,6 +2022,10 @@ Sections: Overview; The Iron Law; When to Use; The Four Phases; Red Flags - STOP
 ### test-driven-development
 Use when implementing any feature or bugfix, before writing implementation code
 Sections: Overview; When to Use; The Iron Law; Red-Green-Refactor; Good Tests; Why Order Matters; Common Rationalizations; Red Flags - STOP and Start Over; Example: Bug Fix; Verification Checklist
+
+### vector-forge
+Mutation-driven test vector generation. Finds implementations of a cryptographic algorithm or protocol, runs mutation testing to identify escaped mutants, then generates new test vectors that deliberately exercise the uncovered code paths. Compares before/after mutation kill rates to prove vector effectiveness. Use when generating cryptographic test vectors, measuring Wycheproof coverage gaps, finding escaped mutants via mutation testing, creating cross-implementation test suites, or improving test vector coverage for crypto primitives.
+Sections: When to Use; When NOT to Use; Prerequisites; Rationalizations to Reject; Workflow Overview; Phase 1: Discovery; Phase 2: Harness; Phase 3: Baseline; Phase 4: Escape Analysis (Graph-Informed Triage); Phase 5: Vector Generation
 
 ### webapp-testing
 Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs.
@@ -1697,9 +2045,25 @@ Sections: Workflow; Tools; Quick Start; Input Requirements; Anti-Patterns; Outpu
 Use when planning, running, or learning from chaos engineering experiments. Triggers on "chaos experiment", "fault injection", "gameday", "resilience test", "blast radius", "steady state", "abort criteria", "Chaos Toolkit", "Chaos Mesh", "Litmus", "Gremlin", "AWS FIS", or any deliberate failure-injection question. Ships experiment designer, blast-radius calculator, and postmortem generator (all stdlib Python), 4 references on chaos principles + experiment design + attack taxonomy + tooling landscape, and a /chaos-experiment slash command. Composes with feature-flags-architect (kill switches as abort triggers) and kubernetes-operator (common chaos targets).
 Sections: When to use; When NOT to use; Core principle: chaos without abort criteria is an outage; Quick start; The 3 Python tools; The 7 attack types (taxonomy); Tooling chooser; Workflows; Composition with other skills; Anti-patterns
 
+### ci-cd-and-automation
+Automates CI/CD pipeline setup. Use when setting up or modifying build and deployment pipelines. Use when you need to automate quality gates, configure test runners in CI, or establish deployment strategies.
+Sections: Overview; When to Use; The Quality Gate Pipeline; GitHub Actions Configuration; Feeding CI Failures Back to Agents; Deployment Strategies; Environment Management; Automation Beyond CI; CI Optimization; Common Rationalizations
+
 ### ci-cd-pipeline-builder
 Generate pragmatic CI/CD pipelines from detected project stack signals — fast baseline generation, repeatable checks, environment-aware deployment stages. Use when setting up CI for a new project, refactoring existing pipelines, or standardizing deployment workflows across multiple repos.
 Sections: Overview; Core Capabilities; When to Use; Key Workflows; Script Interfaces; References
+
+### deprecation-and-migration
+Manages deprecation and migration. Use when removing old systems, APIs, or features. Use when migrating users from one implementation to another. Use when migrating a database schema in production, such as renaming or dropping a column without downtime (expand/contract). Use when deciding whether to maintain or sunset existing code.
+Sections: Overview; When to Use; Core Principles; The Deprecation Decision; Compulsory vs Advisory Deprecation; The Migration Process; Deprecation Notice: OldService; Migration Patterns; Zombie Code; Common Rationalizations
+
+### diagnosing-bugs
+Diagnosis loop for hard bugs and performance regressions. Use when the user says "diagnose"/"debug this", or reports something broken/throwing/failing/slow.
+Sections: Redact; Phase 1: Build a feedback loop; Phase 2: Reproduce + minimise; Phase 3: Hypothesise; Phase 4: Instrument; Phase 5: Fix + regression test; Phase 6: Cleanup
+
+### diagramming-code
+Generates Mermaid diagrams from Trailmark code graphs. Produces call graphs, class hierarchies, module dependency maps, containment diagrams, complexity heatmaps, and attack surface data flow visualizations. Use when visualizing code architecture, drawing call graphs, generating class diagrams, creating dependency maps, producing complexity heatmaps, or visualizing data flow and attack surface paths as Mermaid diagrams.
+Sections: When to Use; When NOT to Use; Prerequisites; Version Gate; Quick Start; Diagram Types; Workflow; Script Reference; Customization; Supporting Documentation
 
 ### feature-flags-architect
 Use when adding, retiring, or auditing feature flags. Triggers on "add a flag", "ship behind a flag", "rollout plan", "kill switch", "stale flags", "flag debt", "LaunchDarkly", "GrowthBook", "Statsig", "Unleash", "Flipt", or any progressive-delivery question. Ships flag debt scanner, rollout planner, and kill-switch auditor (all stdlib Python), 4 references on flag taxonomy + provider trade-offs + rollout strategies + lifecycle, plus a /flag-cleanup slash command.
@@ -1741,6 +2105,10 @@ Sections: Overview; Core Capabilities; When to Use; Tool Selection; Turborepo; W
 Microsoft 365 tenant administration for Global Administrators. Automate M365 tenant setup, Office 365 admin tasks, Azure AD user management, Exchange Online configuration, Teams administration, and security policies. Generate PowerShell scripts for bulk operations, Conditional Access policies, license management, and compliance reporting. Use for M365 tenant manager, Office 365 admin, Azure AD users, Global Administrator, tenant configuration, or Microsoft 365 automation.
 Sections: Quick Start; Workflows; Best Practices; Reference Guides; Limitations
 
+### observability-and-instrumentation
+Instruments code so production behavior is visible and diagnosable. Use when adding logging, metrics, tracing, or alerting. Use when shipping any feature that runs in production and you need evidence it works. Use when production issues are reported but you can't tell what happened from the available data.
+Sections: Overview; When to Use; Process; Common Rationalizations; Red Flags; Verification
+
 ### red-team
 Use when planning or executing authorized red team engagements, attack path analysis, or offensive security simulations. Covers MITRE ATT&CK kill-chain planning, technique scoring, choke point identification, OPSEC risk assessment, and crown jewel targeting.
 Sections: Table of Contents; Overview; Engagement Planner Tool; Kill-Chain Phase Methodology; Technique Scoring and Prioritization; Choke Point Analysis; OPSEC Risk Assessment; Crown Jewel Targeting; Attack Path Methodology; Workflows
@@ -1764,6 +2132,10 @@ Sections: Slash Commands; When This Skill Activates; Workflow; Tooling; Module D
 ### threat-detection
 Use when hunting for threats in an environment, analyzing IOCs, or detecting behavioral anomalies in telemetry. Covers hypothesis-driven threat hunting, IOC sweep generation, z-score anomaly detection, and MITRE ATT&CK-mapped signal prioritization.
 Sections: Table of Contents; Overview; Threat Signal Analyzer; Threat Hunting Methodology; IOC Analysis; Anomaly Detection; MITRE ATT&CK Signal Prioritization; Deception and Honeypot Integration; Workflows; Anti-Patterns
+
+### trailmark-summary
+Runs a Trailmark summary analysis on a codebase. Returns auto-detected languages, entry point count, and dependency list. Use when vivisect or galvanize needs a quick structural overview. Triggers: trailmark summary, code summary, structural overview.
+Sections: When to Use; When NOT to Use; Rationalizations to Reject; Usage; Execution
 
 ## AI agents, prompts and context
 
@@ -1825,6 +2197,10 @@ Flags: saves-to-~/.claude
 Loads and manages company context for all C-suite advisor skills. Reads ~/.claude/company-context.md, detects stale context (>90 days), enriches context during conversations, and enforces privacy/anonymization rules before external API calls. Use when starting any C-suite advisor session, when context looks stale or missing, or before sending company data to an external service.
 Sections: Keywords; Load Protocol (Run at Start of Every C-Suite Session); Context Quality Signals; Context Enrichment; Privacy Rules; Missing or Partial Context; Required Context Fields; References
 
+### context-engineering
+Optimizes agent context setup. Use when starting a new session, when agent output quality degrades, when switching between tasks, or when you need to configure rules files and context for a project.
+Sections: Overview; When to Use; The Context Hierarchy; Tech Stack; Commands; Code Conventions; Boundaries; Patterns; Context Packing Strategies; Authentication (src/auth/)
+
 ### context-fundamentals
 This skill should be used to explain or reason about the foundational concepts of context engineering: what context is, the anatomy of a context window, how attention mechanics work, the U-shaped attention curve, why context quality matters more than quantity, and the mental models needed to interpret every other context-engineering decision. Use this for conceptual explanation, onboarding, and background reading. Route operational work to the specialized skills: debugging attention failures goes to context-degradation, token-efficiency work goes to context-optimization, conversation summarization goes to context-compression, and project-shape decisions go to project-development.
 Sections: When to Activate; Core Concepts; Detailed Topics; Practical Guidance; Examples; Guidelines; Gotchas; Integration; References; Skill Metadata
@@ -1857,6 +2233,22 @@ Sections: When to Activate; Core Concepts; Detailed Topics; Practical Guidance; 
 ### filesystem-context
 This skill should be used when agent work needs file-backed context: durable scratchpads, tool-output offloading, just-in-time discovery, cross-agent handoff files, filesystem memory, or cleanup policies for context stored outside the prompt.
 Sections: When to Activate; Core Concepts; Detailed Topics; Practical Guidance; Examples; Guidelines; Gotchas; Integration; References; Skill Metadata
+
+### git-guardrails-claude-code
+Set up Claude Code hooks to block dangerous git commands (push, reset --hard, clean, branch -D, etc.) before they execute. Use when user wants to prevent destructive git operations, add git safety hooks, or block git push/reset in Claude Code.
+Sections: What Gets Blocked; Steps
+
+### git-workflow-and-versioning
+Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, splitting uncommitted work in a messy working tree into clean atomic commits, opening or reviewing a pull request (PR), pushing to a remote, or when you need to organize work across multiple parallel streams. Use when cutting a release, choosing a semantic version bump, tagging, or writing a changelog.
+Sections: Overview; When to Use; Core Principles; Branching Strategy; Working with Worktrees; The Save Point Pattern; Change Summaries; Pre-Commit Hygiene; Handling Generated Files; Using Git for Debugging
+
+### github-triage
+Triages a repository's open GitHub issues and pull requests via the gh CLI. Optionally reviews and merges ready PRs — incrementally merging passing automated/bot PRs and maintainer-approved ones, and spawning review subagents for never-reviewed ones — then closes already-resolved issues with comments citing the resolving PR or commit, cross-links issues with their pending fix PRs, and assigns local-only priority and change-size estimates for everything outstanding. Use when triaging, grooming, or reviewing a repository's open issues and PRs.
+Sections: When to Use; When NOT to Use; Core Principles; Workflow; Triage for OWNER/REPO  (N open issues); Safety Rules; Rationalizations to Reject
+
+### goal-prompt
+Drafts copy-paste-ready /goal commands for goal mode in Claude Code and Codex. Use when the user asks to create, write, rewrite, improve, compress, clean up, or prepare a goal prompt, goal condition, /goal command, goal-mode objective, or copy-ready long-running task objective.
+Sections: Draft; Close the easy-outs; Security research goals; Format; Example
 
 ### harness-engineering
 This skill should be used when designing autonomous agent harnesses: research loops, evaluation scaffolds, locked and editable surfaces, durable logs, novelty gates, pruning, rollback, PR preparation, and human approval boundaries.
@@ -1950,9 +2342,17 @@ Sections: Operating Rules; Tools (exact CLIs, all stdlib); Workflows; References
 Compact the current conversation into a handoff document for another agent to pick up. Save to a user-configured location (OS temp, home folder, or per-project .handoff/), redact secrets before write, suggest skills for the next session, and auto-load the latest handoff on the next SessionStart. First-run setup asks where to save so the project folder never gets cluttered. Use when the user says 'hand this off', 'handoff doc', 'summarize this for a new session', 'compact this conversation', 'I'm ending this session', 'pick this up later', or any variation signaling intent to pass work to a fresh agent. Also trigger on implicit signals: the user announcing they're switching machines, ending the day mid-task, or context is growing long without a natural stopping point.
 Sections: Invocation Triggers; First-Run Setup; Output Path; Section Template; The Agent's Job; Anti-Patterns; Redaction; SessionStart Auto-Load; SessionEnd Reminder; Refreshing an Existing Handoff
 
+### slicing-code-context
+Selects bounded, graph-informed source slices with Trailmark and delegates focused code analysis or patch-proposal work to a smaller subagent. Use when offloading function-, class-, caller-, callee-, call-path-, entrypoint-, or line-focused code tasks to constrained or locally hosted models without exposing the full repository.
+Sections: When to Use; When NOT to Use; Rationalizations to Reject; Workflow; Error Handling; Example Requests; Input to Output Example
+
 ### subagent-driven-development
 Use when executing implementation plans with independent tasks in the current session
 Sections: When to Use; The Process; Pre-Flight Plan Review; Model Selection; Handling Implementer Status; Handling Reviewer ⚠️ Items; Constructing Reviewer Prompts; File Handoffs; Durable Progress; Prompt Templates
+
+### teach
+Teach the user a new skill or concept, within this workspace.
+Sections: Teaching Workspace; Philosophy; Lessons; Assets; The Mission; Zone Of Proximal Development; Knowledge; Skills; Acquiring Wisdom; Reference Documents
 
 ### tech-stack-evaluator
 Technology stack evaluation and comparison with TCO analysis, security assessment, and ecosystem health scoring. Use when comparing frameworks, evaluating technology stacks, calculating total cost of ownership, assessing migration paths, or analyzing ecosystem viability.
@@ -1968,6 +2368,10 @@ Sections: When to invoke (opt-in discipline); Credits & Inspiration; Before Star
 
 ## Engineering and code
 
+### code-simplification
+Simplifies code for clarity. Use when refactoring code for clarity without changing behavior. Use when code works but is harder to read, maintain, or extend than it should be. Use when reviewing code that has accumulated unnecessary complexity.
+Sections: Overview; When to Use; The Five Principles; The Simplification Process; Language-Specific Guidance; Common Rationalizations; Red Flags; Verification
+
 ### receiving-code-review
 Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation
 Sections: Overview; The Response Pattern; Forbidden Responses; Handling Unclear Feedback; Source-Specific Handling; YAGNI Check for "Professional" Features; Implementation Order; When To Push Back; Acknowledging Correct Feedback; Gracefully Correcting Your Pushback
@@ -1975,6 +2379,22 @@ Sections: Overview; The Response Pattern; Forbidden Responses; Handling Unclear 
 ### requesting-code-review
 Use when completing tasks, implementing major features, or before merging to verify work meets requirements
 Sections: When to Request Review; How to Request; Example; Integration with Workflows; Red Flags
+
+### retro
+Conduct a retrospective on a coding session.
+Sections: Steps; Reference
+
+### review-walkthrough
+Generates an interactive HTML walkthrough for reviewing code changes. Use only when explicitly called.
+Sections: Capture the branch diff; Shape the review; Render the artifact
+
+### trailmark-structural
+Runs full Trailmark structural analysis by building a graph, running `preanalysis()`, and reporting hotspots, taint, blast radius, privilege boundaries, attack surface, and version-gated Trailmark 0.4+/0.5+ data such as proxy counts, subgraph edges, type/reference summaries, and entrypoint attributes. Use when vivisect needs detailed structural data for a target. Triggers: structural analysis, blast radius, taint analysis, complexity hotspots, proxy nodes, type references.
+Sections: When to Use; When NOT to Use; Rationalizations to Reject; Usage; Execution
+
+### trailmark-variant-neighborhood
+Expands one confirmed or suspected vulnerability into a Trailmark graph neighborhood of variant candidates by finding sibling functions, shared callers and callees, common sensitive sinks, common entrypoint paths, interface implementations, override relationships, type/reference neighbors, and structurally similar nodes. Use after one issue is found to seed variant-analysis, semgrep-rule-creator, static-analysis, or manual review with graph-derived candidate locations.
+Sections: When to Use; When NOT to Use; Rationalizations to Reject; Workflow; Stop Conditions
 
 ### using-git-worktrees
 Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback
@@ -1984,3 +2404,6 @@ Sections: Overview; Step 0: Detect Existing Isolation; Step 1: Create Isolated W
 Flags: auto
 Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always
 Sections: Overview; The Iron Law; The Gate Function; Common Failures; Red Flags - STOP; Rationalization Prevention; Key Patterns; Why This Matters; When To Apply; The Bottom Line
+
+### wait-what
+Stop. That last message did not land: re-pitch it.

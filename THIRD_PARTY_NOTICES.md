@@ -64,6 +64,36 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+## addyosmani/agent-skills
+
+Commit `aeac41d4d005999432bb7312f7ff06383a91d59d`, https://github.com/addyosmani/agent-skills. 23 skills taken whole, SKILL.md included, plus the shared checklists from the repository's references/ folder, placed inside the skills that link to them. test-driven-development and using-agent-skills were left out (_build/omitted.tsv gives why).
+
+MIT License:
+
+```
+MIT License
+
+Copyright (c) 2025 Addy Osmani
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
 ## alirezarezvani/claude-skills
 
 Commits `1bd5b1a0b51c91f6e3335592c2b41ffb9b543002` (99 files) and `19392f7a08264ed00486a251f5b2098321771f94` (1,265 files), https://github.com/alirezarezvani/claude-skills. Files in 254 skills.
@@ -140,6 +170,36 @@ MIT License:
 MIT License
 
 Copyright (c) 2026 Steph Ango (@kepano)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+## mattpocock/skills
+
+Commit `49dd158d1076134a641b33efb035946536778336`, https://github.com/mattpocock/skills. 14 skills taken whole, SKILL.md included; the rest of the collection was left out, each with its reason in _build/omitted.tsv. caveman, grill-me, grill-with-docs and write-a-skill come from alirezarezvani/claude-skills, which adapted them from his earlier versions.
+
+MIT License:
+
+```
+MIT License
+
+Copyright (c) 2026 Matt Pocock
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -251,6 +311,20 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## trailofbits/skills
+
+Commit `e1f86a390d4caf28bf1c377a7d86707b2898669c`, https://github.com/trailofbits/skills. 69 skills taken whole, SKILL.md included; the 14 left out are listed with their reasons in _build/omitted.tsv.
+
+Licensed under the Creative Commons Attribution-ShareAlike 4.0 International licence (CC BY-SA 4.0), https://creativecommons.org/licenses/by-sa/4.0/legalcode. Copyright Trail of Bits. The copies here are adapted, and the adapted copies are shared under the same licence. The changes:
+
+- Files that sat at the plugin level upstream now sit inside the skill that uses them: the `ct_analyzer` package in constant-time-analysis, the agent prompts in differential-review (`agents/adversarial-modeler.md`), sharp-edges (`agents/sharp-edges-analyzer.md`) and dimensional-analysis (five files under `agents/`), and the plugin README in yara-rule-authoring.
+- differential-review, sharp-edges and dimensional-analysis say how to run their agents as general-purpose subagents when Trail of Bits' plugin is not installed, and the two agent prompts that named paths from the plugin root name them from the skill's folder.
+- yara-rule-authoring's link to the script documentation points at the README beside it.
+- The build removes `allowed-tools` from every skill's front matter (no skill here pre-approves tools) and adds `disable-model-invocation: true` (the skill loads only when called or found by skill-router).
+- Codex's `agents/openai.yaml` files were not copied.
+
+_build/fixes/SOURCES.md lists each changed file with its upstream commit.
 
 ## borghei/claude-skills
 

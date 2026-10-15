@@ -69,3 +69,43 @@ spawn	lacks its scripts; replaced by hub-spawn, taken whole from upstream
 status	self-improving family: clashes with the built-in /status
 using-superpowers	coercive meta-rules ('even a 1% chance a skill applies, you MUST invoke it'; ranks itself above default behaviour)
 xlsx	stale copy of anthropic-skills:xlsx, scripts missing
+ask-matt (mattpocock/skills)	a router over Matt Pocock's own collection; skill-router covers discovery
+audit-context-building (trailofbits/skills)	its main mode is a plugin command that runs a workflow script
+c-review (trailofbits/skills)	runs through its plugin's agents and workflow scripts, which a skills install doesn't provide
+chief-of-staff (mattpocock/skills)	marked in progress upstream, and the toolbox already has a chief-of-staff
+claude-handoff (mattpocock/skills)	marked in progress upstream
+code-improver (trailofbits/skills)	runs through its plugin's agents and workflow scripts, which a skills install doesn't provide
+code-review (mattpocock/skills)	its name would replace Claude Code's /code-review
+devcontainer-setup (trailofbits/skills)	its Dockerfile pipes the Claude Code and fnm install scripts into bash
+gh-cli (trailofbits/skills)	a plugin hook does its work, which a skills install doesn't provide
+grill-me (mattpocock/skills)	the toolbox already has grill-me, adapted from Matt Pocock's earlier version
+grill-with-docs (mattpocock/skills)	the toolbox already has grill-with-docs, adapted from Matt Pocock's earlier version
+grilling (mattpocock/skills)	near-duplicate of grill-me
+handoff (mattpocock/skills)	near-duplicate of skills-handoff, which is based on it
+implement (mattpocock/skills)	spec-to-tickets chain (see to-spec)
+implement-spec (mattpocock/skills)	spec-to-tickets chain (see to-spec)
+interpreting-culture-index (trailofbits/skills)	interprets a proprietary hiring and personality survey; too narrow for a general collection
+let-fate-decide (trailofbits/skills)	draws tarot cards to add randomness to planning; a novelty
+loop-me (mattpocock/skills)	marked in progress upstream
+migrate-to-shoehorn (mattpocock/skills)	migrates tests to the author's own library; too narrow for a general collection
+pr-improver (trailofbits/skills)	runs through its plugin's agents and workflow scripts, which a skills install doesn't provide
+research (mattpocock/skills)	its name is taken by the toolbox's research router
+rust-review (trailofbits/skills)	runs through its plugin's agents and workflow scripts, which a skills install doesn't provide
+scaffold-exercises (mattpocock/skills)	builds exercises for the author's courses
+semgrep-rule-variant-creator (trailofbits/skills)	runs through its plugin's agents and workflow scripts, which a skills install doesn't provide
+setup-matt-pocock-skills (mattpocock/skills)	sets up the spec-to-tickets chain, which is left out
+setup-ts-deep-modules (mattpocock/skills)	marked in progress upstream
+skill-improver (trailofbits/skills)	runs through its plugin's agents and workflow scripts, which a skills install doesn't provide
+spec-to-code-compliance (trailofbits/skills)	its main mode is a plugin command that runs a workflow script
+tdd (mattpocock/skills)	near-duplicate of test-driven-development and tdd-guide
+test-driven-development (addyosmani/agent-skills)	its name is taken by superpowers' test-driven-development
+testing-handbook-generator (trailofbits/skills)	maintains Trail of Bits' own testing-handbook skills
+to-spec (mattpocock/skills)	spec-to-tickets chain: calls grilling, research, tdd and code-review by name, which clash here; brainstorming, writing-plans and executing-plans cover the flow
+to-tickets (mattpocock/skills)	spec-to-tickets chain (see to-spec)
+triage (mattpocock/skills)	spec-to-tickets chain (see to-spec)
+using-agent-skills (addyosmani/agent-skills)	a router over Addy Osmani's own collection; skill-router covers discovery
+wayfinder (mattpocock/skills)	spec-to-tickets chain (see to-spec)
+writing-beats (mattpocock/skills)	marked in progress upstream
+writing-fragments (mattpocock/skills)	marked in progress upstream
+writing-shape (mattpocock/skills)	marked in progress upstream
+zeroize-audit (trailofbits/skills)	runs through its plugin's agents and workflow scripts, which a skills install doesn't provide, and needs the serena MCP server

@@ -1,6 +1,6 @@
 ---
 name: skill-router
-description: Finds and loads the right specialist playbook from the 476 on-demand skills in ~/.claude/skills, which are kept out of the skill list to save context. Use when a task is in a specialist area (finance and market data, strategy or board advice, research, SEO, marketing, copywriting, engineering, cloud, security, compliance and audits, design, product, sales, data) and no listed skill already covers it, at the start of a substantive task, or when the user asks for the best skill or names a skill that is not in the list.
+description: Finds and loads the right specialist playbook from the 582 on-demand skills in ~/.claude/skills, which are kept out of the skill list to save context. Use when a task is in a specialist area (finance and market data, strategy or board advice, research, SEO, marketing, copywriting, engineering, cloud, security, compliance and audits, design, product, sales, data) and no listed skill already covers it, at the start of a substantive task, or when the user asks for the best skill or names a skill that is not in the list.
 ---
 
 # Skill router

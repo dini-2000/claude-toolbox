@@ -50,6 +50,75 @@ WHOLE = {"agenthub": ("agenthub", "agenthub"), "hub-board": ("board", "agenthub"
          "ar-resume": ("ar-resume", "autoresearch-agent"), "ar-run": ("run", "autoresearch-agent"),
          "ar-setup": ("setup", "autoresearch-agent"), "ar-status": ("ar-status", "autoresearch-agent"),
          "security-guidance": ("security-guidance", "security-guidance")}
+# collections added on 15 Oct 2026, taken whole into vendor/<name>/ at the commits MANIFEST.tsv gives (Codex's agents/openai.yaml
+# left out); they install like the WHOLE skills above. LEFT_OUT gives each skill of theirs not taken, with why; omitted.tsv lists them.
+ADDED = {"mattpocock/skills": [
+    "codebase-design", "diagnosing-bugs", "domain-modeling", "improve-codebase-architecture", "prototype", "retro", "pr",
+    "wizard", "teach", "to-questionnaire", "wait-what", "writing-for-agents", "git-guardrails-claude-code", "setup-pre-commit"],
+         "addyosmani/agent-skills": [
+    "api-and-interface-design", "browser-testing-with-devtools", "ci-cd-and-automation", "code-review-and-quality",
+    "code-simplification", "constraint-driven-development", "context-engineering", "debugging-and-error-recovery",
+    "deprecation-and-migration", "documentation-and-adrs", "doubt-driven-development", "frontend-ui-engineering",
+    "git-workflow-and-versioning", "idea-refine", "incremental-implementation", "interview-me",
+    "observability-and-instrumentation", "performance-optimization", "planning-and-task-breakdown", "security-and-hardening",
+    "shipping-and-launch", "source-driven-development", "spec-driven-development"]}
+ADDED["trailofbits/skills"] = [  # plugin-level files some need (agents, ct_analyzer, README) sit inside the skill
+    "address-sanitizer", "aflpp", "agentic-actions-auditor", "algorand-vulnerability-scanner", "atheris", "audit-augmentation",
+    "audit-prep-assistant", "burpsuite-project-parser", "cairo-vulnerability-scanner", "cargo-fuzz",
+    "chrome-mcp-troubleshooting", "code-maturity-assessor", "codeql", "constant-time-analysis", "constant-time-testing",
+    "cosmos-vulnerability-scanner", "coverage-analysis", "crypto-protocol-diagram", "diagramming-code", "differential-review",
+    "dimensional-analysis", "dwarf-expert", "entry-point-analyzer", "firebase-apk-scanner", "fp-check", "fuzzing-dictionary",
+    "fuzzing-obstacles", "genotoxic", "github-triage", "goal-prompt", "graph-evolution", "guidelines-advisor", "harness-writing",
+    "libafl", "libfuzzer", "mermaid-to-proverif", "modern-cpp", "modern-python", "mutation-testing", "open-sourcing", "ossfuzz",
+    "post-patch-validation", "property-based-testing", "review-walkthrough", "ruzzy", "sarif-parsing", "second-opinion",
+    "secure-workflow-guide", "semgrep", "semgrep-rule-creator", "sharp-edges", "slicing-code-context",
+    "solana-vulnerability-scanner", "substrate-vulnerability-scanner", "supply-chain-risk-auditor", "token-integration-analyzer",
+    "ton-vulnerability-scanner", "trailmark", "trailmark-finding-triage", "trailmark-review-gate", "trailmark-structural",
+    "trailmark-summary", "trailmark-variant-neighborhood", "variant-analysis", "vector-forge", "vulnerability-triage-brocards",
+    "writing-lean-proofs", "wycheproof", "yara-rule-authoring"]
+WHOLE.update({n: (n, n) for ns in ADDED.values() for n in ns})
+LEFT_OUT = {
+    "ask-matt (mattpocock/skills)": "a router over Matt Pocock's own collection; skill-router covers discovery",
+    "audit-context-building (trailofbits/skills)": "its main mode is a plugin command that runs a workflow script",
+    "c-review (trailofbits/skills)": "runs through its plugin's agents and workflow scripts, which a skills install doesn't provide",
+    "chief-of-staff (mattpocock/skills)": "marked in progress upstream, and the toolbox already has a chief-of-staff",
+    "claude-handoff (mattpocock/skills)": "marked in progress upstream",
+    "code-improver (trailofbits/skills)": "runs through its plugin's agents and workflow scripts, which a skills install doesn't provide",
+    "code-review (mattpocock/skills)": "its name would replace Claude Code's /code-review",
+    "devcontainer-setup (trailofbits/skills)": "its Dockerfile pipes the Claude Code and fnm install scripts into bash",
+    "gh-cli (trailofbits/skills)": "a plugin hook does its work, which a skills install doesn't provide",
+    "grill-me (mattpocock/skills)": "the toolbox already has grill-me, adapted from Matt Pocock's earlier version",
+    "grill-with-docs (mattpocock/skills)": "the toolbox already has grill-with-docs, adapted from Matt Pocock's earlier version",
+    "grilling (mattpocock/skills)": "near-duplicate of grill-me",
+    "handoff (mattpocock/skills)": "near-duplicate of skills-handoff, which is based on it",
+    "implement (mattpocock/skills)": "spec-to-tickets chain (see to-spec)",
+    "implement-spec (mattpocock/skills)": "spec-to-tickets chain (see to-spec)",
+    "interpreting-culture-index (trailofbits/skills)": "interprets a proprietary hiring and personality survey; too narrow for a general collection",
+    "let-fate-decide (trailofbits/skills)": "draws tarot cards to add randomness to planning; a novelty",
+    "loop-me (mattpocock/skills)": "marked in progress upstream",
+    "migrate-to-shoehorn (mattpocock/skills)": "migrates tests to the author's own library; too narrow for a general collection",
+    "pr-improver (trailofbits/skills)": "runs through its plugin's agents and workflow scripts, which a skills install doesn't provide",
+    "research (mattpocock/skills)": "its name is taken by the toolbox's research router",
+    "rust-review (trailofbits/skills)": "runs through its plugin's agents and workflow scripts, which a skills install doesn't provide",
+    "scaffold-exercises (mattpocock/skills)": "builds exercises for the author's courses",
+    "semgrep-rule-variant-creator (trailofbits/skills)": "runs through its plugin's agents and workflow scripts, which a skills install doesn't provide",
+    "setup-matt-pocock-skills (mattpocock/skills)": "sets up the spec-to-tickets chain, which is left out",
+    "setup-ts-deep-modules (mattpocock/skills)": "marked in progress upstream",
+    "skill-improver (trailofbits/skills)": "runs through its plugin's agents and workflow scripts, which a skills install doesn't provide",
+    "spec-to-code-compliance (trailofbits/skills)": "its main mode is a plugin command that runs a workflow script",
+    "tdd (mattpocock/skills)": "near-duplicate of test-driven-development and tdd-guide",
+    "test-driven-development (addyosmani/agent-skills)": "its name is taken by superpowers' test-driven-development",
+    "testing-handbook-generator (trailofbits/skills)": "maintains Trail of Bits' own testing-handbook skills",
+    "to-spec (mattpocock/skills)": "spec-to-tickets chain: calls grilling, research, tdd and code-review by name, which clash here; brainstorming, writing-plans and executing-plans cover the flow",
+    "to-tickets (mattpocock/skills)": "spec-to-tickets chain (see to-spec)",
+    "triage (mattpocock/skills)": "spec-to-tickets chain (see to-spec)",
+    "using-agent-skills (addyosmani/agent-skills)": "a router over Addy Osmani's own collection; skill-router covers discovery",
+    "wayfinder (mattpocock/skills)": "spec-to-tickets chain (see to-spec)",
+    "writing-beats (mattpocock/skills)": "marked in progress upstream",
+    "writing-fragments (mattpocock/skills)": "marked in progress upstream",
+    "writing-shape (mattpocock/skills)": "marked in progress upstream",
+    "zeroize-audit (trailofbits/skills)": "runs through its plugin's agents and workflow scripts, which a skills install doesn't provide, and needs the serena MCP server",
+}
 # the pack's copies those replace: pack name -> installed name
 REPLACED = {"agenthub": "agenthub", "board": "hub-board", "eval": "hub-eval", "merge": "hub-merge", "run": "hub-run",
             "spawn": "hub-spawn", "skills-init": "hub-init", "skills-status": "hub-status", "autoresearch-agent": "autoresearch-agent",
@@ -180,9 +249,10 @@ DIRS = {"scripts", "references", "assets", "templates", "shared", "evaluators", 
 TOKEN = re.compile(r"(?<![\w{}./~:$-])\$?[\w{}./~-]+\.(py|js|ts|sh|mjs|cjs|md|json|html|yaml|yml|csv|txt|pdf|ttf|otf)\b")
 NOT_SHIPPED = {"scripts/convert.sh", "scripts/audit_skills.py",  # upstream repo tooling that skill texts mention, never part of a skill
                "data/file1.json", "data/coco/train.json",  # example paths
-               "assets/design-tokens.json"}  # a project file: brand's and design-system's scripts write it in the user's project
+               "assets/design-tokens.json",  # a project file: brand's and design-system's scripts write it in the user's project
+               "hooks/block-dangerous-git.sh"}  # git-guardrails-claude-code has the user copy its script into .claude/hooks/
 READ = re.compile(r"\b(load|loads|read|reads|located|from|use|uses|search|browse|see|check|consult|bundled|ships|includes)\b", re.I)
-WRITE = re.compile(r"\b(save|saves|saved|write|writes|written|output|outputs|create|creates|generate|generates|generated|store|stores|log|logs)\b", re.I)
+WRITE = re.compile(r"\b(save|saves|saved|write|writes|written|output|outputs|create|creates|generate|generates|generated|store|stores|stored|log|logs)\b", re.I)
 
 
 def split_ref(tok):
@@ -233,6 +303,7 @@ def missing_files(sd, text):
         if m.group(1) in ("py", "js", "ts", "sh", "mjs", "cjs"): scripts = True
         else: docs = True
     for line in text.splitlines():  # a folder named on its own (`./canvas-fonts`, the `themes/` directory) where the text reads from it
+        if re.search(r"\bworkspace\b|current (?:working )?director", line, re.I): continue  # the user's folders (teach's ./lessons/), not the skill's
         for a, b in re.findall(r"`\./([\w-]+)/?`|`([\w-]+)/` director", line):
             if READ.search(line) and not WRITE.search(line) and not os.path.isdir(os.path.join(sd, a or b)): docs = True
     return "scripts-missing" if scripts else "refs-missing" if docs else ""
@@ -256,7 +327,7 @@ def fix_paths(root):
         sd, n = os.path.join(root, d), [0]
         def fix(m):
             tok = m.group(0); sp = ref_at(m)
-            if not sp or not sp[0] or tok.startswith(("/", "$")) or inside(sd, tok): return tok  # absolute and ${VAR} paths stay
+            if not sp or not sp[0] or tok.startswith(("/", "$", "{")) or inside(sd, tok): return tok  # absolute, ${VAR} and {baseDir} paths stay
             prefix, path = sp
             for s in reversed(prefix.split("/")):
                 k = kept(s)
@@ -382,6 +453,8 @@ def finish_text(text, d, new, final):
     fm = quote_description(fm)
     fm = fm.replace("`---` HR boundaries", "three-dash horizontal rules")  # md-slides
     assert "---" not in fm, f"{new}: Claude Code ends the frontmatter at the first '---', even mid-line, and drops the keys after it"
+    fm = re.sub(r"^allowed-tools:.*(\n[ \t]+.*)*(\n|$)", "", fm, flags=re.M)  # no skill pre-approves tools: permissions stay the user's
+    fm = re.sub(r"^disable-model-invocation:.*(\n|$)", "", fm, flags=re.M).rstrip("\n")  # some upstreams set it; a second key breaks YAML
     if new not in TIER1: fm += "\ndisable-model-invocation: true"
     return f"---\n{fm}\n---\n{body}", body
 
@@ -476,6 +549,7 @@ def main():
     with open(os.path.join(HERE, "omitted.tsv"), "w", encoding="utf-8") as f:
         f.write("skill\treason\n")
         for n in sorted(dropped): f.write(f"{n}\t{dropped[n]}\n")
+        for n in sorted(LEFT_OUT): f.write(f"{n}\t{LEFT_OUT[n]}\n")  # skills of the added collections not taken
 
     print(f"source {len(src)} | omitted {len(OMIT)} | replaced {len(REPLACED)} | identical copies {len(dups)} | near-duplicates {len(near)} | renamed {len(RENAME)} | custom {len(custom)} | private {len(private)} | whole {len(WHOLE)} | "
           f"installed {len(final)} (auto {len(TIER1)}, on demand {len(final) - len(TIER1)})")
