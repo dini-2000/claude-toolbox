@@ -1,0 +1,9 @@
+/* Gallery in documents: a hairline frame and an accent dot on the cover, the title as a wall label at the page foot. Built in by tools/build.py with engine/doc.css; the motif pictures come from theme.css. */
+@page { @top-right { content: none; } @bottom-left { content: var(--doc-title-head, ""); font: italic 400 7.8pt var(--font-body); color: var(--ink-3); vertical-align: top; padding-top: 4mm; } }
+@page :first { @bottom-left { content: none } }
+@page pc-cover { @bottom-left { content: none } }
+@page pc-full { @bottom-left { content: none } }
+@page pc-opener { @bottom-left { content: none } }
+.pc-doc[data-theme="gallery"] .pc-cover:not([data-cover="full"])::before { content: ""; position: absolute; z-index: 0; inset: calc(12mm + var(--bleed, 0mm)); border: .5pt solid var(--ink); }
+.pc-doc[data-theme="gallery"] .pc-cover:not([data-cover="full"])::after { content: ""; position: absolute; z-index: 2; width: 6mm; height: 6mm; border-radius: 50%; background: var(--accent); right: calc(22mm + var(--bleed, 0mm)); bottom: calc(24mm + var(--bleed, 0mm)); }
+.pc-doc[data-theme="gallery"] .pc-cover:not([data-cover="full"]) > :not(.pc-media) { position: relative; z-index: 1; }

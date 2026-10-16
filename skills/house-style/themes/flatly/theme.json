@@ -1,0 +1,229 @@
+{
+ "name": "Flatly",
+ "summary": "Flat colour blocks in midnight blue and turquoise, clean sans type and no shadows. Clear and modern, for financial updates, dashboards, budgets and quarterly reviews.",
+ "good_for": [
+  "finance",
+  "dashboard",
+  "budget",
+  "review",
+  "report",
+  "update"
+ ],
+ "category": "finance",
+ "credit": "colours and fonts from Bootswatch Flatly by Thomas Park (MIT licence)",
+ "defaults": {
+  "mode": "light",
+  "palette": "midnight"
+ },
+ "fonts": {
+  "display": [
+   "Lato",
+   "sans"
+  ],
+  "body": [
+   "Lato",
+   "sans"
+  ],
+  "label": [
+   "Lato",
+   "sans"
+  ],
+  "stat": [
+   "Lato",
+   "sans"
+  ],
+  "mono": [
+   "Source Code Pro",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "700",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "700",
+  "--w-stat": "700",
+  "--track-display": "-0.02em",
+  "--track-h1": "-0.01em",
+  "--track-label": "0.08em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.04",
+  "--lh-h1": "1.1",
+  "--lh-body": "1.5",
+  "--radius": "6px",
+  "--radius-sm": "4px",
+  "--border-w": "0px",
+  "--card-pad": "34px",
+  "--icon-stroke": "2"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF",
+   "bg_alt": "#F4F6F7",
+   "surface": "#FFFFFF",
+   "surface_2": "#ECF0F1",
+   "ink": "#2C3E50",
+   "ink_2": "#4B5D6E",
+   "ink_3": "#5F6E7A",
+   "line": "#DCE2E5",
+   "positive": "#13855F",
+   "negative": "#C0392B",
+   "warning": "#A35F00",
+   "code_bg": "#2C3E50",
+   "code_ink": "#ECF0F1",
+   "letterbox": "#1A252F",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#1A252F",
+   "bg_alt": "#1F2C38",
+   "surface": "#22303D",
+   "surface_2": "#2C3E50",
+   "ink": "#ECF0F1",
+   "ink_2": "#C9D2D6",
+   "ink_3": "#A3AFB5",
+   "line": "#34495E",
+   "positive": "#48C9B0",
+   "negative": "#F1948A",
+   "warning": "#F5B041",
+   "code_bg": "#121A21",
+   "code_ink": "#ECF0F1",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "midnight": {
+   "name": "Midnight",
+   "light": {
+    "accent": "#2C3E50",
+    "accent_2": "#18BC9C"
+   },
+   "dark": {
+    "accent": "#5D7A96",
+    "accent_2": "#48C9B0"
+   }
+  },
+  "turquoise": {
+   "name": "Turquoise",
+   "light": {
+    "accent": "#128C74",
+    "accent_2": "#2C3E50"
+   },
+   "dark": {
+    "accent": "#48C9B0",
+    "accent_2": "#85A3BF"
+   }
+  },
+  "alizarin": {
+   "name": "Alizarin",
+   "light": {
+    "accent": "#C0392B",
+    "accent_2": "#2C3E50"
+   },
+   "dark": {
+    "accent": "#F1948A",
+    "accent_2": "#85A3BF"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#2C3E50",
+   "#18BC9C",
+   "#3498DB",
+   "#F39C12",
+   "#E74C3C",
+   "#95A5A6"
+  ],
+  "dark": [
+   "#85A3BF",
+   "#48C9B0",
+   "#5DADE2",
+   "#F5B041",
+   "#F1948A",
+   "#BDC3C7"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 316,
+     "color": "accent-2"
+    },
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 300,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 30,
+     "color": "accent-2"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": 110,
+     "h": 8,
+     "x": "var(--mx)",
+     "y": 90,
+     "color": "accent-2"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 24,
+     "color": "accent-2"
+    }
+   ]
+  },
+  "kicker": "underline",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 63,
+     "color": "accent-2"
+    },
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 60,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": 22,
+     "h": 2.5,
+     "x": 0,
+     "y": 0,
+     "color": "accent-2"
+    }
+   ],
+   "mark": {
+    "motif": "circle",
+    "size": 6,
+    "color": "accent-2"
+   }
+  }
+ }
+}

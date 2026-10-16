@@ -1,0 +1,56 @@
+/* Thesis: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="thesis"] {
+  --m-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 100 50 50 100 0 50z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="thesis"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: calc(30 * var(--art-px));
+  border: calc(6 * var(--art-px)) double var(--accent, var(--accent)); }
+.pc-deck[data-theme="thesis"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(100 * var(--art-px));
+  height: calc(2 * var(--art-px));
+  left: var(--mx);
+  bottom: calc(120 * var(--art-px));
+  background: var(--accent-2, var(--accent)); }
+.pc-deck[data-theme="thesis"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: calc(30 * var(--art-px));
+  border: calc(1.5 * var(--art-px)) solid var(--accent, var(--accent)); }
+.pc-deck[data-theme="thesis"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(60 * var(--art-px));
+  height: calc(2 * var(--art-px));
+  left: calc(50% - calc(60 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(110 * var(--art-px));
+  background: var(--accent-2, var(--accent)); }
+.pc-deck[data-theme="thesis"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: calc(30 * var(--art-px));
+  border: calc(6 * var(--art-px)) double var(--accent, var(--accent)); }
+.pc-deck[data-theme="thesis"] .pc-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 1.4em;
+  height: .14em;
+  background: var(--accent);
+  vertical-align: .3em;
+  margin-right: .55em; }
+.pc-deck[data-theme="thesis"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 2px solid var(--ink); }

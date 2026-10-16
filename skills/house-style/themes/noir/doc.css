@@ -1,0 +1,3 @@
+/* Noir in documents: a spotlight on the cover, quiet heads. Built in by tools/build.py with engine/doc.css; the motif pictures come from theme.css. */
+.pc-doc[data-theme="noir"] .pc-cover:not([data-cover="full"]) { background: radial-gradient(ellipse 75% 55% at 70% 26%, color-mix(in srgb, var(--accent) 24%, var(--bg)), var(--bg) 72%); }
+.pc-doc[data-theme="noir"] .pc-opener .pc-opener-num { font-family: var(--font-quote); font-weight: 400; font-style: italic; }

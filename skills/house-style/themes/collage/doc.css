@@ -1,0 +1,60 @@
+/* Collage: document art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-doc[data-theme="collage"] .pc-cover:not([data-cover="full"])::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 110mm;
+  height: 110mm;
+  right: -26mm;
+  bottom: -32mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 64% 4%, curve to 98% 40% with 82% 8% / 96% 22%, curve to 92% 80% with 100% 56% / 90% 66%, curve to 66% 98% with 93% 92% / 80% 100%, curve to 30% 98% with 52% 97% / 44% 100%, curve to 2% 66% with 14% 96% / 2% 84%, curve to 14% 30% with 2% 48% / 14% 44%, curve to 64% 4% with 14% 16% / 40% -2%, close);
+  transform: rotate(-8deg); }
+.pc-doc[data-theme="collage"] .pc-cover:not([data-cover="full"])::after {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 60mm;
+  height: 60mm;
+  right: 6mm;
+  top: -8mm;
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 6% 94%, curve to 94% 6% with 6% 40% / 40% 6%, curve to 6% 94% with 94% 60% / 60% 94%, close);
+  transform: rotate(25deg); }
+.pc-doc[data-theme="collage"] .pc-cover:not([data-cover="full"]) > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="collage"] .pc-opener {
+  position: relative; }
+.pc-doc[data-theme="collage"] .pc-opener::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 22mm;
+  height: 22mm;
+  right: 0mm;
+  top: 0mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 6% 94%, curve to 94% 6% with 6% 40% / 40% 6%, curve to 6% 94% with 94% 60% / 60% 94%, close);
+  transform: rotate(25deg); }
+.pc-doc[data-theme="collage"] .pc-opener > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="collage"] .pc-chapter > h1::after {
+  content: "";
+  display: block;
+  width: 7pt;
+  height: 7pt;
+  margin: 9pt 0 0;
+  background: var(--accent, var(--accent));
+  -webkit-mask: var(--m-leaf) center / contain no-repeat;
+  mask: var(--m-leaf) center / contain no-repeat; }
+.pc-doc[data-theme="collage"] .pc-kicker {
+  width: fit-content;
+  padding: .38em .7em .42em;
+  border-radius: 2px;
+  background: var(--accent-text);
+  color: var(--kicker-on, var(--bg)); }

@@ -1,0 +1,266 @@
+{
+ "name": "Blocks",
+ "summary": "Toy bricks: primary red, blue and yellow, a round friendly sans, thick outlines and hard shadows, with big circles, triangles and half-discs. Bright and simple, for primary classes, children's workshops, school projects and family events.",
+ "good_for": [
+  "kids",
+  "primary-school",
+  "workshop",
+  "school-project",
+  "family",
+  "storytime"
+ ],
+ "category": "kids",
+ "also": [
+  "education"
+ ],
+ "defaults": {
+  "mode": "light",
+  "palette": "primary"
+ },
+ "fonts": {
+  "display": [
+   "Fredoka",
+   "sans"
+  ],
+  "body": [
+   "Nunito",
+   "sans"
+  ],
+  "label": [
+   "Fredoka",
+   "sans"
+  ],
+  "stat": [
+   "Fredoka",
+   "sans"
+  ],
+  "mono": [
+   "DM Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "600",
+  "--w-h1": "600",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "600",
+  "--w-stat": "600",
+  "--track-display": "-0.01em",
+  "--track-h1": "0em",
+  "--track-label": "0.04em",
+  "--label-case": "none",
+  "--lh-display": "1.04",
+  "--lh-h1": "1.1",
+  "--lh-body": "1.5",
+  "--radius": "20px",
+  "--radius-sm": "12px",
+  "--border-w": "3px",
+  "--card-pad": "34px",
+  "--icon-stroke": "2"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFDF7",
+   "bg_alt": "#FFF6E0",
+   "surface": "#FFFFFF",
+   "surface_2": "#FDEFC8",
+   "ink": "#1B1B3A",
+   "ink_2": "#3C3C5A",
+   "ink_3": "#52526E",
+   "line": "#1B1B3A",
+   "positive": "#1D7A3A",
+   "negative": "#C8102E",
+   "warning": "#8F5B00",
+   "code_bg": "#1B1B3A",
+   "code_ink": "#FFF6E0",
+   "letterbox": "#10102A",
+   "shadow": "5px 5px 0 #1B1B3A"
+  },
+  "dark": {
+   "bg": "#16162E",
+   "bg_alt": "#1B1B37",
+   "surface": "#212140",
+   "surface_2": "#2A2A4E",
+   "ink": "#FFF8E6",
+   "ink_2": "#DCD6E6",
+   "ink_3": "#B6B0C4",
+   "line": "#FFF8E6",
+   "positive": "#6FD08C",
+   "negative": "#FF7A85",
+   "warning": "#FFC94D",
+   "code_bg": "#0E0E22",
+   "code_ink": "#FFF8E6",
+   "letterbox": "#000000",
+   "shadow": "5px 5px 0 #000000"
+  }
+ },
+ "palettes": {
+  "primary": {
+   "name": "Primary",
+   "light": {
+    "accent": "#D62828",
+    "accent_2": "#1D4ED8"
+   },
+   "dark": {
+    "accent": "#FF6B6B",
+    "accent_2": "#7AA2FF"
+   }
+  },
+  "sunny": {
+   "name": "Sunny",
+   "light": {
+    "accent": "#B45309",
+    "accent_2": "#1D4ED8"
+   },
+   "dark": {
+    "accent": "#FFC300",
+    "accent_2": "#7AA2FF"
+   }
+  },
+  "garden": {
+   "name": "Garden",
+   "light": {
+    "accent": "#15803D",
+    "accent_2": "#D62828"
+   },
+   "dark": {
+    "accent": "#5EE08A",
+    "accent_2": "#FF6B6B"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#D62828",
+   "#1D4ED8",
+   "#F2B705",
+   "#15803D",
+   "#7C3AED",
+   "#EA580C"
+  ],
+  "dark": [
+   "#FF6B6B",
+   "#7AA2FF",
+   "#FFC300",
+   "#5EE08A",
+   "#B794F6",
+   "#FF9A5A"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "circle",
+     "at": "br",
+     "size": 420,
+     "x": -90,
+     "y": -110,
+     "color": "accent-2"
+    },
+    {
+     "motif": "triangle",
+     "at": "tr",
+     "size": 180,
+     "x": 90,
+     "y": 70,
+     "color": "accent",
+     "rotate": 12
+    }
+   ],
+   "section": [
+    {
+     "motif": "half-disc",
+     "at": "b",
+     "w": 560,
+     "h": 280,
+     "x": 320,
+     "color": "accent"
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 140,
+     "x": 110,
+     "y": 80,
+     "color": "accent-2"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "triangle",
+     "at": "tr",
+     "size": 160,
+     "x": 90,
+     "y": 70,
+     "color": "accent-2",
+     "rotate": -10
+    }
+   ],
+   "closing": [
+    {
+     "motif": "circle",
+     "at": "bl",
+     "size": 420,
+     "x": -110,
+     "y": -120,
+     "color": "accent-2"
+    },
+    {
+     "motif": "triangle",
+     "at": "tr",
+     "size": 180,
+     "x": 90,
+     "y": 70,
+     "color": "accent",
+     "rotate": 12
+    }
+   ]
+  },
+  "vars": {
+   "cover": {
+    "--cover-w": "68%"
+   }
+  },
+  "kicker": "pill",
+  "cards": "shadow",
+  "doc": {
+   "cover": [
+    {
+     "motif": "circle",
+     "at": "br",
+     "size": 90,
+     "x": -20,
+     "y": -24,
+     "color": "accent-2"
+    },
+    {
+     "motif": "triangle",
+     "at": "tr",
+     "size": 36,
+     "x": 12,
+     "y": 10,
+     "color": "accent",
+     "rotate": 12
+    }
+   ],
+   "opener": [
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 8,
+     "x": 0,
+     "y": 0,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "triangle",
+    "size": 6,
+    "color": "accent"
+   }
+  }
+ }
+}

@@ -1,0 +1,56 @@
+/* League: document art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-doc[data-theme="league"] .pc-cover:not([data-cover="full"])::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 300mm;
+  height: 300mm;
+  left: calc(50% - 300mm / 2 + 0mm);
+  top: calc(50% - 300mm / 2 + 0mm);
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--surface-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 1; }
+.pc-doc[data-theme="league"] .pc-cover:not([data-cover="full"])::after {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(4mm + var(--bleed, 0mm));
+  background: var(--accent, var(--accent)); }
+.pc-doc[data-theme="league"] .pc-cover:not([data-cover="full"]) > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="league"] .pc-opener {
+  position: relative; }
+.pc-doc[data-theme="league"] .pc-opener::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(3mm);
+  background: var(--accent, var(--accent)); }
+.pc-doc[data-theme="league"] .pc-opener > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="league"] .pc-chapter > h1::after {
+  content: "";
+  display: block;
+  width: 6pt;
+  height: 6pt;
+  margin: 9pt 0 0;
+  background: var(--accent, var(--accent));
+  -webkit-mask: var(--m-diamond) center / contain no-repeat;
+  mask: var(--m-diamond) center / contain no-repeat; }
+.pc-doc[data-theme="league"] .pc-kicker {
+  width: fit-content;
+  padding: .38em .7em .42em;
+  border-radius: 2px;
+  background: var(--accent-text);
+  color: var(--kicker-on, var(--bg)); }

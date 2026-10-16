@@ -1,0 +1,47 @@
+{
+ "name": "Chalk",
+ "summary": "A chalkboard (or whiteboard) with hand-written kickers and marks that draw themselves. Friendly and very readable, made for teaching.",
+ "good_for": ["lesson", "talk", "webinar", "team-update"],
+ "category": "education",
+ "defaults": {"mode": "dark", "palette": "classic"},
+ "fonts": {
+  "display": ["Atkinson Hyperlegible Next", "sans"], "body": ["Atkinson Hyperlegible Next", "sans"],
+  "label": ["Atkinson Hyperlegible Next", "sans"], "stat": ["Atkinson Hyperlegible Next", "sans"],
+  "hand": ["Caveat", "hand"], "mono": ["IBM Plex Mono", "mono"]
+ },
+ "tokens": {
+  "--w-display": "700", "--w-h1": "700", "--w-h2": "700", "--w-body": "400", "--w-strong": "700", "--w-label": "700", "--w-stat": "700", "--w-hand": "700",
+  "--track-display": "-0.02em", "--track-h1": "-0.01em", "--track-label": "0.06em", "--label-case": "uppercase",
+  "--lh-display": "1.04", "--lh-h1": "1.1", "--lh-body": "1.45",
+  "--radius": "18px", "--radius-sm": "10px", "--border-w": "2.5px", "--card-pad": "36px", "--icon-stroke": "2",
+  "--card-shadow": "none"
+ },
+ "modes": {
+  "dark": {
+   "bg": "#1E2A26", "bg_alt": "#24332E", "surface": "#26342F", "surface_2": "#2A3934",
+   "ink": "#F3F1E8", "ink_2": "#D9D6CB", "ink_3": "#B3B0A6", "line": "#4A5A54",
+   "positive": "#A8E0A0", "negative": "#F49A9A", "warning": "#F5D76E",
+   "code_bg": "#15201C", "code_ink": "#F3F1E8", "letterbox": "#0E1412", "shadow": "none",
+   "extra": {"--tex": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='480'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0.55 0 0 0 -0.22'/%3E%3C/filter%3E%3Crect width='480' height='480' filter='url(%23n)'/%3E%3C/svg%3E\"), radial-gradient(ellipse 34% 22% at 20% 76%, rgba(255, 255, 255, .05), transparent 70%), radial-gradient(ellipse 28% 18% at 78% 24%, rgba(255, 255, 255, .04), transparent 70%)"},
+   "alt": {"surface": "#2C3B36", "surface_2": "#31413B"}
+  },
+  "light": {
+   "bg": "#FDFDFC", "bg_alt": "#F3F4F2", "surface": "#FFFFFF", "surface_2": "#F1F2EF",
+   "ink": "#1C1C1C", "ink_2": "#3D3D3D", "ink_3": "#5E5E5E", "line": "#D9DBD6",
+   "positive": "#2E8B57", "negative": "#D7263D", "warning": "#B26B00",
+   "code_bg": "#1C1C1C", "code_ink": "#F3F1E8", "letterbox": "#2A2A2A",
+   "extra": {"--tex": "radial-gradient(ellipse 30% 16% at 76% 22%, rgba(0, 0, 0, .028), transparent 70%), radial-gradient(ellipse 24% 12% at 24% 80%, rgba(0, 0, 0, .022), transparent 70%)"},
+   "shadow": "0 1px 2px rgba(0, 0, 0, .06), 0 8px 24px rgba(0, 0, 0, .06)"
+  }
+ },
+ "palettes": {
+  "classic": {"name": "Classic", "dark": {"accent": "#F5D76E", "accent_2": "#8EC5FF"}, "light": {"accent": "#1F5FBF", "accent_2": "#D7263D"}},
+  "rose": {"name": "Rose", "dark": {"accent": "#F49AC2", "accent_2": "#F5D76E"}, "light": {"accent": "#D7263D", "accent_2": "#1F5FBF"}},
+  "violet": {"name": "Violet", "dark": {"accent": "#C3B1FF", "accent_2": "#A8E0A0"}, "light": {"accent": "#6A3FB5", "accent_2": "#2E8B57"}},
+  "mint": {"name": "Mint", "dark": {"accent": "#A8E0A0", "accent_2": "#F5D76E"}, "light": {"accent": "#2E8B57", "accent_2": "#1F5FBF"}}
+ },
+ "chart": {
+  "dark": ["#F5D76E", "#8EC5FF", "#F49AC2", "#A8E0A0", "#F7B27A", "#F3F1E8"],
+  "light": ["#1F5FBF", "#D7263D", "#2E8B57", "#6A3FB5", "#E07A1F", "#1C1C1C"]
+ }
+}

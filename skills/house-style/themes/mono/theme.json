@@ -1,0 +1,251 @@
+{
+ "name": "Mono",
+ "summary": "Black and white only, Swiss style: a neutral grotesque, a mono for labels, hairline rules, square corners and one small black dot. Severe and clear, for design talks, architecture, manifestos and content that needs no colour.",
+ "good_for": [
+  "design",
+  "architecture",
+  "manifesto",
+  "minimal",
+  "portfolio",
+  "essay"
+ ],
+ "category": "minimal",
+ "defaults": {
+  "mode": "light",
+  "palette": "black"
+ },
+ "fonts": {
+  "display": [
+   "Inter",
+   "sans"
+  ],
+  "body": [
+   "Inter",
+   "sans"
+  ],
+  "label": [
+   "Red Hat Mono",
+   "mono"
+  ],
+  "stat": [
+   "Inter",
+   "sans"
+  ],
+  "mono": [
+   "Red Hat Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "600",
+  "--w-h1": "600",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "600",
+  "--w-label": "400",
+  "--w-stat": "600",
+  "--track-display": "-0.045em",
+  "--track-h1": "-0.03em",
+  "--track-label": "0.02em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.0",
+  "--lh-h1": "1.08",
+  "--lh-body": "1.5",
+  "--radius": "0px",
+  "--radius-sm": "0px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF",
+   "bg_alt": "#F5F5F5",
+   "surface": "#FFFFFF",
+   "surface_2": "#EDEDED",
+   "ink": "#0A0A0A",
+   "ink_2": "#333333",
+   "ink_3": "#4D4D4D",
+   "line": "#D9D9D9",
+   "positive": "#1B6B3A",
+   "negative": "#B3261E",
+   "warning": "#7A5200",
+   "code_bg": "#0A0A0A",
+   "code_ink": "#F5F5F5",
+   "letterbox": "#000000",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#0A0A0A",
+   "bg_alt": "#111111",
+   "surface": "#161616",
+   "surface_2": "#1F1F1F",
+   "ink": "#F5F5F5",
+   "ink_2": "#CFCFCF",
+   "ink_3": "#A8A8A8",
+   "line": "#2B2B2B",
+   "positive": "#7DD39B",
+   "negative": "#FF8A80",
+   "warning": "#F5C04A",
+   "code_bg": "#000000",
+   "code_ink": "#F5F5F5",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "black": {
+   "name": "Black",
+   "light": {
+    "accent": "#0A0A0A",
+    "accent_2": "#5C5C5C"
+   },
+   "dark": {
+    "accent": "#F5F5F5",
+    "accent_2": "#A8A8A8"
+   }
+  },
+  "red": {
+   "name": "Red",
+   "light": {
+    "accent": "#D0021B",
+    "accent_2": "#0A0A0A"
+   },
+   "dark": {
+    "accent": "#FF6B6B",
+    "accent_2": "#F5F5F5"
+   }
+  },
+  "klein": {
+   "name": "Klein",
+   "light": {
+    "accent": "#002FA7",
+    "accent_2": "#0A0A0A"
+   },
+   "dark": {
+    "accent": "#7D9BFF",
+    "accent_2": "#F5F5F5"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#0A0A0A",
+   "#5C5C5C",
+   "#9E9E9E",
+   "#C8C8C8",
+   "#2E2E2E",
+   "#7A7A7A"
+  ],
+  "dark": [
+   "#F5F5F5",
+   "#A8A8A8",
+   "#6E6E6E",
+   "#474747",
+   "#D6D6D6",
+   "#8A8A8A"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": "calc(100% - 2 * var(--mx))",
+     "h": 1,
+     "x": "var(--mx)",
+     "y": 64,
+     "color": "ink"
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 28,
+     "x": "var(--mx)",
+     "y": 50,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": "calc(100% - 2 * var(--mx))",
+     "h": 1,
+     "x": "var(--mx)",
+     "y": 64,
+     "color": "ink"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "circle",
+     "at": "tl",
+     "size": 28,
+     "x": "var(--mx)",
+     "y": 64,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "rule",
+     "at": "bl",
+     "w": "calc(100% - 2 * var(--mx))",
+     "h": 1,
+     "x": "var(--mx)",
+     "y": 64,
+     "color": "ink"
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 28,
+     "x": "var(--mx)",
+     "y": 50,
+     "color": "accent"
+    }
+   ]
+  },
+  "kicker": "outline",
+  "cards": "outline",
+  "doc": {
+   "cover": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": "100%",
+     "h": 0.3,
+     "x": 0,
+     "y": 14,
+     "color": "ink"
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 6,
+     "x": 0,
+     "y": 10,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": "100%",
+     "h": 0.3,
+     "x": 0,
+     "y": 0,
+     "color": "ink"
+    }
+   ],
+   "mark": {
+    "motif": "circle",
+    "size": 3.5,
+    "color": "accent"
+   }
+  }
+ }
+}

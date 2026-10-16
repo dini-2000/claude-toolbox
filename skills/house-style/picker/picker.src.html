@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Choose a style</title>
+<style>
+:root {
+  --bg: #f4f4f2; --panel: #ffffff; --ink: #17181b; --ink-2: #4a4d55; --ink-3: #6b6f78; --line: #dcdcd8; --hover: #eeeeea;
+  --pick: #2f54eb; --pick-ink: #ffffff; --pick-soft: #e6ebfd; --stage: #2a2b2f; --shadow: 0 1px 2px rgba(0,0,0,.06), 0 4px 16px rgba(0,0,0,.05);
+  --radius: 10px; --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #141518; --panel: #1c1d21; --ink: #ececee; --ink-2: #b9bbc2; --ink-3: #9a9da6; --line: #33353b; --hover: #26282d;
+  --pick: #7d98ff; --pick-ink: #0d0f14; --pick-soft: #252c47; --stage: #0b0c0e; --shadow: none; } }
+:root[data-theme="dark"] {
+  --bg: #141518; --panel: #1c1d21; --ink: #ececee; --ink-2: #b9bbc2; --ink-3: #9a9da6; --line: #33353b; --hover: #26282d;
+  --pick: #7d98ff; --pick-ink: #0d0f14; --pick-soft: #252c47; --stage: #0b0c0e; --shadow: none; }
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.45 var(--font); -webkit-font-smoothing: antialiased; }
+button { font: inherit; color: inherit; }
+.app { display: grid; grid-template-columns: minmax(340px, 430px) 1fr; height: 100vh; }
+/* Controls */
+.side { overflow-y: auto; border-right: 1px solid var(--line); background: var(--panel); padding: 22px 22px 120px; }
+.side h1 { font-size: 21px; margin: 0 0 4px; letter-spacing: -.01em; }
+.side .lead { margin: 0 0 18px; color: var(--ink-2); }
+.step { padding: 18px 0 20px; border-top: 1px solid var(--line); }
+.step h2 { display: flex; align-items: baseline; gap: 10px; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); margin: 0 0 12px; }
+.step h2 b { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--ink); color: var(--panel); font-size: 12px; letter-spacing: 0; }
+.step h2 .val { margin-left: auto; text-transform: none; letter-spacing: 0; color: var(--ink); font-weight: 600; font-size: 13px; }
+.hint { color: var(--ink-3); font-size: 13px; margin: -4px 0 10px; }
+.opts { display: grid; gap: 8px; }
+.opt { position: relative; text-align: left; border: 1px solid var(--line); background: var(--panel); border-radius: var(--radius); padding: 10px 12px; cursor: pointer; }
+.opt:hover { background: var(--hover); }
+.opt:focus-visible, .seg button:focus-visible, .sw:focus-visible, .nav button:focus-visible, .go:focus-visible { outline: 2px solid var(--pick); outline-offset: 2px; }
+.opt[aria-pressed="true"] { border-color: var(--pick); box-shadow: inset 0 0 0 1px var(--pick); background: var(--pick-soft); }
+.opt strong { display: block; font-size: 14.5px; }
+.opt span { display: block; color: var(--ink-2); font-size: 13px; }
+.tag { position: absolute; top: 9px; right: 10px; font-size: 11px; font-weight: 600; color: var(--pick); }
+.purposes { grid-template-columns: 1fr 1fr; }
+.purposes .opt { padding: 9px 11px; }
+.purposes .opt strong { font-size: 14px; }
+.purposes .opt span { display: none; }
+.purpose-for { margin: 10px 0 0; font-size: 13px; color: var(--ink-2); min-height: 1.4em; }
+.themes .opt { display: grid; grid-template-columns: 74px 1fr; gap: 12px; align-items: center; padding: 10px; }
+.chip { width: 74px; height: 46px; border-radius: 6px; position: relative; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+.chip i { position: absolute; display: block; }
+.chip .t1 { left: 8px; top: 9px; width: 40px; height: 6px; border-radius: 3px; }
+.chip .t2 { left: 8px; top: 20px; width: 28px; height: 4px; border-radius: 2px; opacity: .6; }
+.chip .a { left: 8px; bottom: 8px; width: 12px; height: 12px; border-radius: 50%; }
+.chip .b { left: 24px; bottom: 8px; width: 12px; height: 12px; border-radius: 50%; }
+.chip .c { left: 40px; bottom: 8px; width: 12px; height: 12px; border-radius: 50%; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; margin-bottom: 12px; }
+.seg button { border: 0; background: none; padding: 5px 16px; border-radius: 999px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--panel); }
+.swatches { display: flex; flex-wrap: wrap; gap: 10px; }
+.sw { display: grid; justify-items: center; gap: 4px; border: 0; background: none; cursor: pointer; padding: 2px; font-size: 12px; color: var(--ink-2); }
+.sw i { display: block; width: 38px; height: 38px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); position: relative; overflow: hidden; }
+.sw i::after { content: ""; position: absolute; right: 0; bottom: 0; width: 50%; height: 50%; background: var(--sw2); }
+.sw[aria-pressed="true"] i { box-shadow: 0 0 0 2px var(--panel), 0 0 0 4px var(--pick); }
+.sw[aria-pressed="true"] { color: var(--ink); font-weight: 600; }
+.formats { grid-template-columns: repeat(4, 1fr); }
+.formats .opt { display: grid; justify-items: center; gap: 6px; padding: 10px 4px 8px; text-align: center; }
+.formats .opt span { font-size: 11.5px; line-height: 1.2; }
+.shape { display: block; border: 2px solid currentColor; border-radius: 3px; color: var(--ink-2); }
+.opt[aria-pressed="true"] .shape { color: var(--pick); background: color-mix(in srgb, var(--pick) 15%, transparent); }
+.motions .opt { padding: 9px 12px; }
+.side.hands-off .step.pickonly, .is-off { display: none !important; }
+.side.is-sent { opacity: .55; pointer-events: none; }
+.hows .opt { padding: 9px 12px; }
+.media { grid-template-columns: repeat(3, 1fr); }
+.media .opt { padding: 9px 10px; }
+.media .opt span { font-size: 12px; line-height: 1.25; }
+.sub-h { font-size: 13px; color: var(--ink-2); margin: 14px 0 8px; }
+.sub-h:empty { display: none; }
+.cats { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.cats button { border: 1px solid var(--line); background: var(--panel); border-radius: 999px; padding: 3px 10px; font-size: 12px; cursor: pointer; text-transform: capitalize; }
+.cats button:hover { background: var(--hover); }
+.cat-h { font-size: 12px; font-weight: 650; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); margin: 14px 0 0; scroll-margin-top: 12px; }
+#docopts .seg { flex-wrap: wrap; border-radius: 14px; }
+#docopts .seg button { padding: 5px 12px; }
+/* Preview */
+.main { display: grid; grid-template-rows: auto 1fr auto; min-width: 0; background: var(--stage); }
+.bar { display: flex; align-items: center; gap: 12px; padding: 12px 18px; color: #d8d9dd; font-size: 13px; }
+.bar .now { margin-right: auto; }
+.nav { display: flex; align-items: center; gap: 6px; }
+.nav button { border: 1px solid #45474e; background: #2f3036; color: #fff; border-radius: 8px; width: 34px; height: 30px; cursor: pointer; font-size: 15px; }
+.nav button:hover { background: #3a3c43; }
+.count { min-width: 64px; text-align: center; font-variant-numeric: tabular-nums; }
+.stage { position: relative; min-height: 0; display: grid; place-items: center; padding: 8px 18px 14px; }
+.frame { position: relative; width: 100%; height: 100%; max-height: 100%; }
+.frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; background: transparent; }
+.loading { position: absolute; inset: 0; display: grid; place-items: center; color: #9a9ca4; font-size: 13px; pointer-events: none; }
+.frame.is-ready .loading { display: none; }
+.strip { display: flex; gap: 6px; overflow-x: auto; padding: 0 18px 14px; scrollbar-width: thin; }
+.strip button { flex: 0 0 auto; border: 1px solid #45474e; background: #2f3036; color: #e6e7ea; border-radius: 999px; padding: 4px 11px; font-size: 12.5px; cursor: pointer; white-space: nowrap; }
+.strip button[aria-current="true"] { background: #fff; color: #111; border-color: #fff; }
+.strip:empty { display: none; }
+/* Result */
+.done { position: fixed; left: 0; bottom: 0; width: min(430px, 100%); padding: 14px 22px; background: var(--panel); border-top: 1px solid var(--line); border-right: 1px solid var(--line); box-shadow: 0 -6px 20px rgba(0,0,0,.06); }
+.summary { font-size: 13px; color: var(--ink-2); margin: 0 0 10px; }
+.summary b { color: var(--ink); }
+.go { width: 100%; border: 0; border-radius: var(--radius); background: var(--pick); color: var(--pick-ink); font-weight: 650; padding: 12px; cursor: pointer; font-size: 15px; }
+.go:hover { filter: brightness(1.06); }
+.code { display: none; margin-top: 10px; }
+.code.show { display: block; }
+.code p { margin: 0 0 6px; font-size: 13px; color: var(--ink-2); }
+.code input { width: 100%; font: 12.5px ui-monospace, SFMono-Regular, Menlo, monospace; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); }
+.sent { display: none; margin: 10px 0 0; font-size: 13px; color: var(--ink-2); }
+.sent.show { display: block; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (max-width: 860px) {
+  .app { display: flex; flex-direction: column-reverse; height: auto; }
+  .main { position: sticky; top: 0; z-index: 2; }
+  .stage { height: 46vh; }
+  .side { border-right: 0; padding: 16px 16px 150px; }
+  .done { width: 100%; border-right: 0; padding: 12px 16px; }
+  .formats { grid-template-columns: repeat(4, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) { .opt, .sw i, .go { transition: background-color .15s, box-shadow .15s, border-color .15s; } }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side" id="side" aria-label="Style choices">
+    <h1>Choose a style</h1>
+    <p class="lead">Every choice shows at once in the sample deck. The same themes dress decks, documents and graphics.</p>
+
+    <section class="step" aria-labelledby="h-how">
+      <h2 id="h-how"><b>1</b>How should the look be chosen?<span class="val" id="v-how"></span></h2>
+      <div class="opts hows" id="hows"></div>
+    </section>
+
+    <section class="step" aria-labelledby="h-medium">
+      <h2 id="h-medium"><b>2</b>What are you making?<span class="val" id="v-medium"></span></h2>
+      <div class="opts media" id="media"></div>
+      <p class="sub-h" id="kind-h"></p>
+      <div class="opts purposes" id="purposes"></div>
+      <p class="purpose-for" id="purpose-for" aria-live="polite"></p>
+    </section>
+
+    <section class="step pickonly" aria-labelledby="h-theme">
+      <h2 id="h-theme"><b>3</b>Theme<span class="val" id="v-theme"></span></h2>
+      <div class="cats" id="cats" role="group" aria-label="Jump to a category"></div>
+      <div class="opts themes" id="themes"></div>
+    </section>
+
+    <section class="step pickonly" aria-labelledby="h-colour">
+      <h2 id="h-colour"><b>4</b>Colour<span class="val" id="v-colour"></span></h2>
+      <div class="seg" id="modes" role="group" aria-label="Light or dark"></div>
+      <div class="swatches" id="palettes" role="group" aria-label="Palette"></div>
+    </section>
+
+    <section class="step pickonly" aria-labelledby="h-format">
+      <h2 id="h-format"><b>5</b><span id="format-name">Format</span><span class="val" id="v-format"></span></h2>
+      <div class="opts formats" id="formats"></div>
+      <div id="docopts"></div>
+    </section>
+
+    <section class="step pickonly" id="step-motion" aria-labelledby="h-motion">
+      <h2 id="h-motion"><b>6</b>Motion<span class="val" id="v-motion"></span></h2>
+      <div class="opts motions" id="motions"></div>
+    </section>
+  </aside>
+
+  <main class="main" aria-label="Preview">
+    <div class="bar">
+      <span class="now" id="now">Sample deck</span>
+      <div class="nav">
+        <button type="button" id="prev" aria-label="Previous slide">&#8249;</button>
+        <span class="count" id="count" aria-live="polite">1 / 1</span>
+        <button type="button" id="next" aria-label="Next slide">&#8250;</button>
+      </div>
+    </div>
+    <div class="stage" id="stage">
+      <div class="frame" id="frame">
+        <iframe id="view" title="Sample deck in the chosen style"></iframe>
+        <div class="loading">Loading the sample deck</div>
+      </div>
+    </div>
+    <nav class="strip" id="strip" aria-label="Slides in this kind of deck"></nav>
+  </main>
+</div>
+
+<div class="done">
+  <p class="summary" id="summary"></p>
+  <button type="button" class="go" id="go">Use this style</button>
+  <p class="sent" id="sent" role="status">Sent to Claude. You can close this tab; the next job opens a fresh picker.</p>
+  <div class="code" id="code">
+    <p>Copy this line and paste it to Claude:</p>
+    <input id="code-text" readonly aria-label="Pick code">
+  </div>
+</div>
+
+<script>
+const DATA = /*DATA*/null;
+(function () {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const themes = DATA.themes, structures = DATA.structures, layouts = DATA.layouts;
+  const byId = (list, id) => list.find(x => x.id === id);
+  const HOWS = [
+    { id: 'pick', name: 'I’ll choose', note: 'Pick the theme, colours and format here.' },
+    { id: 'auto', name: 'Choose for me', note: 'Claude picks the theme that suits the content best and says why.' },
+    { id: 'creative', name: 'Design something new', note: 'Claude designs a style for this piece and shows you a first look before building it all.' }
+  ];
+  const MEDIA = [
+    { id: 'deck', name: 'Deck', note: 'Slides to present or send' },
+    { id: 'document', name: 'Document', note: 'A PDF: report, letter, CV' },
+    { id: 'graphic', name: 'Graphic', note: 'Post, banner, poster, card' }
+  ];
+  const MOTIONS = [
+    { id: 'static', name: 'Static', note: 'Everything shows at once. Best for decks people read or print.' },
+    { id: 'basic', name: 'Basic', note: 'Points and charts build in gently as you present.' },
+    { id: 'complex', name: 'Complex', note: 'Adds count-ups and staged builds. Check it before presenting.' }
+  ];
+  const COVERS = { band: 'Band', type: 'Big title', minimal: 'Minimal', full: 'Full picture', split: 'Split picture' };
+  const NOTES = { side: 'In the margin', end: 'At the end', foot: 'At the page foot' };
+  const CATS = [...new Set(themes.filter(t => !t.custom).map(t => t.category || 'other'))].sort();
+  const token = new URLSearchParams(location.search).get('s') || '';
+  const st = { how: 'pick', medium: 'deck', kind: null, structure: null, theme: null, palette: null, mode: null, format: '16x9',
+    gformat: '1x1', motion: 'basic', page: 'a4', cover: 'band', notes: 'side', title: '' };
+  let suggest = [], sent = false;
+
+  function setTheme(id, keepColours) {
+    const t = byId(themes, id) || themes[0];
+    st.theme = t.id;
+    if (!keepColours || !t.palettes.some(p => p.id === st.palette)) st.palette = t.defaults.palette;
+    if (!st.modeChosen && (!keepColours || !st.mode)) st.mode = t.defaults.mode;   /* a mode the user chose stays */
+  }
+  setTheme((themes.find(t => t.custom) || byId(themes, 'meridian') || themes[0]).id, false);   /* a custom theme, else Meridian */
+
+  /* Building blocks */
+  function opt(parent, pressed, html, onPick, label) {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'opt'; b.innerHTML = html;
+    b.setAttribute('aria-pressed', pressed ? 'true' : 'false');
+    if (label) b.setAttribute('aria-label', label);
+    b.addEventListener('click', onPick);
+    parent.appendChild(b);
+    return b;
+  }
+  function seg(parent, label, items, value, onPick) {
+    const g = document.createElement('div');
+    g.className = 'seg'; g.setAttribute('role', 'group'); g.setAttribute('aria-label', label);
+    Object.entries(items).forEach(([id, name]) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.textContent = name; b.setAttribute('aria-pressed', value === id ? 'true' : 'false');
+      b.addEventListener('click', () => onPick(id));
+      g.appendChild(b);
+    });
+    parent.appendChild(g);
+  }
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const deckFormats = () => st.medium === 'graphic' ? DATA.graphicFormats : DATA.formats;
+  const fmtId = () => st.medium === 'graphic' ? st.gformat : st.medium === 'document' ? (st.page === 'a5' ? 'a4p' : st.page === 'letter' ? 'letter-p' : 'a4p') : st.format;
+  const fmt = () => byId(DATA.formats.concat(DATA.graphicFormats), fmtId()) || DATA.formats[0];
+  function suggestedIds() {
+    const s = st.medium === 'deck' && st.structure && byId(structures, st.structure);
+    const ids = suggest.concat(s ? s.suggest.themes : []);
+    return ids.filter((id, i) => byId(themes, id) && ids.indexOf(id) === i);
+  }
+
+  function renderHow() {
+    const el = $('hows'); el.innerHTML = '';
+    HOWS.forEach(h => opt(el, st.how === h.id, '<strong>' + esc(h.name) + '</strong><span>' + esc(h.note) + '</span>', () => { st.how = h.id; update(); }, h.name));
+    $('side').classList.toggle('hands-off', st.how !== 'pick');
+    $('v-how').textContent = byId(HOWS, st.how).name;
+  }
+
+  function renderMedium() {
+    const el = $('media'); el.innerHTML = '';
+    MEDIA.forEach(m => opt(el, st.medium === m.id, '<strong>' + esc(m.name) + '</strong><span>' + esc(m.note) + '</span>', () => {
+      if (st.medium !== m.id) { st.medium = m.id; st.kind = null; }
+      update(true);
+    }, m.name + ': ' + m.note));
+    $('v-medium').textContent = byId(MEDIA, st.medium).name;
+    const p = $('purposes'); p.innerHTML = '';
+    let note = '';
+    if (st.medium === 'deck') {
+      $('kind-h').textContent = 'What is the deck for?';
+      structures.forEach(s => opt(p, st.structure === s.id, '<strong>' + esc(s.name) + '</strong><span>' + esc(s.for) + '</span>', () => {
+        st.structure = st.structure === s.id ? null : s.id;
+        if (st.structure) {
+          const first = s.suggest.themes.find(id => byId(themes, id));
+          if (first && first !== st.theme && !suggest.length) setTheme(first, false);
+          st.format = s.suggest.format; st.motion = s.suggest.motion;
+        }
+        update(true);
+      }, s.name + ': ' + s.for));
+      const s = st.structure && byId(structures, st.structure);
+      note = s ? s.for + '.' : 'Not sure yet? Skip this and choose a theme.';
+    } else if (st.medium === 'document') {
+      $('kind-h').textContent = 'What kind of document?';
+      DATA.docTypes.forEach(d => opt(p, st.kind === d.id, '<strong>' + esc(d.name) + '</strong>', () => { st.kind = st.kind === d.id ? null : d.id; update(); }, d.name));
+      note = 'The preview shows the theme on slides; documents carry the same type, colours and art on their pages.';
+    } else {
+      $('kind-h').textContent = '';
+      note = 'Choose the size under Format.';
+    }
+    $('purpose-for').textContent = note;
+  }
+
+  function chip(t, mode, pal) {
+    const c = (byId(t.palettes, pal) || t.palettes[0])[mode];
+    return '<span class="chip" style="background:' + c.bg + '"><i class="t1" style="background:' + c.ink + '"></i><i class="t2" style="background:' + c['ink-2'] + '"></i>' +
+      '<i class="a" style="background:' + c.accent + '"></i><i class="b" style="background:' + c.c2 + '"></i><i class="c" style="background:' + c.c3 + '"></i></span>';
+  }
+  function themeOpt(el, t, tag) {
+    const mode = t.id === st.theme ? st.mode : t.defaults.mode, pal = t.id === st.theme ? st.palette : t.defaults.palette;
+    opt(el, st.theme === t.id, chip(t, mode, pal) + '<div><strong>' + esc(t.name) + '</strong><span>' + esc(t.summary) + '</span></div>' +
+      (tag ? '<em class="tag">' + tag + '</em>' : ''), () => { setTheme(t.id, false); update(); }, t.name + (tag ? ', ' + tag.toLowerCase() : ''));
+  }
+  function group(el, id, name) {
+    const h = document.createElement('h3'); h.className = 'cat-h'; h.id = 'cat-' + id; h.textContent = name;
+    el.appendChild(h);
+  }
+  function renderThemes() {
+    const el = $('themes'); el.innerHTML = '';
+    const custom = themes.filter(t => t.custom), sug = suggestedIds();
+    if (custom.length) { group(el, 'yours', 'Your themes'); custom.forEach(t => themeOpt(el, t, 'Your theme')); }
+    if (sug.length) { group(el, 'suggested', 'Suggested for this'); sug.forEach(id => themeOpt(el, byId(themes, id), 'Suggested')); }
+    CATS.forEach(c => {
+      group(el, c, c);
+      themes.filter(t => !t.custom && (t.category || 'other') === c).forEach(t => themeOpt(el, t, ''));
+    });
+    const cats = $('cats'); cats.innerHTML = '';
+    (sug.length ? ['suggested'] : []).concat(CATS).forEach(c => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.textContent = c === 'suggested' ? 'Suggested' : c;
+      b.addEventListener('click', () => { const h = $('cat-' + c); if (h) h.scrollIntoView({ block: 'start', behavior: 'smooth' }); });
+      cats.appendChild(b);
+    });
+    $('v-theme').textContent = byId(themes, st.theme).name;
+  }
+
+  function renderColours() {
+    const t = byId(themes, st.theme);
+    const m = $('modes'); m.innerHTML = '';
+    ['light', 'dark'].forEach(mode => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.textContent = mode === 'light' ? 'Light' : 'Dark';
+      b.setAttribute('aria-pressed', st.mode === mode ? 'true' : 'false');
+      b.addEventListener('click', () => { st.mode = mode; st.modeChosen = true; update(); });
+      m.appendChild(b);
+    });
+    const p = $('palettes'); p.innerHTML = '';
+    t.palettes.forEach(pal => {
+      const c = pal[st.mode];
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'sw';
+      b.setAttribute('aria-pressed', st.palette === pal.id ? 'true' : 'false');
+      b.innerHTML = '<i style="background:' + c.accent + ';--sw2:' + c['accent-2'] + '"></i>' + esc(pal.name);
+      b.addEventListener('click', () => { st.palette = pal.id; update(); });
+      p.appendChild(b);
+    });
+    $('v-colour').textContent = byId(t.palettes, st.palette).name + ', ' + st.mode;
+  }
+
+  function renderFormats() {
+    const el = $('formats'), d = $('docopts'); el.innerHTML = ''; d.innerHTML = '';
+    if (st.medium === 'document') {
+      $('format-name').textContent = 'Page';
+      DATA.pages.forEach(pg => {
+        const k = 30 / Math.max(pg.w, pg.h);
+        opt(el, st.page === pg.id, '<i class="shape" style="width:' + Math.round(pg.w * k) + 'px;height:' + Math.round(pg.h * k) + 'px"></i><strong>' + esc(pg.label) + '</strong><span>' + esc(pg.use) + '</span>',
+          () => { st.page = pg.id; update(); }, pg.label + ', ' + pg.use);
+      });
+      const h1 = document.createElement('p'); h1.className = 'sub-h'; h1.textContent = 'Cover'; d.appendChild(h1);
+      seg(d, 'Cover', COVERS, st.cover, v => { st.cover = v; update(); });
+      const h2 = document.createElement('p'); h2.className = 'sub-h'; h2.textContent = 'Notes'; d.appendChild(h2);
+      seg(d, 'Notes', NOTES, st.notes, v => { st.notes = v; update(); });
+      $('v-format').textContent = byId(DATA.pages, st.page).label;
+      return;
+    }
+    $('format-name').textContent = 'Format';
+    deckFormats().forEach(f => {
+      const k = 30 / Math.max(f.w, f.h), w = Math.round(f.w * k), h = Math.round(f.h * k);
+      opt(el, fmtId() === f.id, '<i class="shape" style="width:' + w + 'px;height:' + h + 'px"></i><strong>' + esc(f.label) + '</strong><span>' + esc(f.use) + '</span>',
+        () => { if (st.medium === 'graphic') st.gformat = f.id; else st.format = f.id; update(); }, f.label + ', ' + f.use);
+    });
+    $('v-format').textContent = fmt().label;
+  }
+
+  function renderMotions() {
+    $('step-motion').classList.toggle('is-off', st.medium !== 'deck');
+    const el = $('motions'); el.innerHTML = '';
+    MOTIONS.forEach(m => opt(el, st.motion === m.id, '<strong>' + m.name + '</strong><span>' + m.note + '</span>', () => { st.motion = m.id; update(); }));
+    $('v-motion').textContent = byId(MOTIONS, st.motion).name;
+  }
+
+  /* The slides a structure uses, as quick links into the sample deck */
+  function renderStrip() {
+    const el = $('strip'); el.innerHTML = '';
+    const s = st.medium === 'deck' && st.structure && byId(structures, st.structure);
+    if (!s) return;
+    const seen = new Set();
+    s.slides.forEach(([goal, layout]) => {
+      const L = layouts[layout];
+      if (!L || seen.has(layout)) return;
+      seen.add(layout);
+      const b = document.createElement('button');
+      b.type = 'button'; b.textContent = layout.replace('-', ' ');
+      b.title = goal; b.dataset.n = L.example;
+      b.addEventListener('click', () => go(L.example));
+      el.appendChild(b);
+    });
+    markStrip();
+  }
+  function markStrip() { document.querySelectorAll('#strip button').forEach(b => b.setAttribute('aria-current', +b.dataset.n === slide ? 'true' : 'false')); }
+
+  /* Preview */
+  const view = $('view'), frame = $('frame');
+  let loaded = null, slide = 1, count = 1, ready = false;
+  function fitFrame() {
+    const f = fmt(), box = $('stage').getBoundingClientRect();
+    const aw = box.width - 36, ah = box.height - 22, r = f.w / f.h;
+    const w = Math.min(aw, ah * r);
+    frame.style.width = Math.max(0, w) + 'px'; frame.style.height = Math.max(0, w / r) + 'px';
+  }
+  function look() { return { palette: st.palette, mode: st.mode, format: fmtId(), motion: st.medium === 'deck' ? st.motion : 'static' }; }
+  function preview() {
+    fitFrame();
+    if (loaded !== st.theme) {
+      loaded = st.theme; ready = false; frame.classList.remove('is-ready');
+      view.src = DATA.previews[st.theme] + '#' + slide;
+    } else if (ready) view.contentWindow.postMessage({ pc: 'set', opts: look() }, '*');
+  }
+  function go(n) { slide = n; if (ready) view.contentWindow.postMessage({ pc: 'show', n }, '*'); markStrip(); }
+  window.addEventListener('message', e => {
+    if (e.source !== view.contentWindow || !e.data || typeof e.data !== 'object') return;
+    if (e.data.pc === 'ready') {
+      ready = true; count = e.data.count; $('count').textContent = slide + ' / ' + count;
+      const w = view.contentWindow;
+      w.postMessage({ pc: 'ui', show: false }, '*');
+      w.postMessage({ pc: 'set', opts: look() }, '*');
+      if (st.title) w.postMessage({ pc: 'title', text: st.title }, '*');
+      w.postMessage({ pc: 'show', n: slide }, '*');
+      frame.classList.add('is-ready');
+    } else if (e.data.pc === 'slide') {
+      slide = e.data.n; count = e.data.count;
+      $('count').textContent = slide + ' / ' + count; markStrip();
+    }
+  });
+  $('prev').addEventListener('click', () => go(Math.max(1, slide - 1)));
+  $('next').addEventListener('click', () => go(Math.min(count, slide + 1)));
+  document.addEventListener('keydown', e => {
+    if (e.target.closest('input') || e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { go(Math.min(count, slide + 1)); e.preventDefault(); }
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') { go(Math.max(1, slide - 1)); e.preventDefault(); }
+  });
+  window.addEventListener('resize', fitFrame);
+
+  /* Result */
+  function pick() {
+    const p = { how: st.how, medium: st.medium, kind: st.medium === 'deck' ? null : st.medium === 'document' ? st.kind : st.gformat };
+    if (st.medium === 'deck') p.structure = st.structure;
+    if (st.how !== 'pick') return p;
+    Object.assign(p, { theme: st.theme, palette: st.palette, mode: st.mode });
+    if (st.medium === 'deck') Object.assign(p, { format: st.format, motion: st.motion });
+    else if (st.medium === 'graphic') p.format = st.gformat;
+    else Object.assign(p, { page: st.page, cover: st.cover, notes: st.notes });
+    return p;
+  }
+  function codeLine(p) { return 'pc-pick ' + Object.entries(p).filter(([, v]) => v).map(([k, v]) => k + '=' + v).join(' '); }
+  function renderSummary() {
+    const t = byId(themes, st.theme), m = byId(MEDIA, st.medium).name.toLowerCase();
+    if (st.how === 'auto') $('summary').innerHTML = 'Claude chooses the look for this <b>' + m + '</b> and tells you why.';
+    else if (st.how === 'creative') $('summary').innerHTML = 'Claude designs a new look for this <b>' + m + '</b> and shows you a first look.';
+    else {
+      const where = st.medium === 'document' ? byId(DATA.pages, st.page).label + ' pages, ' + COVERS[st.cover].toLowerCase() + ' cover'
+        : fmt().label + (st.medium === 'deck' ? ', ' + byId(MOTIONS, st.motion).name.toLowerCase() + ' motion' : '');
+      $('summary').innerHTML = '<b>' + esc(t.name) + '</b>, ' + esc(byId(t.palettes, st.palette).name) + ' ' + st.mode + ', ' + esc(where);
+    }
+    $('go').textContent = st.how === 'pick' ? 'Use this style' : 'Send to Claude';
+    $('now').textContent = t.name + ' · ' + (st.medium === 'document' ? 'shown on a page-sized slide' : fmt().label);
+    $('code-text').value = codeLine(pick());
+  }
+  $('go').addEventListener('click', () => {
+    if (sent) return;
+    const p = pick(), show = () => { $('code').classList.add('show'); const i = $('code-text'); i.focus(); i.select(); };
+    if (location.protocol.startsWith('http')) {
+      fetch('pick?s=' + encodeURIComponent(token), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(p) })
+        .then(r => { if (!r.ok) throw new Error(r.status); sent = true; $('sent').classList.add('show'); $('go').disabled = true; $('side').classList.add('is-sent'); })
+        .catch(show);
+    } else show();
+  });
+
+  function update(structureChanged) {
+    if (sent) return;
+    renderHow(); renderMedium(); renderThemes(); renderColours(); renderFormats(); renderMotions(); renderSummary();
+    if (structureChanged) renderStrip();
+    preview();
+  }
+  function applyBrief(b) {
+    if (!b || typeof b !== 'object') return;
+    if (byId(MEDIA, b.medium)) st.medium = b.medium;
+    suggest = (Array.isArray(b.suggest) ? b.suggest : []).filter(id => byId(themes, id));
+    if (typeof b.title === 'string') st.title = b.title;
+    const k = b.kind;
+    if (k && st.medium === 'deck' && byId(structures, k)) { const s = byId(structures, k); st.structure = k; st.format = s.suggest.format; st.motion = s.suggest.motion; if (!suggest.length) setTheme(s.suggest.themes.find(id => byId(themes, id)) || st.theme, false); }
+    if (k && st.medium === 'document' && byId(DATA.docTypes, k)) st.kind = k;
+    if (k && st.medium === 'graphic' && byId(DATA.graphicFormats, k)) st.gformat = k;
+    if (suggest.length) setTheme(suggest[0], false);
+  }
+  if (location.protocol.startsWith('http')) fetch('brief').then(r => r.json()).then(applyBrief).catch(() => {}).finally(() => update(true));
+  else update(true);
+})();
+</script>
+</body>
+</html>

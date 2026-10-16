@@ -1,0 +1,64 @@
+/* Grid: signature art. Colours, fonts and shapes come from tokens.css (built from theme.json).
+   Swiss modernism. Every slide shows its twelve-column grid as hairlines under a thick rule across the top; the
+   section name runs up the left margin; type is flush left and bold. Covers carry a heavy accent rule, section
+   openers a huge numeral, kickers a small accent square, cards a thick rule on top, and bullets are squares. */
+.pc-deck[data-theme="grid"] .pc-slide { --rule: calc(10 * var(--art-px)); --rule-y: calc(var(--mt) * .42); }
+.pc-deck[data-theme="grid"] .pc-slide::before {
+  content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: var(--mx); right: var(--mx);
+  background:
+    linear-gradient(var(--ink), var(--ink)) 0 var(--rule-y) / 100% var(--rule) no-repeat,
+    repeating-linear-gradient(to right, var(--grid-ink) 0 calc(1.5 * var(--art-px)), transparent 0 calc(100% / 12));
+  border-right: calc(1.5 * var(--art-px)) solid var(--grid-ink); }
+.pc-deck[data-theme="grid"] .pc-slide[data-surface="accent"]::before {
+  background:
+    linear-gradient(var(--ink), var(--ink)) 0 var(--rule-y) / 100% var(--rule) no-repeat,
+    repeating-linear-gradient(to right, color-mix(in srgb, var(--ink) 16%, transparent) 0 calc(1.5 * var(--art-px)), transparent 0 calc(100% / 12));
+  border-right-color: color-mix(in srgb, var(--ink) 16%, transparent); }
+.pc-deck[data-theme="grid"] .pc-bleed::before { content: none; }
+/* Split slides: the grid and rule cover the text side only */
+.pc-deck[data-theme="grid"] .pc-split::before { right: calc(var(--split) + var(--mx) * .5); }
+.pc-deck[data-theme="grid"] .pc-split--left::before { right: var(--mx); left: calc(var(--split) + var(--mx) * .5); }
+.pc-deck[data-theme="grid"]:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-split::before {
+  left: var(--mx); right: var(--mx); top: var(--split-h); --rule-y: calc(var(--mt) * .3); }
+
+/* The section name runs up the left margin */
+.pc-deck[data-theme="grid"] .pc-slide::after {
+  content: attr(data-section-name); position: absolute; z-index: 2; left: calc(var(--mx) * .5); bottom: var(--mb);
+  writing-mode: vertical-rl; transform: translateX(-50%) rotate(180deg); max-height: 62%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+  font: 700 max(calc(var(--fs-label) * .82), 16px)/1 var(--font-label); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.pc-deck[data-theme="grid"] .pc-slide:is(.pc-cover, .pc-bleed, .pc-split--left)::after { content: none; }
+.pc-deck[data-theme="grid"]:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-slide::after { content: none; }
+.pc-deck[data-theme="grid"] .pc-slide > .pc-num { font-weight: 700; letter-spacing: 0; color: var(--ink); font-variant-numeric: tabular-nums; }
+
+/* Covers: a heavy accent rule, and the title as large as it will go */
+.pc-deck[data-theme="grid"] .pc-cover { --rule: calc(34 * var(--art-px)); }
+.pc-deck[data-theme="grid"] .pc-cover::before {
+  background:
+    linear-gradient(var(--accent), var(--accent)) 0 var(--rule-y) / 100% var(--rule) no-repeat,
+    repeating-linear-gradient(to right, var(--grid-ink) 0 calc(1.5 * var(--art-px)), transparent 0 calc(100% / 12)); }
+.pc-deck[data-theme="grid"] .pc-cover .pc-title { font-weight: 900; letter-spacing: -0.045em; line-height: .9; }
+.pc-deck[data-theme="grid"] .pc-cover .pc-meta { color: var(--ink); font-weight: 500; }
+
+/* Section openers: a huge numeral in the accent */
+.pc-deck[data-theme="grid"] .pc-section { justify-content: flex-end; }
+.pc-deck[data-theme="grid"] .pc-section .pc-section-num {
+  font: 900 calc(var(--fs-hero) * 3.4)/.8 var(--font-display); letter-spacing: -0.06em; margin: 0 0 28px; color: var(--accent-text); }
+.pc-deck[data-theme="grid"] .pc-statement .pc-say, .pc-deck[data-theme="grid"] .pc-statement .pc-title { font-weight: 700; letter-spacing: -0.03em; }
+
+/* Kickers: a small accent square, then bold capitals in the ink */
+.pc-deck[data-theme="grid"] .pc-kicker { color: var(--ink); }
+.pc-deck[data-theme="grid"] .pc-kicker::before {
+  content: ""; display: inline-block; width: .62em; height: .62em; margin-right: .5em; vertical-align: .02em; background: var(--accent); }
+.pc-deck[data-theme="grid"] .pc-slide[data-surface="accent"] .pc-kicker::before { background: var(--ink); }
+
+/* Cards carry a thick rule on top; tables a heavy head rule */
+.pc-deck[data-theme="grid"] .pc-card:not(.pc-card--accent, .pc-card--soft, .pc-inverse) {
+  background: var(--surface-2); border-top: calc(8 * var(--art-px)) solid var(--ink); }
+.pc-deck[data-theme="grid"] .pc-table th { border-bottom: calc(4 * var(--art-px)) solid var(--ink); color: var(--ink); }
+.pc-deck[data-theme="grid"] .pc-stat { letter-spacing: -0.035em; }
+.pc-deck[data-theme="grid"] .pc-quote blockquote { font-weight: 700; letter-spacing: -0.02em; }
+
+/* clip paths: written by tools/build_themes.py from the pictures above, since big CSS masks print wrong in Preview and Safari. Do not edit. */
+.pc-deck[data-theme="grid"], .pc-deck[data-theme="grid"] .pc-slide {
+  --cols-12-clip: shape(from calc(var(--bleed, 0mm) + (100% - 2 * var(--bleed, 0mm)) * 0) 0, hline by var(--rule-w, .4pt), vline to 100%, hline by calc(-1 * var(--rule-w, .4pt)), close, move to calc(var(--bleed, 0mm) + (100% - 2 * var(--bleed, 0mm)) * 0.08333) 0, hline by var(--rule-w, .4pt), vline to 100%, hline by calc(-1 * var(--rule-w, .4pt)), close, move to calc(var(--bleed, 0mm) + (100% - 2 * var(--bleed, 0mm)) * 0.16667) 0, hline by var(--rule-w, .4pt), vline to 100%, hline by calc(-1 * var(--rule-w, .4pt)), close, move to calc(var(--bleed, 0mm) + (100% - 2 * var(--bleed, 0mm)) * 0.25) 0, hline by var(--rule-w, .4pt), vline to 100%, hline by calc(-1 * var(--rule-w, .4pt)), close, move to calc(var(--bleed, 0mm) + (100% - 2 * var(--bleed, 0mm)) * 0.33333) 0, hline by var(--rule-w, .4pt), vline to 100%, hline by calc(-1 * var(--rule-w, .4pt)), close, move to calc(var(--bleed, 0mm) + (100% - 2 * var(--bleed, 0mm)) * 0.41667) 0, hline by var(--rule-w, .4pt), vline to 100%, hline by calc(-1 * var(--rule-w, .4pt)), close, move to calc(var(--bleed, 0mm) + (100% - 2 * var(--bleed, 0mm)) * 0.5) 0, hline by var(--rule-w, .4pt), vline to 100%, hline by calc(-1 * var(--rule-w, .4pt)), close, move to calc(var(--bleed, 0mm) + (100% - 2 * var(--bleed, 0mm)) * 0.58333) 0, hline by var(--rule-w, .4pt), vline to 100%, hline by calc(-1 * var(--rule-w, .4pt)), close, move to calc(var(--bleed, 0mm) + (100% - 2 * var(--bleed, 0mm)) * 0.66667) 0, hline by var(--rule-w, .4pt), vline to 100%, hline by calc(-1 * var(--rule-w, .4pt)), close, move to calc(var(--bleed, 0mm) + (100% - 2 * var(--bleed, 0mm)) * 0.75) 0, hline by var(--rule-w, .4pt), vline to 100%, hline by calc(-1 * var(--rule-w, .4pt)), close, move to calc(var(--bleed, 0mm) + (100% - 2 * var(--bleed, 0mm)) * 0.83333) 0, hline by var(--rule-w, .4pt), vline to 100%, hline by calc(-1 * var(--rule-w, .4pt)), close, move to calc(var(--bleed, 0mm) + (100% - 2 * var(--bleed, 0mm)) * 0.91667) 0, hline by var(--rule-w, .4pt), vline to 100%, hline by calc(-1 * var(--rule-w, .4pt)), close); }
+/* end of clip paths */

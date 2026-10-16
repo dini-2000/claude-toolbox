@@ -1,0 +1,238 @@
+{
+ "name": "Superhero",
+ "summary": "Deep navy, square corners, a bold sans and a hot orange accent, with a faint sunburst behind the cover. Confident and punchy, for pitches, launches, sales kick-offs and team rallies.",
+ "good_for": [
+  "pitch",
+  "launch",
+  "sales",
+  "kickoff",
+  "team",
+  "update"
+ ],
+ "category": "startup",
+ "credit": "colours and fonts from Bootswatch Superhero by Thomas Park (MIT licence)",
+ "defaults": {
+  "mode": "dark",
+  "palette": "orange"
+ },
+ "fonts": {
+  "display": [
+   "Lato",
+   "sans"
+  ],
+  "body": [
+   "Lato",
+   "sans"
+  ],
+  "label": [
+   "Lato",
+   "sans"
+  ],
+  "stat": [
+   "Lato",
+   "sans"
+  ],
+  "mono": [
+   "JetBrains Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "700",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "700",
+  "--w-stat": "700",
+  "--track-display": "-0.025em",
+  "--track-h1": "-0.015em",
+  "--track-label": "0.1em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.0",
+  "--lh-h1": "1.08",
+  "--lh-body": "1.5",
+  "--radius": "0px",
+  "--radius-sm": "0px",
+  "--border-w": "2px",
+  "--card-pad": "34px",
+  "--icon-stroke": "2"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F3F5F8",
+   "bg_alt": "#E8ECF1",
+   "surface": "#FFFFFF",
+   "surface_2": "#E3E8EE",
+   "ink": "#0F2537",
+   "ink_2": "#2F4256",
+   "ink_3": "#4E5D6C",
+   "line": "#CED6DF",
+   "positive": "#2E7D32",
+   "negative": "#C62828",
+   "warning": "#A15C00",
+   "code_bg": "#0F2537",
+   "code_ink": "#EBEBEB",
+   "letterbox": "#0A1825",
+   "shadow": "0 2px 0 rgba(15, 37, 55, .12)"
+  },
+  "dark": {
+   "bg": "#0F2537",
+   "bg_alt": "#132B40",
+   "surface": "#20374C",
+   "surface_2": "#2B4359",
+   "ink": "#EBEBEB",
+   "ink_2": "#C4CCD5",
+   "ink_3": "#9AA7B4",
+   "line": "#34495E",
+   "positive": "#7BCF7B",
+   "negative": "#F07C79",
+   "warning": "#FFC94D",
+   "code_bg": "#0A1825",
+   "code_ink": "#EBEBEB",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "orange": {
+   "name": "Orange",
+   "light": {
+    "accent": "#DF6919",
+    "accent_2": "#2A9FD6"
+   },
+   "dark": {
+    "accent": "#F08A3E",
+    "accent_2": "#5BC0DE"
+   }
+  },
+  "sky": {
+   "name": "Sky",
+   "light": {
+    "accent": "#1C7CB8",
+    "accent_2": "#DF6919"
+   },
+   "dark": {
+    "accent": "#5BC0DE",
+    "accent_2": "#F08A3E"
+   }
+  },
+  "lime": {
+   "name": "Lime",
+   "light": {
+    "accent": "#4E8A1E",
+    "accent_2": "#DF6919"
+   },
+   "dark": {
+    "accent": "#9BD45A",
+    "accent_2": "#F08A3E"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#DF6919",
+   "#1C7CB8",
+   "#4E8A1E",
+   "#8E44AD",
+   "#C62828",
+   "#4E5D6C"
+  ],
+  "dark": [
+   "#F08A3E",
+   "#5BC0DE",
+   "#9BD45A",
+   "#C39BD3",
+   "#F07C79",
+   "#9AA7B4"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "rays",
+     "at": "br",
+     "size": 1100,
+     "x": -380,
+     "y": -380,
+     "color": "accent",
+     "opacity": 0.14
+    },
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 16,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 16,
+     "color": "accent"
+    },
+    {
+     "motif": "rays",
+     "at": "r",
+     "size": 900,
+     "x": -450,
+     "color": "accent",
+     "opacity": 0.1
+    }
+   ],
+   "statement": [
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 16,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "rays",
+     "at": "c",
+     "size": 1400,
+     "color": "accent",
+     "opacity": 0.1
+    }
+   ]
+  },
+  "kicker": "tab",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "rays",
+     "at": "br",
+     "size": 220,
+     "x": -80,
+     "y": -80,
+     "color": "accent",
+     "opacity": 0.14
+    },
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 4,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 3,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "diamond",
+    "size": 7,
+    "color": "accent"
+   }
+  }
+ }
+}

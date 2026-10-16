@@ -1,0 +1,160 @@
+/* Launch: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="launch"] {
+  --m-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50'/%3E%3C/svg%3E");
+  --m-ring: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill-rule='evenodd' d='M50 0a50 50 0 1 0 0 100a50 50 0 1 0 0-100zm0 16a34 34 0 1 1 0 68a34 34 0 1 1 0-68z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="launch"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(1100 * var(--art-px));
+  height: calc(1100 * var(--art-px));
+  right: calc(-380 * var(--art-px));
+  bottom: calc(-420 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.6; }
+.pc-deck[data-theme="launch"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(660 * var(--art-px));
+  height: calc(660 * var(--art-px));
+  right: calc(-228 * var(--art-px));
+  bottom: calc(-252 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.6; }
+.pc-deck[data-theme="launch"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(220 * var(--art-px));
+  height: calc(220 * var(--art-px));
+  right: calc(60 * var(--art-px));
+  top: calc(50 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(evenodd from 50% 0%, curve to 0% 50% with 22.39% 0% / 0% 22.39%, curve to 50% 100% with 0% 77.61% / 22.39% 100%, curve to 100% 50% with 77.61% 100% / 100% 77.61%, curve to 50% 0% with 100% 22.39% / 77.61% 0%, close, move to 50% 16%, curve to 84% 50% with 68.78% 16% / 84% 31.22%, curve to 50% 84% with 84% 68.78% / 68.78% 84%, curve to 16% 50% with 31.22% 84% / 16% 68.78%, curve to 50% 16% with 16% 31.22% / 31.22% 16%, close);
+  opacity: 0.9; }
+.pc-deck[data-theme="launch"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(132 * var(--art-px));
+  height: calc(132 * var(--art-px));
+  right: calc(36 * var(--art-px));
+  top: calc(30 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(evenodd from 50% 0%, curve to 0% 50% with 22.39% 0% / 0% 22.39%, curve to 50% 100% with 0% 77.61% / 22.39% 100%, curve to 100% 50% with 77.61% 100% / 100% 77.61%, curve to 50% 0% with 100% 22.39% / 77.61% 0%, close, move to 50% 16%, curve to 84% 50% with 68.78% 16% / 84% 31.22%, curve to 50% 84% with 84% 68.78% / 68.78% 84%, curve to 16% 50% with 31.22% 84% / 16% 68.78%, curve to 50% 16% with 16% 31.22% / 31.22% 16%, close);
+  opacity: 0.9; }
+.pc-deck[data-theme="launch"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(900 * var(--art-px));
+  height: calc(900 * var(--art-px));
+  right: calc(-420 * var(--art-px));
+  top: calc(50% - calc(900 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.55; }
+.pc-deck[data-theme="launch"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(540 * var(--art-px));
+  height: calc(540 * var(--art-px));
+  right: calc(-252 * var(--art-px));
+  top: calc(50% - calc(540 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.55; }
+.pc-deck[data-theme="launch"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(700 * var(--art-px));
+  height: calc(700 * var(--art-px));
+  left: calc(-260 * var(--art-px));
+  bottom: calc(-280 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.4; }
+.pc-deck[data-theme="launch"]:is([data-format="3x1"], [data-format="4x1"]) .pc-statement:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(420 * var(--art-px));
+  height: calc(420 * var(--art-px));
+  left: calc(-156 * var(--art-px));
+  bottom: calc(-168 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.4; }
+.pc-deck[data-theme="launch"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(1100 * var(--art-px));
+  height: calc(1100 * var(--art-px));
+  left: calc(-400 * var(--art-px));
+  bottom: calc(-420 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.6; }
+.pc-deck[data-theme="launch"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(660 * var(--art-px));
+  height: calc(660 * var(--art-px));
+  left: calc(-240 * var(--art-px));
+  bottom: calc(-252 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.6; }
+.pc-deck[data-theme="launch"] .pc-closing:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(220 * var(--art-px));
+  height: calc(220 * var(--art-px));
+  right: calc(60 * var(--art-px));
+  top: calc(50 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(evenodd from 50% 0%, curve to 0% 50% with 22.39% 0% / 0% 22.39%, curve to 50% 100% with 0% 77.61% / 22.39% 100%, curve to 100% 50% with 77.61% 100% / 100% 77.61%, curve to 50% 0% with 100% 22.39% / 77.61% 0%, close, move to 50% 16%, curve to 84% 50% with 68.78% 16% / 84% 31.22%, curve to 50% 84% with 84% 68.78% / 68.78% 84%, curve to 16% 50% with 31.22% 84% / 16% 68.78%, curve to 50% 16% with 16% 31.22% / 31.22% 16%, close);
+  opacity: 0.9; }
+.pc-deck[data-theme="launch"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(132 * var(--art-px));
+  height: calc(132 * var(--art-px));
+  right: calc(36 * var(--art-px));
+  top: calc(30 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(evenodd from 50% 0%, curve to 0% 50% with 22.39% 0% / 0% 22.39%, curve to 50% 100% with 0% 77.61% / 22.39% 100%, curve to 100% 50% with 77.61% 100% / 100% 77.61%, curve to 50% 0% with 100% 22.39% / 77.61% 0%, close, move to 50% 16%, curve to 84% 50% with 68.78% 16% / 84% 31.22%, curve to 50% 84% with 84% 68.78% / 68.78% 84%, curve to 16% 50% with 31.22% 84% / 16% 68.78%, curve to 50% 16% with 16% 31.22% / 31.22% 16%, close);
+  opacity: 0.9; }
+.pc-deck[data-theme="launch"] .pc-cover {
+  --cover-w: 70%; }
+.pc-deck[data-theme="launch"] .pc-kicker {
+  width: fit-content;
+  padding: .38em .9em .42em;
+  border-radius: 999px;
+  background: var(--accent-text);
+  color: var(--kicker-on, var(--bg)); }
+.pc-deck[data-theme="launch"] .pc-card:not(.pc-card--flat) {
+  box-shadow: 0 12px 34px rgba(0, 0, 0, .12);
+  border: 0; }

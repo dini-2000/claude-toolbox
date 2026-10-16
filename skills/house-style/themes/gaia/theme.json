@@ -1,0 +1,238 @@
+{
+ "name": "Gaia",
+ "summary": "Warm cream paper with slate blue-grey ink, a clear sky-blue accent and soft diagonal stripes on the title slides. Friendly and tidy, for lessons, study groups, tutorials and school talks.",
+ "good_for": [
+  "lesson",
+  "study",
+  "tutorial",
+  "school",
+  "workshop",
+  "explainer"
+ ],
+ "category": "education",
+ "credit": "colours from the Marp Gaia theme by the Marp team (MIT licence)",
+ "defaults": {
+  "mode": "light",
+  "palette": "sky"
+ },
+ "fonts": {
+  "display": [
+   "Lato",
+   "sans"
+  ],
+  "body": [
+   "Lato",
+   "sans"
+  ],
+  "label": [
+   "Lato",
+   "sans"
+  ],
+  "stat": [
+   "Lato",
+   "sans"
+  ],
+  "mono": [
+   "Red Hat Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "700",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "700",
+  "--w-stat": "700",
+  "--track-display": "-0.02em",
+  "--track-h1": "-0.01em",
+  "--track-label": "0.08em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.06",
+  "--lh-h1": "1.12",
+  "--lh-body": "1.55",
+  "--radius": "8px",
+  "--radius-sm": "5px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.75"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFF8E1",
+   "bg_alt": "#FBF1D3",
+   "surface": "#FFFDF6",
+   "surface_2": "#F5ECCD",
+   "ink": "#455A64",
+   "ink_2": "#4E626B",
+   "ink_3": "#56676F",
+   "line": "#E8DDBA",
+   "positive": "#2E7D32",
+   "negative": "#C62828",
+   "warning": "#8D5A00",
+   "code_bg": "#37474F",
+   "code_ink": "#FFF8E1",
+   "letterbox": "#263238",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#455A64",
+   "bg_alt": "#4B616B",
+   "surface": "#526872",
+   "surface_2": "#5C737E",
+   "ink": "#FFF8E1",
+   "ink_2": "#F0E8D0",
+   "ink_3": "#DCD3BA",
+   "line": "#667D88",
+   "positive": "#A5D6A7",
+   "negative": "#FFCDD2",
+   "warning": "#FFE082",
+   "code_bg": "#37474F",
+   "code_ink": "#FFF8E1",
+   "letterbox": "#263238",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "sky": {
+   "name": "Sky",
+   "light": {
+    "accent": "#0277BD",
+    "accent_2": "#E65100"
+   },
+   "dark": {
+    "accent": "#81D4FA",
+    "accent_2": "#FFCC80"
+   }
+  },
+  "teal": {
+   "name": "Teal",
+   "light": {
+    "accent": "#00796B",
+    "accent_2": "#0277BD"
+   },
+   "dark": {
+    "accent": "#80CBC4",
+    "accent_2": "#81D4FA"
+   }
+  },
+  "rose": {
+   "name": "Rose",
+   "light": {
+    "accent": "#AD1457",
+    "accent_2": "#0277BD"
+   },
+   "dark": {
+    "accent": "#F8BBD0",
+    "accent_2": "#81D4FA"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#0277BD",
+   "#E65100",
+   "#00796B",
+   "#AD1457",
+   "#6A1B9A",
+   "#607D8B"
+  ],
+  "dark": [
+   "#81D4FA",
+   "#FFCC80",
+   "#80CBC4",
+   "#F8BBD0",
+   "#CE93D8",
+   "#CFD8DC"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "diagonal",
+     "at": "full",
+     "color": "ink",
+     "opacity": 0.07,
+     "tile": 40
+    },
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 16,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "diagonal",
+     "at": "full",
+     "color": "ink",
+     "opacity": 0.07,
+     "tile": 40
+    }
+   ],
+   "statement": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": 90,
+     "h": 6,
+     "x": "var(--mx)",
+     "y": 100,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "diagonal",
+     "at": "full",
+     "color": "ink",
+     "opacity": 0.07,
+     "tile": 40
+    },
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 16,
+     "color": "accent"
+    }
+   ]
+  },
+  "kicker": "pill",
+  "cards": "soft",
+  "doc": {
+   "cover": [
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 4,
+     "color": "accent"
+    },
+    {
+     "motif": "rule",
+     "at": "bl",
+     "w": 28,
+     "h": 1.4,
+     "x": 0,
+     "y": 26,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 2.5,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "circle",
+    "size": 6,
+    "color": "accent"
+   }
+  }
+ }
+}

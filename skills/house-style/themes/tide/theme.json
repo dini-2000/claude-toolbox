@@ -1,0 +1,263 @@
+{
+ "name": "Tide",
+ "summary": "The calm of the sea: pale foam, deep navy ink, teal and sand, a soft serif for titles and layered waves along the foot. Restful and clear, for wellbeing, ocean and climate talks, retreats, travel and coaching.",
+ "good_for": [
+  "wellbeing",
+  "ocean",
+  "climate",
+  "retreat",
+  "travel",
+  "coaching"
+ ],
+ "category": "wellness",
+ "defaults": {
+  "mode": "light",
+  "palette": "sea"
+ },
+ "fonts": {
+  "display": [
+   "Young Serif",
+   "serif"
+  ],
+  "body": [
+   "Figtree",
+   "sans"
+  ],
+  "label": [
+   "Figtree",
+   "sans"
+  ],
+  "stat": [
+   "Young Serif",
+   "serif"
+  ],
+  "mono": [
+   "DM Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "400",
+  "--w-h1": "400",
+  "--w-h2": "400",
+  "--w-body": "400",
+  "--w-strong": "600",
+  "--w-label": "600",
+  "--w-stat": "400",
+  "--track-display": "-0.015em",
+  "--track-h1": "-0.01em",
+  "--track-label": "0.1em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.08",
+  "--lh-h1": "1.14",
+  "--lh-body": "1.55",
+  "--radius": "14px",
+  "--radius-sm": "8px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F4F8F7",
+   "bg_alt": "#EAF2F0",
+   "surface": "#FFFFFF",
+   "surface_2": "#E0ECE9",
+   "ink": "#0E2A3A",
+   "ink_2": "#324B58",
+   "ink_3": "#475F6B",
+   "line": "#D2E2DE",
+   "positive": "#1B7A4E",
+   "negative": "#B42318",
+   "warning": "#8A5A00",
+   "code_bg": "#0E2A3A",
+   "code_ink": "#EAF2F0",
+   "letterbox": "#071822",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#0B1C26",
+   "bg_alt": "#0F232F",
+   "surface": "#132A38",
+   "surface_2": "#1B3646",
+   "ink": "#EEF6F4",
+   "ink_2": "#C8D8D6",
+   "ink_3": "#A0B4B3",
+   "line": "#244355",
+   "positive": "#6FD3A0",
+   "negative": "#FF8A80",
+   "warning": "#F5C04A",
+   "code_bg": "#06121A",
+   "code_ink": "#EEF6F4",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "sea": {
+   "name": "Sea",
+   "light": {
+    "accent": "#0F766E",
+    "accent_2": "#A16207"
+   },
+   "dark": {
+    "accent": "#5EEAD4",
+    "accent_2": "#FCD34D"
+   }
+  },
+  "deep": {
+   "name": "Deep",
+   "light": {
+    "accent": "#1E40AF",
+    "accent_2": "#0F766E"
+   },
+   "dark": {
+    "accent": "#93C5FD",
+    "accent_2": "#5EEAD4"
+   }
+  },
+  "coral": {
+   "name": "Coral",
+   "light": {
+    "accent": "#C2410C",
+    "accent_2": "#0F766E"
+   },
+   "dark": {
+    "accent": "#FDA47E",
+    "accent_2": "#5EEAD4"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#0F766E",
+   "#1E40AF",
+   "#A16207",
+   "#C2410C",
+   "#5B8A9A",
+   "#A7B9B6"
+  ],
+  "dark": [
+   "#5EEAD4",
+   "#93C5FD",
+   "#FCD34D",
+   "#FDA47E",
+   "#8FB8C4",
+   "#5E7672"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "wave",
+     "at": "b",
+     "w": "100%",
+     "h": 190,
+     "color": "accent",
+     "opacity": 0.18
+    },
+    {
+     "motif": "wave",
+     "at": "b",
+     "w": "100%",
+     "h": 120,
+     "color": "accent",
+     "opacity": 0.3
+    }
+   ],
+   "section": [
+    {
+     "motif": "wave",
+     "at": "b",
+     "w": "100%",
+     "h": 150,
+     "color": "accent",
+     "opacity": 0.25
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 120,
+     "x": 120,
+     "y": 90,
+     "color": "accent-2",
+     "opacity": 0.8
+    }
+   ],
+   "statement": [
+    {
+     "motif": "wave",
+     "at": "b",
+     "w": "100%",
+     "h": 90,
+     "color": "accent",
+     "opacity": 0.2
+    }
+   ],
+   "closing": [
+    {
+     "motif": "wave",
+     "at": "b",
+     "w": "100%",
+     "h": 190,
+     "color": "accent",
+     "opacity": 0.18
+    },
+    {
+     "motif": "wave",
+     "at": "b",
+     "w": "100%",
+     "h": 120,
+     "color": "accent",
+     "opacity": 0.3
+    }
+   ]
+  },
+  "kicker": "pill",
+  "cards": "soft",
+  "doc": {
+   "cover": [
+    {
+     "motif": "wave",
+     "at": "b",
+     "w": "100%",
+     "h": 36,
+     "color": "accent",
+     "opacity": 0.18
+    },
+    {
+     "motif": "wave",
+     "at": "b",
+     "w": "100%",
+     "h": 22,
+     "color": "accent",
+     "opacity": 0.3
+    }
+   ],
+   "opener": [
+    {
+     "motif": "wave",
+     "at": "tl",
+     "w": 26,
+     "h": 6,
+     "x": 0,
+     "y": 0,
+     "color": "accent",
+     "opacity": 0.5
+    }
+   ],
+   "mark": {
+    "motif": "circle",
+    "size": 4,
+    "color": "accent"
+   }
+  },
+  "vars": {
+   "cover@narrow": {
+    "--cover-w": "100%",
+    "--k-hero": ".86"
+   }
+  }
+ }
+}

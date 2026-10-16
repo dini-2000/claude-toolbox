@@ -1,0 +1,151 @@
+/* Annual: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="annual"] {
+  --m-quarter-disc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0 0h100A100 100 0 0 1 0 100z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="annual"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(520 * var(--art-px));
+  height: calc(520 * var(--art-px));
+  right: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, curve to 0% 100% with 100% 55.23% / 55.23% 100%, close);
+  transform: rotate(90deg); }
+.pc-deck[data-theme="annual"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(312 * var(--art-px));
+  height: calc(312 * var(--art-px));
+  right: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, curve to 0% 100% with 100% 55.23% / 55.23% 100%, close);
+  transform: rotate(90deg); }
+.pc-deck[data-theme="annual"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(300 * var(--art-px));
+  height: calc(300 * var(--art-px));
+  right: calc(520 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, curve to 0% 100% with 100% 55.23% / 55.23% 100%, close);
+  opacity: 0.9;
+  transform: rotate(90deg); }
+.pc-deck[data-theme="annual"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(180 * var(--art-px));
+  height: calc(180 * var(--art-px));
+  right: calc(312 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, curve to 0% 100% with 100% 55.23% / 55.23% 100%, close);
+  opacity: 0.9;
+  transform: rotate(90deg); }
+.pc-deck[data-theme="annual"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(420 * var(--art-px));
+  height: calc(420 * var(--art-px));
+  right: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, curve to 0% 100% with 100% 55.23% / 55.23% 100%, close);
+  transform: rotate(90deg); }
+.pc-deck[data-theme="annual"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(252 * var(--art-px));
+  height: calc(252 * var(--art-px));
+  right: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, curve to 0% 100% with 100% 55.23% / 55.23% 100%, close);
+  transform: rotate(90deg); }
+.pc-deck[data-theme="annual"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(120 * var(--art-px));
+  height: calc(3 * var(--art-px));
+  left: var(--mx);
+  top: calc(100 * var(--art-px));
+  background: var(--accent-2, var(--accent)); }
+.pc-deck[data-theme="annual"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(520 * var(--art-px));
+  height: calc(520 * var(--art-px));
+  right: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, curve to 0% 100% with 100% 55.23% / 55.23% 100%, close);
+  transform: rotate(90deg); }
+.pc-deck[data-theme="annual"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(312 * var(--art-px));
+  height: calc(312 * var(--art-px));
+  right: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, curve to 0% 100% with 100% 55.23% / 55.23% 100%, close);
+  transform: rotate(90deg); }
+.pc-deck[data-theme="annual"] .pc-closing:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(300 * var(--art-px));
+  height: calc(300 * var(--art-px));
+  right: calc(520 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, curve to 0% 100% with 100% 55.23% / 55.23% 100%, close);
+  opacity: 0.9;
+  transform: rotate(90deg); }
+.pc-deck[data-theme="annual"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(180 * var(--art-px));
+  height: calc(180 * var(--art-px));
+  right: calc(312 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, curve to 0% 100% with 100% 55.23% / 55.23% 100%, close);
+  opacity: 0.9;
+  transform: rotate(90deg); }
+.pc-deck[data-theme="annual"] .pc-cover {
+  --cover-w: 62%; }
+.pc-deck[data-theme="annual"]:is([data-format="1x1"], [data-format="4x5"], [data-format="9x16"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-cover {
+  --cover-w: 100%;
+  --k-hero: .82; }
+.pc-deck[data-theme="annual"] .pc-kicker {
+  width: fit-content;
+  padding-bottom: .35em;
+  border-bottom: .16em solid var(--accent); }
+.pc-deck[data-theme="annual"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 0;
+  background: var(--surface-2); }

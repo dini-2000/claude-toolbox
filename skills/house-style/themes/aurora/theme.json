@@ -1,0 +1,309 @@
+{
+ "name": "Aurora",
+ "summary": "Northern lights on near-black: green, cyan and violet glows drifting behind frosted cards, a clean geometric sans and a mono for code. Futuristic and calm, for AI, platform and developer talks, research demos and tech strategy.",
+ "good_for": [
+  "ai",
+  "platform",
+  "developer",
+  "demo",
+  "tech-strategy",
+  "research"
+ ],
+ "category": "tech",
+ "also": [
+  "dark"
+ ],
+ "defaults": {
+  "mode": "dark",
+  "palette": "borealis"
+ },
+ "fonts": {
+  "display": [
+   "Outfit",
+   "sans"
+  ],
+  "body": [
+   "Geist",
+   "sans"
+  ],
+  "label": [
+   "Geist Mono",
+   "mono"
+  ],
+  "stat": [
+   "Outfit",
+   "sans"
+  ],
+  "mono": [
+   "Geist Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "700",
+  "--w-body": "400",
+  "--w-strong": "600",
+  "--w-label": "500",
+  "--w-stat": "700",
+  "--track-display": "-0.03em",
+  "--track-h1": "-0.02em",
+  "--track-label": "0.04em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.04",
+  "--lh-h1": "1.1",
+  "--lh-body": "1.5",
+  "--radius": "16px",
+  "--radius-sm": "10px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F7FAFA",
+   "bg_alt": "#EEF4F5",
+   "surface": "#FFFFFF",
+   "surface_2": "#E6EEF0",
+   "ink": "#0C1A22",
+   "ink_2": "#334550",
+   "ink_3": "#4A5B66",
+   "line": "#D5E1E5",
+   "positive": "#0E7C3A",
+   "negative": "#C62828",
+   "warning": "#8F5B00",
+   "code_bg": "#0C1A22",
+   "code_ink": "#EEF4F5",
+   "letterbox": "#060E13",
+   "shadow": "0 8px 30px rgba(12, 26, 34, .08)"
+  },
+  "dark": {
+   "bg": "#070B12",
+   "bg_alt": "#0B1019",
+   "surface": "#10161F",
+   "surface_2": "#18202B",
+   "ink": "#ECF4F7",
+   "ink_2": "#C6D3DA",
+   "ink_3": "#9FAEB7",
+   "line": "#222C38",
+   "positive": "#4ADE80",
+   "negative": "#FF6B6B",
+   "warning": "#FFB020",
+   "code_bg": "#03060A",
+   "code_ink": "#ECF4F7",
+   "letterbox": "#000000",
+   "shadow": "0 8px 30px rgba(0, 0, 0, .4)"
+  }
+ },
+ "palettes": {
+  "borealis": {
+   "name": "Borealis",
+   "light": {
+    "accent": "#0F766E",
+    "accent_2": "#7C3AED"
+   },
+   "dark": {
+    "accent": "#5EEAD4",
+    "accent_2": "#C4B5FD"
+   }
+  },
+  "ice": {
+   "name": "Ice",
+   "light": {
+    "accent": "#0369A1",
+    "accent_2": "#0F766E"
+   },
+   "dark": {
+    "accent": "#7DD3FC",
+    "accent_2": "#5EEAD4"
+   }
+  },
+  "magenta": {
+   "name": "Magenta",
+   "light": {
+    "accent": "#A21CAF",
+    "accent_2": "#0369A1"
+   },
+   "dark": {
+    "accent": "#F0ABFC",
+    "accent_2": "#7DD3FC"
+   }
+  },
+  "nord": {
+   "name": "Nord",
+   "credit": "Nord colours by Arctic Ice Studio and Sven Greb (MIT licence)",
+   "light": {
+    "accent": "#5E81AC",
+    "accent_2": "#BF616A",
+    "neutrals": {
+     "bg": "#ECEFF4",
+     "bg_alt": "#E5E9F0",
+     "surface": "#F7F8FA",
+     "surface_2": "#E5E9F0",
+     "ink": "#2E3440",
+     "ink_2": "#3B4252",
+     "ink_3": "#4C566A",
+     "line": "#D8DEE9",
+     "code_bg": "#2E3440",
+     "code_ink": "#ECEFF4",
+     "letterbox": "#242933",
+     "alt": {
+      "surface": "#F7F8FA",
+      "surface_2": "#D8DEE9"
+     },
+     "positive": "#A3BE8C",
+     "negative": "#BF616A",
+     "warning": "#D08770"
+    }
+   },
+   "dark": {
+    "accent": "#88C0D0",
+    "accent_2": "#EBCB8B",
+    "neutrals": {
+     "bg": "#2E3440",
+     "bg_alt": "#333A47",
+     "surface": "#3B4252",
+     "surface_2": "#434C5E",
+     "ink": "#ECEFF4",
+     "ink_2": "#D8DEE9",
+     "ink_3": "#AEB6C4",
+     "line": "#4C566A",
+     "code_bg": "#242933",
+     "code_ink": "#ECEFF4",
+     "letterbox": "#1F232B",
+     "alt": {
+      "surface": "#434C5E",
+      "surface_2": "#4C566A"
+     },
+     "positive": "#A3BE8C",
+     "negative": "#BF616A",
+     "warning": "#EBCB8B"
+    }
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#0F766E",
+   "#7C3AED",
+   "#0369A1",
+   "#C026D3",
+   "#65A30D",
+   "#64748B"
+  ],
+  "dark": [
+   "#5EEAD4",
+   "#C4B5FD",
+   "#7DD3FC",
+   "#F0ABFC",
+   "#BEF264",
+   "#94A3B8"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "glow",
+     "at": "tr",
+     "size": 1000,
+     "x": -320,
+     "y": -420,
+     "color": "accent",
+     "opacity": 0.5
+    },
+    {
+     "motif": "glow",
+     "at": "br",
+     "size": 900,
+     "x": -200,
+     "y": -420,
+     "color": "accent-2",
+     "opacity": 0.45
+    }
+   ],
+   "section": [
+    {
+     "motif": "glow",
+     "at": "tr",
+     "size": 900,
+     "x": -300,
+     "y": -380,
+     "color": "accent-2",
+     "opacity": 0.45
+    }
+   ],
+   "statement": [
+    {
+     "motif": "glow",
+     "at": "tr",
+     "size": 1000,
+     "x": -320,
+     "y": -420,
+     "color": "accent-2",
+     "opacity": 0.35
+    }
+   ],
+   "closing": [
+    {
+     "motif": "glow",
+     "at": "bl",
+     "size": 1000,
+     "x": -320,
+     "y": -420,
+     "color": "accent",
+     "opacity": 0.5
+    },
+    {
+     "motif": "glow",
+     "at": "tl",
+     "size": 900,
+     "x": -200,
+     "y": -420,
+     "color": "accent-2",
+     "opacity": 0.45
+    }
+   ]
+  },
+  "kicker": "pill",
+  "cards": "soft",
+  "doc": {
+   "cover": [
+    {
+     "motif": "glow",
+     "at": "tr",
+     "size": 200,
+     "x": -60,
+     "y": -80,
+     "color": "accent",
+     "opacity": 0.5
+    },
+    {
+     "motif": "glow",
+     "at": "br",
+     "size": 180,
+     "x": -40,
+     "y": -80,
+     "color": "accent-2",
+     "opacity": 0.45
+    }
+   ],
+   "opener": [
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 6,
+     "x": 0,
+     "y": 0,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "circle",
+    "size": 4,
+    "color": "accent"
+   }
+  }
+ }
+}

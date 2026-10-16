@@ -1,0 +1,377 @@
+/* House Style documents: paged PDFs (reports, papers, proposals, letters, CVs, newsletters, invoices, guides) in any
+   theme. The page is <html class="pc-deck pc-doc" data-theme data-mode data-palette data-type data-page>, so the
+   theme's tokens.css applies to it as it does to a deck, and @page margin boxes inherit those tokens.
+   Sizes are in pt. tools/build.py writes the page size and margins (from data-page, data-orient, data-type) and one
+   named page per chapter for its running head; the rules below are the A4 defaults a preview uses.
+   Chrome facts this rests on (tested 14 Oct 2026, Chrome 155): margin boxes and counter(page)/counter(pages) print;
+   :first and :nth() on named pages do not, and an element with its own named page starts a new page, so an opener
+   page without a head is a page of its own; content is clipped to the page area, so full-bleed pictures are pages
+   of their own (named page with margin 0) and sidenotes sit in a column inside the page area. */
+
+/* ---------- 1. Tokens for documents ---------- */
+.pc-doc {
+  --bg: #ffffff; --ink: #16181d; --ink-2: #4a505c; --ink-3: #6b717d; --line: #d9dce2; --surface: #ffffff; --surface-2: #f3f4f6;
+  --accent: #2f54eb; --accent-text: #2f54eb; --accent-ink: #ffffff; --accent-soft: #e9eeff;
+  --font-display: Georgia, serif; --font-body: Georgia, serif; --font-label: system-ui, sans-serif; --font-mono: ui-monospace, monospace;
+  /* type scale in pt */
+  --d-body: 10.5pt; --d-small: 8.6pt; --d-label: 7.6pt; --d-lead: 13pt; --d-h1: 24pt; --d-h2: 15pt; --d-h3: 11.5pt;
+  --d-title: 34pt; --d-sub: 14pt; --d-stat: 28pt; --d-quote: 15pt; --d-code: 8.6pt; --d-lh: 1.5;
+  --d-gap: 10pt; --d-note-w: 0mm; --d-note-gap: 0mm;
+  /* what the runtime's charts read */
+  --fs-text: 12px; --fs-small: 11px; --fs-label: 10px; --fs-body: 13px; --W: 794px; --H: 1123px;
+  --c1: #2f54eb; --c2: #0f8b8d; --c3: #b07d00; --c4: #7a3e9d; --c5: #d1495b; --c6: #5b6170;
+  --chart-grid: var(--line); --chart-muted: var(--ink-3);
+  --radius: 4px; --radius-sm: 3px;
+}
+.pc-doc:is([data-theme="seminar"], [data-theme="folio"], [data-theme="ledger"], [data-theme="gallery"], [data-theme="occasion"], [data-theme="noir"]) { --d-body: 10.8pt; }
+/* A5 and smaller pages: type a step down, covers with tighter edges */
+.pc-doc:is([data-page="a5"], [data-page="a6"]) { --d-body: 9.4pt; --d-small: 8pt; --d-label: 7pt; --d-lead: 11.5pt; --d-h1: 19pt; --d-h2: 13pt; --d-h3: 10.5pt;
+  --d-title: 26pt; --d-sub: 12pt; --d-stat: 22pt; --d-quote: 13pt; --cover-pt: 20mm; --cover-px: 15mm; --cover-pb: 18mm; }
+.pc-doc[data-notes="side"] { --d-note-w: 44mm; --d-note-gap: 7mm; }
+
+/* ---------- 2. Pages ---------- */
+@page {
+  size: A4; margin: 24mm 20mm 22mm 20mm; background: var(--bg);   /* else Chrome paints the margins its own white, or #121212 in dark mode */
+  @top-left { content: var(--doc-head, ""); font: 600 7.4pt var(--font-label); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); vertical-align: bottom; padding-bottom: 4mm; }
+  @top-right { content: var(--doc-title-head, ""); font: 400 7.4pt var(--font-label); color: var(--ink-3); vertical-align: bottom; padding-bottom: 4mm; }
+  @bottom-right { content: counter(page); font: 600 8pt var(--font-label); color: var(--ink-2); vertical-align: top; padding-top: 4mm; }
+}
+@page pc-cover { margin: 0; @top-left { content: none } @top-right { content: none } @bottom-right { content: none } }
+@page pc-full { margin: 0; @top-left { content: none } @top-right { content: none } @bottom-right { content: none } }
+@page pc-opener { @top-left { content: none } @top-right { content: none } }
+@page pc-quiet { @top-left { content: none } @top-right { content: none } }
+.pc-doc { background: var(--bg); color: var(--ink); -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  font-synthesis: none; }   /* a weight or italic the theme lacks takes the nearest real face: a faked one prints as a Type3 font */
+.pc-doc body { margin: 0; font: var(--w-body, 400) var(--d-body)/var(--d-lh) var(--font-body); color: var(--ink);
+  font-kerning: normal; font-variant-numeric: proportional-nums; text-rendering: optimizeLegibility; }
+.pc-doc *, .pc-doc *::before, .pc-doc *::after { box-sizing: border-box; }
+.pc-doc img { max-width: 100%; }
+
+/* Screen view: the document as pages on a grey desk (the deliverable is the PDF) */
+@media screen {
+  .pc-doc { background: #e6e7ea; }
+  .pc-doc body { width: var(--page-w, 210mm); margin: 24px auto; padding: var(--m-t, 24mm) var(--m-r, 20mm) var(--m-b, 22mm) var(--m-l, 20mm);
+    background: var(--bg); box-shadow: 0 2px 18px rgba(0,0,0,.15); }
+  .pc-doc .pc-cover, .pc-doc .pc-fullpage { margin: calc(-1 * var(--m-t, 24mm)) calc(-1 * var(--m-r, 20mm)) var(--m-t, 24mm) calc(-1 * var(--m-l, 20mm)); }
+  .pc-doc .pc-chapter, .pc-doc .pc-toc { border-top: 1px dashed #c9ccd2; padding-top: 10mm; margin-top: 10mm; }
+}
+
+/* ---------- 3. Text ---------- */
+.pc-doc p { margin: 0 0 var(--d-gap); hyphens: auto; text-wrap: pretty; orphans: 3; widows: 3; }
+/* a short line that introduces a block ("The script is short:") goes over with it */
+/* (break rules list each selector in full, without :is() lists: Paged.js splits selectors at every comma) */
+.pc-doc p:has(+ pre), .pc-doc p:has(+ figure), .pc-doc p:has(+ table), .pc-doc p:has(+ ul), .pc-doc p:has(+ ol), .pc-doc p:has(+ .pc-keyfigs) { break-after: avoid; }
+.pc-doc h1, .pc-doc h2, .pc-doc h3, .pc-doc h4 { font-family: var(--font-display); color: var(--ink); hyphens: manual; text-wrap: balance;
+  break-after: avoid; page-break-after: avoid; break-inside: avoid; }
+.pc-doc h1 { font-size: var(--d-h1); font-weight: var(--w-h1, 650); line-height: var(--lh-h1, 1.12); letter-spacing: var(--track-h1, 0); margin: 0 0 14pt; }
+.pc-doc h2 { font-size: var(--d-h2); font-weight: var(--w-h2, 600); line-height: 1.2; margin: 20pt 0 7pt; }
+.pc-doc h3 { font-size: var(--d-h3); font-weight: var(--w-h2, 600); line-height: 1.25; margin: 14pt 0 5pt; }
+.pc-doc h4 { font: var(--w-label, 600) var(--d-label)/1.3 var(--font-label); letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--ink-2); margin: 12pt 0 4pt; }
+.pc-doc :is(h2, h3) + :is(h2, h3) { margin-top: 4pt; }
+.pc-doc a { color: var(--accent-text); text-decoration-thickness: .06em; text-underline-offset: .15em; }
+.pc-doc strong, .pc-doc b { font-weight: var(--w-strong, 650); }
+.pc-doc small, .pc-doc .pc-muted { color: var(--ink-2); font-size: var(--d-small); }
+.pc-doc .pc-kicker { font: var(--w-label, 600) var(--d-label)/1.3 var(--font-label); letter-spacing: var(--track-label); text-transform: var(--label-case);
+  color: var(--accent-text); margin: 0 0 6pt; }
+.pc-doc .pc-lead { font-size: var(--d-lead); line-height: 1.42; color: var(--ink-2); margin-bottom: 14pt; hyphens: manual; }
+.pc-doc .pc-dropcap::first-letter { float: left; font: var(--w-display, 700) calc(var(--d-body) * var(--d-lh) * 3.05)/.8 var(--font-display);
+  color: var(--accent-text); margin: .06em .09em 0 0; }
+.pc-doc :is(ul, ol) { margin: 0 0 var(--d-gap); padding-left: 1.3em; }
+.pc-doc li { margin: 0 0 3pt; padding-left: .2em; }
+.pc-doc li::marker { color: var(--accent-text); font-family: var(--font-label); font-weight: 600; }
+.pc-doc :is(code, kbd) { font: .88em var(--font-mono); background: var(--surface-2); padding: .05em .3em; border-radius: var(--radius-sm); }
+.pc-doc hr { border: 0; border-top: .6pt solid var(--line); margin: 14pt 0; }
+.pc-doc .pc-source { font: var(--d-label)/1.4 var(--font-label); color: var(--ink-3); margin: 4pt 0 var(--d-gap); }
+.pc-doc :is(.pc-nowrap, .pc-nobr) { white-space: nowrap; }
+
+/* Numbered headings: data-numbered on html. The runtime writes each number into data-n (1, 1.1, 1.1.1; an appendix
+   gets "Appendix A", then A.1), so the contents, the opener pages and the headings agree. */
+.pc-doc body { counter-reset: pc-fig pc-tab pc-fn; }
+.pc-doc .pc-chapter h1[data-n]::before { content: attr(data-n); display: block; font: var(--w-display, 700) calc(var(--d-h1) * 1.6)/1 var(--font-display);
+  color: var(--accent-text); margin-bottom: 6pt; font-variant-numeric: lining-nums; }
+.pc-doc .pc-appendix h1[data-n]::before { font: var(--w-label, 600) var(--d-label)/1.3 var(--font-label); letter-spacing: var(--track-label);
+  text-transform: var(--label-case); margin-bottom: 8pt; }
+.pc-doc .pc-opener h1[data-n]::before { content: none; }
+.pc-doc .pc-chapter :is(h2, h3)[data-n]::before { content: attr(data-n); margin-right: .6em; color: var(--accent-text); font-variant-numeric: lining-nums tabular-nums; }
+.pc-doc .pc-chapter h3[data-n]::before { color: var(--ink-3); }
+
+/* ---------- 4. Cover ---------- */
+.pc-doc .pc-cover { page: pc-cover; break-after: page; position: relative; width: var(--page-w, 210mm); height: var(--page-h, 297mm);
+  overflow: hidden; display: flex; flex-direction: column; padding: calc(var(--cover-pt, 30mm) + var(--bleed, 0mm)) calc(var(--cover-px, 22mm) + var(--bleed, 0mm)) calc(var(--cover-pb, 24mm) + var(--bleed, 0mm)); background: var(--bg); color: var(--ink); }
+.pc-doc .pc-cover h1 { font-size: var(--d-title); line-height: var(--lh-display, 1.05); letter-spacing: var(--track-display, -.01em); font-weight: var(--w-display, 700); margin: 0 0 12pt; max-width: 150mm; }
+.pc-doc .pc-cover .pc-sub { font: 400 var(--d-sub)/1.35 var(--font-body); color: var(--ink-2); max-width: 140mm; margin: 0 0 18pt; }
+.pc-doc .pc-cover .pc-meta { margin-top: auto; font: 400 9pt/1.5 var(--font-label); color: var(--ink-2); }
+.pc-doc .pc-cover .pc-meta b { display: block; color: var(--ink); font-weight: 600; }
+.pc-doc .pc-cover .pc-logo { height: 14mm; width: auto; margin-bottom: 18mm; align-self: flex-start; }
+/* band: an accent band holding the title */
+.pc-doc .pc-cover[data-cover="band"] .pc-cover-band { margin: 18mm calc(0mm - var(--cover-px, 22mm) - var(--bleed, 0mm)) 0; padding: 16mm calc(var(--cover-px, 22mm) + var(--bleed, 0mm)) 14mm; background: var(--accent); color: var(--accent-ink); }
+.pc-doc .pc-cover[data-cover="band"] .pc-cover-band :is(h1, .pc-sub, .pc-kicker) { color: inherit; }
+.pc-doc .pc-cover[data-cover="band"] .pc-cover-band .pc-sub { opacity: .88; margin-bottom: 0; }
+/* type: one huge title */
+.pc-doc .pc-cover[data-cover="type"] { justify-content: flex-end; }
+.pc-doc .pc-cover[data-cover="type"] h1 { font-size: calc(var(--d-title) * 1.9); line-height: .98; max-width: none; }
+.pc-doc .pc-cover[data-cover="type"] .pc-meta { margin-top: 18mm; border-top: 1.2pt solid var(--ink); padding-top: 5mm; display: flex; gap: 14mm; }
+/* minimal: title, a rule, meta */
+.pc-doc .pc-cover[data-cover="minimal"] { justify-content: center; }
+.pc-doc .pc-cover[data-cover="minimal"] h1 { border-bottom: 1.4pt solid var(--accent); padding-bottom: 10pt; }
+.pc-doc .pc-cover[data-cover="minimal"] .pc-meta { margin-top: 30mm; }
+/* full: a picture fills the page under a scrim */
+.pc-doc .pc-cover[data-cover="full"] { color: #fff; justify-content: flex-end; }
+.pc-doc .pc-cover[data-cover="full"] > .pc-media { position: absolute; inset: 0; z-index: 0; }
+.pc-doc .pc-cover[data-cover="full"] > .pc-media img { width: 100%; height: 100%; object-fit: cover; object-position: var(--fx, 50%) var(--fy, 50%); }
+.pc-doc .pc-cover[data-cover="full"]::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(0,0,0,.78), rgba(0,0,0,.15) 62%, rgba(0,0,0,0)); }
+.pc-doc .pc-cover[data-cover="full"] > :not(.pc-media) { position: relative; z-index: 2; }
+.pc-doc .pc-cover[data-cover="full"] :is(h1, .pc-sub, .pc-meta, .pc-meta b, .pc-kicker) { color: #fff; }
+/* split: a picture down one side */
+.pc-doc .pc-cover[data-cover="split"] { padding-right: calc(98mm + var(--bleed, 0mm)); }
+.pc-doc .pc-cover[data-cover="split"] > .pc-media { position: absolute; top: 0; right: 0; bottom: 0; width: calc(86mm + var(--bleed, 0mm)); }
+.pc-doc .pc-cover[data-cover="split"] > .pc-media img { width: 100%; height: 100%; object-fit: cover; object-position: var(--fx, 50%) var(--fy, 50%); }
+
+/* ---------- 5. Contents, chapters, openers, full pages ---------- */
+.pc-doc .pc-toc { page: pc-quiet; break-after: page; }
+.pc-doc .pc-toc > h1, .pc-doc .pc-toc-title { font-size: var(--d-h1); margin: 0 0 16pt; }
+.pc-doc .pc-toc ol { list-style: none; padding: 0; margin: 0; }
+.pc-doc .pc-toc li { margin: 0; padding: 0; }
+.pc-doc .pc-toc a { display: flex; align-items: baseline; gap: 6pt; color: var(--ink); text-decoration: none; padding: 3.5pt 0; }
+.pc-doc .pc-toc a::after { content: attr(data-pg); order: 3; font: 600 9pt var(--font-label); font-variant-numeric: lining-nums tabular-nums; color: var(--ink-2); min-width: 7mm; text-align: right; }
+.pc-doc .pc-toc a .pc-toc-dots { order: 2; flex: 1; border-bottom: .8pt dotted var(--ink-3); transform: translateY(-.25em); min-width: 8mm; }
+.pc-doc .pc-toc .pc-toc-1 > a { font: var(--w-h2, 600) 11.5pt/1.3 var(--font-display); padding-top: 9pt; }
+.pc-doc .pc-toc .pc-toc-2 > a { font: 400 9.6pt/1.35 var(--font-body); padding-left: 6mm; color: var(--ink-2); }
+.pc-doc .pc-toc .pc-toc-n { font-variant-numeric: lining-nums tabular-nums; color: var(--accent-text); min-width: 8mm; }
+
+.pc-doc .pc-chapter { break-before: page; }
+.pc-doc[data-break="none"] .pc-chapter, .pc-doc .pc-chapter[data-break="none"] { break-before: auto; }
+.pc-doc[data-break="none"] .pc-chapter:not(:first-of-type), .pc-doc .pc-chapter[data-break="none"] { margin-top: 20pt; }
+.pc-doc table.pc-keep { break-inside: avoid; }
+.pc-doc .pc-chapter > h1 { margin-top: 0; }
+.pc-doc .pc-chapter > .pc-lead:first-of-type { margin-top: -4pt; }
+/* an opener page: number, title and lead on a page of their own, no running head */
+.pc-doc .pc-opener { page: pc-opener; break-after: page; min-height: 200mm; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 20mm; }
+.pc-doc .pc-opener .pc-opener-num { font: var(--w-display, 700) 72pt/1 var(--font-display); color: var(--accent-text); font-variant-numeric: lining-nums; margin-bottom: 8pt; }
+.pc-doc .pc-opener h1 { font-size: calc(var(--d-h1) * 1.45); }
+/* a full page: a picture or colour field to the page edge */
+.pc-doc .pc-fullpage { page: pc-full; break-before: page; break-after: page; position: relative; width: var(--page-w, 210mm); height: var(--page-h, 297mm); overflow: hidden; }
+.pc-doc .pc-fullpage > .pc-media, .pc-doc .pc-fullpage > img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pc-doc .pc-fullpage img { width: 100%; height: 100%; object-fit: cover; object-position: var(--fx, 50%) var(--fy, 50%); }
+.pc-doc .pc-fullpage figcaption { position: absolute; left: 20mm; right: 20mm; bottom: 14mm; color: #fff; font: 9pt/1.4 var(--font-label); text-shadow: 0 1px 4px rgba(0,0,0,.6); }
+.pc-doc .pc-pagebreak { break-after: page; height: 0; }
+.pc-doc .pc-pagebreak[hidden] { display: none; }   /* the runtime moves the break on to the next element */
+
+/* ---------- 6. Notes: sidenotes in a column inside the page area, or endnotes ---------- */
+.pc-doc[data-notes="side"] :is(.pc-chapter, .pc-flow) > :not(.pc-wide, .pc-sidenote-col, h1, .pc-opener) { margin-right: calc(var(--d-note-w) + var(--d-note-gap)); }
+.pc-doc .pc-fnref { font: 600 .68em/0 var(--font-label); color: var(--accent-text); vertical-align: .55em; margin-left: .05em; font-variant-numeric: lining-nums; }
+.pc-doc .pc-sidenote { float: right; clear: right; width: var(--d-note-w); margin-right: calc(-1 * (var(--d-note-w) + var(--d-note-gap))); margin-bottom: 6pt;
+  font: 400 7.6pt/1.4 var(--font-label); color: var(--ink-2); hyphens: auto; text-indent: 0; }
+.pc-doc .pc-sidenote b.pc-fn-n { color: var(--accent-text); margin-right: .35em; }
+.pc-doc .pc-endnotes { break-before: page; }
+.pc-doc .pc-endnotes ol { font-size: var(--d-small); color: var(--ink-2); padding-left: 1.6em; }
+.pc-doc .pc-endnotes li { margin-bottom: 4pt; }
+.pc-doc .pc-endnotes ol:not(:has(> li:nth-child(9))) { break-inside: avoid; }   /* eight notes or fewer stay together */
+.pc-doc .pc-endnotes li::marker { font-variant-numeric: lining-nums tabular-nums; }
+.pc-doc .pc-fn:not(.pc-sidenote, .pc-footnote) { display: none; }
+/* data-notes="foot": notes at the foot of the page. Chrome skips these rules; Paged.js reads them */
+.pc-doc .pc-fn.pc-footnote { float: footnote; font: 400 calc(var(--d-body) * .8)/1.4 var(--font-body); color: var(--ink-2); text-indent: 0; }
+.pc-doc .pc-footnote::footnote-call { content: counter(footnote); font: 600 .68em/0 var(--font-label); color: var(--accent-text); vertical-align: .55em; margin-left: .05em; }
+.pc-doc .pc-footnote::footnote-marker { content: none; }
+.pc-doc .pc-footnote b.pc-fn-n { font: 600 1em var(--font-label); color: var(--accent-text); }
+.pagedjs_footnote_content:not(.pagedjs_footnote_empty) { border-top: .75pt solid var(--line); padding-top: 5pt; margin-top: 8pt; }   /* the area Paged.js makes for them */
+.pc-doc .pc-fnref a { color: inherit; text-decoration: none; }
+/* cross-references: <a class="pc-ref" href="#id">Method</a> reads "Method (p. 12)" once the PDF step knows the page */
+.pc-doc a.pc-ref[data-pg]::after { content: "\a0(p.\a0" attr(data-pg) ")"; }
+
+/* ---------- 7. Figures, tables, charts ---------- */
+.pc-doc figure { margin: 4pt 0 14pt; break-inside: avoid; }
+.pc-doc figure img { display: block; width: 100%; max-height: var(--fig-max, 110mm); object-fit: contain; border-radius: var(--media-radius, 0); }
+.pc-doc figcaption { font: 400 8.4pt/1.45 var(--font-label); color: var(--ink-2); margin-top: 5pt; }
+.pc-doc figure.pc-fig { counter-increment: pc-fig; }
+.pc-doc figure.pc-fig > figcaption::before { content: "Figure " counter(pc-fig) ".  "; font-weight: 600; color: var(--ink); }
+.pc-doc .pc-wide { margin-right: 0; }
+.pc-doc table { width: 100%; border-collapse: collapse; margin: 4pt 0 14pt; font: 400 8.8pt/1.4 var(--font-label); font-variant-numeric: lining-nums tabular-nums; }
+.pc-doc table caption { caption-side: top; text-align: left; font: 400 8.4pt/1.45 var(--font-label); color: var(--ink-2); margin-bottom: 5pt; }
+.pc-doc table.pc-tab { counter-increment: pc-tab; }
+.pc-doc table.pc-tab caption::before { content: "Table " counter(pc-tab) ".  "; font-weight: 600; color: var(--ink); }
+.pc-doc thead { display: table-header-group; }
+.pc-doc tr { break-inside: avoid; }
+.pc-doc thead th { font-weight: 600; text-align: left; color: var(--ink); border-top: 1.2pt solid var(--ink); border-bottom: .7pt solid var(--ink); padding: 4pt 6pt; vertical-align: bottom; }
+.pc-doc tbody td, .pc-doc tbody th { padding: 3.6pt 6pt; border-bottom: .4pt solid var(--line); text-align: left; vertical-align: top; }
+.pc-doc tbody tr:last-child > * { border-bottom: 1.2pt solid var(--ink); }
+.pc-doc :is(td, th).is-num { text-align: right; }
+.pc-doc tr.pc-total > * { font-weight: 600; border-top: .7pt solid var(--ink); }
+.pc-doc :is(td, th):first-child { padding-left: 0; }
+.pc-doc :is(td, th):last-child { padding-right: 0; }
+.pc-doc .pc-chart { width: 100%; height: 62mm; margin: 4pt 0 14pt; break-inside: avoid; position: relative; }
+.pc-doc .pc-chart svg { width: 100%; height: 100%; overflow: visible; }
+.pc-doc .pc-chart > table { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+
+/* ---------- 8. Boxes and figures of speech ---------- */
+.pc-doc .pc-callout { break-inside: avoid; margin: 6pt 0 14pt; padding: 9pt 12pt 9pt 12pt; border-left: 2.4pt solid var(--accent); background: var(--accent-soft); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: calc(var(--d-body) * .95); }
+.pc-doc .pc-callout > :last-child { margin-bottom: 0; }
+.pc-doc .pc-callout-label { display: flex; align-items: center; gap: 5pt; font: var(--w-label, 600) var(--d-label)/1.3 var(--font-label); letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--accent-text); margin-bottom: 4pt; }
+.pc-doc .pc-callout[data-kind="warning"] { border-left-color: var(--warning); background: color-mix(in srgb, var(--warning) 9%, var(--bg)); }
+.pc-doc .pc-callout[data-kind="warning"] .pc-callout-label { color: var(--warning); }
+.pc-doc .pc-callout[data-kind="tip"] { border-left-color: var(--positive); background: color-mix(in srgb, var(--positive) 8%, var(--bg)); }
+.pc-doc .pc-callout[data-kind="tip"] .pc-callout-label { color: var(--positive); }
+.pc-doc .pc-callout .pc-icon { width: 1.25em; height: 1.25em; }
+.pc-doc .pc-sidebar { break-inside: avoid; margin: 6pt 0 14pt; padding: 12pt 14pt; background: var(--surface-2); border-radius: var(--radius-sm); font-size: calc(var(--d-body) * .94); }
+.pc-doc .pc-sidebar > :last-child { margin-bottom: 0; }
+.pc-doc .pc-sidebar h3 { margin-top: 0; }
+.pc-doc .pc-inverse { background: var(--bg); color: var(--ink); }
+.pc-doc .pc-pull { break-inside: avoid; margin: 10pt 0 16pt; padding: 8pt 0 8pt 14pt; border-left: 2pt solid var(--accent);
+  font: italic 400 var(--d-quote)/1.35 var(--font-quote, var(--font-display)); color: var(--ink); hyphens: manual; text-wrap: balance; }
+.pc-doc .pc-pull cite { display: block; font: normal 600 var(--d-label)/1.4 var(--font-label); letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--ink-3); margin-top: 6pt; }
+.pc-doc blockquote { margin: 0 0 var(--d-gap); padding-left: 12pt; border-left: 1pt solid var(--line); color: var(--ink-2); }
+.pc-doc .pc-keyfigs { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: 8mm; margin: 8pt 0 16pt; break-inside: avoid; border-top: .7pt solid var(--line); padding-top: 9pt; }
+.pc-doc .pc-keyfigs .pc-stat { display: block; font: var(--w-stat, 700) var(--d-stat)/1 var(--font-stat, var(--font-display)); color: var(--accent-text); font-variant-numeric: lining-nums; margin-bottom: 4pt; white-space: nowrap; }
+.pc-doc .pc-keyfigs p { font: 400 8.4pt/1.4 var(--font-label); color: var(--ink-2); margin: 0; hyphens: manual; }
+.pc-doc dl.pc-facts { display: grid; grid-template-columns: max-content 1fr; gap: 4pt 12pt; margin: 0 0 var(--d-gap); font-size: calc(var(--d-body) * .95); }
+.pc-doc dl.pc-facts > div { display: contents; }
+.pc-doc dl.pc-facts dt { font: 600 var(--d-label)/1.6 var(--font-label); letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--ink-3); }
+.pc-doc dl.pc-facts dd { margin: 0; }
+.pc-doc .pc-cols-2 { column-count: 2; column-gap: 7mm; }
+.pc-doc .pc-cols-3 { column-count: 3; column-gap: 6mm; }
+.pc-doc :is(.pc-cols-2, .pc-cols-3) :is(h2, h3, figure, .pc-callout) { break-inside: avoid; }
+.pc-doc .pc-grid { display: grid; grid-template-columns: repeat(var(--n, 2), 1fr); gap: 6mm; margin: 0 0 14pt; }
+.pc-doc .pc-card { break-inside: avoid; border: .6pt solid var(--line); border-radius: var(--radius-sm); padding: 10pt 12pt; }
+.pc-doc .pc-card > :last-child { margin-bottom: 0; }
+.pc-doc .pc-card h3 { margin-top: 0; }
+.pc-doc ol.pc-steps { list-style: none; padding: 0; counter-reset: pc-step; }
+.pc-doc ol.pc-steps > li { counter-increment: pc-step; position: relative; padding-left: 10mm; margin-bottom: 8pt; break-inside: avoid; }
+.pc-doc ol.pc-steps > li::before { content: counter(pc-step); position: absolute; left: 0; top: .05em; width: 6.4mm; height: 6.4mm; border-radius: 50%;
+  background: var(--accent); color: var(--accent-ink); font: 600 8pt/6.4mm var(--font-label); text-align: center; }
+.pc-doc ol.pc-timeline { list-style: none; padding: 0 0 0 7mm; border-left: 1pt solid var(--line); margin-left: 2mm; }
+.pc-doc ol.pc-timeline > li { position: relative; margin-bottom: 8pt; break-inside: avoid; }
+.pc-doc ol.pc-timeline > li::before { content: ""; position: absolute; left: calc(-7mm - 3.2pt); top: .45em; width: 5.4pt; height: 5.4pt; border-radius: 50%; background: var(--accent); }
+.pc-doc ol.pc-timeline > li > b { display: block; font: 600 var(--d-label)/1.4 var(--font-label); letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--accent-text); }
+.pc-doc ul.pc-checks { list-style: none; padding: 0; }
+.pc-doc ul.pc-checks > li { padding-left: 6mm; position: relative; }
+/* markers are masked SVG shapes, not glyphs: the theme fonts lack ✓ and ○, and Chrome would print them in a fallback font */
+.pc-doc ul.pc-checks > li::before { content: ""; position: absolute; left: 0; top: .28em; width: .95em; height: .95em; background: var(--positive);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5 5L20 6.5'/%3E%3C/svg%3E") center / contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.5l5 5L20 6.5'/%3E%3C/svg%3E") center / contain no-repeat; }
+.pc-doc ul.pc-checks > li.is-todo::before { background: var(--ink-3);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8.5' stroke-width='2.4'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='8.5' stroke-width='2.4'/%3E%3C/svg%3E"); }
+.pc-doc ul.pc-checks > li.is-no::before { background: var(--negative);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E"); mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 6l12 12M18 6L6 18'/%3E%3C/svg%3E"); }
+.pc-doc pre.pc-code { break-inside: avoid; margin: 4pt 0 14pt; padding: 9pt 11pt; background: var(--code-bg, var(--surface-2)); color: var(--code-ink, var(--ink));
+  border-radius: var(--radius-sm); font: 400 var(--d-code)/1.5 var(--font-mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+.pc-doc pre.pc-code code { background: none; padding: 0; font: inherit; }
+.pc-doc .pc-refs { padding-left: 0; list-style: none; font-size: var(--d-small); }
+.pc-doc .pc-refs > li { padding-left: 1.6em; text-indent: -1.6em; margin-bottom: 4pt; }
+/* code colours (the runtime marks the tokens); a light code block takes darker defaults than the slides' */
+.pc-doc pre.pc-code .t-k { color: var(--code-k, var(--accent-text)); } .pc-doc pre.pc-code .t-s { color: var(--code-s, var(--positive, #1f7a3a)); }
+.pc-doc pre.pc-code .t-c { color: var(--code-c, var(--ink-3)); font-style: italic; } .pc-doc pre.pc-code .t-n { color: var(--code-n, var(--warning, #9a5b00)); }
+.pc-doc pre.pc-code .t-f { color: var(--code-f, var(--info, #1b5fa8)); } .pc-doc pre.pc-code .t-p { color: var(--code-p, var(--c4, #7a3e9d)); }
+.pc-doc pre.pc-code mark { background: color-mix(in srgb, var(--accent) 22%, transparent); color: inherit; border-radius: 2px; }
+.pc-doc .pc-icon { display: inline-block; width: 1.1em; height: 1.1em; vertical-align: -.18em; color: var(--icon-ink, var(--accent-text)); }
+.pc-doc .pc-icon svg { width: 100%; height: 100%; display: block; fill: none; stroke: currentColor; stroke-width: var(--icon-stroke, 2);
+  stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.pc-doc .pc-icon--badge { width: 1.9em; height: 1.9em; padding: .42em; border-radius: var(--radius-sm); background: var(--accent-soft); }
+/* hand-drawn marks */
+.pc-doc .pc-mark { position: relative; display: inline; white-space: nowrap; }
+.pc-doc .pc-mark > svg.pc-mark-svg { position: absolute; left: -6%; top: -18%; width: 112%; height: 136%; overflow: visible; pointer-events: none; z-index: -1; }
+.pc-doc .pc-mark-svg path { fill: none; stroke: var(--mark, var(--accent)); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pc-doc .pc-mark[data-mark="highlight"] .pc-mark-svg path { stroke: var(--mark-fill, color-mix(in srgb, var(--accent) 30%, transparent)); stroke-linecap: butt; }
+/* charts: the slide rules at print weight (the runtime draws in CSS pixels, 1px = 0.75pt) */
+.pc-doc .pc-chart { display: flex; flex-direction: column; min-height: 0; color: var(--ink-2); }
+.pc-doc .pc-chart > svg { display: block; flex: 1 1 auto; min-height: 0; }
+.pc-doc .pc-chart text { font-family: var(--font-label); fill: var(--ink-2); }
+.pc-doc .pc-chart .ch-val { fill: var(--ink); font-weight: 600; }
+.pc-doc .pc-chart .ch-axis { stroke: var(--ink-3); stroke-width: 1; }
+.pc-doc .pc-chart .ch-grid { stroke: var(--chart-grid); stroke-width: .6; }
+.pc-doc .pc-chart .ch-legend { display: flex; flex-wrap: wrap; gap: 3pt 12pt; margin-top: 6pt; font: 400 var(--d-label)/1.3 var(--font-label); color: var(--ink-2); }
+.pc-doc .pc-chart .ch-legend i { display: inline-block; width: 7pt; height: 7pt; border-radius: 1.5pt; margin-right: 4pt; vertical-align: -.5pt; }
+.pc-doc .pc-chart .ch-line { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.pc-doc .pc-chart .ch-area { stroke: none; fill-opacity: .14; }
+.pc-doc .pc-chart .ch-dot { stroke: var(--bg); stroke-width: 1.5; }
+.pc-doc .pc-chart .ch-arc, .pc-doc .pc-chart .ch-track { fill: none; }
+.pc-doc .pc-chart .ch-track { stroke: color-mix(in oklab, var(--ink) 13%, var(--bg)); }
+.pc-doc .pc-chart .ch-tick { fill: var(--chart-muted); }
+.pc-doc .pc-chart .ch-seg { font-weight: 600; }
+.pc-doc .pc-chart .ch-mid { fill: var(--ink); font-family: var(--font-stat, var(--font-display)); font-weight: var(--w-stat, 700); }
+.pc-doc .pc-chart.ch-side { flex-direction: row; align-items: center; justify-content: center; gap: 12mm; }
+.pc-doc .pc-chart.ch-side > svg { flex: none; width: auto; }
+.pc-doc .pc-chart.ch-side .ch-legend { flex-direction: column; flex-wrap: nowrap; gap: 4pt; margin: 0; font-size: var(--d-small); }
+.pc-doc .pc-qr-code { width: 24mm; height: 24mm; }
+.pc-doc .pc-signature { margin-top: 18pt; break-inside: avoid; }
+.pc-doc .pc-signature .pc-sign-line { width: 60mm; border-bottom: .6pt solid var(--ink); height: 14mm; margin-bottom: 4pt; }
+.pc-doc .pc-signature b { display: block; }
+.pc-doc .pc-signature span { color: var(--ink-2); font-size: var(--d-small); }
+
+/* ---------- 9. Types ---------- */
+/* Letter and memo: letterhead in the flow of the first page, no running head */
+.pc-doc:is([data-type="letter"], [data-type="memo"]) p { hyphens: manual; }
+.pc-doc[data-type="letter"] .pc-letterhead, .pc-doc[data-type="memo"] .pc-letterhead { display: flex; justify-content: space-between; align-items: flex-start; gap: 10mm;
+  padding-bottom: 6mm; margin-bottom: 12mm; border-bottom: 1pt solid var(--accent); font: 400 8pt/1.5 var(--font-label); color: var(--ink-2); }
+.pc-doc :is(.pc-letterhead, .pc-inv-head) .pc-org { font: var(--w-display, 700) 15pt/1.1 var(--font-display); color: var(--ink); }
+.pc-doc .pc-letterhead address { font-style: normal; text-align: right; }
+.pc-doc .pc-recipient { font-style: normal; margin-bottom: 9mm; }
+.pc-doc .pc-date { margin-bottom: 7mm; color: var(--ink-2); }
+.pc-doc .pc-subject { font-weight: var(--w-strong, 650); margin-bottom: 6mm; }
+.pc-doc[data-type="memo"] dl.pc-facts { border-bottom: .6pt solid var(--line); padding-bottom: 5mm; margin-bottom: 7mm; }
+/* CV: name block, two columns */
+.pc-doc[data-type="cv"] .pc-cv-head { display: flex; gap: 8mm; align-items: center; padding-bottom: 6mm; margin-bottom: 7mm; border-bottom: 1.2pt solid var(--accent); }
+.pc-doc[data-type="cv"] .pc-cv-head img { width: 26mm; height: 26mm; border-radius: 50%; object-fit: cover; }
+.pc-doc[data-type="cv"] .pc-cv-head h1 { margin: 0 0 3pt; font-size: 26pt; }
+.pc-doc[data-type="cv"] .pc-cv-body { display: grid; grid-template-columns: 1fr 52mm; gap: 9mm; }
+.pc-doc[data-type="cv"] .pc-cv-head .pc-sub { font: 400 var(--d-sub, 13pt)/1.3 var(--font-body); color: var(--ink-2); margin: 0 0 6pt; }
+.pc-doc[data-type="cv"] .pc-cv-contact { display: flex; flex-wrap: wrap; gap: 2pt 12pt; margin: 0; font: 400 8.4pt/1.5 var(--font-label); color: var(--ink-2); hyphens: manual; }
+.pc-doc[data-type="cv"] .pc-cv-contact .pc-icon { margin-right: 3pt; }
+.pc-doc[data-type="cv"] .pc-cv-body > * { min-width: 0; }
+.pc-doc[data-type="cv"] .pc-cv-body > :first-child > h2:first-of-type, .pc-doc[data-type="cv"] .pc-cv-body > * > h2:first-child { margin-top: 0; }
+.pc-doc[data-type="cv"] .pc-cv-item h3 { font-size: calc(var(--d-body) * 1.02); margin: 0 0 2pt; }
+.pc-doc[data-type="cv"] .pc-cv-item ul { margin: 2pt 0 0; }
+.pc-doc[data-type="cv"] .pc-cv-item p { margin: 0; }
+.pc-doc[data-type="cv"] aside { font-size: calc(var(--d-body) * .92); }
+.pc-doc[data-type="cv"] .pc-cv-list { list-style: none; padding: 0; margin: 0 0 var(--d-gap); }
+.pc-doc[data-type="cv"] .pc-cv-list li { margin-bottom: 3pt; }
+.pc-doc[data-type="cv"] .pc-cv-item { break-inside: avoid; margin-bottom: 9pt; }
+.pc-doc[data-type="cv"] .pc-cv-item header { display: flex; justify-content: space-between; gap: 6pt; align-items: baseline; }
+.pc-doc[data-type="cv"] .pc-cv-item header span { font: 400 8pt var(--font-label); color: var(--ink-3); white-space: nowrap; }
+.pc-doc[data-type="cv"] h2 { font: var(--w-label, 600) var(--d-label)/1.3 var(--font-label); letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--accent-text);
+  border-bottom: .6pt solid var(--line); padding-bottom: 3pt; margin: 12pt 0 7pt; }
+/* Invoice and quote: line items and totals */
+.pc-doc[data-type="invoice"] .pc-inv-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12mm; }
+.pc-doc[data-type="invoice"] .pc-inv-head h1 { font-size: 30pt; margin: 0; }
+.pc-doc[data-type="invoice"] .pc-inv-head address { font: 400 8.4pt/1.5 var(--font-label); color: var(--ink-2); font-style: normal; margin-top: 3pt; }
+.pc-doc[data-type="invoice"] .pc-inv-title { text-align: right; }
+.pc-doc[data-type="invoice"] .pc-inv-title p { margin: 2pt 0 0; font: 600 9pt var(--font-label); letter-spacing: var(--track-label); color: var(--ink-2); }
+.pc-doc[data-type="invoice"] .pc-inv-parties dl.pc-facts { font-size: 9pt; margin: 0; }
+.pc-doc[data-type="invoice"] .pc-inv-due { text-align: right; }
+.pc-doc[data-type="invoice"] .pc-inv-due .pc-stat { font: var(--w-stat, 700) 20pt/1.1 var(--font-stat, var(--font-display)); color: var(--accent-text); margin: 0; font-variant-numeric: lining-nums tabular-nums; }
+.pc-doc[data-type="invoice"] .pc-inv-totals td:first-child { color: var(--ink-2); }
+.pc-doc[data-type="invoice"] .pc-flow { margin-top: 12mm; font-size: 9pt; }
+.pc-doc[data-type="invoice"] .pc-inv-parties { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8mm; margin-bottom: 10mm; font-size: 9pt; }
+.pc-doc[data-type="invoice"] .pc-inv-parties h4 { margin-top: 0; }
+.pc-doc[data-type="invoice"] table { font-size: 9pt; }
+.pc-doc[data-type="invoice"] .pc-inv-totals { margin-left: auto; width: 72mm; }
+.pc-doc[data-type="invoice"] .pc-inv-totals tr.pc-total > * { font-size: 11pt; color: var(--accent-text); border-bottom: 1.2pt solid var(--ink); }
+/* Newsletter: masthead and columns */
+.pc-doc[data-type="newsletter"] .pc-masthead { border-top: 3pt solid var(--ink); border-bottom: .8pt solid var(--ink); padding: 5mm 0 4mm; margin-bottom: 7mm; display: flex; justify-content: space-between; align-items: baseline; }
+.pc-doc[data-type="newsletter"] .pc-masthead h1 { font-size: 34pt; margin: 0; letter-spacing: var(--track-display, -.01em); }
+.pc-doc[data-type="newsletter"] .pc-masthead span { font: 600 var(--d-label) var(--font-label); letter-spacing: var(--track-label); text-transform: uppercase; color: var(--ink-2); }
+.pc-doc[data-type="newsletter"] .pc-headline { font-size: 24pt; line-height: 1.1; margin: 2pt 0 6pt; }
+.pc-doc[data-type="newsletter"] .pc-kicker { margin-bottom: 2pt; }
+.pc-doc :is(.pc-cols-2, .pc-cols-3) { margin-bottom: var(--d-gap); }
+.pc-doc :is(.pc-cols-2, .pc-cols-3) :is(h2, h3) { margin-top: 0; }   /* a heading at the top of either column lines up */
+.pc-doc[data-type="newsletter"] .pc-card .pc-kicker { margin-bottom: 0; }
+.pc-doc[data-type="newsletter"] .pc-cols-3 p, .pc-doc[data-type="newsletter"] .pc-cols-2 p { break-inside: avoid-column; }
+/* One-pager: everything on one page, tighter */
+.pc-doc[data-type="onepager"] { --d-body: 9.6pt; --d-h1: 22pt; --d-h2: 12.5pt; --d-gap: 7pt; }
+/* Agenda and programme: a time column beside each item; a row with no time is a section label */
+.pc-doc ol.pc-agenda { list-style: none; padding: 0; margin: 0 0 var(--d-gap); border-top: 1pt solid var(--ink); }
+.pc-doc ol.pc-agenda > li { display: grid; grid-template-columns: var(--agenda-time, 15mm) minmax(0, 1fr); gap: 0 4mm; padding: 3.2pt 0 3.6pt; border-bottom: .5pt solid var(--line); break-inside: avoid; }
+.pc-doc ol.pc-agenda time { font: var(--w-label, 600) calc(var(--d-body) * .95)/1.45 var(--font-label); color: var(--accent-text); font-variant-numeric: lining-nums tabular-nums; }
+.pc-doc ol.pc-agenda b { display: block; font-weight: var(--w-strong, 650); }
+.pc-doc ol.pc-agenda li > div > span { display: block; color: var(--ink-2); font-size: calc(var(--d-body) * .93); margin-top: .5pt; }
+.pc-doc ol.pc-agenda > li.pc-agenda-sec { display: block; border-bottom: .8pt solid var(--ink); padding: 8pt 0 2.5pt; break-after: avoid;
+  font: var(--w-label, 600) var(--d-label)/1.4 var(--font-label); letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--ink-2); }
+.pc-doc ol.pc-agenda > li.pc-agenda-sec:first-child { padding-top: 5pt; }
+.pc-doc ol.pc-agenda > li:has(+ li.pc-agenda-sec) { border-bottom: 0; }
+.pc-doc[data-type="agenda"] .pc-agenda { --agenda-time: 20mm; }
+/* Programme: an event's running order, often A5 */
+.pc-doc[data-type="programme"] h1 { margin-top: 0; margin-bottom: 8pt; }
+.pc-doc[data-type="programme"]:is([data-page="a5"], [data-page="a6"]) { --d-body: 9pt; }
+
+
+/* credit for a theme drawn from an open one: a quiet colophon line after the last content */
+.pc-credit { margin: 2em 0 0; font: 400 .72rem/1.4 var(--font-body); color: var(--ink-3); letter-spacing: 0; text-transform: none; }

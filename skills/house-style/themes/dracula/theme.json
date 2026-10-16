@@ -1,0 +1,311 @@
+{
+ "name": "Dracula",
+ "summary": "The well-loved dark code colours: slate violet background, pink, purple, cyan and green, a mono face for labels and a dot grid. At home with developers, for engineering talks, tutorials, demos and release notes.",
+ "good_for": [
+  "engineering",
+  "tutorial",
+  "demo",
+  "release",
+  "code",
+  "tech-talk"
+ ],
+ "category": "dark",
+ "also": [
+  "tech"
+ ],
+ "credit": "Dracula colours by Zeno Rocha and contributors (MIT licence)",
+ "defaults": {
+  "mode": "dark",
+  "palette": "pink"
+ },
+ "fonts": {
+  "display": [
+   "Space Grotesk",
+   "sans"
+  ],
+  "body": [
+   "IBM Plex Sans",
+   "sans"
+  ],
+  "label": [
+   "JetBrains Mono",
+   "mono"
+  ],
+  "stat": [
+   "Space Grotesk",
+   "sans"
+  ],
+  "mono": [
+   "JetBrains Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "500",
+  "--w-body": "400",
+  "--w-strong": "600",
+  "--w-label": "400",
+  "--w-stat": "700",
+  "--track-display": "-0.03em",
+  "--track-h1": "-0.02em",
+  "--track-label": "0.04em",
+  "--label-case": "none",
+  "--lh-display": "1.04",
+  "--lh-h1": "1.1",
+  "--lh-body": "1.5",
+  "--radius": "8px",
+  "--radius-sm": "5px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.75"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFBEB",
+   "bg_alt": "#F7F2DF",
+   "surface": "#FFFFFF",
+   "surface_2": "#EFE9D2",
+   "ink": "#1F1F1F",
+   "ink_2": "#3D3B36",
+   "ink_3": "#635D4F",
+   "line": "#DED7BF",
+   "positive": "#14710A",
+   "negative": "#CB3A2A",
+   "warning": "#846E15",
+   "code_bg": "#1F1F1F",
+   "code_ink": "#FFFBEB",
+   "letterbox": "#141414",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#282A36",
+   "bg_alt": "#2C2E3B",
+   "surface": "#343746",
+   "surface_2": "#44475A",
+   "ink": "#F8F8F2",
+   "ink_2": "#D7D7D0",
+   "ink_3": "#A9B1D6",
+   "line": "#44475A",
+   "positive": "#50FA7B",
+   "negative": "#FF5555",
+   "warning": "#F1FA8C",
+   "code_bg": "#21222C",
+   "code_ink": "#F8F8F2",
+   "letterbox": "#191A21",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "pink": {
+   "name": "Pink",
+   "light": {
+    "accent": "#A3144D",
+    "accent_2": "#644AC9"
+   },
+   "dark": {
+    "accent": "#FF79C6",
+    "accent_2": "#BD93F9"
+   }
+  },
+  "purple": {
+   "name": "Purple",
+   "light": {
+    "accent": "#644AC9",
+    "accent_2": "#036A96"
+   },
+   "dark": {
+    "accent": "#BD93F9",
+    "accent_2": "#8BE9FD"
+   }
+  },
+  "green": {
+   "name": "Green",
+   "light": {
+    "accent": "#14710A",
+    "accent_2": "#A3144D"
+   },
+   "dark": {
+    "accent": "#50FA7B",
+    "accent_2": "#FF79C6"
+   }
+  },
+  "catppuccin": {
+   "name": "Catppuccin",
+   "credit": "Catppuccin colours (Latte and Mocha) by the Catppuccin team (MIT licence)",
+   "light": {
+    "accent": "#8839EF",
+    "accent_2": "#1E66F5",
+    "neutrals": {
+     "bg": "#EFF1F5",
+     "bg_alt": "#E6E9EF",
+     "surface": "#E6E9EF",
+     "surface_2": "#DCE0E8",
+     "ink": "#4C4F69",
+     "ink_2": "#5C5F77",
+     "ink_3": "#6C6F85",
+     "line": "#CCD0DA",
+     "code_bg": "#1E1E2E",
+     "code_ink": "#CDD6F4",
+     "letterbox": "#11111B",
+     "alt": {
+      "surface": "#EFF1F5",
+      "surface_2": "#DCE0E8"
+     },
+     "positive": "#40A02B",
+     "negative": "#D20F39",
+     "warning": "#DF8E1D"
+    }
+   },
+   "dark": {
+    "accent": "#CBA6F7",
+    "accent_2": "#89B4FA",
+    "neutrals": {
+     "bg": "#1E1E2E",
+     "bg_alt": "#181825",
+     "surface": "#313244",
+     "surface_2": "#45475A",
+     "ink": "#CDD6F4",
+     "ink_2": "#BAC2DE",
+     "ink_3": "#A6ADC8",
+     "line": "#45475A",
+     "code_bg": "#11111B",
+     "code_ink": "#CDD6F4",
+     "letterbox": "#11111B",
+     "alt": {
+      "surface": "#313244",
+      "surface_2": "#45475A"
+     },
+     "positive": "#A6E3A1",
+     "negative": "#F38BA8",
+     "warning": "#F9E2AF"
+    }
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#A3144D",
+   "#644AC9",
+   "#036A96",
+   "#14710A",
+   "#A34D14",
+   "#635D4F"
+  ],
+  "dark": [
+   "#FF79C6",
+   "#BD93F9",
+   "#8BE9FD",
+   "#50FA7B",
+   "#FFB86C",
+   "#F1FA8C"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "dots",
+     "at": "tr",
+     "w": 460,
+     "h": 320,
+     "x": 60,
+     "y": 60,
+     "color": "accent-2",
+     "opacity": 0.6,
+     "fade": "l"
+    },
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 14,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "dots",
+     "at": "br",
+     "w": 460,
+     "h": 320,
+     "x": 60,
+     "y": 60,
+     "color": "accent-2",
+     "opacity": 0.6,
+     "fade": "l"
+    },
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 14,
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "bracket",
+     "at": "l",
+     "w": 70,
+     "h": 360,
+     "x": 40,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "dots",
+     "at": "bl",
+     "w": 460,
+     "h": 320,
+     "x": 60,
+     "y": 60,
+     "color": "accent-2",
+     "opacity": 0.6,
+     "fade": "r"
+    },
+    {
+     "motif": "bar",
+     "at": "r",
+     "size": 14,
+     "color": "accent"
+    }
+   ]
+  },
+  "kicker": "tab",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "dots",
+     "at": "tr",
+     "w": 80,
+     "h": 56,
+     "x": 10,
+     "y": 10,
+     "color": "accent-2",
+     "opacity": 0.6
+    },
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 4,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 2.5,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "diamond",
+    "size": 6,
+    "color": "accent"
+   }
+  }
+ }
+}

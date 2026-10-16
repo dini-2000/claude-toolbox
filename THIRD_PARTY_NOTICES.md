@@ -2,7 +2,7 @@
 
 The skill folders in this repository hold SKILL.md files plus the scripts, references, data, templates and fonts those files use. The supporting files come from the open-source repositories below, fetched at the commits shown and checked against each repository's git hashes. Where two commits are shown, the earlier one is the version the skill texts were written against; files that are the same at both commits, and a few later safety fixes, are listed under the later one. `_build/vendor/MANIFEST.tsv` lists every file with its source path and git blob SHA. Each file keeps its original licence. `_build/fixes/` holds this repository's corrections to some of those files, plus files written to complete skills whose texts name files their authors never published; setup lays them over the fetched files, and modified files keep their original licence. `_build/fixes/SOURCES.md` lists the upstream version each one starts from and what changed.
 
-The MIT licence in LICENSE covers only the toolbox's own files: setup.sh, essentials.txt, settings/, the skill-router skill (skills/skill-router) and the scripts in _build/. Every other skill, and every file under _build/vendor/, belongs to its original author and keeps its own licence, as listed below.
+The MIT licence in LICENSE covers only the toolbox's own files: setup.sh, essentials.txt, settings/, the skill-router skill (skills/skill-router), House Style's own code, themes and samples (skills/house-style) and the scripts in _build/. Every other skill, every file under _build/vendor/, and the fonts, icons, libraries and adapted themes inside House Style belong to their original authors and keep their own licences, as listed below.
 
 ## AgriciDaniel/claude-seo
 
@@ -337,3 +337,15 @@ skills/stop-slop/ (SKILL.md and references/) comes from https://github.com/hardi
 ## remotion-dev/skills
 
 skills/remotion/SKILL.md comes from https://github.com/remotion-dev/skills, published openly on GitHub by Remotion without a licence file. All credit for it goes to Remotion.
+
+## House Style (skills/house-style)
+
+House Style's own code, themes and samples are the toolbox's own work under the MIT licence in LICENSE. What it holds from others keeps its own licence, with the licence file beside it:
+
+- Fonts: 84 families from Google Fonts, 83 under the SIL Open Font License 1.1 and Roboto Slab under the Apache License 2.0, each with its licence file in skills/house-style/fonts/.
+- Icons: Lucide, ISC licence, in skills/house-style/icons/LICENSE-lucide.txt.
+- Paged.js 0.4.3, MIT, in skills/house-style/tools/vendor/pagedjs/LICENSE.md.
+- segno, BSD 3-clause, in skills/house-style/tools/vendor/segno-LICENSE.txt.
+- Print profiles in skills/house-style/assets/icc/: Coated FOGRA39 from VIGC and GRACoL 2013 from Idealliance, both free to use, embed and share. PSO Uncoated v3 FOGRA52 from ECI may not be passed on, so House Style leaves it out and tells the user where to get it.
+- Themes and palettes adapted from open projects, all MIT, each credited in its theme.json and in what it builds: Bootswatch by Thomas Park, reveal.js by Hakim El Hattab and contributors, Marp by the Marp team, Dracula by Zeno Rocha and contributors, Solarized by Ethan Schoonover, Nord by Arctic Ice Studio and Sven Greb, Catppuccin by the Catppuccin team and Rosé Pine by the Rosé Pine team.
+- Its Markdown outline syntax follows the md-slides skill (MIT).

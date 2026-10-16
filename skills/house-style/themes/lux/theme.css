@@ -1,0 +1,61 @@
+/* Lux: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="lux"] {
+  --m-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 100 50 50 100 0 50z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="lux"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: calc(34 * var(--art-px));
+  border: calc(1.5 * var(--art-px)) solid var(--accent-2, var(--accent)); }
+.pc-deck[data-theme="lux"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(120 * var(--art-px));
+  height: calc(2 * var(--art-px));
+  left: var(--mx);
+  bottom: calc(120 * var(--art-px));
+  background: var(--accent-2, var(--accent)); }
+.pc-deck[data-theme="lux"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: calc(34 * var(--art-px));
+  border: calc(1.5 * var(--art-px)) solid var(--accent-2, var(--accent)); }
+.pc-deck[data-theme="lux"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(80 * var(--art-px));
+  height: calc(2 * var(--art-px));
+  left: calc(50% - calc(80 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(120 * var(--art-px));
+  background: var(--accent-2, var(--accent)); }
+.pc-deck[data-theme="lux"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: calc(34 * var(--art-px));
+  border: calc(4 * var(--art-px)) double var(--accent-2, var(--accent)); }
+.pc-deck[data-theme="lux"] .pc-cover {
+  --k-hero: .86; }
+.pc-deck[data-theme="lux"]:is([data-format="1x1"], [data-format="4x5"], [data-format="9x16"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-cover {
+  --cover-w: 100%;
+  --k-hero: .8; }
+.pc-deck[data-theme="lux"] .pc-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 1.4em;
+  height: .14em;
+  background: var(--accent);
+  vertical-align: .3em;
+  margin-right: .55em; }
+.pc-deck[data-theme="lux"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 2px solid var(--ink); }

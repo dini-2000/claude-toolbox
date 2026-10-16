@@ -1,0 +1,243 @@
+{
+ "name": "League",
+ "summary": "Tall condensed uppercase headlines on a charcoal spotlight, with an electric cyan accent and a sporty bar. Loud and energetic, for pitches, sports, rallies, event openers and big announcements.",
+ "good_for": [
+  "pitch",
+  "sports",
+  "rally",
+  "event",
+  "announcement",
+  "launch"
+ ],
+ "category": "startup",
+ "also": [
+  "bold"
+ ],
+ "credit": "colours and fonts from the reveal.js League theme by Hakim El Hattab and contributors (MIT licence)",
+ "defaults": {
+  "mode": "dark",
+  "palette": "cyan"
+ },
+ "fonts": {
+  "display": [
+   "League Gothic",
+   "sans"
+  ],
+  "body": [
+   "Lato",
+   "sans"
+  ],
+  "label": [
+   "Lato",
+   "sans"
+  ],
+  "stat": [
+   "League Gothic",
+   "sans"
+  ],
+  "mono": [
+   "JetBrains Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "400",
+  "--w-h1": "400",
+  "--w-h2": "400",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "700",
+  "--w-stat": "400",
+  "--track-display": "0.01em",
+  "--track-h1": "0.01em",
+  "--track-label": "0.12em",
+  "--label-case": "uppercase",
+  "--lh-display": "0.95",
+  "--lh-h1": "1.0",
+  "--lh-body": "1.5",
+  "--radius": "4px",
+  "--radius-sm": "3px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "2"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F4F5F6",
+   "bg_alt": "#EAECEE",
+   "surface": "#FFFFFF",
+   "surface_2": "#E3E6E8",
+   "ink": "#1C1E20",
+   "ink_2": "#3A3E42",
+   "ink_3": "#53585D",
+   "line": "#D3D7DB",
+   "positive": "#227A3E",
+   "negative": "#C62828",
+   "warning": "#975A00",
+   "code_bg": "#1C1E20",
+   "code_ink": "#EAECEE",
+   "letterbox": "#0E0F10",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#1C1E20",
+   "bg_alt": "#222528",
+   "surface": "#2A2D30",
+   "surface_2": "#353A3E",
+   "ink": "#EEEEEE",
+   "ink_2": "#CCCFD2",
+   "ink_3": "#A8ADB2",
+   "line": "#3F4448",
+   "positive": "#7BCF7B",
+   "negative": "#F28B82",
+   "warning": "#FFC94D",
+   "code_bg": "#121314",
+   "code_ink": "#EEEEEE",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "cyan": {
+   "name": "Cyan",
+   "light": {
+    "accent": "#0B7F8A",
+    "accent_2": "#E8590C"
+   },
+   "dark": {
+    "accent": "#13DAEC",
+    "accent_2": "#FF922B"
+   }
+  },
+  "orange": {
+   "name": "Orange",
+   "light": {
+    "accent": "#C2410C",
+    "accent_2": "#0B7F8A"
+   },
+   "dark": {
+    "accent": "#FF922B",
+    "accent_2": "#13DAEC"
+   }
+  },
+  "lime": {
+   "name": "Lime",
+   "light": {
+    "accent": "#4D7C0F",
+    "accent_2": "#0B7F8A"
+   },
+   "dark": {
+    "accent": "#A3E635",
+    "accent_2": "#13DAEC"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#0B7F8A",
+   "#C2410C",
+   "#4D7C0F",
+   "#6D28D9",
+   "#B91C1C",
+   "#53585D"
+  ],
+  "dark": [
+   "#13DAEC",
+   "#FF922B",
+   "#A3E635",
+   "#C4B5FD",
+   "#F28B82",
+   "#A8ADB2"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "glow",
+     "at": "c",
+     "size": 1700,
+     "color": "surface-2",
+     "opacity": 1
+    },
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 14,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "glow",
+     "at": "c",
+     "size": 1500,
+     "color": "surface-2",
+     "opacity": 1
+    },
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 20,
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "glow",
+     "at": "c",
+     "size": 1500,
+     "color": "surface-2",
+     "opacity": 1
+    }
+   ],
+   "closing": [
+    {
+     "motif": "glow",
+     "at": "c",
+     "size": 1700,
+     "color": "surface-2",
+     "opacity": 1
+    },
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 14,
+     "color": "accent"
+    }
+   ]
+  },
+  "kicker": "tab",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "glow",
+     "at": "c",
+     "size": 300,
+     "color": "surface-2",
+     "opacity": 1
+    },
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 4,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 3,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "diamond",
+    "size": 6,
+    "color": "accent"
+   }
+  }
+ }
+}

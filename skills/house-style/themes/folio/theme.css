@@ -1,0 +1,56 @@
+/* Folio: signature art. Colours, fonts and shapes come from tokens.css (built from theme.json).
+   A running head like a printed page: the section name on the left over a full-width rule, the deck title and
+   page number on the right (the runtime sets data-section-name, data-deck-title and data-n). Big italic section
+   numbers, italic quotes between rules, accent italics in headlines and a masthead double rule on the cover. */
+.pc-deck[data-theme="folio"] .pc-slide::before {
+  content: attr(data-section-name); position: absolute; left: var(--mx); right: var(--mx); top: calc(var(--mt) * .3);
+  min-height: 1.2em; padding: 0 46% 10px 0; border-bottom: 1px solid var(--ink); overflow: hidden;   /* a slide with no section keeps the rule under the head */ white-space: nowrap; text-overflow: ellipsis;
+  font: var(--w-label) var(--fs-label)/1.2 var(--font-label, var(--font-body));
+  letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--ink-2); }
+.pc-deck[data-theme="folio"] .pc-slide::after {
+  content: attr(data-deck-title) "\2003" attr(data-n); position: absolute; right: var(--mx); top: calc(var(--mt) * .3);
+  max-width: 44%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; text-align: right;
+  font: var(--w-label) var(--fs-label)/1.2 var(--font-label, var(--font-body));
+  letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--ink-3);
+  font-variant-numeric: tabular-nums lining-nums; }
+.pc-deck[data-theme="folio"] .pc-slide > .pc-num { display: none; }
+/* Split slides: the running head stays over the text column, with the page number alone at its end */
+.pc-deck[data-theme="folio"] .pc-split::before { right: calc(var(--split) + var(--mx)); padding-right: 3em; }
+.pc-deck[data-theme="folio"] .pc-split::after { content: attr(data-n); right: calc(var(--split) + var(--mx)); }
+.pc-deck[data-theme="folio"] .pc-split--left::before { left: calc(var(--split) + var(--mx)); right: var(--mx); }
+.pc-deck[data-theme="folio"] .pc-split--left::after { right: var(--mx); }
+/* Narrow slides have no room for the deck title: the head keeps the section name and the page number */
+.pc-deck[data-theme="folio"]:is([data-format="1x1"], [data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-slide:not(.pc-cover, .pc-bleed, .pc-section, .pc-closing)::before { padding-right: 3em; }
+.pc-deck[data-theme="folio"]:is([data-format="1x1"], [data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-slide:not(.pc-cover, .pc-bleed, .pc-section, .pc-closing)::after { content: attr(data-n); }
+/* Portrait split slides carry the picture across the top, so the head gives way and the page number moves to the foot */
+.pc-deck[data-theme="folio"]:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-split::before { content: none; }
+.pc-deck[data-theme="folio"]:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-split::after {
+  top: auto; bottom: calc(var(--mb) * .45); right: var(--mx); }
+.pc-deck[data-theme="folio"] .pc-slide:is(.pc-bleed, .pc-section, .pc-closing)::before { content: none; }
+.pc-deck[data-theme="folio"] .pc-slide:is(.pc-bleed, .pc-section, .pc-closing)::after { content: none; }
+
+/* Cover: a masthead double rule across the top */
+.pc-deck[data-theme="folio"] .pc-cover::before {
+  content: ""; padding: 0; top: calc(var(--mt) * .55); height: 9px; border-top: 3px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.pc-deck[data-theme="folio"] .pc-cover::after { content: none; }
+.pc-deck[data-theme="folio"] .pc-cover .pc-title { font-weight: 400; }
+
+/* Headlines: emphasis turns italic and takes the accent */
+.pc-deck[data-theme="folio"] :is(.pc-title, .pc-say, .pc-h2) em { font-style: italic; color: var(--accent-text); }
+
+/* Section slides: a huge italic numeral */
+.pc-deck[data-theme="folio"] .pc-section .pc-section-num {
+  font: italic 400 calc(var(--fs-hero) * 2.1)/0.86 var(--font-display); letter-spacing: -0.02em; margin-bottom: 18px; }
+.pc-deck[data-theme="folio"] .pc-section .pc-title { font-weight: 400; }
+
+/* Quotes: italic, between two rules */
+.pc-deck[data-theme="folio"] .pc-quote blockquote {
+  font-style: italic; padding: 34px 0 32px; border-top: 1.5px solid var(--ink); border-bottom: 1.5px solid var(--ink); }
+.pc-deck[data-theme="folio"] .pc-quote blockquote::before { font: italic 400 1.9em/1 var(--font-display); color: var(--accent); }
+
+/* Stats in the serif, upright and light */
+.pc-deck[data-theme="folio"] .pc-stat { letter-spacing: -0.02em; }
+
+/* Cards are plain ruled panels */
+.pc-deck[data-theme="folio"] .pc-card:not(.pc-card--accent, .pc-card--soft, .pc-card--flat, .pc-inverse) {
+  background: transparent; border-top: 3px solid var(--ink); padding: 26px 0 0; }

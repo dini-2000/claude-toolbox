@@ -1,0 +1,237 @@
+{
+ "name": "Sandstone",
+ "summary": "Warm paper, a dependable sans with small uppercase labels, slate blue and a burnt orange. Steady and approachable, for team updates, plans, proposals and client meetings.",
+ "good_for": [
+  "update",
+  "plan",
+  "proposal",
+  "client",
+  "report",
+  "workshop"
+ ],
+ "category": "business",
+ "credit": "colours and fonts from Bootswatch Sandstone by Thomas Park (MIT licence)",
+ "defaults": {
+  "mode": "light",
+  "palette": "slate"
+ },
+ "fonts": {
+  "display": [
+   "Roboto",
+   "sans"
+  ],
+  "body": [
+   "Roboto",
+   "sans"
+  ],
+  "label": [
+   "Roboto",
+   "sans"
+  ],
+  "stat": [
+   "Roboto",
+   "sans"
+  ],
+  "mono": [
+   "Roboto Slab",
+   "serif"
+  ]
+ },
+ "tokens": {
+  "--w-display": "600",
+  "--w-h1": "600",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "600",
+  "--w-stat": "600",
+  "--track-display": "-0.02em",
+  "--track-h1": "-0.01em",
+  "--track-label": "0.08em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.05",
+  "--lh-h1": "1.12",
+  "--lh-body": "1.5",
+  "--radius": "6px",
+  "--radius-sm": "4px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.75"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F8F5F0",
+   "bg_alt": "#F1ECE3",
+   "surface": "#FFFFFF",
+   "surface_2": "#EFE9DF",
+   "ink": "#3E3F3A",
+   "ink_2": "#56574F",
+   "ink_3": "#6C6B63",
+   "line": "#DFD7CA",
+   "positive": "#4F7A22",
+   "negative": "#B8312E",
+   "warning": "#9A4F12",
+   "code_bg": "#3E3F3A",
+   "code_ink": "#F8F5F0",
+   "letterbox": "#1E1F1C",
+   "shadow": "0 1px 2px rgba(62, 63, 58, .1)"
+  },
+  "dark": {
+   "bg": "#24231F",
+   "bg_alt": "#2B2A25",
+   "surface": "#2F2E29",
+   "surface_2": "#3A3933",
+   "ink": "#F3EFE7",
+   "ink_2": "#D3CEC3",
+   "ink_3": "#ADA89C",
+   "line": "#47453E",
+   "positive": "#A6D46A",
+   "negative": "#F08A86",
+   "warning": "#F5A66E",
+   "code_bg": "#171613",
+   "code_ink": "#F3EFE7",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "slate": {
+   "name": "Slate",
+   "light": {
+    "accent": "#325D88",
+    "accent_2": "#F47C3C"
+   },
+   "dark": {
+    "accent": "#8DB4E2",
+    "accent_2": "#F7A072"
+   }
+  },
+  "clay": {
+   "name": "Clay",
+   "light": {
+    "accent": "#A4532E",
+    "accent_2": "#325D88"
+   },
+   "dark": {
+    "accent": "#E8956B",
+    "accent_2": "#8DB4E2"
+   }
+  },
+  "olive": {
+   "name": "Olive",
+   "light": {
+    "accent": "#5C6B2E",
+    "accent_2": "#29ABE0"
+   },
+   "dark": {
+    "accent": "#B9C77A",
+    "accent_2": "#7FCDEB"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#325D88",
+   "#F47C3C",
+   "#93C54B",
+   "#29ABE0",
+   "#D9534F",
+   "#8E8C84"
+  ],
+  "dark": [
+   "#8DB4E2",
+   "#F7A072",
+   "#B5D98A",
+   "#7FCDEB",
+   "#F08A86",
+   "#BDBAB1"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 18,
+     "color": "accent"
+    },
+    {
+     "motif": "quarter-disc",
+     "at": "tr",
+     "size": 420,
+     "rotate": 90,
+     "color": "accent-2",
+     "opacity": 0.9
+    }
+   ],
+   "section": [
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 26,
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": 90,
+     "h": 6,
+     "x": "var(--mx)",
+     "y": 90,
+     "color": "accent-2"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 18,
+     "color": "accent"
+    }
+   ]
+  },
+  "vars": {
+   "cover": {
+    "--cover-w": "70%"
+   }
+  },
+  "kicker": "underline",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 5,
+     "color": "accent"
+    },
+    {
+     "motif": "quarter-disc",
+     "at": "tr",
+     "size": 80,
+     "rotate": 90,
+     "color": "accent-2"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": 24,
+     "h": 2,
+     "x": 0,
+     "y": 0,
+     "color": "accent-2"
+    }
+   ],
+   "mark": {
+    "motif": "diamond",
+    "size": 7,
+    "color": "accent"
+   }
+  }
+ }
+}

@@ -1,0 +1,157 @@
+/* Aurora: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="aurora"] {
+  --m-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="aurora"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(1000 * var(--art-px));
+  height: calc(1000 * var(--art-px));
+  right: calc(-320 * var(--art-px));
+  top: calc(-420 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.5; }
+.pc-deck[data-theme="aurora"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(600 * var(--art-px));
+  height: calc(600 * var(--art-px));
+  right: calc(-192 * var(--art-px));
+  top: calc(-252 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.5; }
+.pc-deck[data-theme="aurora"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(900 * var(--art-px));
+  height: calc(900 * var(--art-px));
+  right: calc(-200 * var(--art-px));
+  bottom: calc(-420 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.45; }
+.pc-deck[data-theme="aurora"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(540 * var(--art-px));
+  height: calc(540 * var(--art-px));
+  right: calc(-120 * var(--art-px));
+  bottom: calc(-252 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.45; }
+.pc-deck[data-theme="aurora"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(900 * var(--art-px));
+  height: calc(900 * var(--art-px));
+  right: calc(-300 * var(--art-px));
+  top: calc(-380 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.45; }
+.pc-deck[data-theme="aurora"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(540 * var(--art-px));
+  height: calc(540 * var(--art-px));
+  right: calc(-180 * var(--art-px));
+  top: calc(-228 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.45; }
+.pc-deck[data-theme="aurora"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(1000 * var(--art-px));
+  height: calc(1000 * var(--art-px));
+  right: calc(-320 * var(--art-px));
+  top: calc(-420 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.35; }
+.pc-deck[data-theme="aurora"]:is([data-format="3x1"], [data-format="4x1"]) .pc-statement:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(600 * var(--art-px));
+  height: calc(600 * var(--art-px));
+  right: calc(-192 * var(--art-px));
+  top: calc(-252 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.35; }
+.pc-deck[data-theme="aurora"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(1000 * var(--art-px));
+  height: calc(1000 * var(--art-px));
+  left: calc(-320 * var(--art-px));
+  bottom: calc(-420 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.5; }
+.pc-deck[data-theme="aurora"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(600 * var(--art-px));
+  height: calc(600 * var(--art-px));
+  left: calc(-192 * var(--art-px));
+  bottom: calc(-252 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.5; }
+.pc-deck[data-theme="aurora"] .pc-closing:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(900 * var(--art-px));
+  height: calc(900 * var(--art-px));
+  left: calc(-200 * var(--art-px));
+  top: calc(-420 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.45; }
+.pc-deck[data-theme="aurora"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(540 * var(--art-px));
+  height: calc(540 * var(--art-px));
+  left: calc(-120 * var(--art-px));
+  top: calc(-252 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.45; }
+.pc-deck[data-theme="aurora"] .pc-kicker {
+  width: fit-content;
+  padding: .38em .9em .42em;
+  border-radius: 999px;
+  background: var(--accent-text);
+  color: var(--kicker-on, var(--bg)); }
+.pc-deck[data-theme="aurora"] .pc-card:not(.pc-card--flat) {
+  box-shadow: 0 12px 34px rgba(0, 0, 0, .12);
+  border: 0; }

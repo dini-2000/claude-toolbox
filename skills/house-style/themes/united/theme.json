@@ -1,0 +1,243 @@
+{
+ "name": "United",
+ "summary": "Warm orange and deep aubergine on white, with a round, open sans and solid colour bands. Friendly and dependable, for team updates, open-source projects, community plans and all-hands.",
+ "good_for": [
+  "update",
+  "all-hands",
+  "community",
+  "open-source",
+  "plan",
+  "proposal"
+ ],
+ "category": "business",
+ "credit": "colours from Bootswatch United by Thomas Park (MIT licence)",
+ "defaults": {
+  "mode": "light",
+  "palette": "orange"
+ },
+ "fonts": {
+  "display": [
+   "Rubik",
+   "sans"
+  ],
+  "body": [
+   "Rubik",
+   "sans"
+  ],
+  "label": [
+   "Rubik",
+   "sans"
+  ],
+  "stat": [
+   "Rubik",
+   "sans"
+  ],
+  "mono": [
+   "Red Hat Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "500",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "500",
+  "--w-stat": "700",
+  "--track-display": "-0.02em",
+  "--track-h1": "-0.01em",
+  "--track-label": "0.06em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.05",
+  "--lh-h1": "1.12",
+  "--lh-body": "1.5",
+  "--radius": "8px",
+  "--radius-sm": "5px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "2"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF",
+   "bg_alt": "#F7F5F3",
+   "surface": "#FFFFFF",
+   "surface_2": "#EFEBE7",
+   "ink": "#333333",
+   "ink_2": "#4F4A45",
+   "ink_3": "#5F5A55",
+   "line": "#E0D9D2",
+   "positive": "#2E8540",
+   "negative": "#C0302A",
+   "warning": "#9C5A00",
+   "code_bg": "#2C001E",
+   "code_ink": "#F7F5F3",
+   "letterbox": "#1A0012",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#2C001E",
+   "bg_alt": "#330024",
+   "surface": "#3B0A2B",
+   "surface_2": "#4A1638",
+   "ink": "#F7F5F3",
+   "ink_2": "#DCD2D7",
+   "ink_3": "#BBAEB5",
+   "line": "#5A2548",
+   "positive": "#7FD08A",
+   "negative": "#FF9184",
+   "warning": "#FFC266",
+   "code_bg": "#1A0012",
+   "code_ink": "#F7F5F3",
+   "letterbox": "#100009",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "orange": {
+   "name": "Orange",
+   "light": {
+    "accent": "#E95420",
+    "accent_2": "#772953"
+   },
+   "dark": {
+    "accent": "#F07746",
+    "accent_2": "#D193B5"
+   }
+  },
+  "aubergine": {
+   "name": "Aubergine",
+   "light": {
+    "accent": "#772953",
+    "accent_2": "#E95420"
+   },
+   "dark": {
+    "accent": "#D193B5",
+    "accent_2": "#F07746"
+   }
+  },
+  "teal": {
+   "name": "Teal",
+   "light": {
+    "accent": "#00777A",
+    "accent_2": "#E95420"
+   },
+   "dark": {
+    "accent": "#4FC3C6",
+    "accent_2": "#F07746"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#E95420",
+   "#772953",
+   "#00777A",
+   "#AEA79F",
+   "#38B44A",
+   "#5F5A55"
+  ],
+  "dark": [
+   "#F07746",
+   "#D193B5",
+   "#4FC3C6",
+   "#DCD2D7",
+   "#7FD08A",
+   "#BBAEB5"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 30,
+     "color": "accent-2"
+    },
+    {
+     "motif": "circle",
+     "at": "br",
+     "size": 560,
+     "x": -170,
+     "y": -190,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 30,
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "ring",
+     "at": "tr",
+     "size": 240,
+     "x": 70,
+     "y": 60,
+     "color": "accent",
+     "opacity": 0.9
+    }
+   ],
+   "closing": [
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 30,
+     "color": "accent-2"
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 460,
+     "x": -150,
+     "y": -170,
+     "color": "accent"
+    }
+   ]
+  },
+  "vars": {
+   "cover": {
+    "--cover-w": "68%"
+   }
+  },
+  "kicker": "tab",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 7,
+     "color": "accent-2"
+    },
+    {
+     "motif": "circle",
+     "at": "br",
+     "size": 110,
+     "x": -36,
+     "y": -40,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 3,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "circle",
+    "size": 6,
+    "color": "accent"
+   }
+  }
+ }
+}

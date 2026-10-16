@@ -1,0 +1,268 @@
+{
+ "name": "Collage",
+ "summary": "Cut paper on kraft: torn-edge blobs and leaves in tomato, mustard and ink blue, a soft display serif and handwritten notes. Warm and crafty, for community projects, workshops, fundraisers and creative briefs.",
+ "good_for": [
+  "community",
+  "workshop",
+  "fundraiser",
+  "craft",
+  "brief",
+  "story"
+ ],
+ "category": "creative",
+ "defaults": {
+  "mode": "light",
+  "palette": "tomato"
+ },
+ "fonts": {
+  "display": [
+   "DM Serif Display",
+   "serif"
+  ],
+  "body": [
+   "DM Sans",
+   "sans"
+  ],
+  "label": [
+   "Caveat",
+   "hand"
+  ],
+  "stat": [
+   "DM Serif Display",
+   "serif"
+  ],
+  "mono": [
+   "DM Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "400",
+  "--w-h1": "400",
+  "--w-h2": "400",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "700",
+  "--w-stat": "400",
+  "--track-display": "-0.01em",
+  "--track-h1": "0em",
+  "--track-label": "0em",
+  "--label-case": "none",
+  "--lh-display": "1.04",
+  "--lh-h1": "1.1",
+  "--lh-body": "1.5",
+  "--radius": "4px",
+  "--radius-sm": "3px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "2"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F3EBDD",
+   "bg_alt": "#EADFCC",
+   "surface": "#FFFAF0",
+   "surface_2": "#E6DAC4",
+   "ink": "#2B2B2B",
+   "ink_2": "#45403A",
+   "ink_3": "#5A544C",
+   "line": "#D8CAB2",
+   "positive": "#2F7A3D",
+   "negative": "#B83A1B",
+   "warning": "#8C5D00",
+   "code_bg": "#2B2B2B",
+   "code_ink": "#F3EBDD",
+   "letterbox": "#1A1A1A",
+   "shadow": "3px 4px 0 rgba(43, 43, 43, .18)"
+  },
+  "dark": {
+   "bg": "#26221D",
+   "bg_alt": "#2C2722",
+   "surface": "#332D27",
+   "surface_2": "#3D3630",
+   "ink": "#F3EBDD",
+   "ink_2": "#D9CFBE",
+   "ink_3": "#B5AB9A",
+   "line": "#4A423A",
+   "positive": "#86C995",
+   "negative": "#F28B6E",
+   "warning": "#F3C14B",
+   "code_bg": "#1A1714",
+   "code_ink": "#F3EBDD",
+   "letterbox": "#000000",
+   "shadow": "3px 4px 0 rgba(0, 0, 0, .35)"
+  }
+ },
+ "palettes": {
+  "tomato": {
+   "name": "Tomato",
+   "light": {
+    "accent": "#C8432A",
+    "accent_2": "#29335C"
+   },
+   "dark": {
+    "accent": "#F07A5E",
+    "accent_2": "#9AA8E0"
+   }
+  },
+  "mustard": {
+   "name": "Mustard",
+   "light": {
+    "accent": "#9A6A00",
+    "accent_2": "#C8432A"
+   },
+   "dark": {
+    "accent": "#F3A712",
+    "accent_2": "#F07A5E"
+   }
+  },
+  "ink": {
+   "name": "Ink",
+   "light": {
+    "accent": "#29335C",
+    "accent_2": "#C8432A"
+   },
+   "dark": {
+    "accent": "#9AA8E0",
+    "accent_2": "#F07A5E"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#C8432A",
+   "#29335C",
+   "#D99A0B",
+   "#4F7C5A",
+   "#8E5572",
+   "#8A8070"
+  ],
+  "dark": [
+   "#F07A5E",
+   "#9AA8E0",
+   "#F3A712",
+   "#86C995",
+   "#D4A0BC",
+   "#B5AB9A"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "blob",
+     "at": "br",
+     "size": 560,
+     "x": -120,
+     "y": -150,
+     "color": "accent",
+     "rotate": -8
+    },
+    {
+     "motif": "leaf",
+     "at": "tr",
+     "size": 300,
+     "x": 40,
+     "y": -40,
+     "color": "accent-2",
+     "rotate": 25
+    }
+   ],
+   "section": [
+    {
+     "motif": "half-disc",
+     "at": "b",
+     "w": 520,
+     "h": 260,
+     "x": 300,
+     "color": "accent-2"
+    },
+    {
+     "motif": "blob-2",
+     "at": "tr",
+     "size": 260,
+     "x": 60,
+     "y": 40,
+     "color": "accent",
+     "rotate": 15
+    }
+   ],
+   "statement": [
+    {
+     "motif": "leaf",
+     "at": "tr",
+     "size": 240,
+     "x": 60,
+     "y": 40,
+     "color": "accent",
+     "rotate": -30
+    }
+   ],
+   "closing": [
+    {
+     "motif": "blob-2",
+     "at": "bl",
+     "size": 520,
+     "x": -150,
+     "y": -160,
+     "color": "accent-2",
+     "rotate": 10
+    },
+    {
+     "motif": "leaf",
+     "at": "tr",
+     "size": 280,
+     "x": 40,
+     "y": -30,
+     "color": "accent",
+     "rotate": 200
+    }
+   ]
+  },
+  "vars": {
+   "cover": {
+    "--cover-w": "66%"
+   }
+  },
+  "kicker": "tab",
+  "cards": "shadow",
+  "doc": {
+   "cover": [
+    {
+     "motif": "blob",
+     "at": "br",
+     "size": 110,
+     "x": -26,
+     "y": -32,
+     "color": "accent",
+     "rotate": -8
+    },
+    {
+     "motif": "leaf",
+     "at": "tr",
+     "size": 60,
+     "x": 6,
+     "y": -8,
+     "color": "accent-2",
+     "rotate": 25
+    }
+   ],
+   "opener": [
+    {
+     "motif": "leaf",
+     "at": "tr",
+     "size": 22,
+     "x": 0,
+     "y": 0,
+     "color": "accent",
+     "rotate": 25
+    }
+   ],
+   "mark": {
+    "motif": "leaf",
+    "size": 7,
+    "color": "accent"
+   }
+  }
+ }
+}

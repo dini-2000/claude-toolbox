@@ -1,0 +1,51 @@
+/* Marble: document art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-doc[data-theme="marble"] .pc-cover:not([data-cover="full"])::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 90mm;
+  height: 100%;
+  right: 0mm;
+  top: calc(50% - 100% / 2 + 0mm);
+  background: var(--line, var(--accent));
+  -webkit-mask: var(--m-waves) 0 0 / 24mm 24mm repeat, linear-gradient(to left, #000 35%, transparent);
+  mask: var(--m-waves) 0 0 / 24mm 24mm repeat, linear-gradient(to left, #000 35%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  opacity: 0.9; }
+.pc-doc[data-theme="marble"] .pc-cover:not([data-cover="full"])::after {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: calc(9mm + var(--bleed, 0mm));
+  border: 0.3mm solid var(--accent, var(--accent)); }
+.pc-doc[data-theme="marble"] .pc-cover:not([data-cover="full"]) > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="marble"] .pc-opener {
+  position: relative; }
+.pc-doc[data-theme="marble"] .pc-opener::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 4mm;
+  height: 4mm;
+  left: 0mm;
+  top: 0mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 0%, line to 100% 50%, line to 50% 100%, line to 0% 50%, close); }
+.pc-doc[data-theme="marble"] .pc-opener > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="marble"] .pc-chapter > h1::after {
+  content: "";
+  display: block;
+  width: 4pt;
+  height: 4pt;
+  margin: 9pt 0 0;
+  background: var(--accent, var(--accent));
+  -webkit-mask: var(--m-diamond) center / contain no-repeat;
+  mask: var(--m-diamond) center / contain no-repeat; }

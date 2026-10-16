@@ -1,0 +1,699 @@
+/* House Style engine: formats, slide shells and components.
+   Every colour, font, size and shape comes from tokens. Each theme keeps its tokens in themes/<id>/theme.json;
+   tools/build_themes.py turns them into themes/<id>/tokens.css (every mode, palette and surface, with colours checked
+   for contrast) and themes/<id>/theme.css adds the theme's signature art. A deck changes theme, palette, mode or
+   format with one attribute on .pc-deck. A slide changes surface with data-surface: base (default), alt, accent or
+   inverse (the theme's other mode); full-bleed photos use pc-bleed. pc-inverse flips a single panel the same way.
+   The short side of every format is 1080 px, so type sizes mean the same thing in every format.
+   Art layer (what the PowerPoint converter keeps as one background picture): the slide background,
+   .pc-slide::before / ::after, and any element with class pc-art. Everything else is content. */
+
+/* ---------- 1. Tokens: neutral defaults (themes override) ---------- */
+/* The colours here are fallbacks. tools/build_themes.py writes each theme's colours for every mode, palette and
+   surface onto the deck and onto each slide. --accent fills shapes; --accent-text is the accent for text and icons,
+   darker or lighter where the fill colour would fail 4.5:1 on the background. */
+.pc-deck {
+  --bg: #ffffff; --bg-alt: #f3f4f6; --surface: #ffffff; --surface-2: #f3f4f6;
+  --ink: #16181d; --ink-2: #4a505c; --ink-3: #6b717d; --line: #e2e4e9;
+  --accent: #2f54eb; --accent-text: #2f54eb; --accent-ink: #ffffff; --accent-2: #0f8b8d; --accent-soft: #e9eeff;
+  --positive: #1e7b4e; --negative: #b3261e; --warning: #a35f00; --info: #2f54eb;
+  --c1: #2f54eb; --c2: #0f8b8d; --c3: #b07d00; --c4: #7a3e9d; --c5: #d1495b; --c6: #5b6170;
+  --font-display: system-ui, sans-serif; --font-body: system-ui, sans-serif; --font-mono: ui-monospace, monospace;
+  --font-hand: var(--font-body); --font-script: var(--font-display);
+  --w-display: 700; --w-h1: 650; --w-h2: 600; --w-body: 400; --w-strong: 650; --w-label: 600; --w-stat: 700;
+  --track-display: -0.02em; --track-h1: -0.01em; --track-label: 0.08em; --label-case: uppercase;
+  --lh-display: 1.02; --lh-h1: 1.1; --lh-body: 1.4;
+  --k-hero: 1; --k-h1: 1; --k-body: 1; --k-stat: 1; --k-statement: 1;
+  --radius: 14px; --radius-sm: 8px; --border-w: 2px;
+  --shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 10px 28px rgba(16, 24, 40, .08);
+  --card-pad: 36px; --card-border-w: 1px;
+  --ease: cubic-bezier(.2, .7, .2, 1); --dur: 400ms; --dur-draw: 700ms; --rise: 24px; --stagger: 60ms;
+  --icon-stroke: 2; --letterbox: #0b0c0f;
+  --arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12h15M13 6l6 6-6 6'/%3E%3C/svg%3E");
+  /* format (16:9 default) */
+  --W: 1920px; --H: 1080px; --mx: 104px; --mt: 92px; --mb: 72px; --gap: 40px;
+  --fs-hero: 116px; --fs-h1: 62px; --fs-h2: 42px; --fs-h3: 36px; --fs-sub: 34px; --fs-body: 30px; --fs-text: 28px; --fs-small: 25px;
+  --fs-label: 20px; --fs-stat: 120px; --fs-statement: 88px; --fs-quote: 62px; --fs-code: 24px;
+}
+/* Tokens built from colours resolve on each slide and inverse panel, so they follow its surface */
+.pc-deck, .pc-slide, .pc-inverse { --chart-grid: var(--line); --chart-muted: var(--ink-3); --card-bg: var(--surface); --card-border: var(--line); }
+/* One art pixel: 1px on a 1920 px wide slide, smaller on narrower formats, so theme artwork keeps its proportions */
+.pc-slide { --art-px: calc(var(--W) / 1920); }
+.pc-deck[data-motion="complex"] { --dur: 460ms; --rise: 32px; --stagger: 70ms; }
+.pc-deck[data-format="4x3"] { --W: 1440px; --mx: 88px; --fs-hero: 100px; --fs-h1: 56px; --fs-stat: 112px; --fs-statement: 76px; --fs-quote: 56px; }
+.pc-deck[data-format="1x1"] { --W: 1080px; --H: 1080px; --mx: 84px; --mt: 84px; --mb: 68px; --gap: 32px;
+  --fs-hero: 96px; --fs-h1: 56px; --fs-h2: 38px; --fs-h3: 34px; --fs-sub: 33px; --fs-body: 30px; --fs-text: 28px; --fs-small: 24px;
+  --fs-stat: 120px; --fs-statement: 74px; --fs-quote: 54px; --fs-code: 22px; }
+.pc-deck[data-format="4x5"] { --W: 1080px; --H: 1350px; --mx: 84px; --mt: 96px; --mb: 80px; --gap: 32px;
+  --fs-hero: 104px; --fs-h1: 60px; --fs-h2: 40px; --fs-h3: 35px; --fs-sub: 35px; --fs-body: 32px; --fs-text: 29px; --fs-small: 25px;
+  --fs-stat: 132px; --fs-statement: 82px; --fs-quote: 58px; --fs-code: 23px; }
+.pc-deck[data-format="9x16"] { --title-lines: 4; --W: 1080px; --H: 1920px; --mx: 88px; --mt: 150px; --mb: 170px; --gap: 36px;
+  --fs-hero: 124px; --fs-h1: 76px; --fs-h2: 50px; --fs-h3: 42px; --fs-sub: 44px; --fs-body: 40px; --fs-text: 36px; --fs-small: 31px;
+  --fs-label: 25px; --fs-stat: 160px; --fs-statement: 98px; --fs-quote: 70px; --fs-code: 27px; }
+.pc-deck[data-format="a4p"] { --W: 1080px; --H: 1527px; --mx: 96px; --mt: 100px; --mb: 88px; --gap: 30px;
+  --fs-hero: 88px; --fs-h1: 52px; --fs-h2: 36px; --fs-h3: 31px; --fs-sub: 29px; --fs-body: 26px; --fs-text: 24px; --fs-small: 21px;
+  --fs-label: 17px; --fs-stat: 104px; --fs-statement: 66px; --fs-quote: 48px; --fs-code: 20px; }
+.pc-deck[data-format="a4l"] { --W: 1527px; --H: 1080px; --mx: 96px; --mt: 84px; --mb: 68px; --gap: 32px;
+  --fs-hero: 92px; --fs-h1: 52px; --fs-h2: 36px; --fs-h3: 31px; --fs-sub: 29px; --fs-body: 26px; --fs-text: 24px; --fs-small: 21px;
+  --fs-label: 17px; --fs-stat: 108px; --fs-statement: 70px; --fs-quote: 50px; --fs-code: 20px; }
+/* Graphic formats. Link previews and banners keep the 1080 px height of a slide and the 16:9 type; print pieces
+   (5 x 7 in, US Letter, business card) print at their real size, so a card's type is set larger to read at 85 mm */
+.pc-deck[data-format="191x100"] { --W: 2063px; --H: 1080px; --mx: 120px; }
+.pc-deck[data-format="3x1"] { --W: 3240px; --H: 1080px; --mx: 180px; --mt: 120px; --mb: 120px; --title-lines: 2; }
+.pc-deck[data-format="4x1"] { --W: 4320px; --H: 1080px; --mx: 220px; --mt: 130px; --mb: 130px; --title-lines: 2; }
+.pc-deck[data-format="5x7"] { --W: 1080px; --H: 1512px; --mx: 96px; --mt: 100px; --mb: 88px; --gap: 30px;
+  --fs-hero: 92px; --fs-h1: 54px; --fs-h2: 37px; --fs-h3: 32px; --fs-sub: 31px; --fs-body: 28px; --fs-text: 26px; --fs-small: 23px;
+  --fs-label: 19px; --fs-stat: 108px; --fs-statement: 70px; --fs-quote: 50px; --fs-code: 21px; }
+.pc-deck[data-format="letter-p"] { --W: 1080px; --H: 1398px; --mx: 96px; --mt: 96px; --mb: 84px; --gap: 30px;
+  --fs-hero: 88px; --fs-h1: 52px; --fs-h2: 36px; --fs-h3: 31px; --fs-sub: 29px; --fs-body: 26px; --fs-text: 24px; --fs-small: 21px;
+  --fs-label: 17px; --fs-stat: 104px; --fs-statement: 66px; --fs-quote: 48px; --fs-code: 20px; }
+.pc-deck[data-format="card"] { --W: 1669px; --H: 1080px; --mx: 120px; --mt: 110px; --mb: 100px; --gap: 28px; --title-lines: 2;
+  --fs-hero: 140px; --fs-h1: 104px; --fs-h2: 74px; --fs-h3: 64px; --fs-sub: 60px; --fs-body: 56px; --fs-text: 54px; --fs-small: 50px;
+  --fs-label: 46px; --fs-stat: 160px; --fs-statement: 100px; --fs-quote: 80px; --fs-code: 46px; }
+
+/* ---------- 2. Deck on screen: one slide at a time, scaled to fit ---------- */
+html, body { margin: 0; height: 100%; }
+body:has(> .pc-deck) { background: var(--letterbox, #0b0c0f); overflow: hidden; }
+.pc-deck { position: fixed; inset: 0; overflow: hidden; background: var(--letterbox);
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-kerning: normal; }
+.pc-deck *, .pc-deck *::before, .pc-deck *::after { box-sizing: border-box; }
+.pc-slide { position: absolute; left: 50%; top: 50%; width: var(--W); height: var(--H); overflow: hidden;
+  transform: translate(-50%, -50%) scale(var(--scale, 1)); transform-origin: 50% 50%;
+  visibility: hidden; display: flex; flex-direction: column; padding: var(--mt) var(--mx) var(--mb);
+  background: var(--bg); color: var(--ink); font-family: var(--font-body); font-weight: var(--w-body);
+  font-size: calc(var(--fs-body) * var(--k-body)); line-height: var(--lh-body); isolation: isolate; }
+.pc-slide.is-active { visibility: visible; }
+.pc-deck.is-static-view .pc-slide { visibility: visible; }
+.pc-notes { display: none !important; }
+
+/* ---------- 3. Print: one exact page per slide, finished builds ---------- */
+@media print {
+  /* The page size follows the format: the runtime writes @page for the deck (style#pc-page) and tools/build.py
+     writes it into a built file, so a deck without scripts prints right too. 16:9 is the fallback. */
+  @page { size: 1920px 1080px; margin: 0; }
+  html, body, body:has(> .pc-deck) { height: auto; background: none; overflow: visible; }
+  .pc-deck { position: static; overflow: visible; background: none; }
+  .pc-slide { position: relative; left: 0; top: 0; transform: none !important; visibility: visible !important;
+    break-after: page; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .pc-deck:is([data-format="a4p"], [data-format="a4l"]) .pc-slide { zoom: 0.73495; }
+  .pc-deck[data-format="5x7"] .pc-slide { zoom: 0.44444; }
+  .pc-deck[data-format="letter-p"] .pc-slide { zoom: 0.75556; }
+  .pc-deck[data-format="card"] .pc-slide { zoom: 0.19249; }
+  .pc-ui, .pc-menu, .pc-progress, .pc-laser, .pc-notes-panel, .pc-blackout, .pc-overview, .pc-toast, .pc-tip { display: none !important; }
+  .pc-deck .pc-slide [data-build], .pc-deck .pc-slide [data-build-each] > * { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+  .pc-deck .pc-slide [data-build="draw"] :is(.ch-bar, .ch-hbar) { transform: none !important; }
+  .pc-deck .pc-slide [data-build="draw"] .ch-draw { stroke-dashoffset: 0 !important; }
+  .pc-deck .pc-slide [data-build="draw"] .ch-lab { opacity: 1 !important; }
+}
+
+/* ---------- 4. Slide anatomy ---------- */
+.pc-kicker { margin: 0 0 18px; font: var(--w-label) var(--fs-label)/1.2 var(--font-label, var(--font-body));
+  letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--kicker, var(--accent-text)); }
+.pc-title { margin: 0; max-width: var(--title-w, 88%); font-family: var(--font-display); font-weight: var(--w-h1);
+  font-size: calc(var(--fs-h1) * var(--k-h1)); line-height: var(--lh-h1); letter-spacing: var(--track-h1);
+  color: var(--title-ink, var(--ink)); text-wrap: balance; }
+.pc-sub { margin: 18px 0 0; max-width: var(--sub-w, 72%); font-size: calc(var(--fs-sub) * var(--k-body));
+  line-height: 1.35; color: var(--ink-2); text-wrap: pretty; }
+.pc-body { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; gap: var(--gap);
+  margin-top: var(--body-gap, 48px); justify-content: var(--body-align, safe center); }
+.pc-body--top { --body-align: flex-start; }
+.pc-body--center { --body-align: safe center; }
+.pc-body--end { --body-align: flex-end; }
+.pc-foot { display: flex; align-items: flex-end; gap: 24px; margin-top: 28px; min-height: 1px;
+  font-size: var(--fs-label); line-height: 1.3; color: var(--ink-3); }
+.pc-source { flex: 1; margin: 0; font-size: var(--fs-label); color: var(--ink-3); }
+.pc-chrome { position: absolute; z-index: 3; font: var(--w-label) var(--fs-label)/1.2 var(--font-label, var(--font-body));
+  letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--ink-3); }
+.pc-chrome[hidden] { display: none; }
+.pc-slide > .pc-num { position: absolute; right: var(--mx); bottom: calc(var(--mb) * .45); z-index: 3;
+  font: var(--w-label) var(--fs-label)/1 var(--font-label, var(--font-body)); color: var(--ink-3);
+  font-variant-numeric: tabular-nums; }
+.pc-slide[data-no-num] > .pc-num, .pc-cover > .pc-num { display: none; }
+/* section, statement and closing slides carry theme art, so their page number takes full ink */
+.pc-slide:is(.pc-section, .pc-statement, .pc-closing) > .pc-num { color: var(--ink); }
+.pc-split > .pc-num { right: calc(var(--split) + var(--mx)); }
+.pc-split--left > .pc-num { right: var(--mx); }
+.pc-at { position: absolute; }
+.pc-art { pointer-events: none; }
+p { margin: 0; }
+.pc-slide strong, .pc-slide b { font-weight: var(--w-strong); }
+.pc-slide em { font-style: italic; }
+.pc-slide a { color: var(--accent-text); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.pc-hl { color: var(--accent-text); }
+.pc-muted { color: var(--ink-2); }
+.pc-small { font-size: var(--fs-small); }
+.pc-label { margin: 0 0 12px; display: flex; align-items: center; gap: 12px;
+  font: var(--w-label) var(--fs-label)/1.25 var(--font-label, var(--font-body));
+  letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--ink-2); }
+.pc-h2 { margin: 0; font: var(--w-h2) var(--fs-h2)/1.15 var(--font-display); letter-spacing: var(--track-h1); color: var(--ink); }
+.pc-h3 { margin: 0; font: var(--w-h2) var(--fs-h3)/1.2 var(--font-display); color: var(--ink); }
+.pc-lead { font-size: calc(var(--fs-sub) * var(--k-body)); line-height: 1.38; color: var(--ink-2); max-width: 30em; text-wrap: pretty; }
+.pc-prose { max-width: 34em; }
+.pc-prose > * + * { margin-top: .7em; }
+/* Drop cap: pc-dropcap on a paragraph, or on pc-prose for its first paragraph */
+:is(p.pc-dropcap, .pc-dropcap > p:first-child)::first-letter { float: left; font-family: var(--font-display);
+  font-weight: var(--w-display); font-size: calc(var(--lh-body) * 3em); line-height: .8; margin: .05em .1em 0 0; color: var(--accent-text); }
+.pc-sr-only { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* Sinhala and Tamil (lang="si" or lang="ta" on the text or the deck): taller lines, no tracking, no capitals.
+   build_themes.py adds Noto Sans or Noto Serif Sinhala and Tamil to every font stack. */
+.pc-deck :is(:lang(si), :lang(ta)) { --lh-display: 1.3; --lh-h1: 1.32; --lh-body: 1.62; --lh-statement: 1.3;
+  --track-display: 0; --track-h1: 0; --track-label: 0; --label-case: none; --fs-label: calc(var(--fs-label-base) * 1.2); }
+/* With no capitals and letters that sit lower than English, label-size text (kickers, table heads, chips,
+   captions) reads small in these scripts, so it is set 1.2 times larger. The base is read on the deck. */
+.pc-deck { --fs-label-base: var(--fs-label); }
+.pc-deck :is(.pc-h2, .pc-h3, .pc-sub, .pc-lead, .pc-quote blockquote):is(:lang(si), :lang(ta)) { line-height: 1.45; }
+
+/* Slide sizes for sparse content: steps scale body type together, never the headline */
+.pc-slide--large { --k-body: 1.18; }
+.pc-slide--xl { --k-body: 1.36; }
+
+/* ---------- 5. Slide shells ---------- */
+/* Cover */
+.pc-cover { justify-content: flex-end; }
+.pc-cover .pc-title { font-size: calc(var(--fs-hero) * var(--k-hero)); line-height: var(--lh-display);
+  font-weight: var(--w-display); letter-spacing: var(--track-display); max-width: max(var(--cover-w, 82%), var(--cover-min, 0%)); }
+/* a theme's narrow cover width leaves room for art beside the title in landscape; square and portrait pages need the width */
+.pc-deck:is([data-format="1x1"], [data-format="4x5"], [data-format="9x16"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-cover { --cover-min: 82%; }
+.pc-cover .pc-sub { font-size: calc(var(--fs-h2) * .9); margin-top: 28px; }
+.pc-cover .pc-meta { margin-top: 44px; display: flex; flex-wrap: wrap; gap: 12px 40px; font-size: var(--fs-small); color: var(--ink-2); }
+.pc-cover--center { align-items: center; justify-content: center; text-align: center; }
+.pc-cover--center .pc-title, .pc-cover--center .pc-sub { margin-left: auto; margin-right: auto; }
+.pc-cover--center .pc-meta { justify-content: center; }
+.pc-cover--top { justify-content: flex-start; }
+
+/* Section divider */
+.pc-section { justify-content: center; }
+.pc-section .pc-section-num { margin: 0 0 12px; font: var(--w-display) calc(var(--fs-hero) * 1.4)/0.9 var(--font-display);
+  letter-spacing: var(--track-display); color: var(--accent-text); font-variant-numeric: lining-nums; }
+.pc-section .pc-title { font-size: calc(var(--fs-hero) * .82 * var(--k-hero)); line-height: var(--lh-display);
+  font-weight: var(--w-display); letter-spacing: var(--track-display); }
+
+/* Statement: one sentence fills the slide */
+.pc-statement { justify-content: center; }
+.pc-statement .pc-title, .pc-statement .pc-say { font-size: calc(var(--fs-statement) * var(--k-statement));
+  font-family: var(--font-display); line-height: var(--lh-statement, 1.08); font-weight: var(--w-display); letter-spacing: var(--track-display); max-width: 92%; }
+.pc-statement--center { align-items: center; text-align: center; }
+
+/* Closing */
+.pc-closing { justify-content: center; }
+.pc-closing .pc-title { font-size: calc(var(--fs-hero) * .8 * var(--k-hero)); font-weight: var(--w-display);
+  letter-spacing: var(--track-display); line-height: var(--lh-display); }
+/* Each detail keeps its own width and moves to a new row when the row is full, so an email address never breaks */
+.pc-contact { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 18px 56px; font-size: var(--fs-text); color: var(--ink-2); }
+.pc-contact > * { flex: 0 0 auto; max-width: 100%; }
+.pc-deck[data-format="9x16"] .pc-contact { flex-direction: column; }
+.pc-contact b { display: block; font: var(--w-label) var(--fs-label)/1.3 var(--font-label, var(--font-body));
+  letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--ink-3); margin-bottom: 4px; }
+
+/* Split: image on one side (right by default; add pc-split--left) */
+.pc-split { --split: 46%; --title-w: 100%; padding-right: calc(var(--split) + var(--mx)); }
+.pc-split > .pc-media--side { position: absolute; top: 0; right: 0; bottom: 0; width: var(--split); }
+.pc-split--left { padding-right: var(--mx); padding-left: calc(var(--split) + var(--mx)); }
+.pc-split--left > .pc-media--side { right: auto; left: 0; }
+/* Square gives the text a wider column; portrait pages put the picture across the top and the text below it */
+.pc-deck[data-format="1x1"] .pc-split { --split: 40%; }
+.pc-deck:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-split {
+  --split-h: calc(var(--H) * .4); padding: calc(var(--split-h) + var(--mt) * .7) var(--mx) var(--mb); }
+.pc-deck:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-split > .pc-media--side {
+  left: 0; right: 0; bottom: auto; width: auto; height: var(--split-h); }
+.pc-deck:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-split > .pc-num { right: var(--mx); }
+.pc-split:not(:has(.pc-fill)) { justify-content: center; }
+.pc-split:not(:has(.pc-fill)) > .pc-body { flex: 0 1 auto; --body-align: flex-start; }
+
+/* Full-bleed image with text over a scrim */
+.pc-bleed { color: #fff; --ink: #fff; --ink-2: rgba(255,255,255,.86); --ink-3: rgba(255,255,255,.72); --kicker: #fff; --accent-text: #fff; --icon-ink: #fff; --kicker-on: #1a1a1a; }
+.pc-bleed > .pc-media--bg { position: absolute; inset: 0; z-index: -1; }
+.pc-bleed > .pc-media--bg::after { content: ""; position: absolute; inset: 0;
+  background: var(--scrim, linear-gradient(180deg, rgba(0,0,0,0) 30%, rgba(0,0,0,.42) 58%, rgba(0,0,0,.76) 100%)); }
+.pc-bleed :is(.pc-kicker, .pc-title, .pc-sub, .pc-lead, p) { text-shadow: 0 1px 14px rgba(0,0,0,.35); }
+.pc-bleed--top > .pc-media--bg::after { background: linear-gradient(0deg, rgba(0,0,0,0) 35%, rgba(0,0,0,.6) 100%); }
+
+/* ---------- 6. Layout helpers ---------- */
+.pc-grid { display: grid; gap: var(--gap); align-items: start; }
+.pc-grid--stretch { align-items: stretch; }
+.pc-grid--center { align-items: center; }
+.pc-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pc-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.pc-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.pc-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.pc-cols-2-1 { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+.pc-cols-1-2 { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
+.pc-cols-3-2 { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+/* Narrow formats: wide grids fold so text keeps a readable measure (add pc-keep to stop it) */
+.pc-deck:is([data-format="1x1"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) :is(.pc-cols-4, .pc-cols-5):not(.pc-keep) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pc-deck[data-format="9x16"] :is(.pc-cols-2, .pc-cols-3, .pc-cols-2-1, .pc-cols-1-2, .pc-cols-3-2):not(.pc-keep) { grid-template-columns: minmax(0, 1fr); }
+.pc-deck[data-format="9x16"] :is(.pc-cols-4, .pc-cols-5):not(.pc-keep) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pc-row { display: flex; gap: var(--gap); align-items: center; flex-wrap: wrap; }
+.pc-stack { display: flex; flex-direction: column; gap: calc(var(--gap) * .6); }
+.pc-fill { flex: 1 1 auto; min-height: 0; }
+.pc-center { display: flex; align-items: center; justify-content: center; text-align: center; }
+
+/* ---------- 7. Components ---------- */
+/* Icons: <i class="pc-icon" data-icon="name"></i> (Lucide names; the runtime draws them) */
+.pc-icon { display: inline-flex; width: 1em; height: 1em; flex: none; vertical-align: -0.125em; color: var(--icon-ink, var(--accent-text)); }
+.pc-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: var(--icon-stroke);
+  stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.pc-icon--badge { width: 1.9em; height: 1.9em; padding: .42em; border-radius: var(--radius-sm);
+  background: var(--accent-soft); color: var(--accent-text); }
+.pc-icon--lg { font-size: 64px; }
+
+/* Cards */
+.pc-card { position: relative; padding: var(--card-pad); border-radius: var(--radius); background: var(--card-bg);
+  border: var(--card-border-w, 0px) solid var(--card-border); box-shadow: var(--card-shadow, var(--shadow)); }
+.pc-card--flat { box-shadow: none; background: var(--surface-2); }
+.pc-card--outline { box-shadow: none; background: transparent; border: var(--border-w) solid var(--line); }
+.pc-card--accent { background: var(--accent); color: var(--accent-ink); --ink: var(--accent-ink); --ink-2: var(--accent-ink); --ink-3: var(--accent-ink); --icon-ink: var(--accent-ink); --accent-text: var(--accent-ink); }
+.pc-card--soft { box-shadow: none; background: var(--accent-soft); }
+/* Inverse panel: pc-inverse on any element takes the theme's other mode (its tokens come from build_themes.py) */
+.pc-inverse { background: var(--bg); color: var(--ink); }
+.pc-card.pc-inverse { background: var(--bg); box-shadow: none; }
+.pc-card > .pc-icon:first-child { font-size: 56px; margin-bottom: 22px; }
+.pc-card .pc-h3 + p, .pc-card .pc-h3 + .pc-list { margin-top: 12px; }
+.pc-card p { color: var(--ink-2); }
+
+/* Bullets */
+.pc-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--list-gap, .62em); }
+.pc-list > li { position: relative; padding-left: 1.15em; }
+.pc-list > li::before { content: ""; position: absolute; left: 0; top: .62em; width: .36em; height: .36em;
+  border-radius: var(--bullet-radius, 50%); background: var(--bullet, var(--accent)); }
+.pc-list--num { counter-reset: pc-n; }
+.pc-list--num > li { padding-left: 1.7em; counter-increment: pc-n; }
+.pc-list--num > li::before { content: counter(pc-n); width: auto; height: auto; top: 0; background: none;
+  font: var(--w-strong) 1em/inherit var(--font-display); color: var(--accent-text); font-variant-numeric: tabular-nums; }
+.pc-list--plain > li { padding-left: 0; } .pc-list--plain > li::before { display: none; }
+.pc-list li > b:first-child { color: var(--ink); }
+.pc-list--sm { font-size: var(--fs-text); }
+
+/* Checklist: li.is-done / is-todo / is-no (state always has text or icon shape, never colour alone) */
+.pc-checks { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: .6em; }
+.pc-checks > li { position: relative; padding-left: 1.6em; }
+.pc-checks > li::before { content: ""; position: absolute; left: 0; top: .2em; width: 1em; height: 1em;
+  border: 3px solid var(--ink-3); border-radius: 6px; box-sizing: border-box; }
+.pc-checks > li.is-done::before { border-color: var(--positive); background: var(--positive)
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/80% no-repeat; }
+.pc-checks > li.is-no::before { border-color: var(--negative); background: var(--negative)
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E") center/76% no-repeat; }
+.pc-checks > li.is-done { color: var(--ink); }
+
+/* Key figures */
+.pc-stat { display: block; font: var(--w-stat) calc(var(--fs-stat) * var(--k-stat))/0.95 var(--font-stat, var(--font-display));
+  letter-spacing: var(--track-display); color: var(--stat-ink, var(--accent-text)); font-variant-numeric: lining-nums proportional-nums; }
+.pc-stat--md { font-size: calc(var(--fs-stat) * .62 * var(--k-stat)); }
+.pc-stat--sm { font-size: calc(var(--fs-stat) * .42 * var(--k-stat)); }
+.pc-stat-text { margin-top: 14px; color: var(--ink-2); font-size: var(--fs-text); line-height: 1.35; max-width: 22em; }
+.pc-stats { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: var(--gap); }
+.pc-deck[data-format="9x16"] .pc-stats:not(.pc-keep) { grid-template-columns: 1fr; }
+.pc-deck[data-format="9x16"] .pc-stats:not(.pc-keep):has(> :nth-child(4)) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pc-deck:is([data-format="1x1"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-stats:not(.pc-keep) { grid-template-columns: repeat(min(var(--n, 3), 2), minmax(0, 1fr)); }
+:is(.pc-stats, .pc-big) .pc-stat { white-space: nowrap; }   /* the runtime shrinks a figure too wide for its cell */
+.pc-stats > div { border-top: var(--stat-rule, 3px) solid var(--accent); padding-top: 22px; }
+.pc-big { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 56px; align-items: center; }
+.pc-big .pc-stat { font-size: calc(var(--fs-stat) * 1.7 * var(--k-stat)); }
+.pc-deck:is([data-format="9x16"], [data-format="4x5"], [data-format="1x1"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-big { grid-template-columns: 1fr; gap: 24px; }
+
+/* Facts list: <dl class="pc-facts"><div><dt>68%</dt><dd>of adults ...</dd></div></dl> */
+.pc-facts { margin: 0; display: grid; gap: 22px; }
+.pc-facts > div { display: grid; grid-template-columns: var(--facts-w, 5.2em) minmax(0, 1fr); gap: 24px; align-items: baseline; }
+.pc-facts dt { font: var(--w-stat) calc(var(--fs-h2) * 1.05)/1 var(--font-stat, var(--font-display)); color: var(--accent-text); font-variant-numeric: lining-nums tabular-nums; }
+.pc-facts dd { margin: 0; color: var(--ink-2); }
+
+/* Chips and status: always with words */
+.pc-chip { display: inline-flex; align-items: center; gap: .4em; padding: .28em .8em; border-radius: 999px;
+  font: var(--w-label) var(--chip-fs, var(--fs-small))/1.2 var(--font-label, var(--font-body)); letter-spacing: .02em;
+  background: var(--surface-2); color: var(--ink-2); border: var(--chip-border, 0px) solid currentColor; white-space: nowrap; }
+.pc-chip--accent { background: var(--accent); color: var(--accent-ink); }
+/* The tint lowers contrast, so status text moves a quarter of the way to the ink colour (darker on light, lighter on dark) */
+.pc-chip--good { background: color-mix(in srgb, var(--positive) 14%, var(--bg)); color: color-mix(in oklab, var(--positive) 75%, var(--ink)); }
+.pc-chip--warn { background: color-mix(in srgb, var(--warning) 16%, var(--bg)); color: color-mix(in oklab, var(--warning) 75%, var(--ink)); }
+.pc-chip--bad { background: color-mix(in srgb, var(--negative) 12%, var(--bg)); color: color-mix(in oklab, var(--negative) 75%, var(--ink)); }
+.pc-chip--info { background: var(--accent-soft); color: var(--accent-text); }
+.pc-chips { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Callout */
+.pc-callout { display: flex; gap: 24px; align-items: flex-start; padding: 28px 32px; border-radius: var(--radius);
+  background: var(--accent-soft); border-left: 6px solid var(--accent); }
+.pc-callout > .pc-icon { font-size: 40px; margin-top: 2px; }
+
+/* Quote */
+.pc-quote { margin: 0; }
+.pc-quote blockquote { margin: 0; font: var(--w-quote, 500) calc(var(--fs-quote) * var(--k-statement))/1.16 var(--font-quote, var(--font-display));
+  letter-spacing: var(--track-h1); color: var(--ink); text-wrap: balance; }
+.pc-quote blockquote::before { content: var(--quote-open, "\201C"); display: block; height: .55em; margin-bottom: .1em;
+  font: 700 2.2em/1 var(--font-display); color: var(--accent); }
+.pc-quote figcaption, .pc-quote cite { display: flex; align-items: center; gap: 20px; margin-top: 36px; font-style: normal;
+  font-size: var(--fs-small); color: var(--ink-2); }
+.pc-quote figcaption b { display: block; color: var(--ink); }
+.pc-avatar { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; flex: none; background: var(--surface-2);
+  display: inline-grid; place-items: center; font: var(--w-strong) 34px/1 var(--font-display); color: var(--accent-text); }
+
+/* Table */
+.pc-table { width: 100%; border-collapse: collapse; font-size: var(--fs-text); font-variant-numeric: tabular-nums lining-nums; }
+.pc-table th { text-align: left; font: var(--w-label) var(--fs-label)/1.25 var(--font-label, var(--font-body));
+  letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--ink-3);
+  padding: 0 18px 14px; border-bottom: var(--border-w) solid var(--ink); }
+.pc-table td { padding: 15px 18px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.pc-table :is(th, td):first-child { padding-left: 0; }
+.pc-table :is(th, td):last-child { padding-right: 0; }
+.pc-table .is-num { text-align: right; white-space: nowrap; }
+.pc-table tr.is-hl td { background: var(--accent-soft); }
+.pc-table tr.pc-total td { font-weight: var(--w-strong); border-top: var(--border-w) solid var(--ink); border-bottom: 4px double var(--ink); }
+.pc-table .is-neg { color: var(--negative); }
+.pc-table .is-pos { color: var(--positive); }
+
+/* Timeline: <ol class="pc-timeline"><li><b>2019</b>Event</li><li class="is-now">...</li><li class="is-planned">...</li></ol> */
+.pc-timeline { --dot: 22px; margin: 0; padding: 0; list-style: none; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr);
+  gap: 28px; position: relative; padding-top: calc(var(--dot) + 26px); }
+.pc-timeline::before { content: ""; position: absolute; left: 0; right: 0; top: calc(var(--dot) / 2 - 2px); height: 4px; background: var(--line); border-radius: 2px; }
+.pc-timeline > li { position: relative; font-size: var(--fs-text); color: var(--ink-2); }
+.pc-timeline > li::before { content: ""; position: absolute; left: 0; top: calc(-26px - var(--dot)); width: var(--dot); height: var(--dot);
+  border-radius: 50%; background: var(--bg); border: 5px solid var(--accent); box-sizing: border-box; }
+.pc-timeline > li > b { display: block; margin-bottom: 8px; font: var(--w-stat) var(--fs-h3)/1.1 var(--font-display); color: var(--ink); font-variant-numeric: lining-nums; }
+.pc-timeline > li.is-now::before { background: var(--accent); }
+.pc-timeline > li.is-planned::before { border-style: dashed; border-color: var(--ink-3); }
+.pc-timeline > li.is-planned > b::after { content: "Planned"; display: inline-block; margin-left: .6em; padding: .28em .7em; vertical-align: .3em;
+  border: 2px dashed var(--ink-3); border-radius: 999px; font: var(--w-label) var(--fs-label)/1 var(--font-label, var(--font-body)); color: var(--ink-3);
+  letter-spacing: var(--track-label); text-transform: var(--label-case); }
+.pc-timeline--vertical, :is(.pc-deck:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-timeline, .pc-deck[data-format="1x1"] .pc-timeline:has(> li:nth-child(5))):not(.pc-keep) {
+  grid-auto-flow: row; grid-auto-columns: auto; padding-top: 0; padding-left: calc(var(--dot) + 30px); gap: 30px; }
+.pc-timeline--vertical::before, :is(.pc-deck:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-timeline, .pc-deck[data-format="1x1"] .pc-timeline:has(> li:nth-child(5))):not(.pc-keep)::before {
+  left: calc(var(--dot) / 2 - 2px); right: auto; top: 6px; bottom: 6px; width: 4px; height: auto; }
+.pc-timeline--vertical > li::before, :is(.pc-deck:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-timeline, .pc-deck[data-format="1x1"] .pc-timeline:has(> li:nth-child(5))):not(.pc-keep) > li::before {
+  left: calc(-30px - var(--dot)); top: .18em; }
+/* A square slide has no height for a stacked list of five or more, so each date sits beside its text */
+.pc-deck[data-format="1x1"] .pc-timeline:has(> li:nth-child(5)):not(.pc-keep) { gap: 22px; }
+.pc-deck[data-format="1x1"] .pc-timeline:has(> li:nth-child(5)):not(.pc-keep) > li { display: grid; grid-template-columns: 6.2em minmax(0, 1fr); column-gap: 20px; align-items: baseline; }
+.pc-deck[data-format="1x1"] .pc-timeline:has(> li:nth-child(5)):not(.pc-keep) > li > b { margin: 0; font-size: var(--fs-sub); }
+
+/* Process steps: <ol class="pc-steps"><li><b>Plan</b><p>...</p></li>...</ol> */
+.pc-steps { margin: 0; padding: 0; list-style: none; counter-reset: pc-step; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: var(--gap); }
+.pc-steps > li { counter-increment: pc-step; position: relative; padding-top: 104px; color: var(--ink-2); font-size: var(--fs-text); }
+.pc-steps > li::before { content: counter(pc-step); position: absolute; left: 0; top: 0; width: 76px; height: 76px; border-radius: var(--step-radius, 50%);
+  display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); font: var(--w-stat) 34px/1 var(--font-display); }
+.pc-steps > li:not(:last-child)::after { content: ""; position: absolute; top: 37px; left: 96px; right: calc(var(--gap) * -1 + 20px); height: 3px;
+  background: repeating-linear-gradient(90deg, var(--ink-3) 0 10px, transparent 10px 18px); opacity: .6; }
+.pc-steps > li > b { display: block; margin-bottom: 10px; font: var(--w-h2) var(--fs-h3)/1.15 var(--font-display); color: var(--ink); }
+.pc-deck:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-steps:not(.pc-keep) { grid-auto-flow: row; }
+.pc-deck:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-steps:not(.pc-keep) > li { padding: 0 0 0 108px; min-height: 76px; }
+.pc-deck:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-steps:not(.pc-keep) > li::after { display: none; }
+
+/* Comparison: two or three columns with headers; pc-vs puts a badge between two */
+.pc-compare { display: grid; grid-template-columns: repeat(var(--n, 2), minmax(0, 1fr)); gap: var(--gap); position: relative; }
+.pc-compare > div { padding: var(--card-pad); border-radius: var(--radius); background: var(--surface-2); }
+.pc-compare > div.is-hl { background: var(--accent-soft); outline: var(--border-w) solid var(--accent); }
+.pc-compare > div > .pc-h3 { margin-bottom: 18px; }
+.pc-vs { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 88px; height: 88px; border-radius: 50%;
+  display: grid; place-items: center; background: var(--ink); color: var(--bg); font: var(--w-stat) 30px/1 var(--font-display); z-index: 2; }
+.pc-deck[data-format="9x16"] .pc-compare:not(.pc-keep) { grid-template-columns: 1fr; }
+.pc-compare:has(> .pc-vs) { gap: max(var(--gap), 112px); }   /* the badge sits in the gap, clear of both cards' text */
+
+/* 2x2 matrix: <div class="pc-matrix" data-x="Effort" data-y="Impact"><div>..</div> x4</div> */
+.pc-matrix { position: relative; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; flex: 1; min-height: 0; margin: 0 0 44px 56px; }
+.pc-matrix > div { padding: 26px 30px; border-radius: var(--radius-sm); background: var(--surface-2); font-size: var(--fs-text); color: var(--ink-2); }
+.pc-matrix > div.is-hl { background: var(--accent); color: var(--accent-ink); --ink: var(--accent-ink); }
+.pc-matrix > div > b { display: block; color: var(--ink); margin-bottom: 6px; font: var(--w-h2) var(--fs-h3)/1.15 var(--font-display); }
+.pc-matrix::before, .pc-matrix::after { position: absolute; font: var(--w-label) var(--fs-label)/1 var(--font-label, var(--font-body));
+  letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--ink-3); }
+.pc-matrix::before { content: attr(data-x) " \2192"; left: 0; right: 0; bottom: -40px; text-align: center; }
+.pc-matrix::after { content: attr(data-y) " \2192"; left: -44px; top: 50%; transform: translate(-50%, -50%) rotate(-90deg); white-space: nowrap; }
+
+/* People */
+.pc-people { display: grid; grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr)); gap: var(--gap); }
+.pc-people figure { margin: 0; }
+.pc-people img, .pc-people .pc-initials { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: var(--person-radius, var(--radius)); display: grid;
+  place-items: center; background: var(--accent-soft); color: var(--accent-text); font: var(--w-display) 72px/1 var(--font-display); }
+.pc-people figcaption { margin-top: 16px; font-size: var(--fs-text); color: var(--ink-2); }
+.pc-people figcaption b { display: block; font: var(--w-h2) var(--fs-h3)/1.2 var(--font-display); color: var(--ink); }
+/* Square keeps up to four tiles in a row; 9:16 puts four in two rows. Where tiles would run off the page (4:5 and
+   A4 portrait, or five people and more on square and 9:16) each person becomes a row: picture beside the name */
+.pc-deck[data-format="9x16"] .pc-people:not(.pc-keep) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pc-deck:is([data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-people:not(.pc-keep),
+.pc-deck:is([data-format="1x1"], [data-format="9x16"]) .pc-people:not(.pc-keep):has(> :nth-child(5)) {
+  --avatar: 168px; grid-template-columns: minmax(0, 1fr); align-content: center; }
+.pc-deck:is([data-format="4x5"], [data-format="a4p"], [data-format="1x1"], [data-format="9x16"]) .pc-people:not(.pc-keep):has(> :nth-child(5)) {
+  --avatar: 124px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pc-deck:is([data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-people:not(.pc-keep) > figure,
+.pc-deck:is([data-format="1x1"], [data-format="9x16"]) .pc-people:not(.pc-keep):has(> :nth-child(5)) > figure {
+  display: grid; grid-template-columns: var(--avatar) minmax(0, 1fr); align-items: center; column-gap: 28px; }
+.pc-people:has(> figure:nth-child(1)) > figure > figcaption { min-width: 0; }
+.pc-deck:is([data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-people:not(.pc-keep) > figure > figcaption,
+.pc-deck:is([data-format="1x1"], [data-format="9x16"]) .pc-people:not(.pc-keep):has(> :nth-child(5)) > figure > figcaption { margin-top: 0; }
+.pc-deck:is([data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-people:not(.pc-keep) .pc-initials,
+.pc-deck:is([data-format="1x1"], [data-format="9x16"]) .pc-people:not(.pc-keep):has(> :nth-child(5)) .pc-initials { font-size: calc(var(--avatar) * .36); }
+
+/* Media: <div class="pc-media"><img src="..." style="--fx:50%;--fy:30%"></div> */
+.pc-media { position: relative; overflow: hidden; border-radius: var(--media-radius, var(--radius)); background: var(--surface-2); }
+.pc-media > img, .pc-media > video { width: 100%; height: 100%; object-fit: cover; object-position: var(--fx, 50%) var(--fy, 50%); display: block; }
+.pc-media--side, .pc-media--bg { border-radius: 0; }
+.pc-media--contain > img { object-fit: contain; }
+.pc-gallery { display: grid; gap: var(--gallery-gap, 18px); flex: 1; min-height: 0; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); }
+.pc-gallery > figure { margin: 0; display: flex; flex-direction: column; min-height: 0; }
+.pc-gallery > figure > .pc-media { flex: 1; min-height: 0; }
+.pc-gallery figcaption { margin-top: 12px; font-size: var(--fs-label); color: var(--ink-3); }
+.pc-gallery--mosaic { grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; }
+.pc-gallery--mosaic > :first-child { grid-row: span 2; }
+.pc-deck[data-format="9x16"] .pc-gallery:not(.pc-keep):not(.pc-gallery--mosaic) { grid-template-columns: 1fr 1fr; }
+.pc-placeholder { display: grid; place-items: center; width: 100%; height: 100%; color: var(--ink-3); font-size: var(--fs-label);
+  background: repeating-linear-gradient(135deg, var(--surface-2) 0 18px, var(--bg-alt) 18px 36px); }
+
+/* Code: <pre class="pc-code" data-lang="python"><code>...</code></pre> (the runtime highlights it) */
+.pc-code { margin: 0; padding: 30px 36px; border-radius: var(--radius); overflow: hidden; background: var(--code-bg, #0f1218); color: var(--code-ink, #e6e8eb);
+  font: 400 var(--fs-code)/1.5 var(--font-mono); tab-size: 4; white-space: pre; font-variant-ligatures: none; }
+/* The runtime sets data-fit="stack" on code too wide for its column, so it takes a row of its own */
+.pc-grid:not(.pc-keep):has(> .pc-code[data-fit="stack"]) { grid-template-columns: minmax(0, 1fr); }
+.pc-code code { font: inherit; }   /* the browser's own code style would switch to its default monospace font */
+.pc-code .t-k { color: var(--code-k, #ff8f6b); } .pc-code .t-s { color: var(--code-s, #9ad48b); } .pc-code .t-c { color: var(--code-c, #7c8592); font-style: italic; }
+.pc-code .t-n { color: var(--code-n, #f5c76e); } .pc-code .t-f { color: var(--code-f, #7cc4ff); } .pc-code .t-p { color: var(--code-p, #c3a6ff); }
+.pc-code mark { background: color-mix(in srgb, var(--accent) 28%, transparent); color: inherit; border-radius: 4px; }
+
+/* Progress bars: <div class="pc-bars"><div style="--v:72"><span>Label</span><b>72%</b></div></div> */
+.pc-bars { display: flex; flex-direction: column; gap: 26px; }
+.pc-bars > div { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px 20px; font-size: var(--fs-text); }
+.pc-bars > div > b { font-variant-numeric: tabular-nums; color: var(--ink); }
+.pc-bars > div::after { content: ""; grid-column: 1 / -1; height: 14px; border-radius: 999px;
+  background: linear-gradient(90deg, var(--bar, var(--accent)) calc(var(--v) * 1%), var(--surface-2) 0); }
+
+/* Agenda */
+.pc-agenda { margin: 0; padding: 0; list-style: none; counter-reset: pc-ag; display: grid; gap: 0; }
+.pc-agenda > li { counter-increment: pc-ag; display: grid; grid-template-columns: 2.4em minmax(0, 1fr) auto; gap: 24px; align-items: baseline;
+  padding: 22px 0; border-bottom: 1px solid var(--line); font: var(--w-h2) var(--fs-h3)/1.2 var(--font-display); color: var(--ink); }
+.pc-agenda > li::before { content: counter(pc-ag, decimal-leading-zero); color: var(--accent-text); font-variant-numeric: tabular-nums; }
+.pc-agenda > li > span { font: var(--w-body) var(--fs-small)/1.3 var(--font-body); color: var(--ink-3); }
+.pc-agenda > li.is-current { color: var(--accent-text); }
+
+/* Hand-drawn marks (any theme; Chalk leans on them): <span class="pc-mark" data-mark="underline">text</span>
+   The runtime draws an SVG stroke over the text: underline, circle, box, highlight, strike, cross. */
+.pc-mark { position: relative; display: inline; white-space: nowrap; }
+.pc-mark > svg.pc-mark-svg { position: absolute; left: -6%; top: -18%; width: 112%; height: 136%; overflow: visible; pointer-events: none; z-index: -1; }
+.pc-mark[data-mark="highlight"] > svg.pc-mark-svg { z-index: -1; }
+.pc-mark-svg path { fill: none; stroke: var(--mark, var(--accent)); stroke-width: var(--mark-w, 6); stroke-linecap: round; stroke-linejoin: round; }
+.pc-mark[data-mark="highlight"] .pc-mark-svg path { stroke: var(--mark-fill, color-mix(in srgb, var(--accent) 30%, transparent)); stroke-linecap: butt; }
+.pc-note { font: var(--w-hand, 600) calc(var(--fs-h3) * 1.15)/1.1 var(--font-hand); color: var(--note-ink, var(--accent-text)); }
+
+/* Charts: <figure class="pc-chart" data-type="column" data-labels="2021,2022" data-values="4,6"> (see README) */
+.pc-chart { margin: 0; position: relative; display: flex; flex-direction: column; min-height: 0; color: var(--ink-2); }
+.pc-chart > svg { display: block; width: 100%; flex: 1 1 auto; min-height: 0; overflow: visible; }
+.pc-chart text { font-family: var(--font-body); fill: var(--ink-2); }
+.pc-chart .ch-val { fill: var(--ink); font-weight: var(--w-strong); }
+.pc-chart .ch-axis { stroke: var(--ink-3); stroke-width: 2; }
+.pc-chart .ch-grid { stroke: var(--chart-grid); stroke-width: 1.5; }
+.pc-chart .ch-legend { display: flex; flex-wrap: wrap; gap: 10px 28px; margin-top: 18px; font-size: var(--fs-label); color: var(--ink-2); }
+.pc-chart .ch-legend i { display: inline-block; width: 18px; height: 18px; border-radius: 4px; margin-right: 10px; vertical-align: -2px; }
+.pc-chart figcaption { margin-top: 12px; font-size: var(--fs-label); color: var(--ink-3); }
+.pc-chart :is(.ch-bar, .ch-hbar) { transform-box: fill-box; }
+.pc-chart .ch-bar { transform-origin: 50% 100%; } .pc-chart .ch-bar.ch-neg { transform-origin: 50% 0; }
+.pc-chart .ch-hbar { transform-origin: 0 50%; }
+.pc-chart .ch-line { fill: none; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+.pc-chart .ch-area { stroke: none; fill-opacity: .14; }
+.pc-chart .ch-dot { stroke: var(--bg); stroke-width: 4; }
+.pc-chart .ch-arc, .pc-chart .ch-track { fill: none; }
+.pc-chart .ch-track { stroke: color-mix(in oklab, var(--ink) 13%, var(--bg)); }   /* shows on dark boards too */
+.pc-chart .ch-tick { fill: var(--chart-muted); }
+.pc-chart .ch-seg { font-weight: var(--w-strong); }
+.pc-chart .ch-mid { fill: var(--ink); font-family: var(--font-stat, var(--font-display)); font-weight: var(--w-stat); }
+/* Donut and progress rings keep their legend beside the chart when there is room */
+.pc-chart.ch-side { flex-direction: row; align-items: center; justify-content: center; gap: 72px; }
+.pc-chart.ch-side > svg { flex: none; width: auto; }
+.pc-chart.ch-side .ch-legend { flex-direction: column; flex-wrap: nowrap; gap: 20px; margin: 0; font-size: var(--fs-body); }
+.pc-chart.ch-side .ch-legend i { width: .75em; height: .75em; vertical-align: -.04em; }
+.pc-chart .ch-legend b { margin-left: .5em; color: var(--ink); font-weight: var(--w-strong); font-variant-numeric: tabular-nums; }
+
+/* Logo or badge strip */
+.pc-logos { display: flex; flex-wrap: wrap; align-items: center; gap: 40px 72px; }
+.pc-logos img { height: 64px; width: auto; object-fit: contain; filter: var(--logo-filter, grayscale(1)); opacity: .85; }
+.pc-logos--grid { display: grid; grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr)); gap: 0; }
+.pc-logos--grid > * { display: grid; place-items: center; min-height: 160px; padding: 32px; margin: 0 -1px -1px 0; border: 1px solid var(--line); }
+.pc-logos--grid img { height: 56px; }
+
+/* Before and after: <div class="pc-ba"><div>(before)</div><div>(after)</div></div>; an arrow sits between, the after panel is marked */
+.pc-ba { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gap) 120px; align-items: stretch; }
+.pc-ba > * { padding: var(--card-pad); border-radius: var(--radius); background: var(--surface-2); }
+.pc-ba > :last-child { background: var(--accent-soft); box-shadow: inset 0 0 0 var(--border-w) var(--accent); }
+.pc-ba::after { content: ""; position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; transform: translate(-50%, -50%);
+  background: var(--accent); -webkit-mask: var(--arrow) center / contain no-repeat; mask: var(--arrow) center / contain no-repeat; }
+.pc-deck:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-ba:not(.pc-keep) { grid-template-columns: minmax(0, 1fr); row-gap: 104px; }
+.pc-deck:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-ba:not(.pc-keep)::after { transform: translate(-50%, -50%) rotate(90deg); }
+
+/* Funnel: <ol class="pc-funnel"><li style="--v:100"><b>12,400</b> visitors</li>...</ol>; --v is the stage's width in % */
+.pc-funnel { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.pc-funnel > li { width: max(calc(var(--v, 100) * 1%), 36%); padding: 18px 32px; border-radius: var(--radius-sm); text-align: center;
+  background: var(--accent); color: var(--accent-ink); font-size: var(--fs-text); line-height: 1.3; }
+.pc-funnel > li > b { margin-right: .35em; font: var(--w-stat) var(--fs-h3)/1.1 var(--font-stat, var(--font-display)); font-variant-numeric: lining-nums tabular-nums; }
+
+/* Tiers: plans or service levels side by side; mark one with is-hl and data-badge="Most popular" */
+.pc-tiers { display: grid; grid-template-columns: repeat(var(--n, 3), minmax(0, 1fr)); gap: var(--gap); align-items: stretch; }
+.pc-tiers > * { position: relative; display: flex; flex-direction: column; gap: 18px; padding: var(--card-pad); border-radius: var(--radius);
+  background: var(--card-bg); border: var(--card-border-w, 0px) solid var(--card-border); box-shadow: var(--card-shadow, var(--shadow)); }
+.pc-tiers > .is-hl { box-shadow: inset 0 0 0 var(--border-w) var(--accent), var(--card-shadow, var(--shadow)); }
+.pc-tiers > [data-badge]::before { content: attr(data-badge); position: absolute; top: 0; left: var(--card-pad); transform: translateY(-50%);
+  padding: .3em .9em; border-radius: 999px; background: var(--accent); color: var(--accent-ink);
+  font: var(--w-label) var(--fs-label)/1.2 var(--font-label, var(--font-body)); letter-spacing: .02em; white-space: nowrap; }
+.pc-tiers .pc-stat { font-size: calc(var(--fs-stat) * .5 * var(--k-stat)); }
+/* Square keeps three tiers side by side (four or more: two columns). Portrait pages stack them, each a wide card
+   with the name and price on the left and the list on the right, so three fit with room to spare */
+.pc-deck[data-format="1x1"] .pc-tiers:not(.pc-keep):has(> :nth-child(4)) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pc-deck:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-tiers:not(.pc-keep) { grid-template-columns: minmax(0, 1fr); }
+.pc-deck:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-tiers:not(.pc-keep) > * {
+  display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); column-gap: calc(var(--gap) * 1.25); align-content: center; }
+.pc-deck:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-tiers:not(.pc-keep) > * > :is(ul, ol) {
+  grid-column: 2; grid-row: 1 / span 2; align-self: center; margin: 0; }
+
+/* Annotated screenshot: <figure class="pc-shot pc-shot--browser"><img src="..."><b class="pc-pin" style="--x:30;--y:42">1</b></figure>
+   (--x and --y in % of the image), with the numbered points in a pc-list--num beside it */
+.pc-shot { --bar: 0px; position: relative; margin: 0; align-self: start; border-radius: var(--radius-sm); background: var(--surface);
+  box-shadow: 0 0 0 1px var(--line), var(--shadow); }
+.pc-shot > img { display: block; width: 100%; height: auto; border-radius: inherit; }
+.pc-shot--browser { --bar: 40px; padding-top: var(--bar); }
+.pc-shot--browser::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: var(--bar); border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  background: radial-gradient(circle at 24px 50%, var(--ink-3) 5px, transparent 6px), radial-gradient(circle at 44px 50%, var(--ink-3) 5px, transparent 6px),
+    radial-gradient(circle at 64px 50%, var(--ink-3) 5px, transparent 6px), var(--surface-2); }
+.pc-shot--browser > img { border-radius: 0 0 var(--radius-sm) var(--radius-sm); }
+.pc-pin { position: absolute; z-index: 2; left: calc(var(--x, 50) * 1%); top: calc(var(--bar) + (100% - var(--bar)) * var(--y, 50) / 100);
+  width: 56px; height: 56px; transform: translate(-50%, -50%); border-radius: 50%; display: grid; place-items: center;
+  background: var(--accent); color: var(--accent-ink); box-shadow: 0 0 0 5px var(--bg), 0 6px 18px rgba(0, 0, 0, .25);
+  font: var(--w-stat) 26px/1 var(--font-display); font-variant-numeric: tabular-nums; }
+
+/* QR code on a closing slide */
+.pc-qr { display: inline-flex; flex-direction: column; align-items: center; gap: 12px; font-size: var(--fs-label); color: var(--ink-2); }
+.pc-qr > :is(img, svg) { width: var(--qr-size, 240px); height: var(--qr-size, 240px); padding: 14px; border-radius: var(--radius-sm); background: #fff; }
+
+/* ---------- 8. Builds (basic and complex motion; never in print) ----------
+   On entering a slide the runtime marks pending items pc-pre, then releases them in order; data-build-each children
+   get --i for the stagger. Entry motion uses opacity, transform and clip-path only. */
+.pc-deck:is([data-motion="basic"], [data-motion="complex"]) .is-building :is([data-build], [data-build-each] > *, .pc-auto) {
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease), clip-path calc(var(--dur) * 1.4) var(--ease);
+  transition-delay: calc(var(--i, 0) * var(--stagger)); }
+.is-building .pc-pre[data-build="rise"], .is-building [data-build-each="rise"] > .pc-pre { opacity: 0; transform: translateY(var(--rise)); }
+.is-building .pc-pre[data-build="fade"], .is-building [data-build-each="fade"] > .pc-pre { opacity: 0; }
+.is-building .pc-pre[data-build="pop"], .is-building [data-build-each="pop"] > .pc-pre { opacity: 0; transform: scale(.94); }
+.is-building .pc-pre[data-build="wipe"], .is-building [data-build-each="wipe"] > .pc-pre { clip-path: inset(0 100% 0 0); }
+.is-building .pc-pre[data-build="grow"] { clip-path: inset(100% 0 0 0); }
+/* A complex-motion cover's kicker, subtitle and meta rise in after its title (the runtime marks them pc-auto) */
+.is-building .pc-pre.pc-auto { opacity: 0; transform: translateY(var(--rise)); }
+/* converge: the title's words fly in from both sides and meet, those nearest the middle first (the cover title does it on its own in
+   complex motion). The runtime wraps the words in .pc-w spans for the build only, then puts the title back. */
+.pc-nobr { white-space: nowrap; }
+.pc-converge .pc-w { display: inline-block; }
+.pc-deck:is([data-motion="basic"], [data-motion="complex"]) .is-building .pc-converge .pc-w {
+  transition: transform calc(var(--dur) * 2.4) cubic-bezier(.215, .61, .355, 1), opacity calc(var(--dur) * 1.6) var(--ease);
+  transition-delay: calc(var(--i, 0) * var(--stagger) + 150ms + var(--w, 0) * 30ms); }
+.is-building .pc-converge.pc-pre .pc-w { opacity: 0; transform: translateX(calc(var(--side, -1) * var(--W) * .5)); }
+/* draw: chart bars grow from the baseline; lines, rings and hand-drawn marks stroke on (the runtime sets pathLength="1" and ch-draw) */
+.pc-deck:is([data-motion="basic"], [data-motion="complex"]) .is-building [data-build="draw"] :is(.ch-bar, .ch-hbar, .ch-draw) {
+  transition: transform var(--dur-draw) var(--ease), stroke-dashoffset var(--dur-draw) var(--ease);
+  transition-delay: calc((var(--i, 0) + var(--k, 0)) * var(--stagger)); }
+/* Value labels, dots and legends of a drawn chart fade in as their bar or line finishes (--k is the mark's order in the chart) */
+.pc-deck:is([data-motion="basic"], [data-motion="complex"]) .is-building [data-build="draw"] .ch-lab {
+  transition: opacity var(--dur) var(--ease) calc((var(--i, 0) + var(--k, 0)) * var(--stagger) + var(--dur-draw) * .6); }
+.is-building [data-build="draw"].pc-pre .ch-lab { opacity: 0; }
+.is-building [data-build="draw"].pc-pre .ch-bar { transform: scaleY(0); }
+.is-building [data-build="draw"].pc-pre .ch-hbar { transform: scaleX(0); }
+.is-building [data-build="draw"].pc-pre .ch-draw { stroke-dashoffset: 1.02; }
+.is-building .ch-draw { stroke-dasharray: 1 2; }
+@media (prefers-reduced-motion: reduce) {
+  .pc-pre { opacity: 1 !important; transform: none !important; clip-path: none !important; }
+  .pc-pre :is(.ch-bar, .ch-hbar) { transform: none !important; } .pc-pre .ch-draw { stroke-dashoffset: 0 !important; } .pc-pre .ch-lab { opacity: 1 !important; } }
+/* Drift (complex motion): a full-bleed or side picture zooms slowly toward its focal point while its slide is on
+   screen. Never in print, reading view or a converted file; data-drift="no" on the picture's .pc-media keeps it still. */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .pc-deck[data-motion="complex"]:not(.is-reading) > .pc-slide.is-active > :is(.pc-media--bg, .pc-media--side):not([data-drift="no"]) > img {
+    animation: pc-drift 16s cubic-bezier(.25, .1, .25, 1) both; transform-origin: var(--fx, 50%) var(--fy, 50%); } }
+@keyframes pc-drift { from { transform: scale(1); } to { transform: scale(1.08); } }
+/* The runtime sets hidden states under pc-snap so they apply at once, then lifts it so items move in */
+.pc-snap, .pc-snap * { transition: none !important; }
+/* Count-up (complex motion): the figure's own text stays in place, hidden, while an overlay counts */
+.pc-counting { position: relative; -webkit-text-fill-color: transparent; }
+.pc-counting::after { content: attr(data-pc-now); position: absolute; inset: 0; -webkit-text-fill-color: currentColor; white-space: nowrap; }
+
+/* ---------- 9. Screen interface (never printed, never converted) ---------- */
+.pc-ui { position: fixed; right: 18px; bottom: 16px; z-index: 50; display: flex; gap: 6px; padding: 6px; border-radius: 12px;
+  background: rgba(20, 22, 28, .78); backdrop-filter: blur(10px); opacity: 0; transition: opacity .25s; font: 500 13px/1 system-ui, sans-serif; }
+.pc-deck:hover .pc-ui, .pc-ui:focus-within, .pc-ui.is-shown { opacity: 1; }
+.pc-ui button { all: unset; cursor: pointer; padding: 8px 11px; border-radius: 8px; color: #f1f2f4; white-space: nowrap; }
+.pc-ui button:hover, .pc-ui button:focus-visible { background: rgba(255, 255, 255, .14); }
+.pc-ui .pc-ui-count { padding: 8px 10px; color: #aab0bb; font-variant-numeric: tabular-nums; }
+.pc-bare .pc-ui { display: none; }
+.pc-menu { position: fixed; right: 18px; bottom: 64px; z-index: 51; min-width: 240px; padding: 8px; border-radius: 12px;
+  background: #1b1e25; color: #f1f2f4; box-shadow: 0 12px 40px rgba(0, 0, 0, .4); font: 500 14px/1.35 system-ui, sans-serif; }
+.pc-menu[hidden] { display: none; }
+.pc-menu button { all: unset; display: block; width: 100%; box-sizing: border-box; cursor: pointer; padding: 10px 12px; border-radius: 8px; }
+.pc-menu button:hover, .pc-menu button:focus-visible { background: rgba(255, 255, 255, .1); }
+.pc-menu small { display: block; color: #9aa1ad; font-size: 12px; margin-top: 2px; }
+.pc-menu .pc-menu-warn { padding: 10px 12px; margin-bottom: 4px; border-radius: 8px; background: #3a2a10; color: #ffd38a; font-size: 13px; }
+.pc-progress { position: fixed; left: 0; bottom: 0; height: 3px; z-index: 49; background: var(--accent); width: calc(var(--p, 0) * 100%); transition: width .3s; opacity: .9; }
+.pc-laser { position: fixed; z-index: 60; width: 18px; height: 18px; margin: -9px 0 0 -9px; border-radius: 50%; pointer-events: none;
+  background: radial-gradient(circle, #ff3b30 0 35%, rgba(255, 59, 48, .35) 60%, transparent 70%); display: none; }
+.pc-deck.is-laser { cursor: none; } .pc-deck.is-laser .pc-laser { display: block; }
+.pc-notes-panel { position: fixed; left: 0; right: 0; bottom: 0; z-index: 48; max-height: 34vh; overflow: auto; padding: 18px 24px 22px;
+  background: rgba(16, 18, 23, .94); color: #e9ebef; font: 400 17px/1.5 system-ui, sans-serif; }
+.pc-notes-panel[hidden] { display: none; }
+.pc-blackout { position: fixed; inset: 0; z-index: 55; background: #000; display: none; }
+.pc-blackout.is-white { background: #fff; }
+.pc-deck.is-blackout .pc-blackout { display: block; }
+.pc-overview { position: fixed; inset: 0; z-index: 70; overflow: auto; padding: 28px; background: rgba(10, 11, 14, .96);
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 22px; align-content: start; }
+.pc-overview[hidden] { display: none; }
+.pc-overview button { all: unset; cursor: pointer; position: relative; border-radius: 8px; overflow: hidden; outline: 2px solid transparent; }
+.pc-overview button.is-current { outline-color: #6e8bff; }
+.pc-overview button:focus-visible, .pc-overview button:hover { outline-color: #aab4ff; }
+.pc-overview .pc-thumb { position: relative; width: 100%; overflow: hidden; }
+.pc-overview .pc-thumb > .pc-slide { visibility: visible; left: 0; top: 0; transform: scale(var(--ts)); transform-origin: 0 0; }
+.pc-overview span { position: absolute; left: 8px; bottom: 8px; padding: 2px 8px; border-radius: 6px; background: rgba(0, 0, 0, .6); color: #fff; font: 600 12px/1.6 system-ui; }
+.pc-toast { position: fixed; left: 50%; bottom: 72px; z-index: 80; max-width: min(560px, calc(100vw - 32px)); transform: translateX(-50%);
+  padding: 12px 18px; border-radius: 10px; background: #1b1e25; color: #f1f2f4; box-shadow: 0 12px 40px rgba(0, 0, 0, .4);
+  font: 500 14px/1.45 system-ui, sans-serif; text-align: center; }
+.pc-toast[hidden] { display: none; }
+.pc-tip { position: fixed; left: 50%; top: 50%; z-index: 75; width: min(460px, calc(100vw - 32px)); transform: translate(-50%, -50%);
+  padding: 22px 26px; border-radius: 14px; background: #1b1e25; color: #e9ebef; box-shadow: 0 20px 60px rgba(0, 0, 0, .5);
+  font: 400 14px/1.5 system-ui, sans-serif; }
+.pc-tip[hidden] { display: none; }
+.pc-tip h2 { margin: 0 0 12px; font: 600 16px/1.3 system-ui, sans-serif; color: #fff; }
+.pc-tip dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 18px; margin: 0; }
+.pc-tip dt { color: #fff; font-weight: 600; white-space: nowrap; }
+.pc-tip dd { margin: 0; color: #c4c8cf; }
+.pc-tip kbd { display: inline-block; min-width: 1.6em; padding: 1px 6px; border-radius: 5px; background: #2c313b; font: 600 12px/1.6 system-ui, sans-serif; text-align: center; }
+/* With the notes panel open the slide sits in the space above it */
+.pc-deck.is-notes > .pc-slide { top: calc(50% - var(--notes-h, 0px) / 2); }
+@media (max-width: 700px) { .pc-ui [data-wide] { display: none; } }
+
+/* ---------- 10. Reading view: every slide stacked and scaled to the window, for phones and reading ---------- */
+@media screen {
+  .pc-deck.is-reading { overflow: hidden auto; display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 20px 0 88px; }
+  .pc-deck.is-reading > .pc-slide { position: relative; left: auto; top: auto; flex: none; transform: none; visibility: visible; zoom: var(--read-scale, .5); }
+  .pc-deck.is-reading .pc-ui { opacity: 1; }
+  .pc-deck.is-reading .pc-progress { display: none; }
+}
+
+/* ---------- Graphics ---------- */
+/* A graphic is a deck with data-medium="graphic": one design per slide, no page numbers */
+.pc-deck[data-medium="graphic"] .pc-slide > .pc-num { display: none; }
+/* Print bleed (tools/export_graphic.py sets data-bleed and --bleed): the slide grows past the trim on every side, so
+   backgrounds and art run off the edge, and its padding grows by as much, so the content stays inside the trim */
+.pc-deck[data-bleed] .pc-slide { width: calc(var(--W) + 2 * var(--bleed)); height: calc(var(--H) + 2 * var(--bleed));
+  padding: calc(var(--mt) + var(--bleed)) calc(var(--mx) + var(--bleed)) calc(var(--mb) + var(--bleed)); }
+/* A QR code drawn at build time from data-qr (tools/qr.py): dark modules in ink on white, quiet zone kept */
+.pc-qr-code { display: block; width: var(--qr-size, 240px); height: auto; background: #fff; border-radius: var(--radius-sm); }
+/* Profile banners (3x1, 4x1): X and LinkedIn put the profile picture over the lower left, so pc-clear-left keeps the
+   words in the right two-thirds */
+.pc-deck .pc-slide.pc-clear-left { padding-left: calc(var(--W) / 3 + var(--mx)); }

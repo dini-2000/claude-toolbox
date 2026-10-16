@@ -1,0 +1,61 @@
+/* Litera: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="litera"] {
+  --m-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 100 50 50 100 0 50z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="litera"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(calc(8 * var(--art-px)));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="litera"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(140 * var(--art-px));
+  height: calc(4 * var(--art-px));
+  left: var(--mx);
+  bottom: calc(110 * var(--art-px));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="litera"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: calc(calc(12 * var(--art-px)));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="litera"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(90 * var(--art-px));
+  height: calc(4 * var(--art-px));
+  left: var(--mx);
+  top: calc(100 * var(--art-px));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="litera"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(calc(8 * var(--art-px)));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="litera"] .pc-kicker {
+  width: fit-content;
+  padding-bottom: .35em;
+  border-bottom: .16em solid var(--accent); }
+.pc-deck[data-theme="litera"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 2px solid var(--ink); }

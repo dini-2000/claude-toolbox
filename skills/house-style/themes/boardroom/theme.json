@@ -1,0 +1,240 @@
+{
+ "name": "Boardroom",
+ "summary": "Consulting style: white pages, serif action titles that state the point, a navy rail and fine rules, with a sober sans for the detail. Crisp and executive, for board papers, strategy reviews and recommendations.",
+ "good_for": [
+  "board",
+  "strategy",
+  "recommendation",
+  "review",
+  "executive",
+  "proposal"
+ ],
+ "category": "business",
+ "defaults": {
+  "mode": "light",
+  "palette": "navy"
+ },
+ "fonts": {
+  "display": [
+   "Source Serif 4",
+   "serif"
+  ],
+  "body": [
+   "Source Sans 3",
+   "sans"
+  ],
+  "label": [
+   "Source Sans 3",
+   "sans"
+  ],
+  "stat": [
+   "Source Serif 4",
+   "serif"
+  ],
+  "mono": [
+   "IBM Plex Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "600",
+  "--w-h1": "600",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "600",
+  "--w-label": "600",
+  "--w-stat": "600",
+  "--track-display": "-0.015em",
+  "--track-h1": "-0.01em",
+  "--track-label": "0.08em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.08",
+  "--lh-h1": "1.14",
+  "--lh-body": "1.5",
+  "--radius": "2px",
+  "--radius-sm": "2px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF",
+   "bg_alt": "#F5F7FA",
+   "surface": "#FFFFFF",
+   "surface_2": "#EEF2F6",
+   "ink": "#0B2545",
+   "ink_2": "#33475B",
+   "ink_3": "#4A5B6C",
+   "line": "#D5DDE6",
+   "positive": "#1B7A4E",
+   "negative": "#B42318",
+   "warning": "#935F00",
+   "code_bg": "#0B2545",
+   "code_ink": "#F5F7FA",
+   "letterbox": "#06162A",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#0B1A2E",
+   "bg_alt": "#0F2138",
+   "surface": "#132741",
+   "surface_2": "#1B3352",
+   "ink": "#F2F5F9",
+   "ink_2": "#CBD5E1",
+   "ink_3": "#A3B1C2",
+   "line": "#24405F",
+   "positive": "#6FCF97",
+   "negative": "#F28B82",
+   "warning": "#F5B041",
+   "code_bg": "#071221",
+   "code_ink": "#F2F5F9",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "navy": {
+   "name": "Navy",
+   "light": {
+    "accent": "#13315C",
+    "accent_2": "#1B998B"
+   },
+   "dark": {
+    "accent": "#8FB3E3",
+    "accent_2": "#5CD6C6"
+   }
+  },
+  "burgundy": {
+   "name": "Burgundy",
+   "light": {
+    "accent": "#7A1F2B",
+    "accent_2": "#13315C"
+   },
+   "dark": {
+    "accent": "#E89AA5",
+    "accent_2": "#8FB3E3"
+   }
+  },
+  "forest": {
+   "name": "Forest",
+   "light": {
+    "accent": "#1E5631",
+    "accent_2": "#13315C"
+   },
+   "dark": {
+    "accent": "#86C99A",
+    "accent_2": "#8FB3E3"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#13315C",
+   "#1B998B",
+   "#7A8CA3",
+   "#C9A227",
+   "#7A1F2B",
+   "#B8C4D2"
+  ],
+  "dark": [
+   "#8FB3E3",
+   "#5CD6C6",
+   "#A3B1C2",
+   "#E9C46A",
+   "#E89AA5",
+   "#5B6E86"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 22,
+     "color": "accent"
+    },
+    {
+     "motif": "rule",
+     "at": "bl",
+     "w": "calc(100% - 2 * var(--mx))",
+     "h": 1.5,
+     "x": "var(--mx)",
+     "y": 96,
+     "color": "line"
+    }
+   ],
+   "section": [
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 22,
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 22,
+     "color": "accent-2"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 22,
+     "color": "accent"
+    },
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": "calc(100% - 2 * var(--mx))",
+     "h": 1.5,
+     "x": "var(--mx)",
+     "y": 96,
+     "color": "line"
+    }
+   ]
+  },
+  "kicker": "dash",
+  "cards": "outline",
+  "doc": {
+   "cover": [
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 6,
+     "color": "accent"
+    },
+    {
+     "motif": "rule",
+     "at": "bl",
+     "w": "100%",
+     "h": 0.4,
+     "x": 0,
+     "y": 26,
+     "color": "line"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": "100%",
+     "h": 0.4,
+     "x": 0,
+     "y": 0,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "diamond",
+    "size": 5,
+    "color": "accent"
+   }
+  }
+ }
+}

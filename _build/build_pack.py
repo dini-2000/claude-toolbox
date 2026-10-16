@@ -143,6 +143,7 @@ privacy-settings release-notes remote-control resume review rewind run sandbox s
 stats status statusline tasks teleport terminal-setup theme todos update-config upgrade usage vim dataviz
 artifact-design artifact-diagramming artifact-capabilities""".split())
 
+REPO_ONLY = ("house-style",)  # products built into repo/skills by their own scripts: --repo keeps them and lists them in the repo's router
 DOMAINS = [
     ("Writing and editing", "stop-slop copywriting copy-editing content-humanizer doc-coauthoring internal-comms md-document"),
     ("Decks and board material", "board-deck-builder md-slides slides board-prep board-meeting internal-narrative"),
@@ -156,7 +157,7 @@ DOMAINS = [
     ("Engineering", "senior-architect senior-backend senior-frontend senior-fullstack code-reviewer adversarial-reviewer tdd-guide zero-hallucination-coder database-designer rag-architect mcp-builder performance-profiler tech-debt-tracker"),
     ("Cloud, DevOps and security", "aws-solution-architect azure-cloud-architect gcp-cloud-architect senior-devops docker-development kubernetes-operator terraform-patterns ci-cd-pipeline-builder senior-security cloud-security threat-detection incident-commander"),
     ("Testing (Playwright commands are pw-*)", "pw webapp-testing senior-qa api-test-suite-builder"),
-    ("Design and UI", "frontend-design ui-ux-pro-max design-system canvas-design algorithmic-art theme-factory apple-hig-expert a11y-audit web-artifacts-builder"),
+    ("Design and UI", "house-style frontend-design ui-ux-pro-max design-system canvas-design algorithmic-art theme-factory apple-hig-expert a11y-audit web-artifacts-builder"),
     ("Data and analytics", "statistical-analyst senior-data-scientist senior-data-engineer product-analytics analytics-tracking data-quality-auditor sql-database-assistant"),
     ("Sales and customers", "sales-engineer deal-desk prospecting rfp-responder contract-and-proposal-writer customer-success-manager churn-prevention"),
     ("Agents, prompts and context", "agent-designer multi-agent-patterns prompt-engineer-toolkit senior-prompt-engineer context-optimization context-compression caveman evaluation advanced-evaluation"),
@@ -173,7 +174,7 @@ CATS = [
     ("Marketing, growth and copy", r"\b(marketing|copywrit|copy-edit|ads?\b|ad-|advertis|campaign|email|newsletter|social|content|brand|cro\b|conversion|landing|launch|pricing|referral|growth|paywall|popup|signup|onboarding|lead.magnet|webinar|public.relations|youtube|twitter|sms|aso\b|app.store|offer|free.tool|directory|community|competitor)"),
     ("Product and project management", r"\b(product|roadmap|backlog|user.stor|sprint|scrum|agile|prd|spec|discovery|experiment|ab.test|a/b|jira|confluence|atlassian|senior-pm|pm-|process|change.management|capacity|tc-tracker)"),
     ("Research and analysis", r"\b(research|literature|litreview|patent|grant|dossier|survey|interview|syllabus|meeting.analyzer)"),
-    ("Writing, docs and presentations", r"\b(writ|prose|slop|humaniz|doc|slides|deck|presentation|markdown|md-|obsidian|canvas|narrative|comms|communication|changelog|tour|onboard)"),
+    ("Writing, docs and presentations", r"\b(house-style|writ|prose|slop|humaniz|doc|slides|deck|presentation|markdown|md-|obsidian|canvas|narrative|comms|communication|changelog|tour|onboard)"),
     ("Design, UI and media", r"\b(design|ui|ux|tailwind|css|frontend|typograph|accessib|a11y|wcag|art\b|image|video|gif|banner|theme|remotion|screenshot|hig)"),
     ("Testing and QA", r"\b(test|playwright|pw\b|pw-|qa\b|coverage|testrail|browserstack|cypress|selenium)"),
     ("Cloud, DevOps and security", r"\b(aws|azure|gcp|cloud|devops|docker|kubernetes|helm|terraform|ci.cd|observab|slo|incident|security|secops|threat|pen.test|red.team|secret|vault|chaos|feature.flag|migration|snowflake|monorepo|ms365|google-workspace|dependency)"),
@@ -389,7 +390,7 @@ def write_router(stage, desc, flags, sections, final):
     open(os.path.join(rd, "find.py"), "w", encoding="utf-8").write(FIND.replace("__STOP__", " ".join(sorted(STOP))))
     missing_map, lines = [], []
     for title, names in DOMAINS:
-        missing_map += [n for n in names.split() if n not in final]
+        missing_map += [n for n in names.split() if n not in final and n not in REPO_ONLY]
         lines.append(f"- {title}: {', '.join(n for n in names.split() if n in final)}")
     open(os.path.join(rd, "SKILL.md"), "w", encoding="utf-8").write(ROUTER.format(n=len(final) - len(TIER1), domains="\n".join(lines), note=LOCAL_NOTE))
     return groups, order, missing_map
@@ -567,12 +568,20 @@ def main():
         sk = os.path.join(repo, "skills"); os.makedirs(sk, exist_ok=True)
         for d in sorted(os.listdir(sk)):
             p = os.path.join(sk, d)
-            if os.path.isdir(p) and os.path.isfile(os.path.join(p, "SKILL.md")): shutil.rmtree(p)
+            if d not in REPO_ONLY and os.path.isdir(p) and os.path.isfile(os.path.join(p, "SKILL.md")): shutil.rmtree(p)
         for d in sorted(set(os.listdir(stage)) - set(private)): shutil.copytree(os.path.join(stage, d), os.path.join(sk, d))
+        kept = [d for d in REPO_ONLY if os.path.isfile(os.path.join(sk, d, "SKILL.md"))]
+        if kept:  # the repo's router lists the kept products too
+            rdesc, rbad = validate(sk)
+            assert not [r for r in rbad if r["dir"] in kept], f"repo-only skill fails validation: {[r for r in rbad if r['dir'] in kept]}"
+            pub = {n: v for n, v in desc.items() if n not in private}
+            for d in kept:
+                pub[d] = rdesc[d]; sections[d] = section_titles(split(open(os.path.join(sk, d, "SKILL.md"), encoding="utf-8").read())[1])
+            write_router(sk, pub, flags, sections, (final - set(private)) | set(kept))
         r = os.path.join(sk, "skill-router", "SKILL.md")  # the public router points at the repo, not at this Mac's build folder
         t = open(r, encoding="utf-8").read()
         assert t.count(LOCAL_NOTE) == 1, "router SKILL.md: install note not found"
-        t = re.sub(r"the \d+ on-demand skills", f"the {len(set(os.listdir(stage)) - set(private)) - len(TIER1)} on-demand skills", t.replace(LOCAL_NOTE, PUBLIC_NOTE), count=1)
+        t = re.sub(r"the \d+ on-demand skills", f"the {len(set(os.listdir(stage)) - set(private)) + len(kept) - len(TIER1)} on-demand skills", t.replace(LOCAL_NOTE, PUBLIC_NOTE), count=1)
         for d in private: t = t.replace(f", {d}", "")  # the domain map names private skills only after another skill
         assert not any(d in t for d in private), "router SKILL.md: a private skill is still named"
         open(r, "w", encoding="utf-8").write(t)
@@ -586,7 +595,7 @@ def main():
             if os.path.isdir(VENDOR): shutil.copytree(VENDOR, os.path.join(b, "vendor"))
             shutil.rmtree(os.path.join(b, "fixes"), ignore_errors=True)
             if os.path.isdir(FIXES): shutil.copytree(FIXES, os.path.join(b, "fixes"))
-        print(f"wrote {len(os.listdir(stage)) - len(private)} skills into {sk}; README.md, setup.sh and .git untouched")
+        print(f"wrote {len(os.listdir(stage)) - len(private)} skills into {sk}, kept {', '.join(kept) or 'none'}; README.md, setup.sh and .git untouched")
 
     lay_local_fixes(stage)  # after the repo is written, so only this install gets them
     if private: write_router(stage, desc, flags, sections, final)  # the installed router lists the private skills too

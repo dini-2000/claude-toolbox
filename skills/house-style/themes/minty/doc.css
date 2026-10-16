@@ -1,0 +1,60 @@
+/* Minty: document art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-doc[data-theme="minty"] .pc-cover:not([data-cover="full"])::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 120mm;
+  height: 120mm;
+  right: -30mm;
+  bottom: -28mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 64% 4%, curve to 98% 40% with 82% 8% / 96% 22%, curve to 92% 80% with 100% 56% / 90% 66%, curve to 66% 98% with 93% 92% / 80% 100%, curve to 30% 98% with 52% 97% / 44% 100%, curve to 2% 66% with 14% 96% / 2% 84%, curve to 14% 30% with 2% 48% / 14% 44%, curve to 64% 4% with 14% 16% / 40% -2%, close);
+  opacity: 0.35; }
+.pc-doc[data-theme="minty"] .pc-cover:not([data-cover="full"])::after {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 60mm;
+  height: 60mm;
+  right: 12mm;
+  top: -14mm;
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 30% 6%, curve to 70% 10% with 44% 0% / 56% 10%, curve to 98% 34% with 84% 10% / 96% 18%, curve to 90% 72% with 100% 50% / 88% 58%, curve to 64% 98% with 92% 86% / 82% 98%, curve to 20% 86% with 46% 98% / 34% 92%, curve to 2% 52% with 6% 80% / 0% 70%, curve to 30% 6% with 4% 34% / 16% 12%, close);
+  opacity: 0.35; }
+.pc-doc[data-theme="minty"] .pc-cover:not([data-cover="full"]) > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="minty"] .pc-opener {
+  position: relative; }
+.pc-doc[data-theme="minty"] .pc-opener::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 34mm;
+  height: 34mm;
+  right: -8mm;
+  top: -8mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 64% 4%, curve to 98% 40% with 82% 8% / 96% 22%, curve to 92% 80% with 100% 56% / 90% 66%, curve to 66% 98% with 93% 92% / 80% 100%, curve to 30% 98% with 52% 97% / 44% 100%, curve to 2% 66% with 14% 96% / 2% 84%, curve to 14% 30% with 2% 48% / 14% 44%, curve to 64% 4% with 14% 16% / 40% -2%, close);
+  opacity: 0.35; }
+.pc-doc[data-theme="minty"] .pc-opener > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="minty"] .pc-chapter > h1::after {
+  content: "";
+  display: block;
+  width: 6pt;
+  height: 6pt;
+  margin: 9pt 0 0;
+  background: var(--accent, var(--accent));
+  -webkit-mask: var(--m-circle) center / contain no-repeat;
+  mask: var(--m-circle) center / contain no-repeat; }
+.pc-doc[data-theme="minty"] .pc-kicker {
+  width: fit-content;
+  padding: .38em .9em .42em;
+  border-radius: 999px;
+  background: var(--accent-text);
+  color: var(--kicker-on, var(--bg)); }

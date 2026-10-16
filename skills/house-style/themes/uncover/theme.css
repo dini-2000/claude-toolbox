@@ -1,0 +1,55 @@
+/* Uncover: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="uncover"] {
+  --m-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="uncover"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(160 * var(--art-px));
+  height: calc(6 * var(--art-px));
+  left: calc(50% - calc(160 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  bottom: calc(120 * var(--art-px));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="uncover"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(120 * var(--art-px));
+  height: calc(6 * var(--art-px));
+  left: calc(50% - calc(120 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  bottom: calc(120 * var(--art-px));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="uncover"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(80 * var(--art-px));
+  height: calc(6 * var(--art-px));
+  left: calc(50% - calc(80 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(110 * var(--art-px));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="uncover"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(160 * var(--art-px));
+  height: calc(6 * var(--art-px));
+  left: calc(50% - calc(160 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  bottom: calc(120 * var(--art-px));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="uncover"] .pc-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 1.4em;
+  height: .14em;
+  background: var(--accent);
+  vertical-align: .3em;
+  margin-right: .55em; }
+.pc-deck[data-theme="uncover"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 2px solid var(--ink); }

@@ -1,0 +1,34 @@
+/* Chalk: signature art. Colours, fonts and shapes come from tokens.css (built from theme.json).
+   The board has a chalk-dust texture and faint eraser smudges (a soft sheen on the whiteboard); kickers are
+   hand-written, titles carry a chalk swoosh, cards are chalk outlines and pc-mark marks draw themselves on. */
+.pc-deck[data-theme="chalk"] {
+  --swoosh: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 24' preserveAspectRatio='none'%3E%3Cpath d='M6 14 C 70 7 160 5 294 9' fill='none' stroke='black' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M44 19 C 112 14 190 13 262 15' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' opacity='.65'/%3E%3C/svg%3E");
+  --mark-w: 5; }
+.pc-deck[data-theme="chalk"] .pc-slide { background-image: var(--tex, none); }
+.pc-deck[data-theme="chalk"] .pc-slide:is([data-surface="accent"], .pc-bleed) { background-image: none; }
+
+/* Hand-written kickers */
+.pc-deck[data-theme="chalk"] .pc-kicker {
+  font: var(--w-hand) calc(var(--fs-label) * 1.9)/1 var(--font-hand); letter-spacing: 0; text-transform: none; margin-bottom: 12px; }
+.pc-deck[data-theme="chalk"] .pc-kicker:is(:lang(si), :lang(ta)) { font-family: var(--font-body); font-size: var(--fs-label); }
+
+/* A chalk swoosh under titles */
+.pc-deck[data-theme="chalk"] .pc-title::after {
+  content: ""; display: block; width: min(3.2em, 70%); height: .26em; margin-top: .14em; background: var(--accent);
+  clip-path: var(--swoosh-clip); }
+.pc-deck[data-theme="chalk"] :is(.pc-cover--center, .pc-statement--center) .pc-title::after { margin-inline: auto; }
+.pc-deck[data-theme="chalk"] .pc-section .pc-title::after { width: min(2.4em, 60%); }
+
+/* Cards drawn in chalk */
+.pc-deck[data-theme="chalk"] .pc-card:not(.pc-card--accent, .pc-card--soft, .pc-card--flat, .pc-inverse) {
+  background: transparent; border: var(--border-w) solid color-mix(in srgb, var(--ink) 58%, transparent);
+  border-radius: 20px 14px 22px 12px / 14px 20px 12px 22px; }
+.pc-deck[data-theme="chalk"] .pc-list > li::before { border-radius: 40% 60% 45% 55%; }
+
+/* Section numbers in chalk hand */
+.pc-deck[data-theme="chalk"] .pc-section .pc-section-num { font: var(--w-hand) calc(var(--fs-hero) * 1.7)/0.9 var(--font-hand); letter-spacing: 0; }
+
+/* clip paths: written by tools/build_themes.py from the pictures above, since big CSS masks print wrong in Preview and Safari. Do not edit. */
+.pc-deck[data-theme="chalk"], .pc-deck[data-theme="chalk"] .pc-slide {
+  --swoosh-clip: shape(from 2.12% 72.84%, line to 6.81% 66.92%, line to 11.78% 61.66%, line to 17.04% 57.05%, line to 22.61% 53.1%, line to 28.49% 49.82%, line to 34.71% 47.22%, line to 41.27% 45.31%, line to 48.19% 44.1%, line to 55.48% 43.6%, line to 63.16% 43.82%, line to 71.23% 44.77%, line to 79.72% 46.46%, line to 88.62% 48.89%, line to 97.97% 52.08%, line to 97.58% 23.88%, line to 97.2% 26.91%, line to 96.93% 31.55%, line to 96.83% 37.1%, line to 96.91% 42.71%, line to 97.15% 47.53%, line to 97.52% 50.82%, line to 98.03% 22.92%, line to 88.68% 19.73%, line to 79.76% 17.29%, line to 71.26% 15.61%, line to 63.17% 14.66%, line to 55.48% 14.44%, line to 48.17% 14.94%, line to 41.23% 16.15%, line to 34.64% 18.06%, line to 28.4% 20.67%, line to 22.49% 23.97%, line to 16.89% 27.94%, line to 11.6% 32.58%, line to 6.6% 37.88%, line to 1.88% 43.82%, line to 2.55% 71.18%, line to 2.9% 67.56%, line to 3.12% 62.53%, line to 3.16% 56.87%, line to 3.03% 51.43%, line to 2.74% 47.04%, line to 2.34% 44.37%, close, move to 14.7% 85.4%, line to 19.6% 81.19%, line to 24.6% 77.49%, line to 29.67% 74.27%, line to 34.81% 71.54%, line to 40% 69.28%, line to 45.24% 67.48%, line to 50.51% 66.14%, line to 55.8% 65.25%, line to 61.1% 64.79%, line to 66.4% 64.77%, line to 71.68% 65.16%, line to 76.93% 65.96%, line to 82.15% 67.16%, line to 87.32% 68.75%, line to 87.15% 56.67%, line to 86.99% 57.97%, line to 86.88% 59.97%, line to 86.83% 62.35%, line to 86.87% 64.75%, line to 86.97% 66.81%, line to 87.13% 68.21%, line to 87.35% 56.25%, line to 82.17% 54.66%, line to 76.95% 53.46%, line to 71.69% 52.66%, line to 66.4% 52.27%, line to 61.09% 52.29%, line to 55.79% 52.75%, line to 50.49% 53.65%, line to 45.21% 54.99%, line to 39.97% 56.79%, line to 34.77% 59.05%, line to 29.62% 61.79%, line to 24.54% 65.01%, line to 19.54% 68.72%, line to 14.63% 72.93%, line to 14.89% 84.76%, line to 15.04% 83.27%, line to 15.14% 81.16%, line to 15.17% 78.74%, line to 15.11% 76.38%, line to 15% 74.45%, line to 14.83% 73.24%, close); }
+/* end of clip paths */

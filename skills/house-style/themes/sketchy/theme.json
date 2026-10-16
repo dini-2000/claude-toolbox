@@ -1,0 +1,259 @@
+{
+ "name": "Sketchy",
+ "summary": "Hand-drawn: sketched headings, a handwritten label face, wobbly outlines and doodled stars on white. Loose and friendly, for classrooms, kids clubs, brainstorms and early ideas.",
+ "good_for": [
+  "class",
+  "kids",
+  "brainstorm",
+  "idea",
+  "workshop",
+  "club"
+ ],
+ "category": "kids",
+ "also": [
+  "education"
+ ],
+ "credit": "fonts and look from Bootswatch Sketchy by Thomas Park (MIT licence)",
+ "defaults": {
+  "mode": "light",
+  "palette": "pencil"
+ },
+ "fonts": {
+  "display": [
+   "Cabin Sketch",
+   "hand"
+  ],
+  "body": [
+   "Nunito",
+   "sans"
+  ],
+  "label": [
+   "Neucha",
+   "hand"
+  ],
+  "stat": [
+   "Cabin Sketch",
+   "hand"
+  ],
+  "mono": [
+   "Space Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "400",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "400",
+  "--w-stat": "700",
+  "--track-display": "0em",
+  "--track-h1": "0em",
+  "--track-label": "0.02em",
+  "--label-case": "none",
+  "--lh-display": "1.08",
+  "--lh-h1": "1.12",
+  "--lh-body": "1.55",
+  "--radius": "24px 6px 22px 8px",
+  "--radius-sm": "14px 4px 12px 5px",
+  "--border-w": "2px",
+  "--card-pad": "34px",
+  "--icon-stroke": "2"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF",
+   "bg_alt": "#FBFAF6",
+   "surface": "#FFFFFF",
+   "surface_2": "#F4F2EC",
+   "ink": "#333333",
+   "ink_2": "#4A4A4A",
+   "ink_3": "#5E5E5E",
+   "line": "#333333",
+   "positive": "#227A3A",
+   "negative": "#C0303F",
+   "warning": "#9A6200",
+   "code_bg": "#333333",
+   "code_ink": "#FBFAF6",
+   "letterbox": "#1F1F1F",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#222222",
+   "bg_alt": "#272727",
+   "surface": "#2B2B2B",
+   "surface_2": "#353535",
+   "ink": "#F5F5F0",
+   "ink_2": "#D8D8D2",
+   "ink_3": "#B3B3AD",
+   "line": "#F5F5F0",
+   "positive": "#6FD08C",
+   "negative": "#F28B82",
+   "warning": "#FFC107",
+   "code_bg": "#181818",
+   "code_ink": "#F5F5F0",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "pencil": {
+   "name": "Pencil",
+   "light": {
+    "accent": "#333333",
+    "accent_2": "#17A2B8"
+   },
+   "dark": {
+    "accent": "#F5F5F0",
+    "accent_2": "#5BC8DA"
+   }
+  },
+  "crayon": {
+   "name": "Crayon",
+   "light": {
+    "accent": "#D6336C",
+    "accent_2": "#17A2B8"
+   },
+   "dark": {
+    "accent": "#F27BA6",
+    "accent_2": "#5BC8DA"
+   }
+  },
+  "grass": {
+   "name": "Grass",
+   "light": {
+    "accent": "#2B8A3E",
+    "accent_2": "#E8590C"
+   },
+   "dark": {
+    "accent": "#69DB7C",
+    "accent_2": "#FFA94D"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#333333",
+   "#17A2B8",
+   "#D6336C",
+   "#2B8A3E",
+   "#E8590C",
+   "#868E96"
+  ],
+  "dark": [
+   "#F5F5F0",
+   "#5BC8DA",
+   "#F27BA6",
+   "#69DB7C",
+   "#FFA94D",
+   "#ADB5BD"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "squiggle",
+     "at": "bl",
+     "w": 520,
+     "h": 70,
+     "x": "var(--mx)",
+     "y": 110,
+     "color": "accent-2"
+    },
+    {
+     "motif": "star",
+     "at": "tr",
+     "size": 200,
+     "x": 110,
+     "y": 90,
+     "color": "accent",
+     "rotate": 14
+    }
+   ],
+   "section": [
+    {
+     "motif": "squiggle",
+     "at": "bl",
+     "w": 420,
+     "h": 60,
+     "x": "var(--mx)",
+     "y": 100,
+     "color": "accent-2"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "star",
+     "at": "tr",
+     "size": 150,
+     "x": 90,
+     "y": 80,
+     "color": "accent-2",
+     "rotate": -12
+    }
+   ],
+   "closing": [
+    {
+     "motif": "star",
+     "at": "br",
+     "size": 220,
+     "x": 120,
+     "y": 100,
+     "color": "accent",
+     "rotate": 10
+    },
+    {
+     "motif": "squiggle",
+     "at": "tl",
+     "w": 360,
+     "h": 56,
+     "x": "var(--mx)",
+     "y": 80,
+     "color": "accent-2"
+    }
+   ]
+  },
+  "kicker": "outline",
+  "cards": "outline",
+  "doc": {
+   "cover": [
+    {
+     "motif": "squiggle",
+     "at": "bl",
+     "w": 90,
+     "h": 12,
+     "x": 0,
+     "y": 24,
+     "color": "accent-2"
+    },
+    {
+     "motif": "star",
+     "at": "tr",
+     "size": 40,
+     "x": 16,
+     "y": 16,
+     "color": "accent",
+     "rotate": 14
+    }
+   ],
+   "opener": [
+    {
+     "motif": "squiggle",
+     "at": "tl",
+     "w": 40,
+     "h": 6,
+     "x": 0,
+     "y": 0,
+     "color": "accent-2"
+    }
+   ],
+   "mark": {
+    "motif": "star",
+    "size": 7,
+    "color": "accent"
+   }
+  }
+ }
+}

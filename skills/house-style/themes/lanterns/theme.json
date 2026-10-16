@@ -1,0 +1,259 @@
+{
+ "name": "Lanterns",
+ "summary": "A festival night: deep indigo, warm lantern glows and a soft sunburst, saffron, marigold or lotus pink, with a warm display serif. Festive and glowing, for Vesak, Deepavali, Christmas, Avurudu and other seasonal events.",
+ "good_for": [
+  "festival",
+  "vesak",
+  "deepavali",
+  "christmas",
+  "new-year",
+  "seasonal"
+ ],
+ "category": "events",
+ "also": [
+  "dark"
+ ],
+ "defaults": {
+  "mode": "dark",
+  "palette": "saffron"
+ },
+ "fonts": {
+  "display": [
+   "Fraunces",
+   "serif"
+  ],
+  "body": [
+   "Figtree",
+   "sans"
+  ],
+  "label": [
+   "Figtree",
+   "sans"
+  ],
+  "stat": [
+   "Fraunces",
+   "serif"
+  ],
+  "mono": [
+   "DM Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "600",
+  "--w-h1": "600",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "600",
+  "--w-label": "700",
+  "--w-stat": "600",
+  "--track-display": "-0.02em",
+  "--track-h1": "-0.01em",
+  "--track-label": "0.1em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.04",
+  "--lh-h1": "1.1",
+  "--lh-body": "1.5",
+  "--radius": "14px",
+  "--radius-sm": "8px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFF8EC",
+   "bg_alt": "#FCEFD8",
+   "surface": "#FFFDF7",
+   "surface_2": "#F7E6C8",
+   "ink": "#2A1B3D",
+   "ink_2": "#4A3B5C",
+   "ink_3": "#5E5070",
+   "line": "#EBD9B8",
+   "positive": "#2F7A3D",
+   "negative": "#B3261E",
+   "warning": "#8A5300",
+   "code_bg": "#2A1B3D",
+   "code_ink": "#FCEFD8",
+   "letterbox": "#170F22",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#17122E",
+   "bg_alt": "#1C1636",
+   "surface": "#221B3F",
+   "surface_2": "#2C244E",
+   "ink": "#FFF4E0",
+   "ink_2": "#E2D6C6",
+   "ink_3": "#BBAE9E",
+   "line": "#382F5C",
+   "positive": "#8FD1A0",
+   "negative": "#FF8A80",
+   "warning": "#FFC857",
+   "code_bg": "#0F0B1F",
+   "code_ink": "#FFF4E0",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "saffron": {
+   "name": "Saffron",
+   "light": {
+    "accent": "#B4530D",
+    "accent_2": "#7A2E8E"
+   },
+   "dark": {
+    "accent": "#FFB547",
+    "accent_2": "#E58FD9"
+   }
+  },
+  "marigold": {
+   "name": "Marigold",
+   "light": {
+    "accent": "#9A6A00",
+    "accent_2": "#B4302F"
+   },
+   "dark": {
+    "accent": "#FFD166",
+    "accent_2": "#FF8A80"
+   }
+  },
+  "lotus": {
+   "name": "Lotus",
+   "light": {
+    "accent": "#A8336A",
+    "accent_2": "#B4530D"
+   },
+   "dark": {
+    "accent": "#FF9EC7",
+    "accent_2": "#FFB547"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#B4530D",
+   "#7A2E8E",
+   "#2F6E9E",
+   "#C9A227",
+   "#A8336A",
+   "#8A7F70"
+  ],
+  "dark": [
+   "#FFB547",
+   "#E58FD9",
+   "#7FC3FF",
+   "#FFE08A",
+   "#FF9EC7",
+   "#A99EBF"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "rays",
+     "at": "b",
+     "size": 1400,
+     "y": -700,
+     "color": "accent",
+     "opacity": 0.12
+    },
+    {
+     "motif": "glow",
+     "at": "tr",
+     "size": 700,
+     "x": -200,
+     "y": -220,
+     "color": "accent",
+     "opacity": 0.55
+    }
+   ],
+   "section": [
+    {
+     "motif": "glow",
+     "at": "r",
+     "size": 800,
+     "x": -380,
+     "color": "accent",
+     "opacity": 0.5
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 60,
+     "x": 130,
+     "y": 90,
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "glow",
+     "at": "c",
+     "size": 900,
+     "color": "accent-2",
+     "opacity": 0.3
+    }
+   ],
+   "closing": [
+    {
+     "motif": "rays",
+     "at": "t",
+     "size": 1400,
+     "y": -700,
+     "color": "accent",
+     "opacity": 0.12
+    },
+    {
+     "motif": "glow",
+     "at": "bl",
+     "size": 700,
+     "x": -220,
+     "y": -240,
+     "color": "accent",
+     "opacity": 0.55
+    }
+   ]
+  },
+  "kicker": "pill",
+  "cards": "soft",
+  "doc": {
+   "cover": [
+    {
+     "motif": "glow",
+     "at": "tr",
+     "size": 160,
+     "x": -50,
+     "y": -50,
+     "color": "accent",
+     "opacity": 0.55
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 12,
+     "x": 24,
+     "y": 22,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 7,
+     "x": 0,
+     "y": 0,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "diamond",
+    "size": 5,
+    "color": "accent"
+   }
+  }
+ }
+}

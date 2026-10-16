@@ -1,0 +1,58 @@
+/* Signal: signature art. Colours, fonts and shapes come from tokens.css (built from theme.json).
+   A faint dot grid fades in toward the right of each slide; an editor status bar runs along the foot with the deck
+   title on the left and the page count on the right, in mono (the runtime sets data-deck-title, data-n and
+   data-of). Kickers read as code comments, section numbers sit in brackets, cover titles end on a block cursor
+   over an accent glow, and figures in tables are mono. */
+.pc-deck[data-theme="signal"] .pc-slide {
+  --bar: calc(var(--mb) * .62); --dot: calc(40 * var(--art-px));
+  background-image: linear-gradient(100deg, var(--bg) 30%, transparent 78%),
+    radial-gradient(circle, var(--line) calc(2.2 * var(--art-px)), transparent calc(2.8 * var(--art-px)));
+  background-size: 100% 100%, var(--dot) var(--dot); background-position: 0 0, calc(var(--dot) / 2) calc(var(--dot) / 2); }
+.pc-deck[data-theme="signal"] .pc-slide:is([data-surface="accent"], .pc-bleed) { background-image: none; }
+
+/* Status bar: the deck title on the left, the page count on the right */
+.pc-deck[data-theme="signal"] .pc-slide::before {
+  content: attr(data-deck-title); position: absolute; left: 0; right: 0; bottom: 0; z-index: 2; height: var(--bar);
+  padding: 0 40% 0 var(--mx); border-top: 1px solid var(--line); background: var(--bg-alt);
+  overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+  font: 400 max(calc(var(--fs-label) * .9), 16px)/var(--bar) var(--font-mono); color: var(--ink-3); }
+.pc-deck[data-theme="signal"] .pc-slide::after {
+  content: attr(data-n) " / " attr(data-of); position: absolute; right: var(--mx); bottom: 0; z-index: 2;
+  font: 500 max(calc(var(--fs-label) * .9), 16px)/var(--bar) var(--font-mono); color: var(--accent-text);
+  font-variant-numeric: tabular-nums; }
+.pc-deck[data-theme="signal"] .pc-slide > .pc-num { display: none; }
+.pc-deck[data-theme="signal"]:is([data-format="1x1"], [data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-slide::before { padding-right: 32%; }
+/* Split slides: the bar stays under the text column; portrait splits keep it across the foot */
+.pc-deck[data-theme="signal"] .pc-split::before { right: var(--split); padding-right: 30%; }
+.pc-deck[data-theme="signal"] .pc-split::after { right: calc(var(--split) + var(--mx)); }
+.pc-deck[data-theme="signal"] .pc-split--left::before { left: var(--split); right: 0; }
+.pc-deck[data-theme="signal"] .pc-split--left::after { right: var(--mx); }
+.pc-deck[data-theme="signal"]:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-split:is(.pc-slide, .pc-split--left)::before { left: 0; right: 0; }
+.pc-deck[data-theme="signal"]:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-split:is(.pc-slide, .pc-split--left)::after { right: var(--mx); }
+.pc-deck[data-theme="signal"] .pc-bleed::before { background: rgba(0, 0, 0, .55); border-top-color: rgba(255, 255, 255, .14); color: rgba(255, 255, 255, .78); }
+.pc-deck[data-theme="signal"] .pc-bleed::after { color: #fff; }
+
+/* Kickers read as code comments */
+.pc-deck[data-theme="signal"] .pc-kicker { font-family: var(--font-mono); font-weight: 400; letter-spacing: 0; }
+.pc-deck[data-theme="signal"] .pc-kicker::before { content: "// "; color: var(--ink-3); }
+.pc-deck[data-theme="signal"] :is([data-surface="accent"], .pc-bleed) .pc-kicker::before { color: inherit; }
+
+/* Cover: an accent glow at the top right and a block cursor after the title */
+.pc-deck[data-theme="signal"] .pc-cover {
+  background-image: radial-gradient(ellipse 46% 60% at 88% 8%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%),
+    linear-gradient(100deg, var(--bg) 30%, transparent 78%),
+    radial-gradient(circle, var(--line) calc(2.2 * var(--art-px)), transparent calc(2.8 * var(--art-px)));
+  background-size: 100% 100%, 100% 100%, var(--dot) var(--dot);
+  background-position: 0 0, 0 0, calc(var(--dot) / 2) calc(var(--dot) / 2); }
+.pc-deck[data-theme="signal"] :is(.pc-cover, .pc-closing) .pc-title::after {
+  content: ""; display: inline-block; width: .42em; height: .78em; margin-left: .12em; vertical-align: -.06em;
+  background: var(--accent); }
+
+/* Section numbers in mono, in brackets */
+.pc-deck[data-theme="signal"] .pc-section .pc-section-num { font-family: var(--font-mono); font-weight: 400; letter-spacing: -0.04em; }
+.pc-deck[data-theme="signal"] .pc-section .pc-section-num::before { content: "["; color: var(--ink-3); }
+.pc-deck[data-theme="signal"] .pc-section .pc-section-num::after { content: "]"; color: var(--ink-3); }
+
+/* Figures in tables are mono; the head is a mono label */
+.pc-deck[data-theme="signal"] .pc-table .is-num { font-family: var(--font-mono); font-size: .92em; }
+.pc-deck[data-theme="signal"] .pc-table th { font-family: var(--font-mono); font-weight: 400; letter-spacing: 0; text-transform: none; }

@@ -1,0 +1,44 @@
+{
+ "name": "Ledger",
+ "summary": "The look of an annual report: a serif for headlines, a crisp sans for figures, a ticker strip across the top and accounting rules under totals. For numbers people will check.",
+ "good_for": ["report", "board", "proposal", "case-study", "team-update"],
+ "category": "finance",
+ "defaults": {"mode": "light", "palette": "navy"},
+ "fonts": {
+  "display": ["IBM Plex Serif", "serif"], "body": ["IBM Plex Sans", "sans"], "label": ["IBM Plex Sans", "sans"],
+  "stat": ["IBM Plex Serif", "serif"], "quote": ["IBM Plex Serif", "serif"], "mono": ["IBM Plex Mono", "mono"]
+ },
+ "tokens": {
+  "--w-display": "600", "--w-h1": "500", "--w-h2": "600", "--w-body": "400", "--w-strong": "600", "--w-label": "600", "--w-stat": "500", "--w-quote": "500",
+  "--track-display": "-0.02em", "--track-h1": "-0.01em", "--track-label": "0.08em", "--label-case": "uppercase",
+  "--lh-display": "1.04", "--lh-h1": "1.1", "--lh-body": "1.42",
+  "--radius": "2px", "--radius-sm": "2px", "--border-w": "1.5px", "--card-pad": "32px", "--icon-stroke": "1.5",
+  "--card-shadow": "none", "--bullet-radius": "0"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF", "bg_alt": "#F4F6F9", "surface": "#FFFFFF", "surface_2": "#EFF2F6",
+   "ink": "#10223A", "ink_2": "#3A4A60", "ink_3": "#56657A", "line": "#D3D9E1",
+   "positive": "#16744A", "negative": "#B3261E", "warning": "#8A5300",
+   "code_bg": "#0C1624", "code_ink": "#E6EBF2", "letterbox": "#07101B", "shadow": "none",
+   "alt": {"surface": "#FFFFFF", "surface_2": "#E8ECF2"}
+  },
+  "dark": {
+   "bg": "#0C1624", "bg_alt": "#111D2F", "surface": "#132036", "surface_2": "#1A2840",
+   "ink": "#EEF2F7", "ink_2": "#C2CBD8", "ink_3": "#96A3B6", "line": "#26354D",
+   "positive": "#5CC98F", "negative": "#FF7D70", "warning": "#E9B44C",
+   "code_bg": "#07101B", "code_ink": "#E6EBF2", "letterbox": "#04080F", "shadow": "none",
+   "alt": {"surface": "#1A2840", "surface_2": "#21314B"}
+  }
+ },
+ "palettes": {
+  "navy": {"name": "Navy", "light": {"accent": "#1F4E8C", "accent_2": "#A77B1C"}, "dark": {"accent": "#7FA6E0", "accent_2": "#D9B25A"}},
+  "forest": {"name": "Forest", "light": {"accent": "#1E5E3E", "accent_2": "#A77B1C"}, "dark": {"accent": "#6CC79A", "accent_2": "#D9B25A"}},
+  "burgundy": {"name": "Burgundy", "light": {"accent": "#7D1D2C", "accent_2": "#1F4E8C"}, "dark": {"accent": "#E68A97", "accent_2": "#7FA6E0"}},
+  "charcoal": {"name": "Charcoal", "light": {"accent": "#363C45", "accent_2": "#1F4E8C"}, "dark": {"accent": "#C5CAD3", "accent_2": "#7FA6E0"}}
+ },
+ "chart": {
+  "light": ["#1F4E8C", "#A77B1C", "#1E5E3E", "#7D1D2C", "#56657A", "#2E7DA6"],
+  "dark": ["#7FA6E0", "#D9B25A", "#6CC79A", "#E68A97", "#96A3B6", "#6BC0E0"]
+ }
+}

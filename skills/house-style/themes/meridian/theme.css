@@ -1,0 +1,31 @@
+/* Meridian: signature art. Colours, fonts and shapes come from tokens.css (built from theme.json).
+   A thin accent line runs along the top edge as far as the deck has got, with the section name at its tip
+   (the runtime sets --progress, data-side and data-section-name). The cover carries a large thin circle. */
+.pc-deck[data-theme="meridian"] .pc-slide::before {
+  content: ""; position: absolute; left: 0; top: 0; z-index: 2; height: 6px;
+  width: calc(var(--W) * var(--progress, 0)); background: var(--accent); }
+.pc-deck[data-theme="meridian"] .pc-slide[data-section-name]::after {
+  content: attr(data-section-name); position: absolute; top: 24px; z-index: 2;
+  left: calc(var(--W) * var(--progress, 0) + 16px); max-width: calc(var(--W) * (1 - var(--progress, 0)) - 16px - var(--mx) * .5);
+  overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+  font: var(--w-label) var(--fs-label)/1.2 var(--font-label, var(--font-body));
+  letter-spacing: var(--track-label); text-transform: var(--label-case); color: var(--ink-3); }
+.pc-deck[data-theme="meridian"] .pc-slide[data-side="left"]::after {
+  left: auto; right: calc(var(--W) * (1 - var(--progress, 0)) + 16px); text-align: right; max-width: calc(var(--W) * var(--progress, 0) - 16px - var(--mx) * .5); }
+.pc-deck[data-theme="meridian"] .pc-slide:is(.pc-section, .pc-closing, .pc-bleed, .pc-split, [data-section-name=""])::after { content: none; }
+.pc-deck[data-theme="meridian"] .pc-bleed::before { background: #fff; }
+
+/* Cover: a thin accent ring running off the top right corner, with a dot on it */
+/* The title keeps clear of the corner art on landscape pages; on square and portrait pages it sits below it */
+.pc-deck[data-theme="meridian"]:is([data-format="16x9"], [data-format="4x3"], [data-format="a4l"]) .pc-cover { --cover-w: 64%; }
+.pc-deck[data-theme="meridian"] .pc-cover::before {
+  width: calc(972 * var(--art-px)); height: calc(972 * var(--art-px)); left: auto; z-index: -1;
+  right: calc(-238 * var(--art-px)); top: calc(-194 * var(--art-px));
+  border: 2px solid var(--accent); border-radius: 50%; background: none; }
+.pc-deck[data-theme="meridian"] .pc-cover::after {
+  content: ""; position: absolute; z-index: -1; width: 24px; height: 24px; border-radius: 50%; background: var(--accent);
+  right: calc(592 * var(--art-px) - 12px); top: calc(636 * var(--art-px) - 12px); }
+
+/* Section slides: the number sits on a short accent rule */
+.pc-deck[data-theme="meridian"] .pc-section .pc-section-num {
+  padding-bottom: 20px; margin-bottom: 28px; border-bottom: 6px solid var(--accent); width: fit-content; }

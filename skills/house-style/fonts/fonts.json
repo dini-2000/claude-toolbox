@@ -1,0 +1,2258 @@
+{
+ "Alfa Slab One": {
+  "faces": [
+   {
+    "bytes": 91272,
+    "file": "Alfa Slab One/AlfaSlabOne-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Alfa Slab One/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Archivo": {
+  "faces": [
+   {
+    "bytes": 121892,
+    "file": "Archivo/Archivo-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 123344,
+    "file": "Archivo/Archivo-700i.ttf",
+    "style": "italic",
+    "weight": 700
+   },
+   {
+    "bytes": 110708,
+    "file": "Archivo/Archivo-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 112136,
+    "file": "Archivo/Archivo-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 111948,
+    "file": "Archivo/Archivo-700.ttf",
+    "style": "normal",
+    "weight": 700
+   },
+   {
+    "bytes": 111304,
+    "file": "Archivo/Archivo-900.ttf",
+    "style": "normal",
+    "weight": 900
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Archivo/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Arsenal SC": {
+  "faces": [
+   {
+    "bytes": 165848,
+    "file": "Arsenal SC/ArsenalSC-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Arsenal SC/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Atkinson Hyperlegible Next": {
+  "faces": [
+   {
+    "bytes": 50632,
+    "file": "Atkinson Hyperlegible Next/AtkinsonHyperlegibleNext-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 50612,
+    "file": "Atkinson Hyperlegible Next/AtkinsonHyperlegibleNext-700i.ttf",
+    "style": "italic",
+    "weight": 700
+   },
+   {
+    "bytes": 46632,
+    "file": "Atkinson Hyperlegible Next/AtkinsonHyperlegibleNext-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 46528,
+    "file": "Atkinson Hyperlegible Next/AtkinsonHyperlegibleNext-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Atkinson Hyperlegible Next/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Barlow": {
+  "faces": [
+   {
+    "bytes": 87132,
+    "file": "Barlow/Barlow-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 88716,
+    "file": "Barlow/Barlow-600i.ttf",
+    "style": "italic",
+    "weight": 600
+   },
+   {
+    "bytes": 82624,
+    "file": "Barlow/Barlow-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 81924,
+    "file": "Barlow/Barlow-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 85876,
+    "file": "Barlow/Barlow-600.ttf",
+    "style": "normal",
+    "weight": 600
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Barlow/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Barlow Condensed": {
+  "faces": [
+   {
+    "bytes": 81448,
+    "file": "Barlow Condensed/BarlowCondensed-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 86636,
+    "file": "Barlow Condensed/BarlowCondensed-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 87120,
+    "file": "Barlow Condensed/BarlowCondensed-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Barlow Condensed/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Bebas Neue": {
+  "faces": [
+   {
+    "bytes": 56136,
+    "file": "Bebas Neue/BebasNeue-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Bebas Neue/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Big Shoulders": {
+  "faces": [
+   {
+    "bytes": 94396,
+    "file": "Big Shoulders/BigShoulders-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 94528,
+    "file": "Big Shoulders/BigShoulders-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Big Shoulders/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Bodoni Moda": {
+  "faces": [
+   {
+    "bytes": 47556,
+    "file": "Bodoni Moda/BodoniModa-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 44752,
+    "file": "Bodoni Moda/BodoniModa-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 44844,
+    "file": "Bodoni Moda/BodoniModa-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 44844,
+    "file": "Bodoni Moda/BodoniModa-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Bodoni Moda/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Boldonse": {
+  "faces": [
+   {
+    "bytes": 77168,
+    "file": "Boldonse/Boldonse-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Boldonse/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Bricolage Grotesque": {
+  "faces": [
+   {
+    "bytes": 82192,
+    "file": "Bricolage Grotesque/BricolageGrotesque-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 82304,
+    "file": "Bricolage Grotesque/BricolageGrotesque-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 82332,
+    "file": "Bricolage Grotesque/BricolageGrotesque-800.ttf",
+    "style": "normal",
+    "weight": 800
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Bricolage Grotesque/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Cabin Sketch": {
+  "faces": [
+   {
+    "bytes": 153624,
+    "file": "Cabin Sketch/CabinSketch-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 268404,
+    "file": "Cabin Sketch/CabinSketch-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Cabin Sketch/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Caveat": {
+  "faces": [
+   {
+    "bytes": 251752,
+    "file": "Caveat/Caveat-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 251256,
+    "file": "Caveat/Caveat-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Caveat/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Cormorant Garamond": {
+  "faces": [
+   {
+    "bytes": 293036,
+    "file": "Cormorant Garamond/CormorantGaramond-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 293244,
+    "file": "Cormorant Garamond/CormorantGaramond-500i.ttf",
+    "style": "italic",
+    "weight": 500
+   },
+   {
+    "bytes": 290236,
+    "file": "Cormorant Garamond/CormorantGaramond-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 290496,
+    "file": "Cormorant Garamond/CormorantGaramond-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 290392,
+    "file": "Cormorant Garamond/CormorantGaramond-600.ttf",
+    "style": "normal",
+    "weight": 600
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Cormorant Garamond/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Crimson Pro": {
+  "faces": [
+   {
+    "bytes": 108828,
+    "file": "Crimson Pro/CrimsonPro-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 106696,
+    "file": "Crimson Pro/CrimsonPro-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 107352,
+    "file": "Crimson Pro/CrimsonPro-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Crimson Pro/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "DM Mono": {
+  "faces": [
+   {
+    "bytes": 48852,
+    "file": "DM Mono/DMMono-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "DM Mono/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "DM Sans": {
+  "faces": [
+   {
+    "bytes": 51144,
+    "file": "DM Sans/DMSans-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 48280,
+    "file": "DM Sans/DMSans-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 48308,
+    "file": "DM Sans/DMSans-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 48280,
+    "file": "DM Sans/DMSans-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 48200,
+    "file": "DM Sans/DMSans-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "DM Sans/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "DM Serif Display": {
+  "faces": [
+   {
+    "bytes": 68312,
+    "file": "DM Serif Display/DMSerifDisplay-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 70348,
+    "file": "DM Serif Display/DMSerifDisplay-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "DM Serif Display/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "EB Garamond": {
+  "faces": [
+   {
+    "bytes": 339240,
+    "file": "EB Garamond/EBGaramond-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 389868,
+    "file": "EB Garamond/EBGaramond-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 392064,
+    "file": "EB Garamond/EBGaramond-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 392328,
+    "file": "EB Garamond/EBGaramond-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 392040,
+    "file": "EB Garamond/EBGaramond-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "EB Garamond/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Erica One": {
+  "faces": [
+   {
+    "bytes": 24872,
+    "file": "Erica One/EricaOne-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Erica One/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Figtree": {
+  "faces": [
+   {
+    "bytes": 36036,
+    "file": "Figtree/Figtree-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 36428,
+    "file": "Figtree/Figtree-600i.ttf",
+    "style": "italic",
+    "weight": 600
+   },
+   {
+    "bytes": 35976,
+    "file": "Figtree/Figtree-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 35996,
+    "file": "Figtree/Figtree-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 36216,
+    "file": "Figtree/Figtree-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 36164,
+    "file": "Figtree/Figtree-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Figtree/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Fraunces": {
+  "faces": [
+   {
+    "bytes": 85028,
+    "file": "Fraunces/Fraunces-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 71580,
+    "file": "Fraunces/Fraunces-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 71632,
+    "file": "Fraunces/Fraunces-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 71588,
+    "file": "Fraunces/Fraunces-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Fraunces/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Fredoka": {
+  "faces": [
+   {
+    "bytes": 48856,
+    "file": "Fredoka/Fredoka-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 48792,
+    "file": "Fredoka/Fredoka-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 48768,
+    "file": "Fredoka/Fredoka-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 48588,
+    "file": "Fredoka/Fredoka-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Fredoka/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Geist": {
+  "faces": [
+   {
+    "bytes": 74364,
+    "file": "Geist/Geist-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 74532,
+    "file": "Geist/Geist-600i.ttf",
+    "style": "italic",
+    "weight": 600
+   },
+   {
+    "bytes": 72916,
+    "file": "Geist/Geist-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 72996,
+    "file": "Geist/Geist-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 73048,
+    "file": "Geist/Geist-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 72984,
+    "file": "Geist/Geist-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Geist/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Geist Mono": {
+  "faces": [
+   {
+    "bytes": 71160,
+    "file": "Geist Mono/GeistMono-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 71212,
+    "file": "Geist Mono/GeistMono-500.ttf",
+    "style": "normal",
+    "weight": 500
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Geist Mono/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Gloock": {
+  "faces": [
+   {
+    "bytes": 95156,
+    "file": "Gloock/Gloock-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Gloock/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "IBM Plex Mono": {
+  "faces": [
+   {
+    "bytes": 128812,
+    "file": "IBM Plex Mono/IBMPlexMono-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 129916,
+    "file": "IBM Plex Mono/IBMPlexMono-500.ttf",
+    "style": "normal",
+    "weight": 500
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "IBM Plex Mono/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "IBM Plex Sans": {
+  "faces": [
+   {
+    "bytes": 220108,
+    "file": "IBM Plex Sans/IBMPlexSans-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 220280,
+    "file": "IBM Plex Sans/IBMPlexSans-600i.ttf",
+    "style": "italic",
+    "weight": 600
+   },
+   {
+    "bytes": 205252,
+    "file": "IBM Plex Sans/IBMPlexSans-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 205292,
+    "file": "IBM Plex Sans/IBMPlexSans-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 205284,
+    "file": "IBM Plex Sans/IBMPlexSans-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 205220,
+    "file": "IBM Plex Sans/IBMPlexSans-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "IBM Plex Sans/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "IBM Plex Serif": {
+  "faces": [
+   {
+    "bytes": 154488,
+    "file": "IBM Plex Serif/IBMPlexSerif-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 154976,
+    "file": "IBM Plex Serif/IBMPlexSerif-600.ttf",
+    "style": "normal",
+    "weight": 600
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "IBM Plex Serif/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Instrument Sans": {
+  "faces": [
+   {
+    "bytes": 50044,
+    "file": "Instrument Sans/InstrumentSans-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 50192,
+    "file": "Instrument Sans/InstrumentSans-600i.ttf",
+    "style": "italic",
+    "weight": 600
+   },
+   {
+    "bytes": 48616,
+    "file": "Instrument Sans/InstrumentSans-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 48732,
+    "file": "Instrument Sans/InstrumentSans-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 48732,
+    "file": "Instrument Sans/InstrumentSans-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 48552,
+    "file": "Instrument Sans/InstrumentSans-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Instrument Sans/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Instrument Serif": {
+  "faces": [
+   {
+    "bytes": 64208,
+    "file": "Instrument Serif/InstrumentSerif-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 62284,
+    "file": "Instrument Serif/InstrumentSerif-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Instrument Serif/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Inter": {
+  "faces": [
+   {
+    "bytes": 328252,
+    "file": "Inter/Inter-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 324820,
+    "file": "Inter/Inter-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 325304,
+    "file": "Inter/Inter-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 326048,
+    "file": "Inter/Inter-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 326468,
+    "file": "Inter/Inter-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Inter/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Italiana": {
+  "faces": [
+   {
+    "bytes": 27184,
+    "file": "Italiana/Italiana-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Italiana/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "JetBrains Mono": {
+  "faces": [
+   {
+    "bytes": 114904,
+    "file": "JetBrains Mono/JetBrainsMono-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 114828,
+    "file": "JetBrains Mono/JetBrainsMono-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "JetBrains Mono/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Jost": {
+  "faces": [
+   {
+    "bytes": 62580,
+    "file": "Jost/Jost-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 62700,
+    "file": "Jost/Jost-500i.ttf",
+    "style": "italic",
+    "weight": 500
+   },
+   {
+    "bytes": 58904,
+    "file": "Jost/Jost-300.ttf",
+    "style": "normal",
+    "weight": 300
+   },
+   {
+    "bytes": 58796,
+    "file": "Jost/Jost-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 58936,
+    "file": "Jost/Jost-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 58936,
+    "file": "Jost/Jost-600.ttf",
+    "style": "normal",
+    "weight": 600
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Jost/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Jura": {
+  "faces": [
+   {
+    "bytes": 154308,
+    "file": "Jura/Jura-300.ttf",
+    "style": "normal",
+    "weight": 300
+   },
+   {
+    "bytes": 154488,
+    "file": "Jura/Jura-500.ttf",
+    "style": "normal",
+    "weight": 500
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Jura/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Kalam": {
+  "faces": [
+   {
+    "bytes": 426488,
+    "file": "Kalam/Kalam-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 460024,
+    "file": "Kalam/Kalam-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Kalam/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Lato": {
+  "faces": [
+   {
+    "bytes": 72936,
+    "file": "Lato/Lato-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 72312,
+    "file": "Lato/Lato-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 70576,
+    "file": "Lato/Lato-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Lato/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "League Gothic": {
+  "faces": [
+   {
+    "bytes": 37364,
+    "file": "League Gothic/LeagueGothic-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "League Gothic/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Lexend": {
+  "faces": [
+   {
+    "bytes": 70700,
+    "file": "Lexend/Lexend-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 71036,
+    "file": "Lexend/Lexend-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 71080,
+    "file": "Lexend/Lexend-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 70952,
+    "file": "Lexend/Lexend-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Lexend/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Libre Baskerville": {
+  "faces": [
+   {
+    "bytes": 147584,
+    "file": "Libre Baskerville/LibreBaskerville-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Libre Baskerville/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Lora": {
+  "faces": [
+   {
+    "bytes": 137328,
+    "file": "Lora/Lora-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 132188,
+    "file": "Lora/Lora-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 132320,
+    "file": "Lora/Lora-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 132672,
+    "file": "Lora/Lora-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 132124,
+    "file": "Lora/Lora-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Lora/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Merriweather": {
+  "faces": [
+   {
+    "bytes": 595652,
+    "file": "Merriweather/Merriweather-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 585976,
+    "file": "Merriweather/Merriweather-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 586020,
+    "file": "Merriweather/Merriweather-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 586020,
+    "file": "Merriweather/Merriweather-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 586052,
+    "file": "Merriweather/Merriweather-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Merriweather/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Montserrat": {
+  "faces": [
+   {
+    "bytes": 181552,
+    "file": "Montserrat/Montserrat-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 180068,
+    "file": "Montserrat/Montserrat-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 180036,
+    "file": "Montserrat/Montserrat-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 180584,
+    "file": "Montserrat/Montserrat-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 181028,
+    "file": "Montserrat/Montserrat-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Montserrat/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "National Park": {
+  "faces": [
+   {
+    "bytes": 76424,
+    "file": "National Park/NationalPark-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 79208,
+    "file": "National Park/NationalPark-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "National Park/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Neucha": {
+  "faces": [
+   {
+    "bytes": 106228,
+    "file": "Neucha/Neucha-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Neucha/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "News Cycle": {
+  "faces": [
+   {
+    "bytes": 178312,
+    "file": "News Cycle/NewsCycle-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 59532,
+    "file": "News Cycle/NewsCycle-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "News Cycle/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Newsreader": {
+  "faces": [
+   {
+    "bytes": 119892,
+    "file": "Newsreader/Newsreader-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 121908,
+    "file": "Newsreader/Newsreader-500i.ttf",
+    "style": "italic",
+    "weight": 500
+   },
+   {
+    "bytes": 109472,
+    "file": "Newsreader/Newsreader-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 111588,
+    "file": "Newsreader/Newsreader-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 111628,
+    "file": "Newsreader/Newsreader-600.ttf",
+    "style": "normal",
+    "weight": 600
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Newsreader/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Nothing You Could Do": {
+  "faces": [
+   {
+    "bytes": 32020,
+    "file": "Nothing You Could Do/NothingYouCouldDo-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Nothing You Could Do/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Noto Sans Sinhala": {
+  "faces": [
+   {
+    "bytes": 235928,
+    "file": "Noto Sans Sinhala/NotoSansSinhala-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 236000,
+    "file": "Noto Sans Sinhala/NotoSansSinhala-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 235932,
+    "file": "Noto Sans Sinhala/NotoSansSinhala-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 235604,
+    "file": "Noto Sans Sinhala/NotoSansSinhala-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Noto Sans Sinhala/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Noto Sans Tamil": {
+  "faces": [
+   {
+    "bytes": 77724,
+    "file": "Noto Sans Tamil/NotoSansTamil-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 77872,
+    "file": "Noto Sans Tamil/NotoSansTamil-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 77860,
+    "file": "Noto Sans Tamil/NotoSansTamil-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 77756,
+    "file": "Noto Sans Tamil/NotoSansTamil-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Noto Sans Tamil/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Noto Serif Sinhala": {
+  "faces": [
+   {
+    "bytes": 242752,
+    "file": "Noto Serif Sinhala/NotoSerifSinhala-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 242856,
+    "file": "Noto Serif Sinhala/NotoSerifSinhala-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 242824,
+    "file": "Noto Serif Sinhala/NotoSerifSinhala-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Noto Serif Sinhala/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Noto Serif Tamil": {
+  "faces": [
+   {
+    "bytes": 88572,
+    "file": "Noto Serif Tamil/NotoSerifTamil-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 88692,
+    "file": "Noto Serif Tamil/NotoSerifTamil-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 88548,
+    "file": "Noto Serif Tamil/NotoSerifTamil-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Noto Serif Tamil/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Nunito": {
+  "faces": [
+   {
+    "bytes": 128400,
+    "file": "Nunito/Nunito-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 125528,
+    "file": "Nunito/Nunito-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 125652,
+    "file": "Nunito/Nunito-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 125536,
+    "file": "Nunito/Nunito-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 125464,
+    "file": "Nunito/Nunito-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Nunito/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Nunito Sans": {
+  "faces": [
+   {
+    "bytes": 109516,
+    "file": "Nunito Sans/NunitoSans-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 109512,
+    "file": "Nunito Sans/NunitoSans-700i.ttf",
+    "style": "italic",
+    "weight": 700
+   },
+   {
+    "bytes": 106700,
+    "file": "Nunito Sans/NunitoSans-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 106832,
+    "file": "Nunito Sans/NunitoSans-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 106792,
+    "file": "Nunito Sans/NunitoSans-700.ttf",
+    "style": "normal",
+    "weight": 700
+   },
+   {
+    "bytes": 106804,
+    "file": "Nunito Sans/NunitoSans-800.ttf",
+    "style": "normal",
+    "weight": 800
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Nunito Sans/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Open Sans": {
+  "faces": [
+   {
+    "bytes": 127392,
+    "file": "Open Sans/OpenSans-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 122116,
+    "file": "Open Sans/OpenSans-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 122264,
+    "file": "Open Sans/OpenSans-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 122060,
+    "file": "Open Sans/OpenSans-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 122132,
+    "file": "Open Sans/OpenSans-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Open Sans/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Oswald": {
+  "faces": [
+   {
+    "bytes": 86068,
+    "file": "Oswald/Oswald-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 86428,
+    "file": "Oswald/Oswald-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 86444,
+    "file": "Oswald/Oswald-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 86416,
+    "file": "Oswald/Oswald-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Oswald/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Outfit": {
+  "faces": [
+   {
+    "bytes": 54912,
+    "file": "Outfit/Outfit-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 55392,
+    "file": "Outfit/Outfit-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Outfit/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Pinyon Script": {
+  "faces": [
+   {
+    "bytes": 144584,
+    "file": "Pinyon Script/PinyonScript-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Pinyon Script/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Pixelify Sans": {
+  "faces": [
+   {
+    "bytes": 51072,
+    "file": "Pixelify Sans/PixelifySans-500.ttf",
+    "style": "normal",
+    "weight": 500
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Pixelify Sans/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Playfair Display": {
+  "faces": [
+   {
+    "bytes": 110816,
+    "file": "Playfair Display/PlayfairDisplay-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 123240,
+    "file": "Playfair Display/PlayfairDisplay-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 123608,
+    "file": "Playfair Display/PlayfairDisplay-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 123672,
+    "file": "Playfair Display/PlayfairDisplay-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 123536,
+    "file": "Playfair Display/PlayfairDisplay-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Playfair Display/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Plus Jakarta Sans": {
+  "faces": [
+   {
+    "bytes": 64848,
+    "file": "Plus Jakarta Sans/PlusJakartaSans-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 64936,
+    "file": "Plus Jakarta Sans/PlusJakartaSans-700i.ttf",
+    "style": "italic",
+    "weight": 700
+   },
+   {
+    "bytes": 63336,
+    "file": "Plus Jakarta Sans/PlusJakartaSans-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 63404,
+    "file": "Plus Jakarta Sans/PlusJakartaSans-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 63336,
+    "file": "Plus Jakarta Sans/PlusJakartaSans-700.ttf",
+    "style": "normal",
+    "weight": 700
+   },
+   {
+    "bytes": 63372,
+    "file": "Plus Jakarta Sans/PlusJakartaSans-800.ttf",
+    "style": "normal",
+    "weight": 800
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Plus Jakarta Sans/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Poiret One": {
+  "faces": [
+   {
+    "bytes": 45244,
+    "file": "Poiret One/PoiretOne-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Poiret One/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Poppins": {
+  "faces": [
+   {
+    "bytes": 178112,
+    "file": "Poppins/Poppins-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 154628,
+    "file": "Poppins/Poppins-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 152860,
+    "file": "Poppins/Poppins-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 151516,
+    "file": "Poppins/Poppins-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 150292,
+    "file": "Poppins/Poppins-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Poppins/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Quicksand": {
+  "faces": [
+   {
+    "bytes": 73224,
+    "file": "Quicksand/Quicksand-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 73232,
+    "file": "Quicksand/Quicksand-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 73140,
+    "file": "Quicksand/Quicksand-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 72916,
+    "file": "Quicksand/Quicksand-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Quicksand/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Raleway": {
+  "faces": [
+   {
+    "bytes": 136572,
+    "file": "Raleway/Raleway-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 138808,
+    "file": "Raleway/Raleway-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 138808,
+    "file": "Raleway/Raleway-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 138840,
+    "file": "Raleway/Raleway-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 138748,
+    "file": "Raleway/Raleway-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Raleway/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Red Hat Mono": {
+  "faces": [
+   {
+    "bytes": 34488,
+    "file": "Red Hat Mono/RedHatMono-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 34420,
+    "file": "Red Hat Mono/RedHatMono-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Red Hat Mono/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Roboto": {
+  "faces": [
+   {
+    "bytes": 127988,
+    "file": "Roboto/Roboto-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 123720,
+    "file": "Roboto/Roboto-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 123904,
+    "file": "Roboto/Roboto-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 124288,
+    "file": "Roboto/Roboto-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 124292,
+    "file": "Roboto/Roboto-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Roboto/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Roboto Slab": {
+  "faces": [
+   {
+    "bytes": 101564,
+    "file": "Roboto Slab/RobotoSlab-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 102260,
+    "file": "Roboto Slab/RobotoSlab-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 102384,
+    "file": "Roboto Slab/RobotoSlab-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 102236,
+    "file": "Roboto Slab/RobotoSlab-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "Apache License 2.0",
+  "licence_file": "Roboto Slab/LICENSE.txt",
+  "source": "Google Fonts"
+ },
+ "Rubik": {
+  "faces": [
+   {
+    "bytes": 173148,
+    "file": "Rubik/Rubik-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 173968,
+    "file": "Rubik/Rubik-700i.ttf",
+    "style": "italic",
+    "weight": 700
+   },
+   {
+    "bytes": 174992,
+    "file": "Rubik/Rubik-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 175596,
+    "file": "Rubik/Rubik-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 175628,
+    "file": "Rubik/Rubik-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Rubik/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Schibsted Grotesk": {
+  "faces": [
+   {
+    "bytes": 95776,
+    "file": "Schibsted Grotesk/SchibstedGrotesk-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 96464,
+    "file": "Schibsted Grotesk/SchibstedGrotesk-600i.ttf",
+    "style": "italic",
+    "weight": 600
+   },
+   {
+    "bytes": 93936,
+    "file": "Schibsted Grotesk/SchibstedGrotesk-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 94224,
+    "file": "Schibsted Grotesk/SchibstedGrotesk-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 94344,
+    "file": "Schibsted Grotesk/SchibstedGrotesk-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 94380,
+    "file": "Schibsted Grotesk/SchibstedGrotesk-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Schibsted Grotesk/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Silkscreen": {
+  "faces": [
+   {
+    "bytes": 31960,
+    "file": "Silkscreen/Silkscreen-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Silkscreen/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Smooch Sans": {
+  "faces": [
+   {
+    "bytes": 59704,
+    "file": "Smooch Sans/SmoochSans-500.ttf",
+    "style": "normal",
+    "weight": 500
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Smooch Sans/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Sora": {
+  "faces": [
+   {
+    "bytes": 46240,
+    "file": "Sora/Sora-300.ttf",
+    "style": "normal",
+    "weight": 300
+   },
+   {
+    "bytes": 46040,
+    "file": "Sora/Sora-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 46216,
+    "file": "Sora/Sora-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 46152,
+    "file": "Sora/Sora-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Sora/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Source Code Pro": {
+  "faces": [
+   {
+    "bytes": 101800,
+    "file": "Source Code Pro/SourceCodePro-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 121080,
+    "file": "Source Code Pro/SourceCodePro-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 120888,
+    "file": "Source Code Pro/SourceCodePro-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 120884,
+    "file": "Source Code Pro/SourceCodePro-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 120940,
+    "file": "Source Code Pro/SourceCodePro-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Source Code Pro/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Source Sans 3": {
+  "faces": [
+   {
+    "bytes": 209376,
+    "file": "Source Sans 3/SourceSans3-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 209336,
+    "file": "Source Sans 3/SourceSans3-600i.ttf",
+    "style": "italic",
+    "weight": 600
+   },
+   {
+    "bytes": 234708,
+    "file": "Source Sans 3/SourceSans3-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 234680,
+    "file": "Source Sans 3/SourceSans3-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 234640,
+    "file": "Source Sans 3/SourceSans3-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Source Sans 3/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Source Serif 4": {
+  "faces": [
+   {
+    "bytes": 183552,
+    "file": "Source Serif 4/SourceSerif4-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 183688,
+    "file": "Source Serif 4/SourceSerif4-600i.ttf",
+    "style": "italic",
+    "weight": 600
+   },
+   {
+    "bytes": 194464,
+    "file": "Source Serif 4/SourceSerif4-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 194800,
+    "file": "Source Serif 4/SourceSerif4-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 194760,
+    "file": "Source Serif 4/SourceSerif4-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Source Serif 4/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Space Grotesk": {
+  "faces": [
+   {
+    "bytes": 69360,
+    "file": "Space Grotesk/SpaceGrotesk-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 69416,
+    "file": "Space Grotesk/SpaceGrotesk-500.ttf",
+    "style": "normal",
+    "weight": 500
+   },
+   {
+    "bytes": 69308,
+    "file": "Space Grotesk/SpaceGrotesk-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Space Grotesk/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Space Mono": {
+  "faces": [
+   {
+    "bytes": 100780,
+    "file": "Space Mono/SpaceMono-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 81124,
+    "file": "Space Mono/SpaceMono-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 79904,
+    "file": "Space Mono/SpaceMono-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Space Mono/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Syne": {
+  "faces": [
+   {
+    "bytes": 52368,
+    "file": "Syne/Syne-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 52760,
+    "file": "Syne/Syne-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 52732,
+    "file": "Syne/Syne-700.ttf",
+    "style": "normal",
+    "weight": 700
+   },
+   {
+    "bytes": 52868,
+    "file": "Syne/Syne-800.ttf",
+    "style": "normal",
+    "weight": 800
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Syne/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Tektur": {
+  "faces": [
+   {
+    "bytes": 75604,
+    "file": "Tektur/Tektur-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 76248,
+    "file": "Tektur/Tektur-500.ttf",
+    "style": "normal",
+    "weight": 500
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Tektur/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Unbounded": {
+  "faces": [
+   {
+    "bytes": 343604,
+    "file": "Unbounded/Unbounded-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 348108,
+    "file": "Unbounded/Unbounded-600.ttf",
+    "style": "normal",
+    "weight": 600
+   },
+   {
+    "bytes": 399776,
+    "file": "Unbounded/Unbounded-800.ttf",
+    "style": "normal",
+    "weight": 800
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Unbounded/OFL.txt",
+  "source": "Google Fonts"
+ },
+ "Work Sans": {
+  "faces": [
+   {
+    "bytes": 174280,
+    "file": "Work Sans/WorkSans-400i.ttf",
+    "style": "italic",
+    "weight": 400
+   },
+   {
+    "bytes": 175772,
+    "file": "Work Sans/WorkSans-700i.ttf",
+    "style": "italic",
+    "weight": 700
+   },
+   {
+    "bytes": 188916,
+    "file": "Work Sans/WorkSans-400.ttf",
+    "style": "normal",
+    "weight": 400
+   },
+   {
+    "bytes": 191304,
+    "file": "Work Sans/WorkSans-700.ttf",
+    "style": "normal",
+    "weight": 700
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Work Sans/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ },
+ "Young Serif": {
+  "faces": [
+   {
+    "bytes": 105136,
+    "file": "Young Serif/YoungSerif-400.ttf",
+    "style": "normal",
+    "weight": 400
+   }
+  ],
+  "licence": "SIL Open Font License 1.1",
+  "licence_file": "Young Serif/OFL.txt",
+  "source": "Anthropic canvas-design skill (OFL)"
+ }
+}

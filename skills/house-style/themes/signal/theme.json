@@ -1,0 +1,46 @@
+{
+ "name": "Signal",
+ "summary": "A developer's screen: dark first, a sharp sans with mono details, a faint dot grid, code-comment kickers and an editor status bar with the page count. For product, tech and data talks.",
+ "good_for": ["proposal", "webinar", "talk", "team-update", "report"],
+ "category": "tech",
+ "defaults": {"mode": "dark", "palette": "phosphor"},
+ "fonts": {
+  "display": ["Geist", "sans"], "body": ["Geist", "sans"], "label": ["Geist", "sans"],
+  "stat": ["Geist", "sans"], "mono": ["Geist Mono", "mono"]
+ },
+ "tokens": {
+  "--w-display": "600", "--w-h1": "600", "--w-h2": "600", "--w-body": "400", "--w-strong": "600", "--w-label": "500", "--w-stat": "600",
+  "--track-display": "-0.045em", "--track-h1": "-0.025em", "--track-label": "0.02em", "--label-case": "none",
+  "--lh-display": "1.0", "--lh-h1": "1.08", "--lh-body": "1.45",
+  "--radius": "10px", "--radius-sm": "6px", "--border-w": "1.5px", "--card-pad": "32px", "--icon-stroke": "1.5",
+  "--card-shadow": "none", "--card-border-w": "1px", "--bullet-radius": "2px"
+ },
+ "modes": {
+  "dark": {
+   "bg": "#0D0F12", "bg_alt": "#121519", "surface": "#15181D", "surface_2": "#1B1F25",
+   "ink": "#E6E8EB", "ink_2": "#B4BAC3", "ink_3": "#8A9099", "line": "#272C34",
+   "positive": "#4CC98F", "negative": "#FF6B6B", "warning": "#F5B544",
+   "code_bg": "#08090B", "code_ink": "#E6E8EB", "letterbox": "#050607",
+   "shadow": "0 1px 2px rgba(0, 0, 0, .5), 0 12px 32px rgba(0, 0, 0, .4)",
+   "alt": {"surface": "#1B1F25", "surface_2": "#22272E"}
+  },
+  "light": {
+   "bg": "#FAFAFA", "bg_alt": "#F1F2F4", "surface": "#FFFFFF", "surface_2": "#EDEFF2",
+   "ink": "#0D0F12", "ink_2": "#3E444D", "ink_3": "#5A616C", "line": "#DFE2E6",
+   "positive": "#167A4B", "negative": "#C02A2A", "warning": "#8A5600",
+   "code_bg": "#0D0F12", "code_ink": "#E6E8EB", "letterbox": "#050607",
+   "shadow": "0 1px 2px rgba(13, 15, 18, .06), 0 10px 28px rgba(13, 15, 18, .08)",
+   "alt": {"surface": "#FFFFFF", "surface_2": "#E7E9ED"}
+  }
+ },
+ "palettes": {
+  "phosphor": {"name": "Phosphor", "dark": {"accent": "#FFB224", "accent_2": "#3FD0E0"}, "light": {"accent": "#E09A12", "accent_2": "#0B8A99", "accent_text": "#A15F00"}},
+  "ion": {"name": "Ion", "dark": {"accent": "#3FD0E0", "accent_2": "#A78BFA"}, "light": {"accent": "#0B8A99", "accent_2": "#6D4FD8"}},
+  "ultraviolet": {"name": "Ultraviolet", "dark": {"accent": "#A78BFA", "accent_2": "#3FD0E0"}, "light": {"accent": "#6D4FD8", "accent_2": "#0B8A99"}},
+  "mono": {"name": "Mono", "dark": {"accent": "#E6E8EB", "accent_2": "#8A9099"}, "light": {"accent": "#16191E", "accent_2": "#5A616C"}}
+ },
+ "chart": {
+  "dark": ["#3FD0E0", "#A78BFA", "#FF7A90", "#5BD69B", "#8A9099", "#FFB224"],
+  "light": ["#0B8A99", "#6D4FD8", "#D1435B", "#1A8F5A", "#5A616C", "#C27C00"]
+ }
+}

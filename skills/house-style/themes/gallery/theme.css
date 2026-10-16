@@ -1,0 +1,50 @@
+/* Gallery: signature art. Colours, fonts and shapes come from tokens.css (built from theme.json).
+   Slides are a gallery wall. Each carries a wall label at the foot: the section name, spaced out, and the page
+   number as a catalogue number (the runtime sets data-section-name). Covers and closings hang in a hairline frame
+   with a red dot at its corner; cover, section, statement and closing titles are italic; pictures in the body sit
+   in white mats; captions read like wall labels. */
+/* Cormorant's figures are old style by default, which makes 01 read as "O1": lining figures throughout */
+.pc-deck[data-theme="gallery"] { font-variant-numeric: lining-nums; }
+.pc-deck[data-theme="gallery"] .pc-slide::after {
+  content: attr(data-section-name); position: absolute; left: var(--mx); bottom: calc(var(--mb) * .45); z-index: 2;
+  max-width: 60%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+  font: var(--w-label) max(calc(var(--fs-label) * .9), 16px)/1 var(--font-label); letter-spacing: var(--track-label);
+  text-transform: uppercase; color: var(--ink-3); }
+.pc-deck[data-theme="gallery"] .pc-slide > .pc-num { font-size: max(calc(var(--fs-label) * .9), 16px); letter-spacing: .12em; }
+.pc-deck[data-theme="gallery"] .pc-slide > .pc-num::before { content: "No. "; }
+.pc-deck[data-theme="gallery"] .pc-closing > .pc-num { display: none; }
+.pc-deck[data-theme="gallery"] .pc-split::after { max-width: calc((100% - var(--split)) * .6); }
+.pc-deck[data-theme="gallery"] .pc-split--left::after { left: calc(var(--split) + var(--mx)); }
+.pc-deck[data-theme="gallery"]:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-split--left::after { left: var(--mx); }
+.pc-deck[data-theme="gallery"] .pc-bleed::after { color: rgba(255, 255, 255, .8); }
+
+/* Covers and closings: a hairline frame with a red dot at its lower right corner */
+.pc-deck[data-theme="gallery"] .pc-slide:is(.pc-cover, .pc-closing)::before {
+  content: ""; position: absolute; z-index: -1; inset: calc(var(--mt) * .42) calc(var(--mx) * .42);
+  border: 1px solid color-mix(in srgb, var(--ink) 34%, transparent); }
+.pc-deck[data-theme="gallery"] .pc-slide:is(.pc-cover, .pc-closing)::after {
+  content: ""; left: auto; right: calc(var(--mx) * .42 + 28 * var(--art-px)); bottom: calc(var(--mb) * .42 + 28 * var(--art-px));
+  width: calc(22 * var(--art-px)); height: calc(22 * var(--art-px)); border-radius: 50%; background: var(--accent-2); }
+
+/* Italic display titles */
+.pc-deck[data-theme="gallery"] :is(.pc-cover, .pc-section, .pc-closing, .pc-statement) :is(.pc-title, .pc-say) { font-style: italic; font-weight: 500; }
+.pc-deck[data-theme="gallery"] .pc-title em { font-style: italic; }
+.pc-deck[data-theme="gallery"] :is(.pc-cover, .pc-section, .pc-closing, .pc-statement) .pc-title em { font-style: normal; }
+
+/* Section numbers: a light italic numeral */
+.pc-deck[data-theme="gallery"] .pc-section .pc-section-num {
+  font: italic 400 calc(var(--fs-hero) * 1.9)/0.86 var(--font-display); letter-spacing: 0; font-variant-numeric: lining-nums; color: var(--ink-3); margin-bottom: 8px; }
+
+/* Stats and quotes in the serif */
+.pc-deck[data-theme="gallery"] .pc-stat { font-variant-numeric: lining-nums; letter-spacing: 0; }
+.pc-deck[data-theme="gallery"] .pc-quote blockquote { font-style: italic; }
+
+/* Pictures in the body sit in white mats; split and full-bleed pictures stay full size */
+.pc-deck[data-theme="gallery"] .pc-media:not(.pc-media--side, .pc-media--bg) {
+  padding: calc(26 * var(--art-px)); background: var(--surface); box-shadow: 0 0 0 1px var(--line), var(--shadow); overflow: visible; }
+.pc-deck[data-theme="gallery"] .pc-media:not(.pc-media--side, .pc-media--bg) > :is(img, video) { box-shadow: 0 0 0 1px var(--line); }
+.pc-deck[data-theme="gallery"] .pc-gallery figcaption {
+  margin-top: 18px; font-size: max(calc(var(--fs-label) * .9), 16px); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
+
+/* Cards are plinths: plain panels without rules */
+.pc-deck[data-theme="gallery"] .pc-card:not(.pc-card--accent, .pc-card--soft, .pc-card--flat, .pc-inverse) { border: 0; }

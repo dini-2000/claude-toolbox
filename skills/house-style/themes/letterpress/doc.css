@@ -1,0 +1,47 @@
+/* Letterpress: document art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-doc[data-theme="letterpress"] .pc-cover:not([data-cover="full"])::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: calc(8mm + var(--bleed, 0mm));
+  border: 1.6mm double var(--ink, var(--accent)); }
+.pc-doc[data-theme="letterpress"] .pc-cover:not([data-cover="full"])::after {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 8mm;
+  height: 8mm;
+  left: calc(50% - 8mm / 2 + 0mm);
+  top: 12mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close); }
+.pc-doc[data-theme="letterpress"] .pc-cover:not([data-cover="full"]) > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="letterpress"] .pc-opener {
+  position: relative; }
+.pc-doc[data-theme="letterpress"] .pc-opener::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 6mm;
+  height: 6mm;
+  left: 0mm;
+  top: 0mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close); }
+.pc-doc[data-theme="letterpress"] .pc-opener > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="letterpress"] .pc-chapter > h1::after {
+  content: "";
+  display: block;
+  width: 6pt;
+  height: 6pt;
+  margin: 9pt 0 0;
+  background: var(--accent, var(--accent));
+  -webkit-mask: var(--m-star) center / contain no-repeat;
+  mask: var(--m-star) center / contain no-repeat; }

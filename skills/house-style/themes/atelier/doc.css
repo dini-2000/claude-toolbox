@@ -1,0 +1,51 @@
+/* Atelier: document art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-doc[data-theme="atelier"] .pc-cover:not([data-cover="full"])::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: calc(9mm + var(--bleed, 0mm));
+  border: 1.2mm double var(--accent, var(--accent)); }
+.pc-doc[data-theme="atelier"] .pc-cover:not([data-cover="full"])::after {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 22mm;
+  height: 22mm;
+  left: 14mm;
+  top: 14mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, line to 100% 5%, line to 5% 5%, line to 5% 100%, line to 0% 100%, close, move to 13% 20%, curve to 20% 13% with 13% 16.13% / 16.13% 13%, curve to 27% 20% with 23.87% 13% / 27% 16.13%, curve to 20% 27% with 27% 23.87% / 23.87% 27%, curve to 13% 20% with 16.13% 27% / 13% 23.87%, close, move to 14% 40%, line to 19% 40%, line to 19% 70%, line to 14% 70%, close, move to 40% 14%, line to 40% 19%, line to 70% 19%, line to 70% 14%, close); }
+.pc-doc[data-theme="atelier"] .pc-cover:not([data-cover="full"]) > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="atelier"] .pc-opener {
+  position: relative; }
+.pc-doc[data-theme="atelier"] .pc-opener::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 6mm;
+  height: 6mm;
+  right: 20mm;
+  top: 20mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 0%, line to 100% 50%, line to 50% 100%, line to 0% 50%, close); }
+.pc-doc[data-theme="atelier"] .pc-opener > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="atelier"] .pc-chapter > h1::after {
+  content: "";
+  display: block;
+  width: 6pt;
+  height: 6pt;
+  margin: 9pt 0 0;
+  background: var(--accent, var(--accent));
+  -webkit-mask: var(--m-diamond) center / contain no-repeat;
+  mask: var(--m-diamond) center / contain no-repeat; }
+.pc-doc[data-theme="atelier"] .pc-kicker {
+  width: fit-content;
+  padding-bottom: .35em;
+  border-bottom: .16em solid var(--accent); }

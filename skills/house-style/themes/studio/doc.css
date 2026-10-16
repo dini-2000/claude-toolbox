@@ -1,0 +1,51 @@
+/* Studio: document art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-doc[data-theme="studio"] .pc-cover:not([data-cover="full"])::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 150mm;
+  height: 150mm;
+  right: -50mm;
+  bottom: -55mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(evenodd from 50% 0%, curve to 0% 50% with 22.39% 0% / 0% 22.39%, curve to 50% 100% with 0% 77.61% / 22.39% 100%, curve to 100% 50% with 77.61% 100% / 100% 77.61%, curve to 50% 0% with 100% 22.39% / 77.61% 0%, close, move to 50% 16%, curve to 84% 50% with 68.78% 16% / 84% 31.22%, curve to 50% 84% with 84% 68.78% / 68.78% 84%, curve to 16% 50% with 31.22% 84% / 16% 68.78%, curve to 50% 16% with 16% 31.22% / 31.22% 16%, close); }
+.pc-doc[data-theme="studio"] .pc-cover:not([data-cover="full"])::after {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 12mm;
+  height: 12mm;
+  right: 16mm;
+  top: 16mm;
+  background: var(--ink, var(--accent));
+  clip-path: shape(from 38% 0%, line to 62% 0%, line to 62% 38%, line to 100% 38%, line to 100% 62%, line to 62% 62%, line to 62% 100%, line to 38% 100%, line to 38% 62%, line to 0% 62%, line to 0% 38%, line to 38% 38%, close); }
+.pc-doc[data-theme="studio"] .pc-cover:not([data-cover="full"]) > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="studio"] .pc-opener {
+  position: relative; }
+.pc-doc[data-theme="studio"] .pc-opener::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 8mm;
+  height: 8mm;
+  right: 0mm;
+  top: 0mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 38% 0%, line to 62% 0%, line to 62% 38%, line to 100% 38%, line to 100% 62%, line to 62% 62%, line to 62% 100%, line to 38% 100%, line to 38% 62%, line to 0% 62%, line to 0% 38%, line to 38% 38%, close); }
+.pc-doc[data-theme="studio"] .pc-opener > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="studio"] .pc-chapter > h1::after {
+  content: "";
+  display: block;
+  width: 6pt;
+  height: 6pt;
+  margin: 9pt 0 0;
+  background: var(--accent, var(--accent));
+  -webkit-mask: var(--m-plus) center / contain no-repeat;
+  mask: var(--m-plus) center / contain no-repeat; }

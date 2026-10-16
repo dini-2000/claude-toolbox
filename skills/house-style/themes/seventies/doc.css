@@ -1,0 +1,59 @@
+/* Seventies: document art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-doc[data-theme="seventies"] .pc-cover:not([data-cover="full"])::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 120mm;
+  height: 120mm;
+  right: 0mm;
+  top: 0mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 100% 0% with 0% 44.77% / 44.77% 0%, line to 100% 16%, curve to 16% 100% with 53.61% 16% / 16% 53.61%, close);
+  transform: rotate(-90deg); }
+.pc-doc[data-theme="seventies"] .pc-cover:not([data-cover="full"])::after {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 92mm;
+  height: 92mm;
+  right: 0mm;
+  top: 0mm;
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 100% 0% with 0% 44.77% / 44.77% 0%, line to 100% 16%, curve to 16% 100% with 53.61% 16% / 16% 53.61%, close);
+  transform: rotate(-90deg); }
+.pc-doc[data-theme="seventies"] .pc-cover:not([data-cover="full"]) > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="seventies"] .pc-opener {
+  position: relative; }
+.pc-doc[data-theme="seventies"] .pc-opener::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 24mm;
+  height: 12mm;
+  right: 0mm;
+  top: 0mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 50% 0% with 0% 44.77% / 22.39% 0%, curve to 100% 100% with 77.61% 0% / 100% 44.77%, close); }
+.pc-doc[data-theme="seventies"] .pc-opener > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="seventies"] .pc-chapter > h1::after {
+  content: "";
+  display: block;
+  width: 7pt;
+  height: 7pt;
+  margin: 9pt 0 0;
+  background: var(--accent, var(--accent));
+  -webkit-mask: var(--m-circle) center / contain no-repeat;
+  mask: var(--m-circle) center / contain no-repeat; }
+.pc-doc[data-theme="seventies"] .pc-kicker {
+  width: fit-content;
+  padding: .38em .7em .42em;
+  border-radius: 2px;
+  background: var(--accent-text);
+  color: var(--kicker-on, var(--bg)); }

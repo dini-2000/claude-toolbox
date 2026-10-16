@@ -1,0 +1,123 @@
+/* Studio: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="studio"] {
+  --m-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M38 0h24v38h38v24H62v38H38V62H0V38h38z'/%3E%3C/svg%3E");
+  --m-ring: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill-rule='evenodd' d='M50 0a50 50 0 1 0 0 100a50 50 0 1 0 0-100zm0 16a34 34 0 1 1 0 68a34 34 0 1 1 0-68z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="studio"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(760 * var(--art-px));
+  height: calc(760 * var(--art-px));
+  right: calc(-240 * var(--art-px));
+  top: calc(-300 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(evenodd from 50% 0%, curve to 0% 50% with 22.39% 0% / 0% 22.39%, curve to 50% 100% with 0% 77.61% / 22.39% 100%, curve to 100% 50% with 77.61% 100% / 100% 77.61%, curve to 50% 0% with 100% 22.39% / 77.61% 0%, close, move to 50% 16%, curve to 84% 50% with 68.78% 16% / 84% 31.22%, curve to 50% 84% with 84% 68.78% / 68.78% 84%, curve to 16% 50% with 31.22% 84% / 16% 68.78%, curve to 50% 16% with 16% 31.22% / 31.22% 16%, close); }
+.pc-deck[data-theme="studio"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(456 * var(--art-px));
+  height: calc(456 * var(--art-px));
+  right: calc(-144 * var(--art-px));
+  top: calc(-180 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(evenodd from 50% 0%, curve to 0% 50% with 22.39% 0% / 0% 22.39%, curve to 50% 100% with 0% 77.61% / 22.39% 100%, curve to 100% 50% with 77.61% 100% / 100% 77.61%, curve to 50% 0% with 100% 22.39% / 77.61% 0%, close, move to 50% 16%, curve to 84% 50% with 68.78% 16% / 84% 31.22%, curve to 50% 84% with 84% 68.78% / 68.78% 84%, curve to 16% 50% with 31.22% 84% / 16% 68.78%, curve to 50% 16% with 16% 31.22% / 31.22% 16%, close); }
+.pc-deck[data-theme="studio"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(620 * var(--art-px));
+  height: calc(620 * var(--art-px));
+  right: calc(-260 * var(--art-px));
+  top: calc(50% - calc(620 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: var(--accent, var(--accent));
+  clip-path: shape(evenodd from 50% 0%, curve to 0% 50% with 22.39% 0% / 0% 22.39%, curve to 50% 100% with 0% 77.61% / 22.39% 100%, curve to 100% 50% with 77.61% 100% / 100% 77.61%, curve to 50% 0% with 100% 22.39% / 77.61% 0%, close, move to 50% 16%, curve to 84% 50% with 68.78% 16% / 84% 31.22%, curve to 50% 84% with 84% 68.78% / 68.78% 84%, curve to 16% 50% with 31.22% 84% / 16% 68.78%, curve to 50% 16% with 16% 31.22% / 31.22% 16%, close); }
+.pc-deck[data-theme="studio"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(372 * var(--art-px));
+  height: calc(372 * var(--art-px));
+  right: calc(-156 * var(--art-px));
+  top: calc(50% - calc(372 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: var(--accent, var(--accent));
+  clip-path: shape(evenodd from 50% 0%, curve to 0% 50% with 22.39% 0% / 0% 22.39%, curve to 50% 100% with 0% 77.61% / 22.39% 100%, curve to 100% 50% with 77.61% 100% / 100% 77.61%, curve to 50% 0% with 100% 22.39% / 77.61% 0%, close, move to 50% 16%, curve to 84% 50% with 68.78% 16% / 84% 31.22%, curve to 50% 84% with 84% 68.78% / 68.78% 84%, curve to 16% 50% with 31.22% 84% / 16% 68.78%, curve to 50% 16% with 16% 31.22% / 31.22% 16%, close); }
+.pc-deck[data-theme="studio"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(60 * var(--art-px));
+  height: calc(60 * var(--art-px));
+  right: calc(90 * var(--art-px));
+  top: calc(80 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 38% 0%, line to 62% 0%, line to 62% 38%, line to 100% 38%, line to 100% 62%, line to 62% 62%, line to 62% 100%, line to 38% 100%, line to 38% 62%, line to 0% 62%, line to 0% 38%, line to 38% 38%, close); }
+.pc-deck[data-theme="studio"]:is([data-format="3x1"], [data-format="4x1"]) .pc-statement:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(36 * var(--art-px));
+  height: calc(36 * var(--art-px));
+  right: calc(54 * var(--art-px));
+  top: calc(48 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 38% 0%, line to 62% 0%, line to 62% 38%, line to 100% 38%, line to 100% 62%, line to 62% 62%, line to 62% 100%, line to 38% 100%, line to 38% 62%, line to 0% 62%, line to 0% 38%, line to 38% 38%, close); }
+.pc-deck[data-theme="studio"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(760 * var(--art-px));
+  height: calc(760 * var(--art-px));
+  right: calc(-240 * var(--art-px));
+  top: calc(-300 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(evenodd from 50% 0%, curve to 0% 50% with 22.39% 0% / 0% 22.39%, curve to 50% 100% with 0% 77.61% / 22.39% 100%, curve to 100% 50% with 77.61% 100% / 100% 77.61%, curve to 50% 0% with 100% 22.39% / 77.61% 0%, close, move to 50% 16%, curve to 84% 50% with 68.78% 16% / 84% 31.22%, curve to 50% 84% with 84% 68.78% / 68.78% 84%, curve to 16% 50% with 31.22% 84% / 16% 68.78%, curve to 50% 16% with 16% 31.22% / 31.22% 16%, close); }
+.pc-deck[data-theme="studio"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(456 * var(--art-px));
+  height: calc(456 * var(--art-px));
+  right: calc(-144 * var(--art-px));
+  top: calc(-180 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(evenodd from 50% 0%, curve to 0% 50% with 22.39% 0% / 0% 22.39%, curve to 50% 100% with 0% 77.61% / 22.39% 100%, curve to 100% 50% with 77.61% 100% / 100% 77.61%, curve to 50% 0% with 100% 22.39% / 77.61% 0%, close, move to 50% 16%, curve to 84% 50% with 68.78% 16% / 84% 31.22%, curve to 50% 84% with 84% 68.78% / 68.78% 84%, curve to 16% 50% with 31.22% 84% / 16% 68.78%, curve to 50% 16% with 16% 31.22% / 31.22% 16%, close); }
+.pc-deck[data-theme="studio"] .pc-cover {
+  --cover-w: 76%;
+  --k-hero: .8; }
+.pc-deck[data-theme="studio"]:is([data-format="1x1"], [data-format="4x5"], [data-format="9x16"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-cover {
+  --cover-w: 100%;
+  --k-hero: .66; }
+.pc-deck[data-theme="studio"] .pc-slide:not(.pc-cover, .pc-section, .pc-statement, .pc-closing) {
+  --k-h1: .92;
+  --k-stat: .82; }
+.pc-deck[data-theme="studio"]:is([data-format="1x1"], [data-format="4x5"], [data-format="9x16"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-slide:not(.pc-cover, .pc-section, .pc-statement, .pc-closing) {
+  --k-h1: .8; }
+.pc-deck[data-theme="studio"] .pc-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 1.4em;
+  height: .14em;
+  background: var(--accent);
+  vertical-align: .3em;
+  margin-right: .55em; }
+.pc-deck[data-theme="studio"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 0;
+  background: var(--surface-2); }
+
+/* extra.css */
+/* Syne is wide: initials sit smaller in their circle, and section titles step down on tall formats */
+.pc-deck[data-theme="studio"] .pc-initials { font-size: 54px; }
+.pc-deck[data-theme="studio"]:is([data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-people:not(.pc-keep) .pc-initials,
+.pc-deck[data-theme="studio"]:is([data-format="1x1"], [data-format="9x16"]) .pc-people:not(.pc-keep):has(> :nth-child(5)) .pc-initials { font-size: calc(var(--avatar) * .3); }
+.pc-deck[data-theme="studio"]:is([data-format="1x1"], [data-format="4x5"], [data-format="9x16"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-section { --k-hero: .8; }

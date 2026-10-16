@@ -1,0 +1,250 @@
+{
+ "name": "Letterpress",
+ "summary": "Wood type and ink on cream stock: a heavy slab for titles, a bookish serif for text, condensed caps for labels, double-ruled borders and printer's stars, in red and black. Handsome and old-fashioned, for heritage stories, craft businesses, menus and announcements.",
+ "good_for": [
+  "heritage",
+  "craft",
+  "menu",
+  "announcement",
+  "history",
+  "local-business"
+ ],
+ "category": "retro",
+ "also": [
+  "editorial"
+ ],
+ "defaults": {
+  "mode": "light",
+  "palette": "red"
+ },
+ "fonts": {
+  "display": [
+   "Alfa Slab One",
+   "serif"
+  ],
+  "body": [
+   "Crimson Pro",
+   "serif"
+  ],
+  "label": [
+   "Oswald",
+   "sans"
+  ],
+  "stat": [
+   "Alfa Slab One",
+   "serif"
+  ],
+  "mono": [
+   "IBM Plex Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "400",
+  "--w-h1": "400",
+  "--w-h2": "400",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "500",
+  "--w-stat": "400",
+  "--track-display": "0em",
+  "--track-h1": "0em",
+  "--track-label": "0.14em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.06",
+  "--lh-h1": "1.12",
+  "--lh-body": "1.6",
+  "--radius": "0px",
+  "--radius-sm": "0px",
+  "--border-w": "2px",
+  "--card-pad": "36px",
+  "--icon-stroke": "2"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F3ECDD",
+   "bg_alt": "#EAE1CE",
+   "surface": "#FAF6EC",
+   "surface_2": "#E4D9C2",
+   "ink": "#221F1C",
+   "ink_2": "#433F3A",
+   "ink_3": "#57524C",
+   "line": "#D3C7AE",
+   "positive": "#2F6B45",
+   "negative": "#A3241B",
+   "warning": "#8A5300",
+   "code_bg": "#221F1C",
+   "code_ink": "#EAE1CE",
+   "letterbox": "#141210",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#1D1A17",
+   "bg_alt": "#221E1B",
+   "surface": "#28241F",
+   "surface_2": "#322D27",
+   "ink": "#F3ECDD",
+   "ink_2": "#D6CEBF",
+   "ink_3": "#B0A898",
+   "line": "#3D372F",
+   "positive": "#86C99A",
+   "negative": "#F28B82",
+   "warning": "#E9C27A",
+   "code_bg": "#12100E",
+   "code_ink": "#F3ECDD",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "red": {
+   "name": "Red",
+   "light": {
+    "accent": "#A3241B",
+    "accent_2": "#221F1C"
+   },
+   "dark": {
+    "accent": "#F2846F",
+    "accent_2": "#F3ECDD"
+   }
+  },
+  "blue": {
+   "name": "Blue",
+   "light": {
+    "accent": "#1F3A5F",
+    "accent_2": "#A3241B"
+   },
+   "dark": {
+    "accent": "#9DB7D9",
+    "accent_2": "#F2846F"
+   }
+  },
+  "green": {
+   "name": "Green",
+   "light": {
+    "accent": "#2F5D3A",
+    "accent_2": "#A3241B"
+   },
+   "dark": {
+    "accent": "#9CCB9F",
+    "accent_2": "#F2846F"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#221F1C",
+   "#A3241B",
+   "#1F3A5F",
+   "#8C8273",
+   "#2F5D3A",
+   "#BDB29C"
+  ],
+  "dark": [
+   "#F3ECDD",
+   "#F2846F",
+   "#9DB7D9",
+   "#B0A898",
+   "#9CCB9F",
+   "#5E574D"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "frame",
+     "inset": 26,
+     "thickness": 7,
+     "line": "double",
+     "color": "ink"
+    },
+    {
+     "motif": "star",
+     "at": "t",
+     "size": 34,
+     "y": 52,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "frame",
+     "inset": 26,
+     "thickness": 7,
+     "line": "double",
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "star",
+     "at": "t",
+     "size": 30,
+     "y": 100,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "frame",
+     "inset": 26,
+     "thickness": 7,
+     "line": "double",
+     "color": "ink"
+    },
+    {
+     "motif": "star",
+     "at": "b",
+     "size": 34,
+     "y": 52,
+     "color": "accent"
+    }
+   ]
+  },
+  "kicker": "dash",
+  "cards": "outline",
+  "doc": {
+   "cover": [
+    {
+     "motif": "frame",
+     "inset": 8,
+     "thickness": 1.6,
+     "line": "double",
+     "color": "ink"
+    },
+    {
+     "motif": "star",
+     "at": "t",
+     "size": 8,
+     "y": 12,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "star",
+     "at": "tl",
+     "size": 6,
+     "x": 0,
+     "y": 0,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "star",
+    "size": 6,
+    "color": "accent"
+   }
+  },
+  "vars": {
+   "cover@narrow": {
+    "--cover-w": "100%",
+    "--k-hero": ".82"
+   },
+   "content@narrow": {
+    "--k-h1": ".86"
+   }
+  }
+ }
+}

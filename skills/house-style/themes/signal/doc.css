@@ -1,0 +1,5 @@
+/* Signal in documents: a dot grid on the cover, "// " before kickers, mono running heads and an "n / N" page foot. Built in by tools/build.py with engine/doc.css; the motif pictures come from theme.css. */
+@page { @top-left { font-family: var(--font-mono); } @top-right { font-family: var(--font-mono); } @bottom-right { content: counter(page) " / " counter(pages); font: 500 8pt var(--font-mono); } }
+.pc-doc[data-theme="signal"] .pc-cover:not([data-cover="full"]) { background-image: radial-gradient(circle, color-mix(in srgb, var(--ink) 26%, transparent) .6pt, transparent .75pt); background-size: 5mm 5mm; background-position: var(--bleed, 0mm) var(--bleed, 0mm); }
+.pc-doc[data-theme="signal"] .pc-kicker::before { content: "// "; color: var(--accent-text); }
+.pc-doc[data-theme="signal"] .pc-opener .pc-opener-num { font-family: var(--font-mono); }

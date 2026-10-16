@@ -1,0 +1,182 @@
+/* Seventies: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="seventies"] {
+  --m-arc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0 100A100 100 0 0 1 100 0v16A84 84 0 0 0 16 100z'/%3E%3C/svg%3E");
+  --m-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50'/%3E%3C/svg%3E");
+  --m-half-disc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Cpath d='M0 50a50 50 0 0 1 100 0z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="seventies"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(600 * var(--art-px));
+  height: calc(600 * var(--art-px));
+  right: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 100% 0% with 0% 44.77% / 44.77% 0%, line to 100% 16%, curve to 16% 100% with 53.61% 16% / 16% 53.61%, close);
+  transform: rotate(-90deg); }
+.pc-deck[data-theme="seventies"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(360 * var(--art-px));
+  height: calc(360 * var(--art-px));
+  right: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 100% 0% with 0% 44.77% / 44.77% 0%, line to 100% 16%, curve to 16% 100% with 53.61% 16% / 16% 53.61%, close);
+  transform: rotate(-90deg); }
+.pc-deck[data-theme="seventies"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(460 * var(--art-px));
+  height: calc(460 * var(--art-px));
+  right: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 100% 0% with 0% 44.77% / 44.77% 0%, line to 100% 16%, curve to 16% 100% with 53.61% 16% / 16% 53.61%, close);
+  transform: rotate(-90deg); }
+.pc-deck[data-theme="seventies"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(276 * var(--art-px));
+  height: calc(276 * var(--art-px));
+  right: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 100% 0% with 0% 44.77% / 44.77% 0%, line to 100% 16%, curve to 16% 100% with 53.61% 16% / 16% 53.61%, close);
+  transform: rotate(-90deg); }
+.pc-deck[data-theme="seventies"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(700 * var(--art-px));
+  height: calc(700 * var(--art-px));
+  right: calc(-350 * var(--art-px));
+  top: calc(50% - calc(700 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 50%, curve to 50% 0% with 0% 22.39% / 22.39% 0%, curve to 100% 50% with 77.61% 0% / 100% 22.39%, curve to 50% 100% with 100% 77.61% / 77.61% 100%, curve to 0% 50% with 22.39% 100% / 0% 77.61%, close); }
+.pc-deck[data-theme="seventies"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(420 * var(--art-px));
+  height: calc(420 * var(--art-px));
+  right: calc(-210 * var(--art-px));
+  top: calc(50% - calc(420 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 50%, curve to 50% 0% with 0% 22.39% / 22.39% 0%, curve to 100% 50% with 77.61% 0% / 100% 22.39%, curve to 50% 100% with 100% 77.61% / 77.61% 100%, curve to 0% 50% with 22.39% 100% / 0% 77.61%, close); }
+.pc-deck[data-theme="seventies"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(260 * var(--art-px));
+  height: calc(260 * var(--art-px));
+  right: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 100% 0% with 0% 44.77% / 44.77% 0%, line to 100% 16%, curve to 16% 100% with 53.61% 16% / 16% 53.61%, close);
+  transform: rotate(-90deg); }
+.pc-deck[data-theme="seventies"]:is([data-format="3x1"], [data-format="4x1"]) .pc-statement:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(156 * var(--art-px));
+  height: calc(156 * var(--art-px));
+  right: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 100% 0% with 0% 44.77% / 44.77% 0%, line to 100% 16%, curve to 16% 100% with 53.61% 16% / 16% 53.61%, close);
+  transform: rotate(-90deg); }
+.pc-deck[data-theme="seventies"] .pc-slide:not(.pc-cover, .pc-section, .pc-statement, .pc-closing):not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(60 * var(--art-px));
+  height: calc(30 * var(--art-px));
+  right: calc(44 * var(--art-px));
+  top: calc(40 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 50% 0% with 0% 44.77% / 22.39% 0%, curve to 100% 100% with 77.61% 0% / 100% 44.77%, close); }
+.pc-deck[data-theme="seventies"]:is([data-format="3x1"], [data-format="4x1"]) .pc-slide:not(.pc-cover, .pc-section, .pc-statement, .pc-closing):not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(36 * var(--art-px));
+  height: calc(18 * var(--art-px));
+  right: calc(26.4 * var(--art-px));
+  top: calc(24 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 50% 0% with 0% 44.77% / 22.39% 0%, curve to 100% 100% with 77.61% 0% / 100% 44.77%, close); }
+.pc-deck[data-theme="seventies"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(360 * var(--art-px));
+  height: calc(360 * var(--art-px));
+  left: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 100% 0% with 0% 44.77% / 44.77% 0%, line to 100% 16%, curve to 16% 100% with 53.61% 16% / 16% 53.61%, close);
+  transform: rotate(180deg); }
+.pc-deck[data-theme="seventies"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(216 * var(--art-px));
+  height: calc(216 * var(--art-px));
+  left: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 100% 0% with 0% 44.77% / 44.77% 0%, line to 100% 16%, curve to 16% 100% with 53.61% 16% / 16% 53.61%, close);
+  transform: rotate(180deg); }
+.pc-deck[data-theme="seventies"] .pc-closing:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(270 * var(--art-px));
+  height: calc(270 * var(--art-px));
+  left: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 100% 0% with 0% 44.77% / 44.77% 0%, line to 100% 16%, curve to 16% 100% with 53.61% 16% / 16% 53.61%, close);
+  transform: rotate(180deg); }
+.pc-deck[data-theme="seventies"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(162 * var(--art-px));
+  height: calc(162 * var(--art-px));
+  left: calc(0 * var(--art-px));
+  top: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 100% 0% with 0% 44.77% / 44.77% 0%, line to 100% 16%, curve to 16% 100% with 53.61% 16% / 16% 53.61%, close);
+  transform: rotate(180deg); }
+.pc-deck[data-theme="seventies"] .pc-section {
+  --title-w: 58%; }
+.pc-deck[data-theme="seventies"] .pc-kicker {
+  width: fit-content;
+  padding: .38em .7em .42em;
+  border-radius: 2px;
+  background: var(--accent-text);
+  color: var(--kicker-on, var(--bg)); }
+.pc-deck[data-theme="seventies"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 0;
+  background: var(--surface-2); }

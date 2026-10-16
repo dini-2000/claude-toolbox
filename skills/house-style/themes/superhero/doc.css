@@ -1,0 +1,56 @@
+/* Superhero: document art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-doc[data-theme="superhero"] .pc-cover:not([data-cover="full"])::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 220mm;
+  height: 220mm;
+  right: -80mm;
+  bottom: -80mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 50%, line to 119.7% 43.1%, line to 119.7% 56.9%, close, move to 50% 50%, line to 117% 70.3%, line to 111.7% 83%, close, move to 50% 50%, line to 104.1% 94.4%, line to 94.4% 104.1%, close, move to 50% 50%, line to 83% 111.7%, line to 70.3% 117%, close, move to 50% 50%, line to 56.9% 119.7%, line to 43.1% 119.7%, close, move to 50% 50%, line to 29.7% 117%, line to 17% 111.7%, close, move to 50% 50%, line to 5.6% 104.1%, line to -4.1% 94.4%, close, move to 50% 50%, line to -11.7% 83%, line to -17% 70.3%, close, move to 50% 50%, line to -19.7% 56.9%, line to -19.7% 43.1%, close, move to 50% 50%, line to -17% 29.7%, line to -11.7% 17%, close, move to 50% 50%, line to -4.1% 5.6%, line to 5.6% -4.1%, close, move to 50% 50%, line to 17% -11.7%, line to 29.7% -17%, close, move to 50% 50%, line to 43.1% -19.7%, line to 56.9% -19.7%, close, move to 50% 50%, line to 70.3% -17%, line to 83% -11.7%, close, move to 50% 50%, line to 94.4% -4.1%, line to 104.1% 5.6%, close, move to 50% 50%, line to 111.7% 17%, line to 117% 29.7%, close);
+  opacity: 0.14; }
+.pc-doc[data-theme="superhero"] .pc-cover:not([data-cover="full"])::after {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(4mm + var(--bleed, 0mm));
+  background: var(--accent, var(--accent)); }
+.pc-doc[data-theme="superhero"] .pc-cover:not([data-cover="full"]) > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="superhero"] .pc-opener {
+  position: relative; }
+.pc-doc[data-theme="superhero"] .pc-opener::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(3mm);
+  background: var(--accent, var(--accent)); }
+.pc-doc[data-theme="superhero"] .pc-opener > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="superhero"] .pc-chapter > h1::after {
+  content: "";
+  display: block;
+  width: 7pt;
+  height: 7pt;
+  margin: 9pt 0 0;
+  background: var(--accent, var(--accent));
+  -webkit-mask: var(--m-diamond) center / contain no-repeat;
+  mask: var(--m-diamond) center / contain no-repeat; }
+.pc-doc[data-theme="superhero"] .pc-kicker {
+  width: fit-content;
+  padding: .38em .7em .42em;
+  border-radius: 2px;
+  background: var(--accent-text);
+  color: var(--kicker-on, var(--bg)); }

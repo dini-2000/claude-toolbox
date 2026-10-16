@@ -1,0 +1,276 @@
+{
+  "name": "Bloom",
+  "summary": "Big friendly shapes, rounded type and dotted fields in bright colour. Warm and upbeat, for community, education and launch decks.",
+  "good_for": [
+    "community",
+    "lesson",
+    "launch",
+    "event",
+    "workshop",
+    "team-update"
+  ],
+  "defaults": {
+    "mode": "light",
+    "palette": "berry"
+  },
+  "fonts": {
+    "display": [
+      "Bricolage Grotesque",
+      "sans"
+    ],
+    "body": [
+      "Figtree",
+      "sans"
+    ],
+    "label": [
+      "Figtree",
+      "sans"
+    ],
+    "stat": [
+      "Bricolage Grotesque",
+      "sans"
+    ],
+    "mono": [
+      "Geist Mono",
+      "mono"
+    ]
+  },
+  "tokens": {
+    "--w-display": "800",
+    "--w-h1": "600",
+    "--w-h2": "600",
+    "--w-body": "400",
+    "--w-strong": "600",
+    "--w-label": "600",
+    "--w-stat": "800",
+    "--track-display": "-0.035em",
+    "--track-h1": "-0.02em",
+    "--track-label": "0.1em",
+    "--label-case": "uppercase",
+    "--lh-display": "1.0",
+    "--lh-h1": "1.08",
+    "--lh-body": "1.42",
+    "--radius": "18px",
+    "--radius-sm": "10px",
+    "--border-w": "2px",
+    "--card-pad": "36px",
+    "--icon-stroke": "1.75"
+  },
+  "modes": {
+    "light": {
+      "bg": "#FFFFFF",
+      "bg_alt": "#F4F5F7",
+      "surface": "#FFFFFF",
+      "surface_2": "#F1F2F5",
+      "ink": "#15171C",
+      "ink_2": "#464C59",
+      "ink_3": "#5B6170",
+      "line": "#E3E5EA",
+      "positive": "#1E7B4E",
+      "negative": "#B3261E",
+      "warning": "#9A5B00",
+      "code_bg": "#0F1218",
+      "code_ink": "#E6E8EB",
+      "letterbox": "#0B0C0F",
+      "shadow": "0 1px 2px rgba(16, 24, 40, .06), 0 10px 28px rgba(16, 24, 40, .08)"
+    },
+    "dark": {
+      "bg": "#0F1218",
+      "bg_alt": "#161A22",
+      "surface": "#181C24",
+      "surface_2": "#1F242E",
+      "ink": "#F2F4F7",
+      "ink_2": "#C3C8D2",
+      "ink_3": "#9AA1AD",
+      "line": "#2A303B",
+      "positive": "#4CC38A",
+      "negative": "#FF6B5E",
+      "warning": "#F2B44C",
+      "code_bg": "#0A0C10",
+      "code_ink": "#E6E8EB",
+      "letterbox": "#050608",
+      "shadow": "0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .35)",
+      "alt": {
+        "surface": "#1F242E",
+        "surface_2": "#262C37"
+      }
+    }
+  },
+  "palettes": {
+    "berry": {
+      "name": "Berry",
+      "light": {
+        "accent": "#D6336C",
+        "accent_2": "#F59F00"
+      },
+      "dark": {
+        "accent": "#F06595",
+        "accent_2": "#FFC233"
+      }
+    },
+    "lagoon": {
+      "name": "Lagoon",
+      "light": {
+        "accent": "#1971C2",
+        "accent_2": "#0CA678"
+      },
+      "dark": {
+        "accent": "#4DABF7",
+        "accent_2": "#38D9A9"
+      }
+    },
+    "citrus": {
+      "name": "Citrus",
+      "light": {
+        "accent": "#E8590C",
+        "accent_2": "#2B8A3E"
+      },
+      "dark": {
+        "accent": "#FF922B",
+        "accent_2": "#69DB7C"
+      }
+    },
+    "grape": {
+      "name": "Grape",
+      "light": {
+        "accent": "#7048E8",
+        "accent_2": "#F76707"
+      },
+      "dark": {
+        "accent": "#9775FA",
+        "accent_2": "#FFA94D"
+      }
+    }
+  },
+  "chart": {
+    "light": [
+      "#D6336C",
+      "#1971C2",
+      "#F59F00",
+      "#0CA678",
+      "#7048E8",
+      "#495057"
+    ],
+    "dark": [
+      "#F06595",
+      "#4DABF7",
+      "#FFC233",
+      "#38D9A9",
+      "#9775FA",
+      "#ADB5BD"
+    ]
+  },
+  "category": "bold",
+  "art": {
+    "deck": {
+      "cover": [
+        {
+          "motif": "blob",
+          "at": "tr",
+          "size": 760,
+          "x": -170,
+          "y": -150,
+          "color": "accent"
+        },
+        {
+          "motif": "dots",
+          "at": "br",
+          "w": 320,
+          "h": 200,
+          "x": 60,
+          "y": 50,
+          "color": "ink",
+          "opacity": 0.22,
+          "fade": "radial"
+        }
+      ],
+      "section": [
+        {
+          "motif": "blob-2",
+          "at": "r",
+          "size": 820,
+          "x": -300,
+          "color": "accent"
+        }
+      ],
+      "statement": [
+        {
+          "motif": "squiggle",
+          "at": "bl",
+          "w": 330,
+          "h": 112,
+          "x": "var(--mx)",
+          "y": 40,
+          "color": "accent-2"
+        }
+      ],
+      "closing": [
+        {
+          "motif": "half-disc",
+          "at": "b",
+          "w": 640,
+          "h": 320,
+          "color": "accent"
+        }
+      ],
+      "content": [
+        {
+          "motif": "circle",
+          "at": "tr",
+          "size": 64,
+          "x": 44,
+          "y": 34,
+          "color": "accent-2"
+        }
+      ]
+    },
+    "vars": {
+      "cover": {
+        "--cover-w": "62%"
+      },
+      "section": {
+        "--title-w": "58%"
+      }
+    },
+    "kicker": "pill",
+    "cards": "soft",
+    "doc": {
+      "cover": [
+        {
+          "motif": "blob",
+          "at": "tr",
+          "size": 150,
+          "x": -40,
+          "y": -40,
+          "color": "accent"
+        },
+        {
+          "motif": "dots",
+          "at": "br",
+          "w": 90,
+          "h": 60,
+          "x": 14,
+          "y": 14,
+          "color": "ink",
+          "opacity": 0.2,
+          "fade": "radial"
+        }
+      ],
+      "opener": [
+        {
+          "motif": "blob-2",
+          "at": "tr",
+          "size": 110,
+          "x": -35,
+          "y": -35,
+          "color": "accent"
+        }
+      ],
+      "mark": {
+        "motif": "circle",
+        "size": 7,
+        "color": "accent"
+      }
+    }
+  }
+}

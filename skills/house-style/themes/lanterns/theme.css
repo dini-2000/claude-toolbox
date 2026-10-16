@@ -1,0 +1,181 @@
+/* Lanterns: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="lanterns"] {
+  --m-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50'/%3E%3C/svg%3E");
+  --m-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 100 50 50 100 0 50z'/%3E%3C/svg%3E");
+  --m-rays: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 50L119.7 43.1L119.7 56.9ZM50 50L117.0 70.3L111.7 83.0ZM50 50L104.1 94.4L94.4 104.1ZM50 50L83.0 111.7L70.3 117.0ZM50 50L56.9 119.7L43.1 119.7ZM50 50L29.7 117.0L17.0 111.7ZM50 50L5.6 104.1L-4.1 94.4ZM50 50L-11.7 83.0L-17.0 70.3ZM50 50L-19.7 56.9L-19.7 43.1ZM50 50L-17.0 29.7L-11.7 17.0ZM50 50L-4.1 5.6L5.6 -4.1ZM50 50L17.0 -11.7L29.7 -17.0ZM50 50L43.1 -19.7L56.9 -19.7ZM50 50L70.3 -17.0L83.0 -11.7ZM50 50L94.4 -4.1L104.1 5.6ZM50 50L111.7 17.0L117.0 29.7Z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="lanterns"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(1400 * var(--art-px));
+  height: calc(1400 * var(--art-px));
+  left: calc(50% - calc(1400 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  bottom: calc(-700 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 50%, line to 119.7% 43.1%, line to 119.7% 56.9%, close, move to 50% 50%, line to 117% 70.3%, line to 111.7% 83%, close, move to 50% 50%, line to 104.1% 94.4%, line to 94.4% 104.1%, close, move to 50% 50%, line to 83% 111.7%, line to 70.3% 117%, close, move to 50% 50%, line to 56.9% 119.7%, line to 43.1% 119.7%, close, move to 50% 50%, line to 29.7% 117%, line to 17% 111.7%, close, move to 50% 50%, line to 5.6% 104.1%, line to -4.1% 94.4%, close, move to 50% 50%, line to -11.7% 83%, line to -17% 70.3%, close, move to 50% 50%, line to -19.7% 56.9%, line to -19.7% 43.1%, close, move to 50% 50%, line to -17% 29.7%, line to -11.7% 17%, close, move to 50% 50%, line to -4.1% 5.6%, line to 5.6% -4.1%, close, move to 50% 50%, line to 17% -11.7%, line to 29.7% -17%, close, move to 50% 50%, line to 43.1% -19.7%, line to 56.9% -19.7%, close, move to 50% 50%, line to 70.3% -17%, line to 83% -11.7%, close, move to 50% 50%, line to 94.4% -4.1%, line to 104.1% 5.6%, close, move to 50% 50%, line to 111.7% 17%, line to 117% 29.7%, close);
+  opacity: 0.12; }
+.pc-deck[data-theme="lanterns"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(840 * var(--art-px));
+  height: calc(840 * var(--art-px));
+  left: calc(50% - calc(840 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  bottom: calc(-420 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 50%, line to 119.7% 43.1%, line to 119.7% 56.9%, close, move to 50% 50%, line to 117% 70.3%, line to 111.7% 83%, close, move to 50% 50%, line to 104.1% 94.4%, line to 94.4% 104.1%, close, move to 50% 50%, line to 83% 111.7%, line to 70.3% 117%, close, move to 50% 50%, line to 56.9% 119.7%, line to 43.1% 119.7%, close, move to 50% 50%, line to 29.7% 117%, line to 17% 111.7%, close, move to 50% 50%, line to 5.6% 104.1%, line to -4.1% 94.4%, close, move to 50% 50%, line to -11.7% 83%, line to -17% 70.3%, close, move to 50% 50%, line to -19.7% 56.9%, line to -19.7% 43.1%, close, move to 50% 50%, line to -17% 29.7%, line to -11.7% 17%, close, move to 50% 50%, line to -4.1% 5.6%, line to 5.6% -4.1%, close, move to 50% 50%, line to 17% -11.7%, line to 29.7% -17%, close, move to 50% 50%, line to 43.1% -19.7%, line to 56.9% -19.7%, close, move to 50% 50%, line to 70.3% -17%, line to 83% -11.7%, close, move to 50% 50%, line to 94.4% -4.1%, line to 104.1% 5.6%, close, move to 50% 50%, line to 111.7% 17%, line to 117% 29.7%, close);
+  opacity: 0.12; }
+.pc-deck[data-theme="lanterns"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(700 * var(--art-px));
+  height: calc(700 * var(--art-px));
+  right: calc(-200 * var(--art-px));
+  top: calc(-220 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.55; }
+.pc-deck[data-theme="lanterns"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(420 * var(--art-px));
+  height: calc(420 * var(--art-px));
+  right: calc(-120 * var(--art-px));
+  top: calc(-132 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.55; }
+.pc-deck[data-theme="lanterns"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(800 * var(--art-px));
+  height: calc(800 * var(--art-px));
+  right: calc(-380 * var(--art-px));
+  top: calc(50% - calc(800 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.5; }
+.pc-deck[data-theme="lanterns"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(480 * var(--art-px));
+  height: calc(480 * var(--art-px));
+  right: calc(-228 * var(--art-px));
+  top: calc(50% - calc(480 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.5; }
+.pc-deck[data-theme="lanterns"] .pc-section:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(60 * var(--art-px));
+  height: calc(60 * var(--art-px));
+  right: calc(130 * var(--art-px));
+  top: calc(90 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 50%, curve to 50% 0% with 0% 22.39% / 22.39% 0%, curve to 100% 50% with 77.61% 0% / 100% 22.39%, curve to 50% 100% with 100% 77.61% / 77.61% 100%, curve to 0% 50% with 22.39% 100% / 0% 77.61%, close); }
+.pc-deck[data-theme="lanterns"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(36 * var(--art-px));
+  height: calc(36 * var(--art-px));
+  right: calc(78 * var(--art-px));
+  top: calc(54 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 50%, curve to 50% 0% with 0% 22.39% / 22.39% 0%, curve to 100% 50% with 77.61% 0% / 100% 22.39%, curve to 50% 100% with 100% 77.61% / 77.61% 100%, curve to 0% 50% with 22.39% 100% / 0% 77.61%, close); }
+.pc-deck[data-theme="lanterns"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(900 * var(--art-px));
+  height: calc(900 * var(--art-px));
+  left: calc(50% - calc(900 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(50% - calc(900 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.3; }
+.pc-deck[data-theme="lanterns"]:is([data-format="3x1"], [data-format="4x1"]) .pc-statement:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(540 * var(--art-px));
+  height: calc(540 * var(--art-px));
+  left: calc(50% - calc(540 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(50% - calc(540 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.3; }
+.pc-deck[data-theme="lanterns"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(1400 * var(--art-px));
+  height: calc(1400 * var(--art-px));
+  left: calc(50% - calc(1400 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(-700 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 50%, line to 119.7% 43.1%, line to 119.7% 56.9%, close, move to 50% 50%, line to 117% 70.3%, line to 111.7% 83%, close, move to 50% 50%, line to 104.1% 94.4%, line to 94.4% 104.1%, close, move to 50% 50%, line to 83% 111.7%, line to 70.3% 117%, close, move to 50% 50%, line to 56.9% 119.7%, line to 43.1% 119.7%, close, move to 50% 50%, line to 29.7% 117%, line to 17% 111.7%, close, move to 50% 50%, line to 5.6% 104.1%, line to -4.1% 94.4%, close, move to 50% 50%, line to -11.7% 83%, line to -17% 70.3%, close, move to 50% 50%, line to -19.7% 56.9%, line to -19.7% 43.1%, close, move to 50% 50%, line to -17% 29.7%, line to -11.7% 17%, close, move to 50% 50%, line to -4.1% 5.6%, line to 5.6% -4.1%, close, move to 50% 50%, line to 17% -11.7%, line to 29.7% -17%, close, move to 50% 50%, line to 43.1% -19.7%, line to 56.9% -19.7%, close, move to 50% 50%, line to 70.3% -17%, line to 83% -11.7%, close, move to 50% 50%, line to 94.4% -4.1%, line to 104.1% 5.6%, close, move to 50% 50%, line to 111.7% 17%, line to 117% 29.7%, close);
+  opacity: 0.12; }
+.pc-deck[data-theme="lanterns"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(840 * var(--art-px));
+  height: calc(840 * var(--art-px));
+  left: calc(50% - calc(840 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(-420 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 50%, line to 119.7% 43.1%, line to 119.7% 56.9%, close, move to 50% 50%, line to 117% 70.3%, line to 111.7% 83%, close, move to 50% 50%, line to 104.1% 94.4%, line to 94.4% 104.1%, close, move to 50% 50%, line to 83% 111.7%, line to 70.3% 117%, close, move to 50% 50%, line to 56.9% 119.7%, line to 43.1% 119.7%, close, move to 50% 50%, line to 29.7% 117%, line to 17% 111.7%, close, move to 50% 50%, line to 5.6% 104.1%, line to -4.1% 94.4%, close, move to 50% 50%, line to -11.7% 83%, line to -17% 70.3%, close, move to 50% 50%, line to -19.7% 56.9%, line to -19.7% 43.1%, close, move to 50% 50%, line to -17% 29.7%, line to -11.7% 17%, close, move to 50% 50%, line to -4.1% 5.6%, line to 5.6% -4.1%, close, move to 50% 50%, line to 17% -11.7%, line to 29.7% -17%, close, move to 50% 50%, line to 43.1% -19.7%, line to 56.9% -19.7%, close, move to 50% 50%, line to 70.3% -17%, line to 83% -11.7%, close, move to 50% 50%, line to 94.4% -4.1%, line to 104.1% 5.6%, close, move to 50% 50%, line to 111.7% 17%, line to 117% 29.7%, close);
+  opacity: 0.12; }
+.pc-deck[data-theme="lanterns"] .pc-closing:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(700 * var(--art-px));
+  height: calc(700 * var(--art-px));
+  left: calc(-220 * var(--art-px));
+  bottom: calc(-240 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.55; }
+.pc-deck[data-theme="lanterns"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(420 * var(--art-px));
+  height: calc(420 * var(--art-px));
+  left: calc(-132 * var(--art-px));
+  bottom: calc(-144 * var(--art-px));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.55; }
+.pc-deck[data-theme="lanterns"] .pc-kicker {
+  width: fit-content;
+  padding: .38em .9em .42em;
+  border-radius: 999px;
+  background: var(--accent-text);
+  color: var(--kicker-on, var(--bg)); }
+.pc-deck[data-theme="lanterns"] .pc-card:not(.pc-card--flat) {
+  box-shadow: 0 12px 34px rgba(0, 0, 0, .12);
+  border: 0; }

@@ -1,0 +1,254 @@
+{
+ "name": "Night",
+ "summary": "Near-black slides, a bold geometric sans for headings and a warm amber accent that glows in one corner. Focused and dramatic, for keynotes, evening talks, product stories and tech demos.",
+ "good_for": [
+  "keynote",
+  "talk",
+  "story",
+  "demo",
+  "conference",
+  "launch"
+ ],
+ "category": "dark",
+ "also": [
+  "tech"
+ ],
+ "credit": "colours and fonts from the reveal.js Night theme by Hakim El Hattab and contributors (MIT licence)",
+ "defaults": {
+  "mode": "dark",
+  "palette": "amber"
+ },
+ "fonts": {
+  "display": [
+   "Montserrat",
+   "sans"
+  ],
+  "body": [
+   "Open Sans",
+   "sans"
+  ],
+  "label": [
+   "Montserrat",
+   "sans"
+  ],
+  "stat": [
+   "Montserrat",
+   "sans"
+  ],
+  "mono": [
+   "JetBrains Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "600",
+  "--w-stat": "700",
+  "--track-display": "-0.03em",
+  "--track-h1": "-0.02em",
+  "--track-label": "0.1em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.04",
+  "--lh-h1": "1.1",
+  "--lh-body": "1.5",
+  "--radius": "6px",
+  "--radius-sm": "4px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.75"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FAFAF8",
+   "bg_alt": "#F2F1EE",
+   "surface": "#FFFFFF",
+   "surface_2": "#ECEAE5",
+   "ink": "#111111",
+   "ink_2": "#3A3A3A",
+   "ink_3": "#565656",
+   "line": "#DDDBD5",
+   "positive": "#2E7D32",
+   "negative": "#C62828",
+   "warning": "#975A00",
+   "code_bg": "#111111",
+   "code_ink": "#F2F1EE",
+   "letterbox": "#0A0A0A",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#111111",
+   "bg_alt": "#161616",
+   "surface": "#1B1B1B",
+   "surface_2": "#252525",
+   "ink": "#FFFFFF",
+   "ink_2": "#D6D6D6",
+   "ink_3": "#ADADAD",
+   "line": "#2E2E2E",
+   "positive": "#7BCF7B",
+   "negative": "#F28B82",
+   "warning": "#E7AD52",
+   "code_bg": "#0A0A0A",
+   "code_ink": "#FFFFFF",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "amber": {
+   "name": "Amber",
+   "light": {
+    "accent": "#A86A14",
+    "accent_2": "#3D7EB8"
+   },
+   "dark": {
+    "accent": "#E7AD52",
+    "accent_2": "#7FB5E6"
+   }
+  },
+  "ember": {
+   "name": "Ember",
+   "light": {
+    "accent": "#C2410C",
+    "accent_2": "#A86A14"
+   },
+   "dark": {
+    "accent": "#FF7F50",
+    "accent_2": "#E7AD52"
+   }
+  },
+  "ice": {
+   "name": "Ice",
+   "light": {
+    "accent": "#1C6EA4",
+    "accent_2": "#A86A14"
+   },
+   "dark": {
+    "accent": "#7FC4F0",
+    "accent_2": "#E7AD52"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#A86A14",
+   "#1C6EA4",
+   "#2E7D32",
+   "#C62828",
+   "#6A4C93",
+   "#6B6B6B"
+  ],
+  "dark": [
+   "#E7AD52",
+   "#7FC4F0",
+   "#7BCF7B",
+   "#F28B82",
+   "#B39DDB",
+   "#ADADAD"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "glow",
+     "at": "br",
+     "size": 1100,
+     "x": -420,
+     "y": -460,
+     "color": "accent",
+     "opacity": 0.45
+    },
+    {
+     "motif": "rule",
+     "at": "bl",
+     "w": 120,
+     "h": 6,
+     "x": "var(--mx)",
+     "y": 110,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "glow",
+     "at": "tr",
+     "size": 1000,
+     "x": -380,
+     "y": -420,
+     "color": "accent",
+     "opacity": 0.4
+    }
+   ],
+   "statement": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": 100,
+     "h": 6,
+     "x": "var(--mx)",
+     "y": 100,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "glow",
+     "at": "c",
+     "size": 1300,
+     "color": "accent",
+     "opacity": 0.35
+    }
+   ]
+  },
+  "kicker": "dash",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "glow",
+     "at": "br",
+     "size": 200,
+     "x": -80,
+     "y": -90,
+     "color": "accent",
+     "opacity": 0.45
+    },
+    {
+     "motif": "rule",
+     "at": "bl",
+     "w": 24,
+     "h": 1.5,
+     "x": 0,
+     "y": 28,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": 18,
+     "h": 1.5,
+     "x": 0,
+     "y": 0,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "diamond",
+    "size": 6,
+    "color": "accent"
+   }
+  },
+  "vars": {
+   "cover@narrow": {
+    "--cover-w": "100%",
+    "--k-hero": ".9"
+   }
+  }
+ }
+}

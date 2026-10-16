@@ -1,0 +1,256 @@
+{
+ "name": "Wedding",
+ "summary": "Soft and romantic: blush paper, an elegant Garamond with italics, fine frames and leaf sprigs, in sage, rose or dusk blue. Graceful and quiet, for weddings, engagements, anniversaries, invitations and memorial programmes.",
+ "good_for": [
+  "wedding",
+  "engagement",
+  "anniversary",
+  "invitation",
+  "programme",
+  "memorial"
+ ],
+ "category": "events",
+ "also": [
+  "luxury"
+ ],
+ "defaults": {
+  "mode": "light",
+  "palette": "sage"
+ },
+ "fonts": {
+  "display": [
+   "Cormorant Garamond",
+   "serif"
+  ],
+  "body": [
+   "Crimson Pro",
+   "serif"
+  ],
+  "label": [
+   "Raleway",
+   "sans"
+  ],
+  "stat": [
+   "Cormorant Garamond",
+   "serif"
+  ],
+  "mono": [
+   "DM Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "500",
+  "--w-h1": "500",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "500",
+  "--w-stat": "500",
+  "--track-display": "-0.01em",
+  "--track-h1": "0em",
+  "--track-label": "0.2em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.06",
+  "--lh-h1": "1.12",
+  "--lh-body": "1.55",
+  "--radius": "2px",
+  "--radius-sm": "2px",
+  "--border-w": "1px",
+  "--card-pad": "36px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FBF7F3",
+   "bg_alt": "#F5EEE7",
+   "surface": "#FFFCF9",
+   "surface_2": "#EFE5DC",
+   "ink": "#2C2A2B",
+   "ink_2": "#4B4648",
+   "ink_3": "#5F5A5C",
+   "line": "#E4D8CD",
+   "positive": "#3F7255",
+   "negative": "#A33B4D",
+   "warning": "#8A5A00",
+   "code_bg": "#2C2A2B",
+   "code_ink": "#F5EEE7",
+   "letterbox": "#1A1819",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#1E1C1F",
+   "bg_alt": "#232125",
+   "surface": "#29262B",
+   "surface_2": "#332F35",
+   "ink": "#F6EFE8",
+   "ink_2": "#DAD1C9",
+   "ink_3": "#B3AAA3",
+   "line": "#3C373F",
+   "positive": "#8FC9A6",
+   "negative": "#F09AA8",
+   "warning": "#E9C27A",
+   "code_bg": "#141215",
+   "code_ink": "#F6EFE8",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "sage": {
+   "name": "Sage",
+   "light": {
+    "accent": "#4E6B52",
+    "accent_2": "#A35069"
+   },
+   "dark": {
+    "accent": "#A7C4A9",
+    "accent_2": "#E8A3B6"
+   }
+  },
+  "rose": {
+   "name": "Rose",
+   "light": {
+    "accent": "#A35069",
+    "accent_2": "#4E6B52"
+   },
+   "dark": {
+    "accent": "#E8A3B6",
+    "accent_2": "#A7C4A9"
+   }
+  },
+  "dusk": {
+   "name": "Dusk",
+   "light": {
+    "accent": "#2E3A59",
+    "accent_2": "#A3804A"
+   },
+   "dark": {
+    "accent": "#A6B4D8",
+    "accent_2": "#E0C08A"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#4E6B52",
+   "#A35069",
+   "#A3804A",
+   "#2E3A59",
+   "#8C7B85",
+   "#C9B8A8"
+  ],
+  "dark": [
+   "#A7C4A9",
+   "#E8A3B6",
+   "#E0C08A",
+   "#A6B4D8",
+   "#C2B3BC",
+   "#6E655F"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "frame",
+     "inset": 26,
+     "thickness": 1.5,
+     "color": "accent"
+    },
+    {
+     "motif": "leaf",
+     "at": "tr",
+     "size": 150,
+     "x": 70,
+     "y": 60,
+     "color": "accent-2",
+     "opacity": 0.55,
+     "rotate": 90
+    }
+   ],
+   "section": [
+    {
+     "motif": "frame",
+     "inset": 26,
+     "thickness": 1.5,
+     "color": "accent"
+    },
+    {
+     "motif": "leaf",
+     "at": "bl",
+     "size": 120,
+     "x": 70,
+     "y": 60,
+     "color": "accent-2",
+     "opacity": 0.55,
+     "rotate": -90
+    }
+   ],
+   "statement": [
+    {
+     "motif": "diamond",
+     "at": "t",
+     "size": 22,
+     "y": 110,
+     "color": "accent-2"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "frame",
+     "inset": 26,
+     "thickness": 1.5,
+     "color": "accent"
+    },
+    {
+     "motif": "leaf",
+     "at": "tr",
+     "size": 150,
+     "x": 70,
+     "y": 60,
+     "color": "accent-2",
+     "opacity": 0.55,
+     "rotate": 90
+    }
+   ]
+  },
+  "kicker": "dash",
+  "cards": "outline",
+  "doc": {
+   "cover": [
+    {
+     "motif": "frame",
+     "inset": 8,
+     "thickness": 0.4,
+     "color": "accent"
+    },
+    {
+     "motif": "leaf",
+     "at": "tr",
+     "size": 30,
+     "x": 16,
+     "y": 14,
+     "color": "accent-2",
+     "opacity": 0.55,
+     "rotate": 90
+    }
+   ],
+   "opener": [
+    {
+     "motif": "diamond",
+     "at": "tl",
+     "size": 4,
+     "x": 0,
+     "y": 0,
+     "color": "accent-2"
+    }
+   ],
+   "mark": {
+    "motif": "leaf",
+    "size": 6,
+    "color": "accent-2"
+   }
+  }
+ }
+}

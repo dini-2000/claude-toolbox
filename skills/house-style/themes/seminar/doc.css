@@ -1,0 +1,2 @@
+/* Seminar in documents: the section number and name in the head over a hairline, the natural theme for reports and papers. Built in by tools/build.py with engine/doc.css; the motif pictures come from theme.css. */
+@page { @top-left { border-bottom: .5pt solid color-mix(in srgb, var(--ink) 30%, transparent); } @top-right { border-bottom: .5pt solid color-mix(in srgb, var(--ink) 30%, transparent); } }

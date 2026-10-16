@@ -1,0 +1,164 @@
+/* Schematic: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="schematic"] {
+  --m-corner: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M0 0h100v5H5v95H0z'/%3E%3Ccircle cx='20' cy='20' r='7'/%3E%3Cpath d='M14 40h5v30h-5zM40 14v5h30v-5z'/%3E%3C/svg%3E");
+  --m-cross: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath transform='rotate(45 50 50)' d='M40 0h20v40h40v20H60v40H40V60H0V40h40z'/%3E%3C/svg%3E");
+  --m-graph: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E%3Cpath d='M0 0h50v1H1v49H0z'/%3E%3Cpath opacity='.45' d='M10 0h.4v50H10zM20 0h.4v50H20zM30 0h.4v50H30zM40 0h.4v50H40zM0 10h50v.4H0zM0 20h50v.4H0zM0 30h50v.4H0zM0 40h50v.4H0z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="schematic"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  background: var(--line, var(--accent));
+  -webkit-mask: var(--m-graph) 0 0 / calc(80 * var(--art-px)) calc(80 * var(--art-px)) repeat;
+  mask: var(--m-graph) 0 0 / calc(80 * var(--art-px)) calc(80 * var(--art-px)) repeat;
+  opacity: 0.9; }
+.pc-deck[data-theme="schematic"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  background: var(--line, var(--accent));
+  -webkit-mask: var(--m-graph) 0 0 / calc(48 * var(--art-px)) calc(48 * var(--art-px)) repeat;
+  mask: var(--m-graph) 0 0 / calc(48 * var(--art-px)) calc(48 * var(--art-px)) repeat;
+  opacity: 0.9; }
+.pc-deck[data-theme="schematic"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(70 * var(--art-px));
+  height: calc(70 * var(--art-px));
+  left: calc(34 * var(--art-px));
+  top: calc(34 * var(--art-px));
+  background: var(--ink, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, line to 100% 5%, line to 5% 5%, line to 5% 100%, line to 0% 100%, close, move to 13% 20%, curve to 20% 13% with 13% 16.13% / 16.13% 13%, curve to 27% 20% with 23.87% 13% / 27% 16.13%, curve to 20% 27% with 27% 23.87% / 23.87% 27%, curve to 13% 20% with 16.13% 27% / 13% 23.87%, close, move to 14% 40%, line to 19% 40%, line to 19% 70%, line to 14% 70%, close, move to 40% 14%, line to 40% 19%, line to 70% 19%, line to 70% 14%, close); }
+.pc-deck[data-theme="schematic"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(42 * var(--art-px));
+  height: calc(42 * var(--art-px));
+  left: calc(20.4 * var(--art-px));
+  top: calc(20.4 * var(--art-px));
+  background: var(--ink, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, line to 100% 5%, line to 5% 5%, line to 5% 100%, line to 0% 100%, close, move to 13% 20%, curve to 20% 13% with 13% 16.13% / 16.13% 13%, curve to 27% 20% with 23.87% 13% / 27% 16.13%, curve to 20% 27% with 27% 23.87% / 23.87% 27%, curve to 13% 20% with 16.13% 27% / 13% 23.87%, close, move to 14% 40%, line to 19% 40%, line to 19% 70%, line to 14% 70%, close, move to 40% 14%, line to 40% 19%, line to 70% 19%, line to 70% 14%, close); }
+.pc-deck[data-theme="schematic"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  background: var(--line, var(--accent));
+  -webkit-mask: var(--m-graph) 0 0 / calc(80 * var(--art-px)) calc(80 * var(--art-px)) repeat;
+  mask: var(--m-graph) 0 0 / calc(80 * var(--art-px)) calc(80 * var(--art-px)) repeat;
+  opacity: 0.9; }
+.pc-deck[data-theme="schematic"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  background: var(--line, var(--accent));
+  -webkit-mask: var(--m-graph) 0 0 / calc(48 * var(--art-px)) calc(48 * var(--art-px)) repeat;
+  mask: var(--m-graph) 0 0 / calc(48 * var(--art-px)) calc(48 * var(--art-px)) repeat;
+  opacity: 0.9; }
+.pc-deck[data-theme="schematic"] .pc-section:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(50 * var(--art-px));
+  height: calc(50 * var(--art-px));
+  right: calc(60 * var(--art-px));
+  top: calc(60 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 78.28% 7.57%, line to 92.43% 21.72%, line to 64.14% 50%, line to 92.43% 78.28%, line to 78.28% 92.43%, line to 50% 64.14%, line to 21.72% 92.43%, line to 7.57% 78.28%, line to 35.86% 50%, line to 7.57% 21.72%, line to 21.72% 7.57%, line to 50% 35.86%, close); }
+.pc-deck[data-theme="schematic"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(30 * var(--art-px));
+  height: calc(30 * var(--art-px));
+  right: calc(36 * var(--art-px));
+  top: calc(36 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 78.28% 7.57%, line to 92.43% 21.72%, line to 64.14% 50%, line to 92.43% 78.28%, line to 78.28% 92.43%, line to 50% 64.14%, line to 21.72% 92.43%, line to 7.57% 78.28%, line to 35.86% 50%, line to 7.57% 21.72%, line to 21.72% 7.57%, line to 50% 35.86%, close); }
+.pc-deck[data-theme="schematic"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(70 * var(--art-px));
+  height: calc(70 * var(--art-px));
+  left: calc(34 * var(--art-px));
+  top: calc(34 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, line to 100% 5%, line to 5% 5%, line to 5% 100%, line to 0% 100%, close, move to 13% 20%, curve to 20% 13% with 13% 16.13% / 16.13% 13%, curve to 27% 20% with 23.87% 13% / 27% 16.13%, curve to 20% 27% with 27% 23.87% / 23.87% 27%, curve to 13% 20% with 16.13% 27% / 13% 23.87%, close, move to 14% 40%, line to 19% 40%, line to 19% 70%, line to 14% 70%, close, move to 40% 14%, line to 40% 19%, line to 70% 19%, line to 70% 14%, close); }
+.pc-deck[data-theme="schematic"]:is([data-format="3x1"], [data-format="4x1"]) .pc-statement:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(42 * var(--art-px));
+  height: calc(42 * var(--art-px));
+  left: calc(20.4 * var(--art-px));
+  top: calc(20.4 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, line to 100% 5%, line to 5% 5%, line to 5% 100%, line to 0% 100%, close, move to 13% 20%, curve to 20% 13% with 13% 16.13% / 16.13% 13%, curve to 27% 20% with 23.87% 13% / 27% 16.13%, curve to 20% 27% with 27% 23.87% / 23.87% 27%, curve to 13% 20% with 16.13% 27% / 13% 23.87%, close, move to 14% 40%, line to 19% 40%, line to 19% 70%, line to 14% 70%, close, move to 40% 14%, line to 40% 19%, line to 70% 19%, line to 70% 14%, close); }
+.pc-deck[data-theme="schematic"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  background: var(--line, var(--accent));
+  -webkit-mask: var(--m-graph) 0 0 / calc(80 * var(--art-px)) calc(80 * var(--art-px)) repeat;
+  mask: var(--m-graph) 0 0 / calc(80 * var(--art-px)) calc(80 * var(--art-px)) repeat;
+  opacity: 0.9; }
+.pc-deck[data-theme="schematic"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  background: var(--line, var(--accent));
+  -webkit-mask: var(--m-graph) 0 0 / calc(48 * var(--art-px)) calc(48 * var(--art-px)) repeat;
+  mask: var(--m-graph) 0 0 / calc(48 * var(--art-px)) calc(48 * var(--art-px)) repeat;
+  opacity: 0.9; }
+.pc-deck[data-theme="schematic"] .pc-closing:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(70 * var(--art-px));
+  height: calc(70 * var(--art-px));
+  right: calc(34 * var(--art-px));
+  bottom: calc(34 * var(--art-px));
+  background: var(--ink, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, line to 100% 5%, line to 5% 5%, line to 5% 100%, line to 0% 100%, close, move to 13% 20%, curve to 20% 13% with 13% 16.13% / 16.13% 13%, curve to 27% 20% with 23.87% 13% / 27% 16.13%, curve to 20% 27% with 27% 23.87% / 23.87% 27%, curve to 13% 20% with 16.13% 27% / 13% 23.87%, close, move to 14% 40%, line to 19% 40%, line to 19% 70%, line to 14% 70%, close, move to 40% 14%, line to 40% 19%, line to 70% 19%, line to 70% 14%, close);
+  transform: rotate(180deg); }
+.pc-deck[data-theme="schematic"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(42 * var(--art-px));
+  height: calc(42 * var(--art-px));
+  right: calc(20.4 * var(--art-px));
+  bottom: calc(20.4 * var(--art-px));
+  background: var(--ink, var(--accent));
+  clip-path: shape(from 0% 0%, line to 100% 0%, line to 100% 5%, line to 5% 5%, line to 5% 100%, line to 0% 100%, close, move to 13% 20%, curve to 20% 13% with 13% 16.13% / 16.13% 13%, curve to 27% 20% with 23.87% 13% / 27% 16.13%, curve to 20% 27% with 27% 23.87% / 23.87% 27%, curve to 13% 20% with 16.13% 27% / 13% 23.87%, close, move to 14% 40%, line to 19% 40%, line to 19% 70%, line to 14% 70%, close, move to 40% 14%, line to 40% 19%, line to 70% 19%, line to 70% 14%, close);
+  transform: rotate(180deg); }
+.pc-deck[data-theme="schematic"] .pc-kicker {
+  width: fit-content;
+  padding: .34em .8em .38em;
+  border-radius: 999px;
+  border: .1em solid currentColor; }
+.pc-deck[data-theme="schematic"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 2px solid var(--ink); }

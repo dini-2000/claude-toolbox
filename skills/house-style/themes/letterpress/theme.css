@@ -1,0 +1,107 @@
+/* Letterpress: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="letterpress"] {
+  --m-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50.0 0.0L62.3 33.0L97.6 34.5L70.0 56.5L79.4 90.5L50.0 71.0L20.6 90.5L30.0 56.5L2.4 34.5L37.7 33.0Z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="letterpress"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: calc(26 * var(--art-px));
+  border: calc(7 * var(--art-px)) double var(--ink, var(--accent)); }
+.pc-deck[data-theme="letterpress"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(34 * var(--art-px));
+  height: calc(34 * var(--art-px));
+  left: calc(50% - calc(34 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(52 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close); }
+.pc-deck[data-theme="letterpress"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(20.4 * var(--art-px));
+  height: calc(20.4 * var(--art-px));
+  left: calc(50% - calc(20.4 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(31.2 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close); }
+.pc-deck[data-theme="letterpress"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: calc(26 * var(--art-px));
+  border: calc(7 * var(--art-px)) double var(--accent, var(--accent)); }
+.pc-deck[data-theme="letterpress"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(30 * var(--art-px));
+  height: calc(30 * var(--art-px));
+  left: calc(50% - calc(30 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(100 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close); }
+.pc-deck[data-theme="letterpress"]:is([data-format="3x1"], [data-format="4x1"]) .pc-statement:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(18 * var(--art-px));
+  height: calc(18 * var(--art-px));
+  left: calc(50% - calc(18 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(60 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close); }
+.pc-deck[data-theme="letterpress"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: calc(26 * var(--art-px));
+  border: calc(7 * var(--art-px)) double var(--ink, var(--accent)); }
+.pc-deck[data-theme="letterpress"] .pc-closing:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(34 * var(--art-px));
+  height: calc(34 * var(--art-px));
+  left: calc(50% - calc(34 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  bottom: calc(52 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close); }
+.pc-deck[data-theme="letterpress"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(20.4 * var(--art-px));
+  height: calc(20.4 * var(--art-px));
+  left: calc(50% - calc(20.4 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  bottom: calc(31.2 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close); }
+.pc-deck[data-theme="letterpress"]:is([data-format="1x1"], [data-format="4x5"], [data-format="9x16"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-cover {
+  --cover-w: 100%;
+  --k-hero: .82; }
+.pc-deck[data-theme="letterpress"]:is([data-format="1x1"], [data-format="4x5"], [data-format="9x16"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-slide:not(.pc-cover, .pc-section, .pc-statement, .pc-closing) {
+  --k-h1: .86; }
+.pc-deck[data-theme="letterpress"] .pc-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 1.4em;
+  height: .14em;
+  background: var(--accent);
+  vertical-align: .3em;
+  margin-right: .55em; }
+.pc-deck[data-theme="letterpress"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 2px solid var(--ink); }

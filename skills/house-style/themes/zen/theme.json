@@ -1,0 +1,275 @@
+{
+ "name": "Zen",
+ "summary": "Warm off-white space, a light sans, wide-spaced labels and a single brush-like ring. Calm and spare, for reflective talks, wellness, design reviews and quiet reports.",
+ "good_for": [
+  "talk",
+  "wellness",
+  "design",
+  "report",
+  "retreat",
+  "portfolio"
+ ],
+ "category": "minimal",
+ "defaults": {
+  "mode": "light",
+  "palette": "vermilion"
+ },
+ "fonts": {
+  "display": [
+   "Raleway",
+   "sans"
+  ],
+  "body": [
+   "Lato",
+   "sans"
+  ],
+  "label": [
+   "Lato",
+   "sans"
+  ],
+  "stat": [
+   "Raleway",
+   "sans"
+  ],
+  "mono": [
+   "IBM Plex Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "500",
+  "--w-h1": "500",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "700",
+  "--w-stat": "400",
+  "--track-display": "-0.01em",
+  "--track-h1": "0em",
+  "--track-label": "0.22em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.08",
+  "--lh-h1": "1.15",
+  "--lh-body": "1.55",
+  "--radius": "2px",
+  "--radius-sm": "2px",
+  "--border-w": "1px",
+  "--card-pad": "40px",
+  "--icon-stroke": "1.25"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F7F5F0",
+   "bg_alt": "#F0EDE6",
+   "surface": "#FCFBF8",
+   "surface_2": "#EFEBE3",
+   "ink": "#22211F",
+   "ink_2": "#4F4C47",
+   "ink_3": "#6E6A63",
+   "line": "#E2DDD3",
+   "positive": "#3F6B4A",
+   "negative": "#A3352A",
+   "warning": "#7D5A12",
+   "code_bg": "#22211F",
+   "code_ink": "#F0EDE6",
+   "letterbox": "#0F0F0E",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#161615",
+   "bg_alt": "#1C1C1A",
+   "surface": "#1F1F1D",
+   "surface_2": "#282826",
+   "ink": "#EEEBE4",
+   "ink_2": "#C9C5BC",
+   "ink_3": "#A19D94",
+   "line": "#34332F",
+   "positive": "#8EC79B",
+   "negative": "#F0907F",
+   "warning": "#E3BE6E",
+   "code_bg": "#0D0D0C",
+   "code_ink": "#EEEBE4",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "vermilion": {
+   "name": "Vermilion",
+   "light": {
+    "accent": "#B83B26",
+    "accent_2": "#6B7F6A"
+   },
+   "dark": {
+    "accent": "#F07F66",
+    "accent_2": "#A8BCA6"
+   }
+  },
+  "moss": {
+   "name": "Moss",
+   "light": {
+    "accent": "#4F6B4C",
+    "accent_2": "#9A7B4F"
+   },
+   "dark": {
+    "accent": "#A8C4A2",
+    "accent_2": "#D2B98C"
+   }
+  },
+  "indigo": {
+   "name": "Indigo",
+   "light": {
+    "accent": "#2F4A7A",
+    "accent_2": "#B83B26"
+   },
+   "dark": {
+    "accent": "#9DB4E0",
+    "accent_2": "#F07F66"
+   }
+  },
+  "rosepine": {
+   "name": "Rosé Pine",
+   "credit": "Rosé Pine colours (Dawn and main) by the Rosé Pine team (MIT licence)",
+   "light": {
+    "accent": "#B4637A",
+    "accent_2": "#286983",
+    "neutrals": {
+     "bg": "#FAF4ED",
+     "bg_alt": "#F2E9E1",
+     "surface": "#FFFAF3",
+     "surface_2": "#F2E9E1",
+     "ink": "#575279",
+     "ink_2": "#6E6A86",
+     "ink_3": "#797593",
+     "line": "#DFDAD9",
+     "code_bg": "#191724",
+     "code_ink": "#E0DEF4",
+     "letterbox": "#191724",
+     "alt": {
+      "surface": "#FFFAF3",
+      "surface_2": "#F4EDE8"
+     },
+     "positive": "#286983",
+     "negative": "#B4637A",
+     "warning": "#EA9D34"
+    }
+   },
+   "dark": {
+    "accent": "#EBBCBA",
+    "accent_2": "#9CCFD8",
+    "neutrals": {
+     "bg": "#191724",
+     "bg_alt": "#1F1D2E",
+     "surface": "#1F1D2E",
+     "surface_2": "#26233A",
+     "ink": "#E0DEF4",
+     "ink_2": "#C4C1DC",
+     "ink_3": "#908CAA",
+     "line": "#403D52",
+     "code_bg": "#16141F",
+     "code_ink": "#E0DEF4",
+     "letterbox": "#0F0E17",
+     "alt": {
+      "surface": "#26233A",
+      "surface_2": "#2E2A44"
+     },
+     "positive": "#9CCFD8",
+     "negative": "#EB6F92",
+     "warning": "#F6C177"
+    }
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#B83B26",
+   "#4F6B4C",
+   "#2F4A7A",
+   "#9A7B4F",
+   "#6E6A63",
+   "#7E5A8C"
+  ],
+  "dark": [
+   "#F07F66",
+   "#A8C4A2",
+   "#9DB4E0",
+   "#D2B98C",
+   "#A19D94",
+   "#C7A6D6"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "ring",
+     "at": "tr",
+     "size": 420,
+     "x": 140,
+     "y": 140,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 22,
+     "x": 104,
+     "y": 96,
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": 60,
+     "h": 2,
+     "x": "var(--mx)",
+     "y": 90,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "ring",
+     "at": "tr",
+     "size": 300,
+     "x": 140,
+     "y": 140,
+     "color": "accent"
+    }
+   ]
+  },
+  "kicker": "dash",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "ring",
+     "at": "tr",
+     "size": 70,
+     "x": 24,
+     "y": 24,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 5,
+     "x": 22,
+     "y": 22,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "circle",
+    "size": 6,
+    "color": "accent"
+   }
+  }
+ }
+}

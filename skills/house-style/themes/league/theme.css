@@ -1,0 +1,140 @@
+/* League: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="league"] {
+  --m-diamond: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 100 50 50 100 0 50z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="league"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(1700 * var(--art-px));
+  height: calc(1700 * var(--art-px));
+  left: calc(50% - calc(1700 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(50% - calc(1700 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--surface-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 1; }
+.pc-deck[data-theme="league"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(1020 * var(--art-px));
+  height: calc(1020 * var(--art-px));
+  left: calc(50% - calc(1020 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(50% - calc(1020 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--surface-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 1; }
+.pc-deck[data-theme="league"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(calc(14 * var(--art-px)));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="league"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(1500 * var(--art-px));
+  height: calc(1500 * var(--art-px));
+  left: calc(50% - calc(1500 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(50% - calc(1500 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--surface-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 1; }
+.pc-deck[data-theme="league"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(900 * var(--art-px));
+  height: calc(900 * var(--art-px));
+  left: calc(50% - calc(900 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(50% - calc(900 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--surface-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 1; }
+.pc-deck[data-theme="league"] .pc-section:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: calc(calc(20 * var(--art-px)));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="league"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(1500 * var(--art-px));
+  height: calc(1500 * var(--art-px));
+  left: calc(50% - calc(1500 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(50% - calc(1500 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--surface-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 1; }
+.pc-deck[data-theme="league"]:is([data-format="3x1"], [data-format="4x1"]) .pc-statement:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(900 * var(--art-px));
+  height: calc(900 * var(--art-px));
+  left: calc(50% - calc(900 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(50% - calc(900 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--surface-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 1; }
+.pc-deck[data-theme="league"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(1700 * var(--art-px));
+  height: calc(1700 * var(--art-px));
+  left: calc(50% - calc(1700 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(50% - calc(1700 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--surface-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 1; }
+.pc-deck[data-theme="league"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(1020 * var(--art-px));
+  height: calc(1020 * var(--art-px));
+  left: calc(50% - calc(1020 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  top: calc(50% - calc(1020 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--surface-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 1; }
+.pc-deck[data-theme="league"] .pc-closing:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(calc(14 * var(--art-px)));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="league"] .pc-kicker {
+  width: fit-content;
+  padding: .38em .7em .42em;
+  border-radius: 2px;
+  background: var(--accent-text);
+  color: var(--kicker-on, var(--bg)); }
+.pc-deck[data-theme="league"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 0;
+  background: var(--surface-2); }

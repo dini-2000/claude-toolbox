@@ -1,0 +1,251 @@
+{
+ "name": "Solar",
+ "summary": "The Solarized colours: deep teal-black or warm cream, muted greys and eight clear accents, with a sun of rays on the cover. Easy on the eyes, for developer talks, technical reviews and data walk-throughs.",
+ "good_for": [
+  "tech",
+  "developer",
+  "review",
+  "data",
+  "talk",
+  "tutorial"
+ ],
+ "category": "tech",
+ "credit": "Solarized colours by Ethan Schoonover (MIT licence), as used in Bootswatch Solar by Thomas Park (MIT licence)",
+ "defaults": {
+  "mode": "dark",
+  "palette": "blue"
+ },
+ "fonts": {
+  "display": [
+   "Source Sans 3",
+   "sans"
+  ],
+  "body": [
+   "Source Sans 3",
+   "sans"
+  ],
+  "label": [
+   "Source Sans 3",
+   "sans"
+  ],
+  "stat": [
+   "Source Sans 3",
+   "sans"
+  ],
+  "mono": [
+   "Source Code Pro",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "600",
+  "--w-h1": "600",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "600",
+  "--w-stat": "600",
+  "--track-display": "-0.02em",
+  "--track-h1": "-0.01em",
+  "--track-label": "0.08em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.04",
+  "--lh-h1": "1.1",
+  "--lh-body": "1.5",
+  "--radius": "6px",
+  "--radius-sm": "4px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.75"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FDF6E3",
+   "bg_alt": "#F5EEDA",
+   "surface": "#FFFBF0",
+   "surface_2": "#EEE8D5",
+   "ink": "#073642",
+   "ink_2": "#586E75",
+   "ink_3": "#5E7379",
+   "line": "#E2DBC6",
+   "positive": "#5F7000",
+   "negative": "#C42B28",
+   "warning": "#8A6800",
+   "code_bg": "#073642",
+   "code_ink": "#EEE8D5",
+   "letterbox": "#002B36",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#002B36",
+   "bg_alt": "#03313D",
+   "surface": "#073642",
+   "surface_2": "#0B4250",
+   "ink": "#EEE8D5",
+   "ink_2": "#93A1A1",
+   "ink_3": "#839496",
+   "line": "#12505E",
+   "positive": "#9BB000",
+   "negative": "#F0605D",
+   "warning": "#D9A400",
+   "code_bg": "#00212B",
+   "code_ink": "#EEE8D5",
+   "letterbox": "#001B22",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "blue": {
+   "name": "Blue",
+   "light": {
+    "accent": "#268BD2",
+    "accent_2": "#B58900"
+   },
+   "dark": {
+    "accent": "#268BD2",
+    "accent_2": "#B58900"
+   }
+  },
+  "yellow": {
+   "name": "Yellow",
+   "light": {
+    "accent": "#B58900",
+    "accent_2": "#CB4B16"
+   },
+   "dark": {
+    "accent": "#B58900",
+    "accent_2": "#CB4B16"
+   }
+  },
+  "magenta": {
+   "name": "Magenta",
+   "light": {
+    "accent": "#D33682",
+    "accent_2": "#6C71C4"
+   },
+   "dark": {
+    "accent": "#D33682",
+    "accent_2": "#6C71C4"
+   }
+  },
+  "cyan": {
+   "name": "Cyan",
+   "light": {
+    "accent": "#2AA198",
+    "accent_2": "#859900"
+   },
+   "dark": {
+    "accent": "#2AA198",
+    "accent_2": "#859900"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#268BD2",
+   "#2AA198",
+   "#859900",
+   "#B58900",
+   "#CB4B16",
+   "#D33682"
+  ],
+  "dark": [
+   "#268BD2",
+   "#2AA198",
+   "#859900",
+   "#B58900",
+   "#CB4B16",
+   "#D33682"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "rays",
+     "at": "tr",
+     "size": 620,
+     "x": -20,
+     "y": -40,
+     "color": "#B58900",
+     "opacity": 0.35
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 260,
+     "x": 160,
+     "y": 140,
+     "color": "#B58900"
+    }
+   ],
+   "section": [
+    {
+     "motif": "quarter-disc",
+     "at": "tr",
+     "size": 380,
+     "rotate": 90,
+     "color": "#B58900"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "circle",
+     "at": "tl",
+     "size": 40,
+     "x": "var(--mx)",
+     "y": 80,
+     "color": "#B58900"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "half-disc",
+     "at": "b",
+     "w": 640,
+     "h": 320,
+     "color": "#B58900",
+     "opacity": 0.9
+    }
+   ]
+  },
+  "kicker": "dash",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "rays",
+     "at": "tr",
+     "size": 110,
+     "x": -2,
+     "y": -6,
+     "color": "#B58900",
+     "opacity": 0.35
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 46,
+     "x": 30,
+     "y": 26,
+     "color": "#B58900"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 6,
+     "x": 0,
+     "y": 0,
+     "color": "#B58900"
+    }
+   ],
+   "mark": {
+    "motif": "circle",
+    "size": 6,
+    "color": "accent"
+   }
+  }
+ }
+}

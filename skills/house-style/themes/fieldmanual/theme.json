@@ -1,0 +1,246 @@
+{
+ "name": "Field Manual",
+ "summary": "Industrial and stencilled: khaki paper, tall condensed uppercase headings, olive drab, safety-orange hazard stripes and square corners. Tough and practical, for operations, safety briefings, field guides and site plans.",
+ "good_for": [
+  "operations",
+  "safety",
+  "field-guide",
+  "site-plan",
+  "logistics",
+  "training"
+ ],
+ "category": "engineering",
+ "defaults": {
+  "mode": "light",
+  "palette": "olive"
+ },
+ "fonts": {
+  "display": [
+   "Big Shoulders",
+   "sans"
+  ],
+  "body": [
+   "Barlow",
+   "sans"
+  ],
+  "label": [
+   "Barlow Condensed",
+   "sans"
+  ],
+  "stat": [
+   "Big Shoulders",
+   "sans"
+  ],
+  "mono": [
+   "Space Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "700",
+  "--w-body": "400",
+  "--w-strong": "600",
+  "--w-label": "600",
+  "--w-stat": "700",
+  "--track-display": "0.01em",
+  "--track-h1": "0.01em",
+  "--track-label": "0.1em",
+  "--label-case": "uppercase",
+  "--lh-display": "0.98",
+  "--lh-h1": "1.04",
+  "--lh-body": "1.5",
+  "--radius": "0px",
+  "--radius-sm": "0px",
+  "--border-w": "2px",
+  "--card-pad": "34px",
+  "--icon-stroke": "2"
+ },
+ "modes": {
+  "light": {
+   "bg": "#ECE7D6",
+   "bg_alt": "#E3DDC8",
+   "surface": "#F6F2E4",
+   "surface_2": "#DDD6BE",
+   "ink": "#1E1F1A",
+   "ink_2": "#3A3B33",
+   "ink_3": "#4F5046",
+   "line": "#C9C1A6",
+   "positive": "#3D6B1F",
+   "negative": "#B3261E",
+   "warning": "#8A5300",
+   "code_bg": "#1E1F1A",
+   "code_ink": "#ECE7D6",
+   "letterbox": "#12130F",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#1C1E17",
+   "bg_alt": "#21241B",
+   "surface": "#262920",
+   "surface_2": "#30342A",
+   "ink": "#ECE7D6",
+   "ink_2": "#CFCAB8",
+   "ink_3": "#ABA693",
+   "line": "#3B4033",
+   "positive": "#9CCB6B",
+   "negative": "#F28B82",
+   "warning": "#F5A35C",
+   "code_bg": "#12130F",
+   "code_ink": "#ECE7D6",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "olive": {
+   "name": "Olive",
+   "light": {
+    "accent": "#4B5320",
+    "accent_2": "#E2711D"
+   },
+   "dark": {
+    "accent": "#A9B76A",
+    "accent_2": "#F5A35C"
+   }
+  },
+  "hazard": {
+   "name": "Hazard",
+   "light": {
+    "accent": "#B4530D",
+    "accent_2": "#1E1F1A"
+   },
+   "dark": {
+    "accent": "#F5A35C",
+    "accent_2": "#ECE7D6"
+   }
+  },
+  "navy": {
+   "name": "Navy",
+   "light": {
+    "accent": "#22335A",
+    "accent_2": "#E2711D"
+   },
+   "dark": {
+    "accent": "#8FA6D6",
+    "accent_2": "#F5A35C"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#4B5320",
+   "#E2711D",
+   "#22335A",
+   "#8A8468",
+   "#B3261E",
+   "#B9B39A"
+  ],
+  "dark": [
+   "#A9B76A",
+   "#F5A35C",
+   "#8FA6D6",
+   "#ABA693",
+   "#F28B82",
+   "#5B5E4E"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "diagonal",
+     "at": "b",
+     "w": "100%",
+     "h": 46,
+     "color": "accent-2",
+     "tile": 46
+    },
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 26,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 26,
+     "color": "accent"
+    },
+    {
+     "motif": "diagonal",
+     "at": "tr",
+     "w": 300,
+     "h": 46,
+     "x": 0,
+     "y": 60,
+     "color": "accent-2",
+     "tile": 46
+    }
+   ],
+   "statement": [
+    {
+     "motif": "bracket",
+     "at": "l",
+     "w": 60,
+     "h": 360,
+     "x": 40,
+     "color": "accent-2"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "diagonal",
+     "at": "t",
+     "w": "100%",
+     "h": 46,
+     "color": "accent-2",
+     "tile": 46
+    },
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 26,
+     "color": "accent"
+    }
+   ]
+  },
+  "kicker": "tab",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "diagonal",
+     "at": "b",
+     "w": "100%",
+     "h": 9,
+     "color": "accent-2",
+     "tile": 9
+    },
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 6,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 3,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "triangle",
+    "size": 6,
+    "color": "accent-2"
+   }
+  }
+ }
+}

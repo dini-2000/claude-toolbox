@@ -1,0 +1,46 @@
+{
+ "name": "Pop",
+ "summary": "Loud and playful: heavy rounded type, bold block colours, ink outlines with hard shadows and big cut-out shapes. For decks that should feel like an event.",
+ "good_for": ["carousel", "event", "proposal", "lesson", "team-update", "portfolio", "talk"],
+ "category": "startup", "also": ["kids"],
+ "defaults": {"mode": "light", "palette": "tomato"},
+ "fonts": {
+  "display": ["Bricolage Grotesque", "sans"], "body": ["Bricolage Grotesque", "sans"], "label": ["Bricolage Grotesque", "sans"],
+  "stat": ["Bricolage Grotesque", "sans"], "mono": ["Geist Mono", "mono"]
+ },
+ "tokens": {
+  "--w-display": "800", "--w-h1": "800", "--w-h2": "800", "--w-body": "400", "--w-strong": "600", "--w-label": "600", "--w-stat": "800",
+  "--track-display": "-0.04em", "--track-h1": "-0.02em", "--track-label": "0.02em", "--label-case": "none",
+  "--lh-display": "0.95", "--lh-h1": "1.02", "--lh-body": "1.4",
+  "--radius": "22px", "--radius-sm": "14px", "--border-w": "3px", "--card-border-w": "3px", "--card-pad": "36px", "--icon-stroke": "2.25"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF", "bg_alt": "#FFF4E0", "surface": "#FFFFFF", "surface_2": "#F4F1EA",
+   "ink": "#141414", "ink_2": "#3A3A3A", "ink_3": "#5C5C5C", "line": "#141414",
+   "positive": "#0E7A45", "negative": "#C2261B", "warning": "#8F5A00",
+   "code_bg": "#141414", "code_ink": "#FFFFFF", "letterbox": "#141414", "shadow": "none",
+   "extra": {"--card-shadow": "8px 8px 0 {ink}", "--pop-1": "#FF5A3C", "--pop-2": "#FFC93C", "--pop-3": "#2D5BFF",
+             "--pop-4": "#3DDC97", "--pop-5": "#B69CFF", "--pop-6": "#FF8FC7", "--pop-ink": "#141414"}
+  },
+  "dark": {
+   "bg": "#141414", "bg_alt": "#1F1F1F", "surface": "#1F1F1F", "surface_2": "#2A2A2A",
+   "ink": "#FFFFFF", "ink_2": "#E5E5E5", "ink_3": "#BDBDBD", "line": "#FFFFFF",
+   "positive": "#3DDC97", "negative": "#FF7A66", "warning": "#FFC93C",
+   "code_bg": "#0A0A0A", "code_ink": "#FFFFFF", "letterbox": "#000000", "shadow": "none",
+   "alt": {"surface": "#2A2A2A", "surface_2": "#333333"},
+   "extra": {"--card-shadow": "8px 8px 0 {accent}", "--pop-1": "#FF5A3C", "--pop-2": "#FFC93C", "--pop-3": "#2D5BFF",
+             "--pop-4": "#3DDC97", "--pop-5": "#B69CFF", "--pop-6": "#FF8FC7", "--pop-ink": "#141414"}
+  }
+ },
+ "palettes": {
+  "tomato": {"name": "Tomato", "light": {"accent": "#FF5A3C", "accent_2": "#2D5BFF"}, "dark": {"accent": "#FF6B4F", "accent_2": "#6B8BFF"}},
+  "cobalt": {"name": "Cobalt", "light": {"accent": "#2D5BFF", "accent_2": "#FF5A3C"}, "dark": {"accent": "#6B8BFF", "accent_2": "#FF8A6B"}},
+  "mint": {"name": "Mint", "light": {"accent": "#3DDC97", "accent_2": "#2D5BFF"}, "dark": {"accent": "#3DDC97", "accent_2": "#B69CFF"}},
+  "lilac": {"name": "Lilac", "light": {"accent": "#B69CFF", "accent_2": "#FF5A3C"}, "dark": {"accent": "#B69CFF", "accent_2": "#FFC93C"}}
+ },
+ "chart": {
+  "light": ["#2D5BFF", "#FF5A3C", "#FFC93C", "#3DDC97", "#B69CFF", "#FF8FC7"],
+  "dark": ["#6B8BFF", "#FF6B4F", "#FFC93C", "#3DDC97", "#B69CFF", "#FF8FC7"]
+ }
+}

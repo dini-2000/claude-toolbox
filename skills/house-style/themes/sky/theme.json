@@ -1,0 +1,248 @@
+{
+ "name": "Sky",
+ "summary": "Pale blue sky light, a soft rounded sans for headings and a clear blue accent, with a gentle wave along the foot. Light and optimistic, for wellbeing talks, travel, outdoor programmes and onboarding.",
+ "good_for": [
+  "wellbeing",
+  "travel",
+  "outdoors",
+  "onboarding",
+  "welcome",
+  "community"
+ ],
+ "category": "wellness",
+ "credit": "colours and fonts from the reveal.js Sky theme by Hakim El Hattab and contributors (MIT licence)",
+ "defaults": {
+  "mode": "light",
+  "palette": "blue"
+ },
+ "fonts": {
+  "display": [
+   "Quicksand",
+   "sans"
+  ],
+  "body": [
+   "Open Sans",
+   "sans"
+  ],
+  "label": [
+   "Quicksand",
+   "sans"
+  ],
+  "stat": [
+   "Quicksand",
+   "sans"
+  ],
+  "mono": [
+   "Source Code Pro",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "700",
+  "--w-stat": "700",
+  "--track-display": "-0.03em",
+  "--track-h1": "-0.02em",
+  "--track-label": "0.06em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.06",
+  "--lh-h1": "1.12",
+  "--lh-body": "1.55",
+  "--radius": "16px",
+  "--radius-sm": "10px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.75"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F7FBFC",
+   "bg_alt": "#E9F4F7",
+   "surface": "#FFFFFF",
+   "surface_2": "#E1EFF4",
+   "ink": "#333333",
+   "ink_2": "#4A5357",
+   "ink_3": "#5B6468",
+   "line": "#CFE3EA",
+   "positive": "#227A4E",
+   "negative": "#C0392B",
+   "warning": "#985A00",
+   "code_bg": "#2B3A40",
+   "code_ink": "#E9F4F7",
+   "letterbox": "#1B2629",
+   "shadow": "0 4px 18px rgba(42, 118, 221, .1)"
+  },
+  "dark": {
+   "bg": "#0F1C24",
+   "bg_alt": "#13232D",
+   "surface": "#172A35",
+   "surface_2": "#1F3542",
+   "ink": "#F2F8FA",
+   "ink_2": "#CDE0E6",
+   "ink_3": "#A6C1CA",
+   "line": "#294352",
+   "positive": "#6FD3A0",
+   "negative": "#F28B82",
+   "warning": "#F5B041",
+   "code_bg": "#0A141A",
+   "code_ink": "#F2F8FA",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "blue": {
+   "name": "Blue",
+   "light": {
+    "accent": "#2A76DD",
+    "accent_2": "#ADD9E4"
+   },
+   "dark": {
+    "accent": "#7FB2F0",
+    "accent_2": "#4F8FA0"
+   }
+  },
+  "sea": {
+   "name": "Sea",
+   "light": {
+    "accent": "#0E7C86",
+    "accent_2": "#2A76DD"
+   },
+   "dark": {
+    "accent": "#5CC6CF",
+    "accent_2": "#7FB2F0"
+   }
+  },
+  "dawn": {
+   "name": "Dawn",
+   "light": {
+    "accent": "#D9604A",
+    "accent_2": "#2A76DD"
+   },
+   "dark": {
+    "accent": "#F49A86",
+    "accent_2": "#7FB2F0"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#2A76DD",
+   "#0E7C86",
+   "#D9604A",
+   "#7A9A2B",
+   "#7A5CC0",
+   "#5B6468"
+  ],
+  "dark": [
+   "#7FB2F0",
+   "#5CC6CF",
+   "#F49A86",
+   "#B5D46A",
+   "#B8A2F0",
+   "#A6C1CA"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "glow",
+     "at": "t",
+     "size": 1800,
+     "y": -1000,
+     "color": "accent-2",
+     "opacity": 0.8
+    },
+    {
+     "motif": "wave",
+     "at": "b",
+     "w": "100%",
+     "h": 150,
+     "color": "accent",
+     "opacity": 0.22
+    }
+   ],
+   "section": [
+    {
+     "motif": "wave",
+     "at": "b",
+     "w": "100%",
+     "h": 130,
+     "color": "accent",
+     "opacity": 0.22
+    }
+   ],
+   "statement": [
+    {
+     "motif": "glow",
+     "at": "c",
+     "size": 1300,
+     "color": "accent-2",
+     "opacity": 0.5
+    }
+   ],
+   "closing": [
+    {
+     "motif": "glow",
+     "at": "t",
+     "size": 1800,
+     "y": -1000,
+     "color": "accent-2",
+     "opacity": 0.8
+    },
+    {
+     "motif": "wave",
+     "at": "b",
+     "w": "100%",
+     "h": 150,
+     "color": "accent",
+     "opacity": 0.22
+    }
+   ]
+  },
+  "kicker": "pill",
+  "cards": "soft",
+  "doc": {
+   "cover": [
+    {
+     "motif": "glow",
+     "at": "t",
+     "size": 300,
+     "y": -170,
+     "color": "accent-2",
+     "opacity": 0.8
+    },
+    {
+     "motif": "wave",
+     "at": "b",
+     "w": "100%",
+     "h": 30,
+     "color": "accent",
+     "opacity": 0.22
+    }
+   ],
+   "opener": [
+    {
+     "motif": "wave",
+     "at": "tl",
+     "w": 40,
+     "h": 6,
+     "x": 0,
+     "y": 0,
+     "color": "accent",
+     "opacity": 0.5
+    }
+   ],
+   "mark": {
+    "motif": "circle",
+    "size": 6,
+    "color": "accent"
+   }
+  }
+ }
+}

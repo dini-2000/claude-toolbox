@@ -1,0 +1,259 @@
+{
+ "name": "Journal",
+ "summary": "A newspaper feel: a narrow news sans for headlines over a readable serif, a masthead rule and coral red. Clear and wordy, for reports, newsletters, briefings, essays and research talks.",
+ "good_for": [
+  "report",
+  "newsletter",
+  "briefing",
+  "essay",
+  "research",
+  "story"
+ ],
+ "category": "editorial",
+ "also": [
+  "academic"
+ ],
+ "credit": "colours and fonts from Bootswatch Journal by Thomas Park (MIT licence)",
+ "defaults": {
+  "mode": "light",
+  "palette": "coral"
+ },
+ "fonts": {
+  "display": [
+   "News Cycle",
+   "sans"
+  ],
+  "body": [
+   "Source Serif 4",
+   "serif"
+  ],
+  "label": [
+   "News Cycle",
+   "sans"
+  ],
+  "stat": [
+   "News Cycle",
+   "sans"
+  ],
+  "mono": [
+   "IBM Plex Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "700",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "700",
+  "--w-stat": "700",
+  "--track-display": "-0.01em",
+  "--track-h1": "0em",
+  "--track-label": "0.06em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.04",
+  "--lh-h1": "1.1",
+  "--lh-body": "1.55",
+  "--radius": "0px",
+  "--radius-sm": "0px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.75"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF",
+   "bg_alt": "#F8F6F2",
+   "surface": "#FFFFFF",
+   "surface_2": "#F1EEE8",
+   "ink": "#222222",
+   "ink_2": "#444444",
+   "ink_3": "#5C5C5C",
+   "line": "#DDDDDD",
+   "positive": "#1E8A43",
+   "negative": "#C0392B",
+   "warning": "#A35A00",
+   "code_bg": "#222222",
+   "code_ink": "#F8F6F2",
+   "letterbox": "#111111",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#1A1A1A",
+   "bg_alt": "#202020",
+   "surface": "#242424",
+   "surface_2": "#2E2E2E",
+   "ink": "#F2F0EC",
+   "ink_2": "#CFCCC6",
+   "ink_3": "#A9A6A0",
+   "line": "#3A3A3A",
+   "positive": "#6FD08C",
+   "negative": "#F28B82",
+   "warning": "#F5B041",
+   "code_bg": "#111111",
+   "code_ink": "#F2F0EC",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "coral": {
+   "name": "Coral",
+   "light": {
+    "accent": "#EB6864",
+    "accent_2": "#336699"
+   },
+   "dark": {
+    "accent": "#F28B87",
+    "accent_2": "#7FA8D1"
+   }
+  },
+  "navy": {
+   "name": "Navy",
+   "light": {
+    "accent": "#336699",
+    "accent_2": "#EB6864"
+   },
+   "dark": {
+    "accent": "#7FA8D1",
+    "accent_2": "#F28B87"
+   }
+  },
+  "forest": {
+   "name": "Forest",
+   "light": {
+    "accent": "#2F6B4F",
+    "accent_2": "#EB6864"
+   },
+   "dark": {
+    "accent": "#6FBF94",
+    "accent_2": "#F28B87"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#E0524E",
+   "#336699",
+   "#22924A",
+   "#D86A00",
+   "#8E5BA6",
+   "#6E6E6E"
+  ],
+  "dark": [
+   "#F28B87",
+   "#7FA8D1",
+   "#6FD08C",
+   "#F5A04D",
+   "#C39BD3",
+   "#A9A6A0"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 14,
+     "color": "accent"
+    },
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": "calc(100% - 2 * var(--mx))",
+     "h": 3,
+     "x": "var(--mx)",
+     "y": 44,
+     "color": "ink"
+    }
+   ],
+   "section": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": "calc(100% - 2 * var(--mx))",
+     "h": 3,
+     "x": "var(--mx)",
+     "y": 44,
+     "color": "ink"
+    },
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": "calc(100% - 2 * var(--mx))",
+     "h": 1,
+     "x": "var(--mx)",
+     "y": 54,
+     "color": "ink"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": 120,
+     "h": 8,
+     "x": "var(--mx)",
+     "y": 90,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 14,
+     "color": "accent"
+    },
+    {
+     "motif": "rule",
+     "at": "bl",
+     "w": "calc(100% - 2 * var(--mx))",
+     "h": 3,
+     "x": "var(--mx)",
+     "y": 44,
+     "color": "ink"
+    }
+   ]
+  },
+  "kicker": "underline",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 4,
+     "color": "accent"
+    },
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": "100%",
+     "h": 0.8,
+     "x": 0,
+     "y": 9,
+     "color": "ink"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": "100%",
+     "h": 0.8,
+     "x": 0,
+     "y": 0,
+     "color": "ink"
+    }
+   ],
+   "mark": {
+    "motif": "diamond",
+    "size": 6,
+    "color": "accent"
+   }
+  }
+ }
+}

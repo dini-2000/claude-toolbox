@@ -1,0 +1,59 @@
+/* Seminar: signature art. Colours, fonts and shapes come from tokens.css (built from theme.json).
+   A lecture handout. A running head carries the slide's section number (data-sec-n: 2 on an opener, 2.3 after it)
+   and section name over a hairline; the foot carries the deck title. Covers are centred title pages under an
+   accent band. Charts are numbered figures, tables are book-style (rules above, below and under the head, nothing
+   else), source notes sit under a footnote rule, callouts are note boxes and section numbers carry a section sign. */
+.pc-deck[data-theme="seminar"] { counter-reset: pc-fig pc-tab; }
+.pc-deck[data-theme="seminar"] .pc-slide::before {
+  content: attr(data-sec-n) "\2003" attr(data-section-name); position: absolute; z-index: 2;
+  left: var(--mx); right: var(--mx); top: calc(var(--mt) * .3); padding-bottom: calc(10 * var(--art-px));
+  border-bottom: calc(1.5 * var(--art-px)) solid var(--line); overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+  font: 600 max(calc(var(--fs-label) * .9), 16px)/1 var(--font-label); letter-spacing: .04em; color: var(--ink-3); }
+.pc-deck[data-theme="seminar"] .pc-slide::after {
+  content: attr(data-deck-title); position: absolute; z-index: 2; left: var(--mx); bottom: calc(var(--mb) * .45); max-width: 58%;
+  overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+  font: italic 400 max(calc(var(--fs-label) * .95), 16px)/1 var(--font-body); color: var(--ink-3); }
+.pc-deck[data-theme="seminar"] .pc-slide > .pc-num { font: 600 max(calc(var(--fs-label) * .9), 16px)/1 var(--font-label); letter-spacing: .04em; }
+/* Split slides keep the head and foot over the text column; section openers, statements and closings drop them */
+.pc-deck[data-theme="seminar"] .pc-split::before { right: calc(var(--split) + var(--mx)); }
+.pc-deck[data-theme="seminar"] .pc-split::after { max-width: calc((100% - var(--split)) * .55); }
+.pc-deck[data-theme="seminar"] .pc-split--left::before { right: var(--mx); left: calc(var(--split) + var(--mx)); }
+.pc-deck[data-theme="seminar"] .pc-split--left::after { left: calc(var(--split) + var(--mx)); }
+.pc-deck[data-theme="seminar"]:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-split::before { content: none; }
+.pc-deck[data-theme="seminar"]:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-split::after { left: var(--mx); max-width: 58%; }
+.pc-deck[data-theme="seminar"]:is([data-format="1x1"], [data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-slide::after { max-width: 52%; }
+.pc-deck[data-theme="seminar"] .pc-slide:is(.pc-section, .pc-statement, .pc-closing, .pc-bleed)::before,
+.pc-deck[data-theme="seminar"] .pc-slide:is(.pc-section, .pc-statement, .pc-closing, .pc-bleed)::after { content: none; }
+
+/* Covers: a centred title page under an accent band */
+.pc-deck[data-theme="seminar"] .pc-cover { align-items: center; justify-content: center; text-align: center; }
+.pc-deck[data-theme="seminar"] .pc-cover :is(.pc-title, .pc-sub) { margin-left: auto; margin-right: auto; }
+.pc-deck[data-theme="seminar"] .pc-cover::before {
+  content: ""; left: 0; right: 0; top: 0; padding: 0; height: calc(var(--mt) * .22); border: 0; background: var(--accent); }
+.pc-deck[data-theme="seminar"] .pc-cover::after { content: none; }
+.pc-deck[data-theme="seminar"] .pc-cover .pc-meta {
+  justify-content: center; padding-top: 30px; border-top: calc(1.5 * var(--art-px)) solid var(--line); font-family: var(--font-label); }
+.pc-deck[data-theme="seminar"] .pc-cover .pc-sub { font-style: italic; }
+
+/* Section numbers carry a section sign */
+.pc-deck[data-theme="seminar"] .pc-section .pc-section-num { font-weight: 400; }
+.pc-deck[data-theme="seminar"] .pc-section .pc-section-num::before { content: "\00A7\2009"; color: var(--ink-3); }
+.pc-deck[data-theme="seminar"] .pc-section { border-left: 0; }
+
+/* Numbered figures and tables */
+.pc-deck[data-theme="seminar"] .pc-chart > figcaption { font-style: italic; }
+.pc-deck[data-theme="seminar"] .pc-chart > figcaption::before {
+  counter-increment: pc-fig; content: "Figure " counter(pc-fig) ". "; font-style: normal; font-weight: 600; color: var(--ink-2); }
+.pc-deck[data-theme="seminar"] .pc-table caption::before { counter-increment: pc-tab; content: "Table " counter(pc-tab) ". "; font-weight: 600; }
+.pc-deck[data-theme="seminar"] .pc-table { border-top: calc(3 * var(--art-px)) solid var(--ink); border-bottom: calc(3 * var(--art-px)) solid var(--ink); }
+.pc-deck[data-theme="seminar"] .pc-table th { border-bottom: calc(1.5 * var(--art-px)) solid var(--ink); color: var(--ink); font-family: var(--font-label); }
+.pc-deck[data-theme="seminar"] .pc-table tbody tr:not(.pc-total) td { border-bottom-color: transparent; }
+
+/* Source notes sit under a short footnote rule */
+.pc-deck[data-theme="seminar"] .pc-source::before {
+  content: ""; display: block; width: calc(240 * var(--art-px)); margin-bottom: 10px; border-top: calc(1.5 * var(--art-px)) solid var(--ink-3); }
+
+/* Callouts are note boxes; quotes hang from a rule */
+.pc-deck[data-theme="seminar"] .pc-callout { border-radius: 0; border-left: calc(6 * var(--art-px)) solid var(--accent); }
+.pc-deck[data-theme="seminar"] .pc-quote blockquote { font-style: italic; }
+.pc-deck[data-theme="seminar"] .pc-title em, .pc-deck[data-theme="seminar"] .pc-say em { font-style: italic; }

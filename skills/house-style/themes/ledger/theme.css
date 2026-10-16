@@ -1,0 +1,58 @@
+/* Ledger: signature art. Colours, fonts and shapes come from tokens.css (built from theme.json).
+   A ticker strip in the ink colour runs across the top of each slide with the deck title on the left and the
+   section name on the right, in mono (the runtime sets data-deck-title and data-section-name). The cover carries
+   a column of ledger lines that ends on an accounting rule (a single rule over a double one); section numbers are
+   mono figures on a double rule; kickers and page numbers are mono, tables are banded and cards are ruled. */
+.pc-deck[data-theme="ledger"] .pc-slide { --strip: calc(var(--mt) * .44); }
+.pc-deck[data-theme="ledger"] .pc-slide::before {
+  content: attr(data-deck-title); position: absolute; left: 0; right: 0; top: 0; z-index: 2; height: var(--strip);
+  padding: 0 46% 0 var(--mx); overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+  font: 500 max(calc(var(--fs-label) * .9), 16px)/var(--strip) var(--font-mono); letter-spacing: .04em; text-transform: uppercase;
+  background: var(--ink); color: var(--bg); }
+.pc-deck[data-theme="ledger"] .pc-slide::after {
+  content: attr(data-section-name); position: absolute; right: var(--mx); top: 0; z-index: 2; max-width: 40%;
+  overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+  font: 500 max(calc(var(--fs-label) * .9), 16px)/var(--strip) var(--font-mono); letter-spacing: .04em; text-transform: uppercase;
+  color: color-mix(in srgb, var(--bg) 78%, var(--ink)); }
+/* Narrow slides have room for the section name only */
+.pc-deck[data-theme="ledger"]:is([data-format="1x1"], [data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-slide::before { content: ""; }
+.pc-deck[data-theme="ledger"]:is([data-format="1x1"], [data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-slide:not(.pc-split)::after {
+  right: auto; left: var(--mx); max-width: calc(100% - 2 * var(--mx)); }
+/* Split slides: the strip stops at the picture and carries the section name alone; portrait splits carry the
+   picture across the top, so they drop it */
+.pc-deck[data-theme="ledger"] .pc-split::before { content: ""; right: var(--split); }
+.pc-deck[data-theme="ledger"] .pc-split::after { right: auto; left: var(--mx); max-width: calc(100% - var(--split) - 2 * var(--mx)); }
+.pc-deck[data-theme="ledger"] .pc-split--left::before { left: var(--split); right: 0; }
+.pc-deck[data-theme="ledger"] .pc-split--left::after { left: calc(var(--split) + var(--mx)); }
+.pc-deck[data-theme="ledger"]:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-split::before,
+.pc-deck[data-theme="ledger"]:is([data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-split::after { content: none; }
+.pc-deck[data-theme="ledger"] .pc-bleed::before, .pc-deck[data-theme="ledger"] .pc-bleed::after { content: none; }
+
+/* Cover: an empty strip, and a column of ledger lines at the top right that ends on an accounting rule */
+.pc-deck[data-theme="ledger"] .pc-cover::before { content: ""; }
+.pc-deck[data-theme="ledger"]:is([data-format="16x9"], [data-format="4x3"], [data-format="a4l"]) .pc-cover { --cover-w: 64%; }
+.pc-deck[data-theme="ledger"] .pc-cover::after {
+  content: ""; z-index: -1; right: var(--mx); top: calc(var(--strip) + 72 * var(--art-px)); max-width: none;
+  width: calc(var(--W) * .3); height: calc(384 * var(--art-px)); padding-bottom: calc(18 * var(--art-px));
+  border-bottom: calc(12 * var(--art-px)) double var(--accent);
+  background: linear-gradient(var(--accent) 0 0) 0 100% / 100% calc(3 * var(--art-px)) no-repeat content-box,
+    repeating-linear-gradient(180deg, transparent 0 calc(63 * var(--art-px)), var(--line) calc(63 * var(--art-px)) calc(64 * var(--art-px))) content-box; }
+.pc-deck[data-theme="ledger"]:is([data-format="1x1"], [data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-cover::after {
+  width: calc(var(--W) * .46); }
+
+/* Kickers and page numbers in mono */
+.pc-deck[data-theme="ledger"] .pc-kicker { font-family: var(--font-mono); font-weight: 500; letter-spacing: .04em; }
+.pc-deck[data-theme="ledger"] .pc-slide > .pc-num { font-family: var(--font-mono); font-weight: 500; }
+
+/* Section slides: mono figures on a double rule */
+.pc-deck[data-theme="ledger"] .pc-section .pc-section-num {
+  font-family: var(--font-mono); font-weight: 500; letter-spacing: -0.02em; width: fit-content;
+  padding-bottom: 22px; margin-bottom: 30px; border-bottom: 12px double var(--accent); }
+
+/* Tables: a heavy rule under the head and banded rows, like ledger paper */
+.pc-deck[data-theme="ledger"] .pc-table th { border-bottom: 2px solid var(--ink); }
+.pc-deck[data-theme="ledger"] .pc-table tbody tr:nth-child(even):not(.is-hl, .pc-total) td { background: var(--bg-alt); }
+
+/* Cards are ruled statements */
+.pc-deck[data-theme="ledger"] .pc-card:not(.pc-card--accent, .pc-card--soft, .pc-card--flat, .pc-inverse) {
+  background: var(--surface-2); border: 0; border-top: 3px solid var(--ink); border-radius: 0; }

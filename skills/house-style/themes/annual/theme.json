@@ -1,0 +1,260 @@
+{
+ "name": "Annual",
+ "summary": "An annual report: deep green, navy or burgundy with gold, a refined Baskerville for titles and figures, quarter-disc shapes and fine rules. Assured and polished, for annual reports, investor updates, results and donor reports.",
+ "good_for": [
+  "annual-report",
+  "investor",
+  "results",
+  "donor-report",
+  "impact",
+  "year-in-review"
+ ],
+ "category": "finance",
+ "also": [
+  "business"
+ ],
+ "defaults": {
+  "mode": "light",
+  "palette": "green"
+ },
+ "fonts": {
+  "display": [
+   "Libre Baskerville",
+   "serif"
+  ],
+  "body": [
+   "Instrument Sans",
+   "sans"
+  ],
+  "label": [
+   "Instrument Sans",
+   "sans"
+  ],
+  "stat": [
+   "Libre Baskerville",
+   "serif"
+  ],
+  "mono": [
+   "IBM Plex Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "400",
+  "--w-h1": "400",
+  "--w-h2": "400",
+  "--w-body": "400",
+  "--w-strong": "600",
+  "--w-label": "600",
+  "--w-stat": "400",
+  "--track-display": "-0.02em",
+  "--track-h1": "-0.01em",
+  "--track-label": "0.12em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.1",
+  "--lh-h1": "1.16",
+  "--lh-body": "1.5",
+  "--radius": "2px",
+  "--radius-sm": "2px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FCFBF7",
+   "bg_alt": "#F4F2EA",
+   "surface": "#FFFFFF",
+   "surface_2": "#ECE9DD",
+   "ink": "#13201B",
+   "ink_2": "#36433D",
+   "ink_3": "#4C5852",
+   "line": "#DAD6C8",
+   "positive": "#1B7A4E",
+   "negative": "#B42318",
+   "warning": "#8A5A00",
+   "code_bg": "#13201B",
+   "code_ink": "#F4F2EA",
+   "letterbox": "#0A120F",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#0E1A16",
+   "bg_alt": "#12211C",
+   "surface": "#172822",
+   "surface_2": "#1F332B",
+   "ink": "#F4F1E6",
+   "ink_2": "#D2CFC2",
+   "ink_3": "#ABA89B",
+   "line": "#2A4037",
+   "positive": "#7FD1A3",
+   "negative": "#F28B82",
+   "warning": "#E9C46A",
+   "code_bg": "#08100D",
+   "code_ink": "#F4F1E6",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "green": {
+   "name": "Green",
+   "light": {
+    "accent": "#0B4A3A",
+    "accent_2": "#A07A2C"
+   },
+   "dark": {
+    "accent": "#7FCBB0",
+    "accent_2": "#E3C37A"
+   }
+  },
+  "navy": {
+   "name": "Navy",
+   "light": {
+    "accent": "#14305A",
+    "accent_2": "#A07A2C"
+   },
+   "dark": {
+    "accent": "#93B4E8",
+    "accent_2": "#E3C37A"
+   }
+  },
+  "burgundy": {
+   "name": "Burgundy",
+   "light": {
+    "accent": "#6E1E2E",
+    "accent_2": "#A07A2C"
+   },
+   "dark": {
+    "accent": "#E8A0AE",
+    "accent_2": "#E3C37A"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#0B4A3A",
+   "#A07A2C",
+   "#4F7F6E",
+   "#14305A",
+   "#B9B3A0",
+   "#6E1E2E"
+  ],
+  "dark": [
+   "#7FCBB0",
+   "#E3C37A",
+   "#A9D6C4",
+   "#93B4E8",
+   "#6E7A72",
+   "#E8A0AE"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "quarter-disc",
+     "at": "tr",
+     "size": 520,
+     "rotate": 90,
+     "color": "accent"
+    },
+    {
+     "motif": "quarter-disc",
+     "at": "tr",
+     "size": 300,
+     "x": 520,
+     "rotate": 90,
+     "color": "accent-2",
+     "opacity": 0.9
+    }
+   ],
+   "section": [
+    {
+     "motif": "quarter-disc",
+     "at": "tr",
+     "size": 420,
+     "rotate": 90,
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": 120,
+     "h": 3,
+     "x": "var(--mx)",
+     "y": 100,
+     "color": "accent-2"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "quarter-disc",
+     "at": "tr",
+     "size": 520,
+     "rotate": 90,
+     "color": "accent"
+    },
+    {
+     "motif": "quarter-disc",
+     "at": "tr",
+     "size": 300,
+     "x": 520,
+     "rotate": 90,
+     "color": "accent-2",
+     "opacity": 0.9
+    }
+   ]
+  },
+  "vars": {
+   "cover": {
+    "--cover-w": "62%"
+   },
+   "cover@narrow": {
+    "--cover-w": "100%",
+    "--k-hero": ".82"
+   }
+  },
+  "kicker": "underline",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "quarter-disc",
+     "at": "br",
+     "size": 110,
+     "rotate": 180,
+     "color": "accent"
+    },
+    {
+     "motif": "quarter-disc",
+     "at": "br",
+     "size": 64,
+     "x": 110,
+     "rotate": 180,
+     "color": "accent-2",
+     "opacity": 0.9
+    }
+   ],
+   "opener": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": 22,
+     "h": 0.8,
+     "x": 0,
+     "y": 0,
+     "color": "accent-2"
+    }
+   ],
+   "mark": {
+    "motif": "quarter-disc",
+    "size": 5,
+    "rotate": 180,
+    "color": "accent-2"
+   }
+  }
+ }
+}

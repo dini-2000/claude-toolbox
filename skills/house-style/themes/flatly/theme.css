@@ -1,0 +1,62 @@
+/* Flatly: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="flatly"] {
+  --m-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="flatly"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(calc(316 * var(--art-px)));
+  background: var(--accent-2, var(--accent)); }
+.pc-deck[data-theme="flatly"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(calc(300 * var(--art-px)));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="flatly"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: calc(calc(30 * var(--art-px)));
+  background: var(--accent-2, var(--accent)); }
+.pc-deck[data-theme="flatly"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(110 * var(--art-px));
+  height: calc(8 * var(--art-px));
+  left: var(--mx);
+  top: calc(90 * var(--art-px));
+  background: var(--accent-2, var(--accent)); }
+.pc-deck[data-theme="flatly"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(calc(24 * var(--art-px)));
+  background: var(--accent-2, var(--accent)); }
+.pc-deck[data-theme="flatly"] .pc-kicker {
+  width: fit-content;
+  padding-bottom: .35em;
+  border-bottom: .16em solid var(--accent); }
+.pc-deck[data-theme="flatly"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 0;
+  background: var(--surface-2); }

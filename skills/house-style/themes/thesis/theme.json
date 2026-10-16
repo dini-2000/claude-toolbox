@@ -1,0 +1,236 @@
+{
+ "name": "Thesis",
+ "summary": "Ivory paper, a classic Garamond for titles and text, Oxford blue and a double-ruled frame on the title page. Scholarly and calm, for theses, defences, lectures and conference papers.",
+ "good_for": [
+  "thesis",
+  "defence",
+  "lecture",
+  "conference",
+  "paper",
+  "research"
+ ],
+ "category": "academic",
+ "defaults": {
+  "mode": "light",
+  "palette": "oxford"
+ },
+ "fonts": {
+  "display": [
+   "EB Garamond",
+   "serif"
+  ],
+  "body": [
+   "EB Garamond",
+   "serif"
+  ],
+  "label": [
+   "Source Sans 3",
+   "sans"
+  ],
+  "stat": [
+   "EB Garamond",
+   "serif"
+  ],
+  "mono": [
+   "IBM Plex Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "500",
+  "--w-h1": "500",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "600",
+  "--w-label": "600",
+  "--w-stat": "500",
+  "--track-display": "-0.01em",
+  "--track-h1": "0em",
+  "--track-label": "0.12em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.08",
+  "--lh-h1": "1.14",
+  "--lh-body": "1.5",
+  "--radius": "2px",
+  "--radius-sm": "2px",
+  "--border-w": "1px",
+  "--card-pad": "36px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FBF9F4",
+   "bg_alt": "#F4F0E6",
+   "surface": "#FFFDF8",
+   "surface_2": "#EFEADF",
+   "ink": "#1F2328",
+   "ink_2": "#3D4148",
+   "ink_3": "#555960",
+   "line": "#DDD6C8",
+   "positive": "#2D6A4F",
+   "negative": "#9B2226",
+   "warning": "#8A5A00",
+   "code_bg": "#1F2328",
+   "code_ink": "#F4F0E6",
+   "letterbox": "#121417",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#14181F",
+   "bg_alt": "#181D25",
+   "surface": "#1C222B",
+   "surface_2": "#252C37",
+   "ink": "#F2EEE4",
+   "ink_2": "#D3CEC2",
+   "ink_3": "#ADA89C",
+   "line": "#2F3743",
+   "positive": "#7DC4A0",
+   "negative": "#F08C8C",
+   "warning": "#E9B65C",
+   "code_bg": "#0E1116",
+   "code_ink": "#F2EEE4",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "oxford": {
+   "name": "Oxford",
+   "light": {
+    "accent": "#1F3A5F",
+    "accent_2": "#8C1C13"
+   },
+   "dark": {
+    "accent": "#9DB7D9",
+    "accent_2": "#E59A8F"
+   }
+  },
+  "crimson": {
+   "name": "Crimson",
+   "light": {
+    "accent": "#8C1C13",
+    "accent_2": "#1F3A5F"
+   },
+   "dark": {
+    "accent": "#E59A8F",
+    "accent_2": "#9DB7D9"
+   }
+  },
+  "ivy": {
+   "name": "Ivy",
+   "light": {
+    "accent": "#2D5A3D",
+    "accent_2": "#8C1C13"
+   },
+   "dark": {
+    "accent": "#8FC7A2",
+    "accent_2": "#E59A8F"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#1F3A5F",
+   "#8C1C13",
+   "#2D5A3D",
+   "#B07D2B",
+   "#5B4B8A",
+   "#6F6A60"
+  ],
+  "dark": [
+   "#9DB7D9",
+   "#E59A8F",
+   "#8FC7A2",
+   "#E9C27A",
+   "#B9A8E6",
+   "#ADA89C"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "frame",
+     "inset": 30,
+     "thickness": 6,
+     "line": "double",
+     "color": "accent"
+    },
+    {
+     "motif": "rule",
+     "at": "bl",
+     "w": 100,
+     "h": 2,
+     "x": "var(--mx)",
+     "y": 120,
+     "color": "accent-2"
+    }
+   ],
+   "section": [
+    {
+     "motif": "frame",
+     "inset": 30,
+     "thickness": 1.5,
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "rule",
+     "at": "t",
+     "w": 60,
+     "h": 2,
+     "y": 110,
+     "color": "accent-2"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "frame",
+     "inset": 30,
+     "thickness": 6,
+     "line": "double",
+     "color": "accent"
+    }
+   ]
+  },
+  "kicker": "dash",
+  "cards": "outline",
+  "doc": {
+   "cover": [
+    {
+     "motif": "frame",
+     "inset": 9,
+     "thickness": 1.4,
+     "line": "double",
+     "color": "accent"
+    },
+    {
+     "motif": "rule",
+     "at": "bl",
+     "w": 24,
+     "h": 0.5,
+     "x": 0,
+     "y": 30,
+     "color": "accent-2"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": "100%",
+     "h": 0.4,
+     "x": 0,
+     "y": 0,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "diamond",
+    "size": 5,
+    "color": "accent-2"
+   }
+  }
+ }
+}

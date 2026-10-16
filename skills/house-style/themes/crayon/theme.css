@@ -1,0 +1,154 @@
+/* Crayon: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="crayon"] {
+  --m-blob: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M64 4c18 4 32 18 34 36 2 16-8 26-6 40 1 12-12 20-26 18-14-1-22 2-36 0C14 96 2 84 2 66s12-22 12-36S40-2 64 4z'/%3E%3C/svg%3E");
+  --m-blob-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30 6c14-6 26 4 40 4s26 8 28 24-10 24-8 38-8 26-26 26-30-6-44-12S0 70 2 52 16 12 30 6z'/%3E%3C/svg%3E");
+  --m-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50'/%3E%3C/svg%3E");
+  --m-half-disc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Cpath d='M0 50a50 50 0 0 1 100 0z'/%3E%3C/svg%3E");
+  --m-squiggle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 34'%3E%3Cpath d='M5 17q11.25-16 22.5 0t22.5 0 22.5 0 22.5 0' fill='none' stroke='%23000' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E");
+  --m-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50.0 0.0L62.3 33.0L97.6 34.5L70.0 56.5L79.4 90.5L50.0 71.0L20.6 90.5L30.0 56.5L2.4 34.5L37.7 33.0Z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="crayon"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(640 * var(--art-px));
+  height: calc(640 * var(--art-px));
+  right: calc(-170 * var(--art-px));
+  top: calc(-170 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 30% 6%, curve to 70% 10% with 44% 0% / 56% 10%, curve to 98% 34% with 84% 10% / 96% 18%, curve to 90% 72% with 100% 50% / 88% 58%, curve to 64% 98% with 92% 86% / 82% 98%, curve to 20% 86% with 46% 98% / 34% 92%, curve to 2% 52% with 6% 80% / 0% 70%, curve to 30% 6% with 4% 34% / 16% 12%, close); }
+.pc-deck[data-theme="crayon"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(384 * var(--art-px));
+  height: calc(384 * var(--art-px));
+  right: calc(-102 * var(--art-px));
+  top: calc(-102 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 30% 6%, curve to 70% 10% with 44% 0% / 56% 10%, curve to 98% 34% with 84% 10% / 96% 18%, curve to 90% 72% with 100% 50% / 88% 58%, curve to 64% 98% with 92% 86% / 82% 98%, curve to 20% 86% with 46% 98% / 34% 92%, curve to 2% 52% with 6% 80% / 0% 70%, curve to 30% 6% with 4% 34% / 16% 12%, close); }
+.pc-deck[data-theme="crayon"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(96 * var(--art-px));
+  height: calc(96 * var(--art-px));
+  left: calc(70 * var(--art-px));
+  top: calc(60 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close); }
+.pc-deck[data-theme="crayon"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(57.6 * var(--art-px));
+  height: calc(57.6 * var(--art-px));
+  left: calc(42 * var(--art-px));
+  top: calc(36 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close); }
+.pc-deck[data-theme="crayon"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(760 * var(--art-px));
+  height: calc(760 * var(--art-px));
+  right: calc(-300 * var(--art-px));
+  top: calc(50% - calc(760 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 64% 4%, curve to 98% 40% with 82% 8% / 96% 22%, curve to 92% 80% with 100% 56% / 90% 66%, curve to 66% 98% with 93% 92% / 80% 100%, curve to 30% 98% with 52% 97% / 44% 100%, curve to 2% 66% with 14% 96% / 2% 84%, curve to 14% 30% with 2% 48% / 14% 44%, curve to 64% 4% with 14% 16% / 40% -2%, close); }
+.pc-deck[data-theme="crayon"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(456 * var(--art-px));
+  height: calc(456 * var(--art-px));
+  right: calc(-180 * var(--art-px));
+  top: calc(50% - calc(456 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 64% 4%, curve to 98% 40% with 82% 8% / 96% 22%, curve to 92% 80% with 100% 56% / 90% 66%, curve to 66% 98% with 93% 92% / 80% 100%, curve to 30% 98% with 52% 97% / 44% 100%, curve to 2% 66% with 14% 96% / 2% 84%, curve to 14% 30% with 2% 48% / 14% 44%, curve to 64% 4% with 14% 16% / 40% -2%, close); }
+.pc-deck[data-theme="crayon"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(300 * var(--art-px));
+  height: calc(102 * var(--art-px));
+  left: var(--mx);
+  bottom: calc(40 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 7.79% 56.21%, line to 9.31% 50.29%, line to 10.71% 45.7%, line to 12.03% 42.14%, line to 13.25% 39.58%, line to 14.35% 37.93%, line to 15.34% 37.04%, line to 16.25% 36.76%, line to 17.16% 37.04%, line to 18.15% 37.93%, line to 19.25% 39.58%, line to 20.47% 42.14%, line to 21.79% 45.7%, line to 23.19% 50.29%, line to 24.71% 56.21%, line to 26.4% 62.77%, line to 28.22% 68.75%, line to 30.11% 73.83%, line to 32.11% 78%, line to 34.22% 81.15%, line to 36.45% 83.14%, line to 38.75% 83.82%, line to 41.05% 83.14%, line to 43.28% 81.15%, line to 45.39% 78%, line to 47.39% 73.83%, line to 49.28% 68.75%, line to 51.1% 62.77%, line to 52.79% 56.21%, line to 54.31% 50.29%, line to 55.71% 45.7%, line to 57.03% 42.14%, line to 58.25% 39.58%, line to 59.35% 37.93%, line to 60.34% 37.04%, line to 61.25% 36.76%, line to 62.16% 37.04%, line to 63.15% 37.93%, line to 64.25% 39.58%, line to 65.47% 42.14%, line to 66.79% 45.7%, line to 68.19% 50.29%, line to 69.71% 56.21%, line to 71.4% 62.77%, line to 73.22% 68.75%, line to 75.11% 73.83%, line to 77.11% 78%, line to 79.22% 81.15%, line to 81.45% 83.14%, line to 83.75% 83.82%, line to 86.05% 83.14%, line to 88.28% 81.15%, line to 90.39% 78%, line to 92.39% 73.83%, line to 94.28% 68.75%, line to 96.1% 62.77%, line to 97.79% 56.21%, line to 91.61% 47.4%, line to 91.53% 51.41%, line to 91.98% 55.2%, line to 92.89% 58.21%, line to 94.12% 59.96%, line to 95.48% 60.2%, line to 96.77% 58.88%, line to 92.21% 43.79%, line to 90.69% 49.71%, line to 89.29% 54.3%, line to 87.97% 57.86%, line to 86.75% 60.42%, line to 85.65% 62.07%, line to 84.66% 62.96%, line to 83.75% 63.24%, line to 82.84% 62.96%, line to 81.85% 62.07%, line to 80.75% 60.42%, line to 79.53% 57.86%, line to 78.21% 54.3%, line to 76.81% 49.71%, line to 75.29% 43.79%, line to 73.6% 37.23%, line to 71.78% 31.25%, line to 69.89% 26.17%, line to 67.89% 22%, line to 65.78% 18.85%, line to 63.55% 16.86%, line to 61.25% 16.18%, line to 58.95% 16.86%, line to 56.72% 18.85%, line to 54.61% 22%, line to 52.61% 26.17%, line to 50.72% 31.25%, line to 48.9% 37.23%, line to 47.21% 43.79%, line to 45.69% 49.71%, line to 44.29% 54.3%, line to 42.97% 57.86%, line to 41.75% 60.42%, line to 40.65% 62.07%, line to 39.66% 62.96%, line to 38.75% 63.24%, line to 37.84% 62.96%, line to 36.85% 62.07%, line to 35.75% 60.42%, line to 34.53% 57.86%, line to 33.21% 54.3%, line to 31.81% 49.71%, line to 30.29% 43.79%, line to 28.6% 37.23%, line to 26.78% 31.25%, line to 24.89% 26.17%, line to 22.89% 22%, line to 20.78% 18.85%, line to 18.55% 16.86%, line to 16.25% 16.18%, line to 13.95% 16.86%, line to 11.72% 18.85%, line to 9.61% 22%, line to 7.61% 26.17%, line to 5.72% 31.25%, line to 3.9% 37.23%, line to 2.21% 43.79%, line to 8.39% 52.6%, line to 8.47% 48.59%, line to 8.02% 44.8%, line to 7.11% 41.79%, line to 5.88% 40.04%, line to 4.52% 39.8%, line to 3.23% 41.12%, close); }
+.pc-deck[data-theme="crayon"]:is([data-format="3x1"], [data-format="4x1"]) .pc-statement:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(180 * var(--art-px));
+  height: calc(61.2 * var(--art-px));
+  left: var(--mx);
+  bottom: calc(24 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 7.79% 56.21%, line to 9.31% 50.29%, line to 10.71% 45.7%, line to 12.03% 42.14%, line to 13.25% 39.58%, line to 14.35% 37.93%, line to 15.34% 37.04%, line to 16.25% 36.76%, line to 17.16% 37.04%, line to 18.15% 37.93%, line to 19.25% 39.58%, line to 20.47% 42.14%, line to 21.79% 45.7%, line to 23.19% 50.29%, line to 24.71% 56.21%, line to 26.4% 62.77%, line to 28.22% 68.75%, line to 30.11% 73.83%, line to 32.11% 78%, line to 34.22% 81.15%, line to 36.45% 83.14%, line to 38.75% 83.82%, line to 41.05% 83.14%, line to 43.28% 81.15%, line to 45.39% 78%, line to 47.39% 73.83%, line to 49.28% 68.75%, line to 51.1% 62.77%, line to 52.79% 56.21%, line to 54.31% 50.29%, line to 55.71% 45.7%, line to 57.03% 42.14%, line to 58.25% 39.58%, line to 59.35% 37.93%, line to 60.34% 37.04%, line to 61.25% 36.76%, line to 62.16% 37.04%, line to 63.15% 37.93%, line to 64.25% 39.58%, line to 65.47% 42.14%, line to 66.79% 45.7%, line to 68.19% 50.29%, line to 69.71% 56.21%, line to 71.4% 62.77%, line to 73.22% 68.75%, line to 75.11% 73.83%, line to 77.11% 78%, line to 79.22% 81.15%, line to 81.45% 83.14%, line to 83.75% 83.82%, line to 86.05% 83.14%, line to 88.28% 81.15%, line to 90.39% 78%, line to 92.39% 73.83%, line to 94.28% 68.75%, line to 96.1% 62.77%, line to 97.79% 56.21%, line to 91.61% 47.4%, line to 91.53% 51.41%, line to 91.98% 55.2%, line to 92.89% 58.21%, line to 94.12% 59.96%, line to 95.48% 60.2%, line to 96.77% 58.88%, line to 92.21% 43.79%, line to 90.69% 49.71%, line to 89.29% 54.3%, line to 87.97% 57.86%, line to 86.75% 60.42%, line to 85.65% 62.07%, line to 84.66% 62.96%, line to 83.75% 63.24%, line to 82.84% 62.96%, line to 81.85% 62.07%, line to 80.75% 60.42%, line to 79.53% 57.86%, line to 78.21% 54.3%, line to 76.81% 49.71%, line to 75.29% 43.79%, line to 73.6% 37.23%, line to 71.78% 31.25%, line to 69.89% 26.17%, line to 67.89% 22%, line to 65.78% 18.85%, line to 63.55% 16.86%, line to 61.25% 16.18%, line to 58.95% 16.86%, line to 56.72% 18.85%, line to 54.61% 22%, line to 52.61% 26.17%, line to 50.72% 31.25%, line to 48.9% 37.23%, line to 47.21% 43.79%, line to 45.69% 49.71%, line to 44.29% 54.3%, line to 42.97% 57.86%, line to 41.75% 60.42%, line to 40.65% 62.07%, line to 39.66% 62.96%, line to 38.75% 63.24%, line to 37.84% 62.96%, line to 36.85% 62.07%, line to 35.75% 60.42%, line to 34.53% 57.86%, line to 33.21% 54.3%, line to 31.81% 49.71%, line to 30.29% 43.79%, line to 28.6% 37.23%, line to 26.78% 31.25%, line to 24.89% 26.17%, line to 22.89% 22%, line to 20.78% 18.85%, line to 18.55% 16.86%, line to 16.25% 16.18%, line to 13.95% 16.86%, line to 11.72% 18.85%, line to 9.61% 22%, line to 7.61% 26.17%, line to 5.72% 31.25%, line to 3.9% 37.23%, line to 2.21% 43.79%, line to 8.39% 52.6%, line to 8.47% 48.59%, line to 8.02% 44.8%, line to 7.11% 41.79%, line to 5.88% 40.04%, line to 4.52% 39.8%, line to 3.23% 41.12%, close); }
+.pc-deck[data-theme="crayon"] .pc-slide:not(.pc-cover, .pc-section, .pc-statement, .pc-closing):not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(54 * var(--art-px));
+  height: calc(54 * var(--art-px));
+  right: calc(44 * var(--art-px));
+  top: calc(34 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close); }
+.pc-deck[data-theme="crayon"]:is([data-format="3x1"], [data-format="4x1"]) .pc-slide:not(.pc-cover, .pc-section, .pc-statement, .pc-closing):not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(32.4 * var(--art-px));
+  height: calc(32.4 * var(--art-px));
+  right: calc(26.4 * var(--art-px));
+  top: calc(20.4 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close); }
+.pc-deck[data-theme="crayon"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(600 * var(--art-px));
+  height: calc(300 * var(--art-px));
+  left: calc(50% - calc(600 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  bottom: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 50% 0% with 0% 44.77% / 22.39% 0%, curve to 100% 100% with 77.61% 0% / 100% 44.77%, close); }
+.pc-deck[data-theme="crayon"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(360 * var(--art-px));
+  height: calc(180 * var(--art-px));
+  left: calc(50% - calc(360 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  bottom: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 0% 100%, curve to 50% 0% with 0% 44.77% / 22.39% 0%, curve to 100% 100% with 77.61% 0% / 100% 44.77%, close); }
+.pc-deck[data-theme="crayon"] .pc-cover {
+  --cover-w: 64%; }
+.pc-deck[data-theme="crayon"] .pc-section {
+  --title-w: 58%; }
+.pc-deck[data-theme="crayon"] .pc-kicker {
+  width: fit-content;
+  padding: .38em .9em .42em;
+  border-radius: 999px;
+  background: var(--accent-text);
+  color: var(--kicker-on, var(--bg)); }
+.pc-deck[data-theme="crayon"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 2px solid var(--ink); }

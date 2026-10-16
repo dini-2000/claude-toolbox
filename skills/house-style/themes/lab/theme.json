@@ -1,0 +1,259 @@
+{
+ "name": "Lab",
+ "summary": "A clean laboratory: cool white, a geometric sans, a mono for units and sample codes, teal and violet, with rings and dots like a molecule diagram. Precise and fresh, for science talks, experiments, results and research updates.",
+ "good_for": [
+  "science",
+  "experiment",
+  "results",
+  "research",
+  "data",
+  "lab-meeting"
+ ],
+ "category": "engineering",
+ "also": [
+  "academic"
+ ],
+ "defaults": {
+  "mode": "light",
+  "palette": "teal"
+ },
+ "fonts": {
+  "display": [
+   "Sora",
+   "sans"
+  ],
+  "body": [
+   "IBM Plex Sans",
+   "sans"
+  ],
+  "label": [
+   "IBM Plex Mono",
+   "mono"
+  ],
+  "stat": [
+   "Sora",
+   "sans"
+  ],
+  "mono": [
+   "IBM Plex Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "600",
+  "--w-h1": "600",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "600",
+  "--w-label": "500",
+  "--w-stat": "600",
+  "--track-display": "-0.03em",
+  "--track-h1": "-0.02em",
+  "--track-label": "0.04em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.05",
+  "--lh-h1": "1.1",
+  "--lh-body": "1.5",
+  "--radius": "10px",
+  "--radius-sm": "6px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FBFDFD",
+   "bg_alt": "#F1F6F7",
+   "surface": "#FFFFFF",
+   "surface_2": "#EAF1F2",
+   "ink": "#10232A",
+   "ink_2": "#34474E",
+   "ink_3": "#4A5D63",
+   "line": "#D2E0E3",
+   "positive": "#1B7A4E",
+   "negative": "#C0283E",
+   "warning": "#8F5B00",
+   "code_bg": "#10232A",
+   "code_ink": "#F1F6F7",
+   "letterbox": "#08151A",
+   "shadow": "0 2px 12px rgba(16, 35, 42, .07)"
+  },
+  "dark": {
+   "bg": "#0D1A1F",
+   "bg_alt": "#112127",
+   "surface": "#15272E",
+   "surface_2": "#1D333B",
+   "ink": "#EEF6F7",
+   "ink_2": "#C6D6DA",
+   "ink_3": "#9FB3B8",
+   "line": "#26424B",
+   "positive": "#6FD3A0",
+   "negative": "#FF8FA3",
+   "warning": "#F5B041",
+   "code_bg": "#081115",
+   "code_ink": "#EEF6F7",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "teal": {
+   "name": "Teal",
+   "light": {
+    "accent": "#00838F",
+    "accent_2": "#6B4FBB"
+   },
+   "dark": {
+    "accent": "#4DD0E1",
+    "accent_2": "#B39DDB"
+   }
+  },
+  "violet": {
+   "name": "Violet",
+   "light": {
+    "accent": "#6B4FBB",
+    "accent_2": "#00838F"
+   },
+   "dark": {
+    "accent": "#B39DDB",
+    "accent_2": "#4DD0E1"
+   }
+  },
+  "lime": {
+   "name": "Lime",
+   "light": {
+    "accent": "#4E7D0E",
+    "accent_2": "#00838F"
+   },
+   "dark": {
+    "accent": "#AED581",
+    "accent_2": "#4DD0E1"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#00838F",
+   "#6B4FBB",
+   "#4E7D0E",
+   "#D9822B",
+   "#C0283E",
+   "#7C9196"
+  ],
+  "dark": [
+   "#4DD0E1",
+   "#B39DDB",
+   "#AED581",
+   "#FFB74D",
+   "#FF8FA3",
+   "#9FB3B8"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "ring",
+     "at": "br",
+     "size": 520,
+     "x": -100,
+     "y": -120,
+     "color": "accent",
+     "opacity": 0.9
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 120,
+     "x": 120,
+     "y": 90,
+     "color": "accent-2"
+    }
+   ],
+   "section": [
+    {
+     "motif": "dots",
+     "at": "r",
+     "w": 360,
+     "h": 520,
+     "x": 40,
+     "color": "accent",
+     "opacity": 0.55,
+     "fade": "l"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "ring",
+     "at": "tr",
+     "size": 200,
+     "x": 60,
+     "y": 50,
+     "color": "accent-2"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "ring",
+     "at": "bl",
+     "size": 520,
+     "x": -140,
+     "y": -150,
+     "color": "accent",
+     "opacity": 0.9
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 120,
+     "x": 120,
+     "y": 90,
+     "color": "accent-2"
+    }
+   ]
+  },
+  "vars": {
+   "cover": {
+    "--cover-w": "70%"
+   }
+  },
+  "kicker": "pill",
+  "cards": "soft",
+  "doc": {
+   "cover": [
+    {
+     "motif": "ring",
+     "at": "br",
+     "size": 100,
+     "x": -22,
+     "y": -26,
+     "color": "accent",
+     "opacity": 0.9
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 24,
+     "x": 18,
+     "y": 16,
+     "color": "accent-2"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 6,
+     "x": 0,
+     "y": 0,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "circle",
+    "size": 5,
+    "color": "accent"
+   }
+  }
+ }
+}

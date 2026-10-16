@@ -1,0 +1,47 @@
+/* Noir: signature art. Colours, fonts and shapes come from tokens.css (built from theme.json).
+   A dark stage. Each slide has a soft spotlight glow behind its headline, and the spot moves through six places as
+   the deck goes on (data-cycle), so no two slides in a row look the same. Covers, sections, statements and
+   closings are centred under a stronger light; full-bleed photos get cinema bars; headline emphasis is italic in
+   the accent. Write one idea per slide. */
+.pc-deck[data-theme="noir"] .pc-slide { --spot-x: 18%; --spot-y: 10%; --spot: 15%; --spot-w: 62%; --spot-h: 58%;
+  background: radial-gradient(ellipse var(--spot-w) var(--spot-h) at var(--spot-x) var(--spot-y),
+    color-mix(in srgb, var(--accent) calc(var(--spot) * var(--spot-f, 1)), var(--bg)), var(--bg) 100%); }
+.pc-deck[data-theme="noir"] .pc-slide[data-cycle="1"] { --spot-x: 52%; --spot-y: 0%; }
+.pc-deck[data-theme="noir"] .pc-slide[data-cycle="2"] { --spot-x: 86%; --spot-y: 8%; }
+.pc-deck[data-theme="noir"] .pc-slide[data-cycle="3"] { --spot-x: 30%; --spot-y: 4%; --spot-w: 74%; }
+.pc-deck[data-theme="noir"] .pc-slide[data-cycle="4"] { --spot-x: 8%; --spot-y: 30%; }
+.pc-deck[data-theme="noir"] .pc-slide[data-cycle="5"] { --spot-x: 70%; --spot-y: 2%; --spot-w: 70%; }
+.pc-deck[data-theme="noir"][data-mode="light"] .pc-slide { --spot: 8%; }
+.pc-deck[data-theme="noir"] .pc-slide:is(.pc-cover, .pc-section, .pc-statement, .pc-closing) {
+  --spot-x: 50%; --spot-y: 44%; --spot-w: 64%; --spot-h: 72%; --spot: 22%; }
+.pc-deck[data-theme="noir"][data-mode="light"] .pc-slide:is(.pc-cover, .pc-section, .pc-statement, .pc-closing) { --spot: 9%; }
+.pc-deck[data-theme="noir"] .pc-slide[data-surface="accent"] { --spot-f: 0; }
+/* Surfaces scale the glow: none on accent slides, fainter on a light inverse surface, which darkens under it */
+.pc-deck[data-theme="noir"]:not([data-mode="light"]) .pc-slide[data-surface="inverse"] { --spot-f: .36; }
+.pc-deck[data-theme="noir"][data-mode="light"] .pc-slide[data-surface="inverse"] { --spot-f: 1.2; }
+.pc-deck[data-theme="noir"] .pc-split { --spot-x: 8%; --spot-y: 20%; }
+.pc-deck[data-theme="noir"] .pc-split--left { --spot-x: 92%; }
+
+/* Centred stage for covers, sections, statements and closings */
+.pc-deck[data-theme="noir"] .pc-slide:is(.pc-cover, .pc-section, .pc-statement, .pc-closing):not(.pc-split) {
+  align-items: center; justify-content: center; text-align: center; }
+.pc-deck[data-theme="noir"] .pc-slide:is(.pc-cover, .pc-section, .pc-statement, .pc-closing):not(.pc-split) :is(.pc-title, .pc-sub, .pc-say) {
+  margin-left: auto; margin-right: auto; }
+.pc-deck[data-theme="noir"] .pc-slide:is(.pc-cover, .pc-closing):not(.pc-split) :is(.pc-meta, .pc-contact) { justify-content: center; }
+.pc-deck[data-theme="noir"] .pc-cover .pc-sub { color: var(--ink-2); }
+
+/* Cinema bars on full-bleed photos; the page number sits in the lower bar */
+.pc-deck[data-theme="noir"] .pc-bleed::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: linear-gradient(#000, #000) top / 100% calc(var(--mb) * .8) no-repeat, linear-gradient(#000, #000) bottom / 100% calc(var(--mb) * .8) no-repeat; }
+.pc-deck[data-theme="noir"] .pc-bleed > .pc-num { color: rgba(255, 255, 255, .72); }
+
+/* Headlines: emphasis in italic and the accent; section numbers are italic numerals */
+.pc-deck[data-theme="noir"] :is(.pc-title, .pc-say) em { font-style: italic; color: var(--accent-text); }
+.pc-deck[data-theme="noir"] .pc-section .pc-section-num {
+  font: italic 400 calc(var(--fs-hero) * 1.15)/1 var(--font-display); letter-spacing: 0; color: var(--accent-text); margin-bottom: 18px; }
+.pc-deck[data-theme="noir"] .pc-quote blockquote { font-style: italic; }
+.pc-deck[data-theme="noir"] .pc-slide > .pc-num { color: var(--ink-3); letter-spacing: .08em; }
+.pc-deck[data-theme="noir"] .pc-card:not(.pc-card--accent, .pc-card--soft, .pc-card--flat, .pc-inverse) {
+  background: color-mix(in srgb, var(--surface) 82%, transparent); }
+.pc-deck[data-theme="noir"] .pc-slide[data-surface="accent"] > .pc-num { color: var(--ink-2); }

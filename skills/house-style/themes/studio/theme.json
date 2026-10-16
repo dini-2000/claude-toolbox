@@ -1,0 +1,246 @@
+{
+ "name": "Studio",
+ "summary": "A design studio look: off-white walls, a wide expressive display face, a mono for captions, one electric accent and an outlined ring. Confident and image-led, for portfolios, case studies, agency pitches and creative reviews.",
+ "good_for": [
+  "portfolio",
+  "case-study",
+  "agency",
+  "creative-review",
+  "pitch",
+  "brand"
+ ],
+ "category": "creative",
+ "defaults": {
+  "mode": "light",
+  "palette": "signal"
+ },
+ "fonts": {
+  "display": [
+   "Syne",
+   "sans"
+  ],
+  "body": [
+   "Inter",
+   "sans"
+  ],
+  "label": [
+   "Space Mono",
+   "mono"
+  ],
+  "stat": [
+   "Syne",
+   "sans"
+  ],
+  "mono": [
+   "Space Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "800",
+  "--w-h1": "700",
+  "--w-h2": "700",
+  "--w-body": "400",
+  "--w-strong": "600",
+  "--w-label": "400",
+  "--w-stat": "800",
+  "--track-display": "-0.035em",
+  "--track-h1": "-0.02em",
+  "--track-label": "0.04em",
+  "--label-case": "uppercase",
+  "--lh-display": "0.98",
+  "--lh-h1": "1.06",
+  "--lh-body": "1.5",
+  "--radius": "0px",
+  "--radius-sm": "0px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F5F4F0",
+   "bg_alt": "#ECEAE4",
+   "surface": "#FFFFFF",
+   "surface_2": "#E6E4DD",
+   "ink": "#111111",
+   "ink_2": "#363636",
+   "ink_3": "#525252",
+   "line": "#D6D3CA",
+   "positive": "#1D7A3A",
+   "negative": "#C8102E",
+   "warning": "#8F5B00",
+   "code_bg": "#111111",
+   "code_ink": "#ECEAE4",
+   "letterbox": "#0A0A0A",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#111111",
+   "bg_alt": "#161616",
+   "surface": "#1B1B1B",
+   "surface_2": "#252525",
+   "ink": "#F5F4F0",
+   "ink_2": "#D3D1CB",
+   "ink_3": "#ABA9A3",
+   "line": "#2F2F2F",
+   "positive": "#6FD08C",
+   "negative": "#FF6B6B",
+   "warning": "#F5B041",
+   "code_bg": "#0A0A0A",
+   "code_ink": "#F5F4F0",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "signal": {
+   "name": "Signal",
+   "light": {
+    "accent": "#E63312",
+    "accent_2": "#111111"
+   },
+   "dark": {
+    "accent": "#FF6A4D",
+    "accent_2": "#F5F4F0"
+   }
+  },
+  "cobalt": {
+   "name": "Cobalt",
+   "light": {
+    "accent": "#1F3FD1",
+    "accent_2": "#E63312"
+   },
+   "dark": {
+    "accent": "#7D93FF",
+    "accent_2": "#FF6A4D"
+   }
+  },
+  "acid": {
+   "name": "Acid",
+   "light": {
+    "accent": "#4F7A00",
+    "accent_2": "#111111"
+   },
+   "dark": {
+    "accent": "#C6F432",
+    "accent_2": "#F5F4F0"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#111111",
+   "#E63312",
+   "#1F3FD1",
+   "#8C8A84",
+   "#4F7A00",
+   "#C8C5BC"
+  ],
+  "dark": [
+   "#F5F4F0",
+   "#FF6A4D",
+   "#7D93FF",
+   "#8C8A84",
+   "#C6F432",
+   "#4D4D4D"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "ring",
+     "at": "tr",
+     "size": 760,
+     "x": -240,
+     "y": -300,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "ring",
+     "at": "r",
+     "size": 620,
+     "x": -260,
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "plus",
+     "at": "tr",
+     "size": 60,
+     "x": 90,
+     "y": 80,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "ring",
+     "at": "tr",
+     "size": 760,
+     "x": -240,
+     "y": -300,
+     "color": "accent"
+    }
+   ]
+  },
+  "vars": {
+   "cover": {
+    "--cover-w": "76%",
+    "--k-hero": ".8"
+   },
+   "cover@narrow": {
+    "--cover-w": "100%",
+    "--k-hero": ".66"
+   },
+   "content": {
+    "--k-h1": ".92",
+    "--k-stat": ".82"
+   },
+   "content@narrow": {
+    "--k-h1": ".8"
+   }
+  },
+  "kicker": "dash",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "ring",
+     "at": "br",
+     "size": 150,
+     "x": -50,
+     "y": -55,
+     "color": "accent"
+    },
+    {
+     "motif": "plus",
+     "at": "tr",
+     "size": 12,
+     "x": 16,
+     "y": 16,
+     "color": "ink"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "plus",
+     "at": "tr",
+     "size": 8,
+     "x": 0,
+     "y": 0,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "plus",
+    "size": 6,
+    "color": "accent"
+   }
+  }
+ }
+}

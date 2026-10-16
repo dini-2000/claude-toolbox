@@ -1,0 +1,5 @@
+/* Meridian in documents: a thin accent line under the running head with the section name in accent, a large thin circle on the cover, a short accent rule on openers. Built in by tools/build.py with engine/doc.css; the motif pictures come from theme.css. */
+@page { @top-left { color: var(--accent-text); border-bottom: 1.2pt solid var(--accent); } @top-right { border-bottom: 1.2pt solid var(--accent); } }
+.pc-doc[data-theme="meridian"] .pc-cover:not([data-cover="full"])::before { content: ""; position: absolute; z-index: 0; width: 170mm; height: 170mm; right: calc(-58mm + var(--bleed, 0mm)); top: calc(-48mm + var(--bleed, 0mm)); border: 1.4pt solid var(--accent); border-radius: 50%; }
+.pc-doc[data-theme="meridian"] .pc-cover:not([data-cover="full"]) > :not(.pc-media) { position: relative; z-index: 1; }
+.pc-doc[data-theme="meridian"] .pc-opener::before { content: ""; display: block; width: 26mm; height: 1.6pt; background: var(--accent); margin-bottom: 9mm; }

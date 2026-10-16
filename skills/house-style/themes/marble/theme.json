@@ -1,0 +1,253 @@
+{
+ "name": "Marble",
+ "summary": "Polished stone: cool white with faint veining, a high-contrast Bodoni for titles, a clean geometric sans and fine gold or emerald frames. Rich and composed, for luxury brands, hospitality, property, jewellery and high-end launches.",
+ "good_for": [
+  "luxury",
+  "hospitality",
+  "property",
+  "jewellery",
+  "brand-launch",
+  "gala"
+ ],
+ "category": "luxury",
+ "defaults": {
+  "mode": "light",
+  "palette": "gold"
+ },
+ "fonts": {
+  "display": [
+   "Bodoni Moda",
+   "serif"
+  ],
+  "body": [
+   "Jost",
+   "sans"
+  ],
+  "label": [
+   "Jost",
+   "sans"
+  ],
+  "stat": [
+   "Bodoni Moda",
+   "serif"
+  ],
+  "mono": [
+   "IBM Plex Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "500",
+  "--w-h1": "500",
+  "--w-h2": "500",
+  "--w-body": "400",
+  "--w-strong": "500",
+  "--w-label": "500",
+  "--w-stat": "500",
+  "--track-display": "-0.01em",
+  "--track-h1": "0em",
+  "--track-label": "0.22em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.06",
+  "--lh-h1": "1.12",
+  "--lh-body": "1.55",
+  "--radius": "0px",
+  "--radius-sm": "0px",
+  "--border-w": "1px",
+  "--card-pad": "36px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F7F7F5",
+   "bg_alt": "#EFEFEC",
+   "surface": "#FFFFFF",
+   "surface_2": "#E8E8E4",
+   "ink": "#1C1C1E",
+   "ink_2": "#3E3E42",
+   "ink_3": "#55555A",
+   "line": "#DADAD5",
+   "positive": "#2D6A4F",
+   "negative": "#9B2226",
+   "warning": "#8A5A00",
+   "code_bg": "#1C1C1E",
+   "code_ink": "#EFEFEC",
+   "letterbox": "#0E0E10",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#121214",
+   "bg_alt": "#17171A",
+   "surface": "#1C1C20",
+   "surface_2": "#26262B",
+   "ink": "#F2F1EC",
+   "ink_2": "#D0CFCA",
+   "ink_3": "#AAA9A4",
+   "line": "#323238",
+   "positive": "#7DC4A0",
+   "negative": "#F08C8C",
+   "warning": "#E9C27A",
+   "code_bg": "#0A0A0C",
+   "code_ink": "#F2F1EC",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "gold": {
+   "name": "Gold",
+   "light": {
+    "accent": "#8A6D2F",
+    "accent_2": "#1C1C1E"
+   },
+   "dark": {
+    "accent": "#D9B872",
+    "accent_2": "#F2F1EC"
+   }
+  },
+  "emerald": {
+   "name": "Emerald",
+   "light": {
+    "accent": "#1F5E4A",
+    "accent_2": "#8A6D2F"
+   },
+   "dark": {
+    "accent": "#7CCBAE",
+    "accent_2": "#D9B872"
+   }
+  },
+  "onyx": {
+   "name": "Onyx",
+   "light": {
+    "accent": "#2B2B30",
+    "accent_2": "#8A6D2F"
+   },
+   "dark": {
+    "accent": "#D0CFCA",
+    "accent_2": "#D9B872"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#1C1C1E",
+   "#8A6D2F",
+   "#1F5E4A",
+   "#8E8E93",
+   "#5B4636",
+   "#C7C7C2"
+  ],
+  "dark": [
+   "#F2F1EC",
+   "#D9B872",
+   "#7CCBAE",
+   "#8E8E93",
+   "#C4A68A",
+   "#4A4A50"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "waves",
+     "at": "r",
+     "w": 560,
+     "h": "100%",
+     "color": "line",
+     "opacity": 0.9,
+     "tile": 120,
+     "fade": "l"
+    },
+    {
+     "motif": "frame",
+     "inset": 30,
+     "thickness": 1,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "waves",
+     "at": "l",
+     "w": 420,
+     "h": "100%",
+     "color": "line",
+     "opacity": 0.9,
+     "tile": 120,
+     "fade": "r"
+    },
+    {
+     "motif": "frame",
+     "inset": 30,
+     "thickness": 1,
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "diamond",
+     "at": "t",
+     "size": 16,
+     "y": 110,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "waves",
+     "at": "r",
+     "w": 560,
+     "h": "100%",
+     "color": "line",
+     "opacity": 0.9,
+     "tile": 120,
+     "fade": "l"
+    },
+    {
+     "motif": "frame",
+     "inset": 30,
+     "thickness": 1,
+     "color": "accent"
+    }
+   ]
+  },
+  "kicker": "dash",
+  "cards": "outline",
+  "doc": {
+   "cover": [
+    {
+     "motif": "waves",
+     "at": "r",
+     "w": 90,
+     "h": "100%",
+     "color": "line",
+     "opacity": 0.9,
+     "tile": 24,
+     "fade": "l"
+    },
+    {
+     "motif": "frame",
+     "inset": 9,
+     "thickness": 0.3,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "diamond",
+     "at": "tl",
+     "size": 4,
+     "x": 0,
+     "y": 0,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "diamond",
+    "size": 4,
+    "color": "accent"
+   }
+  }
+ }
+}

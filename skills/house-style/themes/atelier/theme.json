@@ -1,0 +1,264 @@
+{
+ "name": "Atelier",
+ "summary": "Cream paper, a high-contrast serif and gold hairline frames with corner ornaments. Quiet and expensive, for fashion, hospitality, jewellery and premium brand decks.",
+ "good_for": [
+  "brand",
+  "fashion",
+  "hospitality",
+  "launch",
+  "portfolio",
+  "proposal"
+ ],
+ "category": "luxury",
+ "defaults": {
+  "mode": "light",
+  "palette": "gold"
+ },
+ "fonts": {
+  "display": [
+   "Gloock",
+   "serif"
+  ],
+  "body": [
+   "Work Sans",
+   "sans"
+  ],
+  "label": [
+   "Work Sans",
+   "sans"
+  ],
+  "stat": [
+   "Gloock",
+   "serif"
+  ],
+  "mono": [
+   "DM Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "400",
+  "--w-h1": "400",
+  "--w-h2": "400",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "400",
+  "--w-stat": "400",
+  "--track-display": "-0.01em",
+  "--track-h1": "0em",
+  "--track-label": "0.18em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.04",
+  "--lh-h1": "1.12",
+  "--lh-body": "1.5",
+  "--radius": "0px",
+  "--radius-sm": "0px",
+  "--border-w": "1px",
+  "--card-pad": "36px",
+  "--icon-stroke": "1.25"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F6F1E8",
+   "bg_alt": "#EFE8DB",
+   "surface": "#FBF8F2",
+   "surface_2": "#F1EADC",
+   "ink": "#1D1A16",
+   "ink_2": "#4A443B",
+   "ink_3": "#6B6357",
+   "line": "#DDD3C2",
+   "positive": "#2F6B45",
+   "negative": "#9E2A2B",
+   "warning": "#8A5A00",
+   "code_bg": "#1D1A16",
+   "code_ink": "#EFE8DB",
+   "letterbox": "#0E0C0A",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#14110E",
+   "bg_alt": "#1C1813",
+   "surface": "#1E1A15",
+   "surface_2": "#26211A",
+   "ink": "#F3ECDF",
+   "ink_2": "#CFC5B4",
+   "ink_3": "#A99E8B",
+   "line": "#3A3328",
+   "positive": "#7FC79A",
+   "negative": "#F08A84",
+   "warning": "#E0B05C",
+   "code_bg": "#0B0907",
+   "code_ink": "#EFE8DB",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "gold": {
+   "name": "Gold",
+   "light": {
+    "accent": "#8C6A2F",
+    "accent_2": "#6E2F3A"
+   },
+   "dark": {
+    "accent": "#D4B36F",
+    "accent_2": "#C98A95"
+   }
+  },
+  "emerald": {
+   "name": "Emerald",
+   "light": {
+    "accent": "#1F5C4A",
+    "accent_2": "#8C6A2F"
+   },
+   "dark": {
+    "accent": "#6FC3A5",
+    "accent_2": "#D4B36F"
+   }
+  },
+  "rose": {
+   "name": "Rose",
+   "light": {
+    "accent": "#8E4A55",
+    "accent_2": "#3B3530"
+   },
+   "dark": {
+    "accent": "#E2A3AE",
+    "accent_2": "#CFC5B4"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#8C6A2F",
+   "#1F5C4A",
+   "#6E2F3A",
+   "#3B5B7A",
+   "#B08D57",
+   "#6B6357"
+  ],
+  "dark": [
+   "#D4B36F",
+   "#6FC3A5",
+   "#C98A95",
+   "#8FB3D9",
+   "#E6CF9E",
+   "#A99E8B"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "frame",
+     "inset": 30,
+     "thickness": 5,
+     "line": "double",
+     "color": "accent"
+    },
+    {
+     "motif": "corner",
+     "at": "tl",
+     "size": 96,
+     "x": 50,
+     "y": 50,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "frame",
+     "inset": 30,
+     "thickness": 1.5,
+     "color": "accent"
+    },
+    {
+     "motif": "diamond",
+     "at": "r",
+     "size": 420,
+     "x": -150,
+     "color": "accent",
+     "opacity": 0.1
+    }
+   ],
+   "statement": [
+    {
+     "motif": "diamond",
+     "at": "t",
+     "size": 18,
+     "y": 70,
+     "color": "accent"
+    }
+   ],
+   "content": [
+    {
+     "motif": "diamond",
+     "at": "tr",
+     "size": 14,
+     "x": 56,
+     "y": 44,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "frame",
+     "inset": 30,
+     "thickness": 5,
+     "line": "double",
+     "color": "accent"
+    },
+    {
+     "motif": "corner",
+     "at": "tr",
+     "size": 96,
+     "x": 50,
+     "y": 50,
+     "color": "accent",
+     "rotate": 90
+    }
+   ]
+  },
+  "vars": {
+   "section": {
+    "--title-w": "62%"
+   }
+  },
+  "kicker": "underline",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "frame",
+     "inset": 9,
+     "thickness": 1.2,
+     "line": "double",
+     "color": "accent"
+    },
+    {
+     "motif": "corner",
+     "at": "tl",
+     "size": 22,
+     "x": 14,
+     "y": 14,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "diamond",
+     "at": "tr",
+     "size": 6,
+     "x": 20,
+     "y": 20,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "diamond",
+    "size": 6,
+    "color": "accent"
+   }
+  }
+ }
+}

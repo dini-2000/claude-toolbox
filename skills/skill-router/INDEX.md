@@ -1,6 +1,6 @@
 # Skills index
 
-589 skills from Claude Toolbox, grouped by area. `auto` skills are in Claude's skill list; the rest load on demand: read `~/.claude/skills/<name>/SKILL.md`, or the user runs `/<name>`.
+587 skills from Claude Toolbox, grouped by area. `auto` skills are in Claude's skill list; the rest load on demand: read `~/.claude/skills/<name>/SKILL.md`, or the user runs `/<name>`.
 
 Flags: `scripts-missing` = calls a script that was not shipped (do that step by hand or skip it); `refs-missing` = points to reference docs that were not shipped; `saves-to-~/.claude` = files notes under ~/.claude.
 
@@ -13,7 +13,7 @@ Flags: `scripts-missing` = calls a script that was not shipped (do that step by 
 - Marketing, growth and copy (55)
 - Product and project management (37)
 - Research and analysis (15)
-- Writing, docs and presentations (36)
+- Writing, docs and presentations (37)
 - Design, UI and media (30)
 - Testing and QA (28)
 - Cloud, DevOps and security (26)
@@ -1687,6 +1687,10 @@ Sections: Overview; The Process; When to Stop and Ask for Help; When to Revisit 
 ### harness-writing
 Designs and improves fuzzing harnesses for C/C++ and Rust. Covers mapping raw bytes onto a target API, generating structured inputs, avoiding non-determinism and false crashes, and deciding what to fuzz together. Use when writing a first LLVMFuzzerTestOneInput or fuzz_target! harness, when a campaign finds nothing or reports crashes that will not reproduce, or when the target API needs structured rather than raw input.
 Sections: Overview; When to Apply; Quick Reference; Step-by-Step; Common Patterns; Advanced Usage; Practical Harness Rules; Anti-Patterns; Tool-Specific Guidance; Troubleshooting
+
+### house-style
+Design and build slide decks, paged PDF documents and graphics with this kit (talks, lessons, pitches, reports, papers, proposals, letters, CVs, invoices, newsletters, social posts, banners, posters, invitations, business cards), in one of 60 themes or a custom brand theme. Decks ship as one HTML file with its PDF and an editable PowerPoint; documents as print-quality PDFs; graphics as PNG, JPG and print-ready PDF with bleed.
+Sections: 1. Style; 2. Write; 3. Check; 4. Share; A theme of its own; Motion (decks); PowerPoint QC (decks, every time, before sharing); Sinhala and Tamil (basic support); Content rules; Choosing a chart
 
 ### incremental-implementation
 Delivers changes incrementally in thin, verifiable slices. Use when implementing any feature or change that touches more than one file, or when picking up the next task from a plan. Use when rolling a change out behind a feature flag, when you're about to write a large amount of code at once, or when a task feels too big to land in one step.

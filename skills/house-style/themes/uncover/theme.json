@@ -1,0 +1,224 @@
+{
+ "name": "Uncover",
+ "summary": "Centred, airy and nearly bare: a crisp sans, soft off-white paper and one bright blue rule under each title. Clean and modern, for talks, explainers, product walkthroughs and teaching.",
+ "good_for": [
+  "talk",
+  "explainer",
+  "walkthrough",
+  "teaching",
+  "update",
+  "demo"
+ ],
+ "category": "minimal",
+ "credit": "colours from the Marp Uncover theme by the Marp team (MIT licence)",
+ "defaults": {
+  "mode": "light",
+  "palette": "blue"
+ },
+ "fonts": {
+  "display": [
+   "Work Sans",
+   "sans"
+  ],
+  "body": [
+   "Work Sans",
+   "sans"
+  ],
+  "label": [
+   "Work Sans",
+   "sans"
+  ],
+  "stat": [
+   "Work Sans",
+   "sans"
+  ],
+  "mono": [
+   "Red Hat Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "700",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "700",
+  "--w-stat": "700",
+  "--track-display": "-0.03em",
+  "--track-h1": "-0.02em",
+  "--track-label": "0.08em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.06",
+  "--lh-h1": "1.12",
+  "--lh-body": "1.55",
+  "--radius": "6px",
+  "--radius-sm": "4px",
+  "--border-w": "1px",
+  "--card-pad": "36px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FDFCFF",
+   "bg_alt": "#F4F3F8",
+   "surface": "#FFFFFF",
+   "surface_2": "#EEEDF3",
+   "ink": "#202228",
+   "ink_2": "#3E4049",
+   "ink_3": "#55575F",
+   "line": "#DDDCE3",
+   "positive": "#18794E",
+   "negative": "#C0292E",
+   "warning": "#975800",
+   "code_bg": "#202228",
+   "code_ink": "#F4F3F8",
+   "letterbox": "#131418",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#202228",
+   "bg_alt": "#25272E",
+   "surface": "#2A2C34",
+   "surface_2": "#33363F",
+   "ink": "#FFFFFF",
+   "ink_2": "#D8D9DE",
+   "ink_3": "#B1B3BB",
+   "line": "#3C3F48",
+   "positive": "#6FD3A0",
+   "negative": "#F28B82",
+   "warning": "#F5B041",
+   "code_bg": "#16171C",
+   "code_ink": "#FFFFFF",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "blue": {
+   "name": "Blue",
+   "light": {
+    "accent": "#0077A6",
+    "accent_2": "#202228"
+   },
+   "dark": {
+    "accent": "#33B9EA",
+    "accent_2": "#FFFFFF"
+   }
+  },
+  "coral": {
+   "name": "Coral",
+   "light": {
+    "accent": "#C2410C",
+    "accent_2": "#0077A6"
+   },
+   "dark": {
+    "accent": "#FF8A65",
+    "accent_2": "#33B9EA"
+   }
+  },
+  "violet": {
+   "name": "Violet",
+   "light": {
+    "accent": "#6D28D9",
+    "accent_2": "#0077A6"
+   },
+   "dark": {
+    "accent": "#B794F6",
+    "accent_2": "#33B9EA"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#0077A6",
+   "#202228",
+   "#C2410C",
+   "#18794E",
+   "#6D28D9",
+   "#8A8C94"
+  ],
+  "dark": [
+   "#33B9EA",
+   "#FFFFFF",
+   "#FF8A65",
+   "#6FD3A0",
+   "#B794F6",
+   "#8A8C94"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "rule",
+     "at": "b",
+     "w": 160,
+     "h": 6,
+     "y": 120,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "rule",
+     "at": "b",
+     "w": 120,
+     "h": 6,
+     "y": 120,
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "rule",
+     "at": "t",
+     "w": 80,
+     "h": 6,
+     "y": 110,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "rule",
+     "at": "b",
+     "w": 160,
+     "h": 6,
+     "y": 120,
+     "color": "accent"
+    }
+   ]
+  },
+  "kicker": "dash",
+  "cards": "outline",
+  "doc": {
+   "cover": [
+    {
+     "motif": "rule",
+     "at": "b",
+     "w": 32,
+     "h": 1.4,
+     "y": 28,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "rule",
+     "at": "tl",
+     "w": 20,
+     "h": 1.2,
+     "x": 0,
+     "y": 0,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "circle",
+    "size": 5,
+    "color": "accent"
+   }
+  }
+ }
+}

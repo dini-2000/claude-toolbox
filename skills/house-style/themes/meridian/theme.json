@@ -1,0 +1,44 @@
+{
+ "name": "Meridian",
+ "summary": "A clean modern sans with a thin progress line that carries the section name. Calm and precise, it suits almost any deck.",
+ "good_for": ["talk", "team-update", "report", "proposal", "lesson", "webinar"],
+ "category": "business",
+ "defaults": {"mode": "light", "palette": "cobalt"},
+ "fonts": {
+  "display": ["Schibsted Grotesk", "sans"], "body": ["Schibsted Grotesk", "sans"], "label": ["Schibsted Grotesk", "sans"],
+  "stat": ["Schibsted Grotesk", "sans"], "mono": ["Geist Mono", "mono"]
+ },
+ "tokens": {
+  "--w-display": "700", "--w-h1": "600", "--w-h2": "600", "--w-body": "400", "--w-strong": "600", "--w-label": "600", "--w-stat": "700",
+  "--track-display": "-0.035em", "--track-h1": "-0.02em", "--track-label": "0.1em", "--label-case": "uppercase",
+  "--lh-display": "1.0", "--lh-h1": "1.08", "--lh-body": "1.42",
+  "--radius": "12px", "--radius-sm": "8px", "--border-w": "2px", "--card-pad": "36px", "--icon-stroke": "1.75"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF", "bg_alt": "#F4F5F7", "surface": "#FFFFFF", "surface_2": "#F1F2F5",
+   "ink": "#15171C", "ink_2": "#464C59", "ink_3": "#5B6170", "line": "#E3E5EA",
+   "positive": "#1E7B4E", "negative": "#B3261E", "warning": "#9A5B00",
+   "code_bg": "#0F1218", "code_ink": "#E6E8EB", "letterbox": "#0B0C0F",
+   "shadow": "0 1px 2px rgba(16, 24, 40, .06), 0 10px 28px rgba(16, 24, 40, .08)"
+  },
+  "dark": {
+   "bg": "#0F1218", "bg_alt": "#161A22", "surface": "#181C24", "surface_2": "#1F242E",
+   "ink": "#F2F4F7", "ink_2": "#C3C8D2", "ink_3": "#9AA1AD", "line": "#2A303B",
+   "positive": "#4CC38A", "negative": "#FF6B5E", "warning": "#F2B44C",
+   "code_bg": "#0A0C10", "code_ink": "#E6E8EB", "letterbox": "#050608",
+   "shadow": "0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px rgba(0, 0, 0, .35)",
+   "alt": {"surface": "#1F242E", "surface_2": "#262C37"}
+  }
+ },
+ "palettes": {
+  "cobalt": {"name": "Cobalt", "light": {"accent": "#2F54EB", "accent_2": "#0F8B8D"}, "dark": {"accent": "#7B93FF", "accent_2": "#3FC1C3"}},
+  "teal": {"name": "Teal", "light": {"accent": "#0F7F81", "accent_2": "#2F54EB"}, "dark": {"accent": "#3FC1C3", "accent_2": "#7B93FF"}},
+  "plum": {"name": "Plum", "light": {"accent": "#7A3E9D", "accent_2": "#C2410C"}, "dark": {"accent": "#C08AE0", "accent_2": "#FF9B6B"}},
+  "graphite": {"name": "Graphite", "light": {"accent": "#3A3F4B", "accent_2": "#2F54EB"}, "dark": {"accent": "#C9CED8", "accent_2": "#7B93FF"}}
+ },
+ "chart": {
+  "light": ["#0F8B8D", "#B07D00", "#7A3E9D", "#D1495B", "#5B6170", "#2F54EB"],
+  "dark": ["#3FC1C3", "#F2C14E", "#C08AE0", "#FF7A8A", "#9AA1AD", "#7B93FF"]
+ }
+}

@@ -1,0 +1,4 @@
+/* Chalk in documents: a hand-drawn swoosh under chapter, opener and cover titles. Built in by tools/build.py with engine/doc.css; the motif pictures come from theme.css. */
+.pc-doc[data-theme="chalk"] .pc-chapter > h1::after, .pc-doc[data-theme="chalk"] .pc-opener h1::after, .pc-doc[data-theme="chalk"] .pc-cover h1::after { content: ""; display: block; width: 54mm; height: 4.6mm; margin-top: 3pt;
+  background: var(--accent); clip-path: var(--swoosh-clip); }
+.pc-doc[data-theme="chalk"] .pc-cover-band h1::after { background: currentColor; }

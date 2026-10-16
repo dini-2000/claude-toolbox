@@ -1,0 +1,8 @@
+/* Folio in documents: a small-caps running head over a hairline, an italic title head, a short rule under the cover title, italic opener numerals. Built in by tools/build.py with engine/doc.css; the motif pictures come from theme.css. */
+@page { @top-left { font: 500 8.2pt var(--font-display); text-transform: lowercase; font-variant: small-caps; letter-spacing: .12em; color: var(--ink-2); border-bottom: .5pt solid var(--ink-3); }
+  @top-right { font: italic 400 8.6pt var(--font-display); text-transform: none; letter-spacing: 0; border-bottom: .5pt solid var(--ink-3); }
+  @bottom-right { font: 400 9pt var(--font-display); } }
+.pc-doc[data-theme="folio"] .pc-cover h1::after { content: ""; display: block; width: 20mm; height: .7pt; background: currentColor; opacity: .55; margin-top: 12pt; }
+.pc-doc[data-theme="folio"] .pc-cover .pc-sub { font-style: italic; }
+.pc-doc[data-theme="folio"] .pc-opener .pc-opener-num { font-style: italic; font-weight: 400; font-size: 96pt; }
+.pc-doc[data-theme="folio"] .pc-chapter > h1 { font-weight: 400; }

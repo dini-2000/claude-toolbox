@@ -1,0 +1,255 @@
+{
+ "name": "Schematic",
+ "summary": "An engineering drawing: white graph paper, black linework, corner crop marks, a red mark-up colour and a mono for dimensions and labels. Precise and technical, for design reviews, specifications, architecture and hardware talks.",
+ "good_for": [
+  "design-review",
+  "specification",
+  "architecture",
+  "hardware",
+  "engineering",
+  "technical"
+ ],
+ "category": "engineering",
+ "defaults": {
+  "mode": "light",
+  "palette": "markup"
+ },
+ "fonts": {
+  "display": [
+   "Space Grotesk",
+   "sans"
+  ],
+  "body": [
+   "IBM Plex Sans",
+   "sans"
+  ],
+  "label": [
+   "IBM Plex Mono",
+   "mono"
+  ],
+  "stat": [
+   "Space Grotesk",
+   "sans"
+  ],
+  "mono": [
+   "IBM Plex Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "500",
+  "--w-body": "400",
+  "--w-strong": "600",
+  "--w-label": "500",
+  "--w-stat": "700",
+  "--track-display": "-0.03em",
+  "--track-h1": "-0.02em",
+  "--track-label": "0.06em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.04",
+  "--lh-h1": "1.1",
+  "--lh-body": "1.5",
+  "--radius": "0px",
+  "--radius-sm": "0px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF",
+   "bg_alt": "#F6F8F7",
+   "surface": "#FFFFFF",
+   "surface_2": "#EFF2F1",
+   "ink": "#141414",
+   "ink_2": "#383838",
+   "ink_3": "#505050",
+   "line": "#D3D9D6",
+   "positive": "#1B7A3A",
+   "negative": "#D0021B",
+   "warning": "#8F5B00",
+   "code_bg": "#141414",
+   "code_ink": "#F6F8F7",
+   "letterbox": "#0A0A0A",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#121614",
+   "bg_alt": "#161B19",
+   "surface": "#1A201D",
+   "surface_2": "#232A27",
+   "ink": "#EEF2F0",
+   "ink_2": "#C9D1CD",
+   "ink_3": "#A3ADA8",
+   "line": "#2E3833",
+   "positive": "#6FD08C",
+   "negative": "#FF6B6B",
+   "warning": "#F5B041",
+   "code_bg": "#0B0E0C",
+   "code_ink": "#EEF2F0",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "markup": {
+   "name": "Mark-up",
+   "light": {
+    "accent": "#D0021B",
+    "accent_2": "#141414"
+   },
+   "dark": {
+    "accent": "#FF6B6B",
+    "accent_2": "#EEF2F0"
+   }
+  },
+  "cyan": {
+   "name": "Cyan",
+   "light": {
+    "accent": "#00739E",
+    "accent_2": "#D0021B"
+   },
+   "dark": {
+    "accent": "#4FC3F7",
+    "accent_2": "#FF6B6B"
+   }
+  },
+  "green": {
+   "name": "Green",
+   "light": {
+    "accent": "#2E7D32",
+    "accent_2": "#D0021B"
+   },
+   "dark": {
+    "accent": "#81C784",
+    "accent_2": "#FF6B6B"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#141414",
+   "#D0021B",
+   "#00739E",
+   "#7A7A7A",
+   "#2E7D32",
+   "#B5B5B5"
+  ],
+  "dark": [
+   "#EEF2F0",
+   "#FF6B6B",
+   "#4FC3F7",
+   "#8A948F",
+   "#81C784",
+   "#4D5752"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "graph",
+     "at": "full",
+     "color": "line",
+     "opacity": 0.9,
+     "tile": 80
+    },
+    {
+     "motif": "corner",
+     "at": "tl",
+     "size": 70,
+     "x": 34,
+     "y": 34,
+     "color": "ink"
+    }
+   ],
+   "section": [
+    {
+     "motif": "graph",
+     "at": "full",
+     "color": "line",
+     "opacity": 0.9,
+     "tile": 80
+    },
+    {
+     "motif": "cross",
+     "at": "tr",
+     "size": 50,
+     "x": 60,
+     "y": 60,
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "corner",
+     "at": "tl",
+     "size": 70,
+     "x": 34,
+     "y": 34,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "graph",
+     "at": "full",
+     "color": "line",
+     "opacity": 0.9,
+     "tile": 80
+    },
+    {
+     "motif": "corner",
+     "at": "br",
+     "size": 70,
+     "x": 34,
+     "y": 34,
+     "rotate": 180,
+     "color": "ink"
+    }
+   ]
+  },
+  "kicker": "outline",
+  "cards": "outline",
+  "doc": {
+   "cover": [
+    {
+     "motif": "graph",
+     "at": "tr",
+     "w": 120,
+     "h": 80,
+     "x": 0,
+     "y": 0,
+     "color": "line",
+     "tile": 5,
+     "fade": "l"
+    },
+    {
+     "motif": "corner",
+     "at": "tl",
+     "size": 14,
+     "x": 6,
+     "y": 6,
+     "color": "ink"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "cross",
+     "at": "tr",
+     "size": 6,
+     "x": 0,
+     "y": 0,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "cross",
+    "size": 6,
+    "color": "accent"
+   }
+  }
+ }
+}

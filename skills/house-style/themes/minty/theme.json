@@ -1,0 +1,269 @@
+{
+ "name": "Minty",
+ "summary": "Fresh mint and soft pink on white, rounded corners and gentle blobs, with a friendly geometric sans for headings. Calm and welcoming, for lessons, workshops, health talks and community sessions.",
+ "good_for": [
+  "lesson",
+  "workshop",
+  "health",
+  "community",
+  "training",
+  "onboarding"
+ ],
+ "category": "education",
+ "also": [
+  "wellness"
+ ],
+ "credit": "colours and fonts from Bootswatch Minty by Thomas Park (MIT licence)",
+ "defaults": {
+  "mode": "light",
+  "palette": "mint"
+ },
+ "fonts": {
+  "display": [
+   "Montserrat",
+   "sans"
+  ],
+  "body": [
+   "Open Sans",
+   "sans"
+  ],
+  "label": [
+   "Montserrat",
+   "sans"
+  ],
+  "stat": [
+   "Montserrat",
+   "sans"
+  ],
+  "mono": [
+   "Source Code Pro",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "600",
+  "--w-h1": "600",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "600",
+  "--w-stat": "700",
+  "--track-display": "-0.02em",
+  "--track-h1": "-0.01em",
+  "--track-label": "0.06em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.08",
+  "--lh-h1": "1.12",
+  "--lh-body": "1.55",
+  "--radius": "14px",
+  "--radius-sm": "8px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.75"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF",
+   "bg_alt": "#F3FAF7",
+   "surface": "#FFFFFF",
+   "surface_2": "#EAF5F1",
+   "ink": "#2F3A37",
+   "ink_2": "#4E5B57",
+   "ink_3": "#5E6B67",
+   "line": "#D7E9E2",
+   "positive": "#2E8B57",
+   "negative": "#C2410C",
+   "warning": "#9A6700",
+   "code_bg": "#2F3A37",
+   "code_ink": "#EAF5F1",
+   "letterbox": "#1E2624",
+   "shadow": "0 2px 10px rgba(47, 58, 55, .08)"
+  },
+  "dark": {
+   "bg": "#16201D",
+   "bg_alt": "#1B2724",
+   "surface": "#1F2C28",
+   "surface_2": "#283733",
+   "ink": "#EEF6F3",
+   "ink_2": "#C9D6D1",
+   "ink_3": "#A3B3AD",
+   "line": "#33433E",
+   "positive": "#7FD8A9",
+   "negative": "#FF9B7A",
+   "warning": "#FFD27A",
+   "code_bg": "#0F1614",
+   "code_ink": "#EEF6F3",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "mint": {
+   "name": "Mint",
+   "light": {
+    "accent": "#78C2AD",
+    "accent_2": "#F3969A"
+   },
+   "dark": {
+    "accent": "#8FD3BF",
+    "accent_2": "#F7AFB2"
+   }
+  },
+  "lagoon": {
+   "name": "Lagoon",
+   "light": {
+    "accent": "#4FA3B8",
+    "accent_2": "#F3969A"
+   },
+   "dark": {
+    "accent": "#6CC3D5",
+    "accent_2": "#F7AFB2"
+   }
+  },
+  "peach": {
+   "name": "Peach",
+   "light": {
+    "accent": "#F08A5D",
+    "accent_2": "#78C2AD"
+   },
+   "dark": {
+    "accent": "#F4A582",
+    "accent_2": "#8FD3BF"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#4E9E87",
+   "#E46A70",
+   "#3B8EA5",
+   "#D9962B",
+   "#7A6FBF",
+   "#6B7B76"
+  ],
+  "dark": [
+   "#8FD3BF",
+   "#F7AFB2",
+   "#6CC3D5",
+   "#FFD27A",
+   "#B3A9E8",
+   "#A3B3AD"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "blob",
+     "at": "br",
+     "size": 640,
+     "x": -140,
+     "y": -120,
+     "color": "accent",
+     "opacity": 0.35
+    },
+    {
+     "motif": "blob-2",
+     "at": "tr",
+     "size": 300,
+     "x": 120,
+     "y": -90,
+     "color": "accent-2",
+     "opacity": 0.35
+    }
+   ],
+   "section": [
+    {
+     "motif": "blob",
+     "at": "tr",
+     "size": 560,
+     "x": -200,
+     "y": -180,
+     "color": "accent",
+     "opacity": 0.3
+    }
+   ],
+   "statement": [
+    {
+     "motif": "blob-2",
+     "at": "tr",
+     "size": 280,
+     "x": -70,
+     "y": -70,
+     "color": "accent-2",
+     "opacity": 0.35
+    }
+   ],
+   "closing": [
+    {
+     "motif": "blob",
+     "at": "tl",
+     "size": 600,
+     "x": -200,
+     "y": -220,
+     "color": "accent",
+     "opacity": 0.3
+    },
+    {
+     "motif": "blob-2",
+     "at": "tr",
+     "size": 320,
+     "x": -60,
+     "y": -80,
+     "color": "accent-2",
+     "opacity": 0.3
+    }
+   ]
+  },
+  "vars": {
+   "cover": {
+    "--cover-w": "76%",
+    "--k-hero": ".92"
+   },
+   "cover@narrow": {
+    "--cover-w": "100%",
+    "--k-hero": ".84"
+   }
+  },
+  "kicker": "pill",
+  "cards": "soft",
+  "doc": {
+   "cover": [
+    {
+     "motif": "blob",
+     "at": "br",
+     "size": 120,
+     "x": -30,
+     "y": -28,
+     "color": "accent",
+     "opacity": 0.35
+    },
+    {
+     "motif": "blob-2",
+     "at": "tr",
+     "size": 60,
+     "x": 12,
+     "y": -14,
+     "color": "accent-2",
+     "opacity": 0.35
+    }
+   ],
+   "opener": [
+    {
+     "motif": "blob",
+     "at": "tr",
+     "size": 34,
+     "x": -8,
+     "y": -8,
+     "color": "accent",
+     "opacity": 0.35
+    }
+   ],
+   "mark": {
+    "motif": "circle",
+    "size": 6,
+    "color": "accent"
+   }
+  }
+ }
+}

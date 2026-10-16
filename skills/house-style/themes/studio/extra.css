@@ -1,0 +1,5 @@
+/* Syne is wide: initials sit smaller in their circle, and section titles step down on tall formats */
+.pc-deck[data-theme="studio"] .pc-initials { font-size: 54px; }
+.pc-deck[data-theme="studio"]:is([data-format="4x5"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-people:not(.pc-keep) .pc-initials,
+.pc-deck[data-theme="studio"]:is([data-format="1x1"], [data-format="9x16"]) .pc-people:not(.pc-keep):has(> :nth-child(5)) .pc-initials { font-size: calc(var(--avatar) * .3); }
+.pc-deck[data-theme="studio"]:is([data-format="1x1"], [data-format="4x5"], [data-format="9x16"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-section { --k-hero: .8; }

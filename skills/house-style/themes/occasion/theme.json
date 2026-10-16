@@ -1,0 +1,65 @@
+{
+ "name": "Occasion",
+ "summary": "An invitation: centred covers, a classic serif with a script for names, gold on deep colour and a double-rule frame with corner flourishes. For weddings, celebrations, awards, Avurudu and Vesak events.",
+ "good_for": ["event", "portfolio", "talk"],
+ "category": "events",
+ "defaults": {"mode": "dark", "palette": "midnight"},
+ "fonts": {
+  "display": ["Cormorant Garamond", "serif"], "body": ["Jost", "sans"], "label": ["Jost", "sans"],
+  "stat": ["Cormorant Garamond", "serif"], "quote": ["Cormorant Garamond", "serif"], "script": ["Pinyon Script", "script"],
+  "mono": ["IBM Plex Mono", "mono"]
+ },
+ "tokens": {
+  "--w-display": "600", "--w-h1": "600", "--w-h2": "600", "--w-body": "400", "--w-strong": "500", "--w-label": "500", "--w-stat": "600", "--w-quote": "500",
+  "--track-display": "0em", "--track-h1": "0em", "--track-label": "0.2em", "--label-case": "uppercase",
+  "--lh-display": "1.02", "--lh-h1": "1.06", "--lh-body": "1.5",
+  "--radius": "0px", "--radius-sm": "0px", "--border-w": "1px", "--card-pad": "36px", "--icon-stroke": "1.25",
+  "--card-shadow": "none", "--card-border-w": "1px", "--bullet-radius": "0", "--media-radius": "0px",
+  "--k-h1": "1.12", "--k-stat": "1.08"
+ },
+ "modes": {
+  "dark": {
+   "bg": "#0F1A2E", "bg_alt": "#13213A", "surface": "#162641", "surface_2": "#1C2E4D", "ink": "#F6F0E2", "ink_2": "#DCD2BC",
+   "ink_3": "#B3A98F", "line": "#2E3E5C", "positive": "#7CCB98", "negative": "#F29A90", "warning": "#E8C46A",
+   "code_bg": "#0A1222", "code_ink": "#F6F0E2", "letterbox": "#070D18", "shadow": "none",
+   "alt": {"surface": "#1C2E4D", "surface_2": "#223558"}
+  },
+  "light": {
+   "bg": "#FBF7EE", "bg_alt": "#F3ECDD", "surface": "#FFFDF8", "surface_2": "#F1E9D8", "ink": "#2A2418", "ink_2": "#4E4532",
+   "ink_3": "#685D47", "line": "#E2D7C0", "positive": "#2E7044", "negative": "#A3322A", "warning": "#7E5500",
+   "code_bg": "#1E1A12", "code_ink": "#F6F0E2", "letterbox": "#14110B", "shadow": "none",
+   "alt": {"surface": "#FFFDF8", "surface_2": "#EDE3CF"}
+  }
+ },
+ "palettes": {
+  "midnight": {"name": "Midnight and gold",
+   "dark": {"accent": "#C8A24A", "accent_2": "#E6D3A3", "soft": "#263A5E"},
+   "light": {"accent": "#B08A34", "accent_2": "#0F1A2E", "accent_text": "#7E6020"}},
+  "emerald": {"name": "Emerald and gold",
+   "dark": {"accent": "#D1AE5A", "accent_2": "#E6D3A3", "soft": "#1E5C47", "neutrals": {"bg": "#0E3B2E", "bg_alt": "#0E3C2E", "surface": "#134A39", "surface_2": "#185541",
+     "ink": "#FCFAF3", "ink_2": "#DBD3BD", "ink_3": "#B4BCA6", "line": "#2A6550", "code_bg": "#08261D", "letterbox": "#06190F",
+     "alt": {"surface": "#185541", "surface_2": "#1D5F49"}}},
+   "light": {"accent": "#1F5E46", "accent_2": "#B08A34"}},
+  "rose": {"name": "Rose",
+   "light": {"accent": "#8E3B46", "accent_2": "#B08A34", "neutrals": {"bg": "#F7E6E8", "bg_alt": "#F1D9DC", "surface": "#FFF7F8", "surface_2": "#F0D8DB",
+     "ink": "#3A1E23", "ink_2": "#5C3A40", "ink_3": "#74515A", "line": "#E5C3C8", "alt": {"surface": "#FFF7F8", "surface_2": "#EACDD1"}}},
+   "dark": {"accent": "#E7A3AE", "accent_2": "#E6C987", "soft": "#542D35", "neutrals": {"bg": "#2A1418", "bg_alt": "#331A1F", "surface": "#3A1F25", "surface_2": "#45262D",
+     "ink": "#FBEFF1", "ink_2": "#E5CDD2", "ink_3": "#C3A3AA", "line": "#5A333B", "code_bg": "#1A0C0F", "letterbox": "#12080A",
+     "alt": {"surface": "#45262D", "surface_2": "#502C34"}}}},
+  "avurudu": {"name": "Avurudu",
+   "light": {"accent": "#8B1E1E", "accent_2": "#1F6B3A", "neutrals": {"bg": "#FBF3E4", "bg_alt": "#F5E6CB", "surface": "#FFFBF2", "surface_2": "#F3E3C6",
+     "line": "#E6D2AE", "alt": {"surface": "#FFFBF2", "surface_2": "#EFDDBC"}}},
+   "dark": {"accent": "#D9B35B", "accent_2": "#7CC896", "soft": "#662424", "neutrals": {"bg": "#3A0E0E", "bg_alt": "#441212", "surface": "#4C1616", "surface_2": "#581B1B",
+     "ink": "#FBF1E3", "ink_2": "#E8D4C0", "ink_3": "#C9AE98", "line": "#6E2A2A", "code_bg": "#240707", "letterbox": "#180404",
+     "alt": {"surface": "#581B1B", "surface_2": "#632020"}}}},
+  "vesak": {"name": "Vesak",
+   "light": {"accent": "#C25E00", "accent_2": "#1D4FA8", "neutrals": {"bg": "#FFF8EC", "bg_alt": "#FCEBD0", "surface": "#FFFDF8", "surface_2": "#FAE7C8",
+     "line": "#EDD6AE", "alt": {"surface": "#FFFDF8", "surface_2": "#F6DFB8"}}},
+   "dark": {"accent": "#FFB547", "accent_2": "#8DB0FF", "soft": "#26386E", "neutrals": {"bg": "#0E1838", "bg_alt": "#121E42", "surface": "#16234B", "surface_2": "#1C2B57",
+     "line": "#2D3D6B", "code_bg": "#080F26", "letterbox": "#050A1A", "alt": {"surface": "#1C2B57", "surface_2": "#223262"}}}}
+ },
+ "chart": {
+  "dark": ["#C8A24A", "#8DB0FF", "#E7A3AE", "#7CC896", "#B3A98F", "#E6D3A3"],
+  "light": ["#B08A34", "#1D4FA8", "#8E3B46", "#1F6B3A", "#685D47", "#C25E00"]
+ }
+}

@@ -44,7 +44,7 @@ git reset --hard origin/main
 ## Check it worked
 
 ```bash
-find ~/.claude/skills -maxdepth 2 -name SKILL.md | wc -l             # 587, plus any of your own
+find ~/.claude/skills -maxdepth 2 -name SKILL.md | wc -l             # 588, plus any of your own
 grep -c "skill_hint.py" ~/.claude/settings.json                      # 0, the hint hook is retired
 grep -c "\[skill-router\] Before answering" ~/.claude/settings.json  # 0, the old echo is gone
 python3 ~/.claude/skills/skill-router/find.py "SOC 2 audit"          # soc2-compliance first

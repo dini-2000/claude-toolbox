@@ -1,0 +1,45 @@
+{
+ "name": "Blueprint",
+ "summary": "A technical drawing: white lines on blueprint blue (or blue on a white drafting sheet), a fine grid, condensed headings, mono notes, a title block at the foot and dimension lines. For plans, engineering, architecture and how-it-works decks.",
+ "good_for": ["proposal", "lesson", "report", "webinar", "problem-solution"],
+ "category": "engineering",
+ "defaults": {"mode": "dark", "palette": "highlighter"},
+ "fonts": {
+  "display": ["Barlow Condensed", "sans"], "body": ["Barlow", "sans"], "label": ["Barlow", "sans"],
+  "stat": ["Barlow Condensed", "sans"], "mono": ["IBM Plex Mono", "mono"]
+ },
+ "tokens": {
+  "--w-display": "700", "--w-h1": "600", "--w-h2": "600", "--w-body": "400", "--w-strong": "600", "--w-label": "600", "--w-stat": "700",
+  "--track-display": "-0.01em", "--track-h1": "0em", "--track-label": "0.1em", "--label-case": "uppercase",
+  "--lh-display": "0.98", "--lh-h1": "1.04", "--lh-body": "1.45",
+  "--radius": "0px", "--radius-sm": "0px", "--border-w": "2px", "--card-pad": "32px", "--icon-stroke": "1.5",
+  "--card-shadow": "none", "--card-border-w": "1.5px", "--bullet-radius": "0", "--media-radius": "0px",
+  "--k-h1": "1.1", "--k-stat": "1.08"
+ },
+ "modes": {
+  "dark": {
+   "bg": "#123E7C", "bg_alt": "#0F3670", "surface": "#164787", "surface_2": "#1B4F92", "ink": "#F2F6FF", "ink_2": "#D6E2F8",
+   "ink_3": "#AFC4E8", "line": "#4A73B0", "positive": "#8BE3B0", "negative": "#FFA3A3", "warning": "#FFD34D",
+   "code_bg": "#0B2A57", "code_ink": "#F2F6FF", "letterbox": "#071B38", "shadow": "none",
+   "extra": {"--grid-minor": "rgba(255, 255, 255, .055)", "--grid-major": "rgba(255, 255, 255, .13)"},
+   "alt": {"surface": "#13417F", "surface_2": "#18498A"}
+  },
+  "light": {
+   "bg": "#FFFFFF", "bg_alt": "#F3F7FD", "surface": "#FFFFFF", "surface_2": "#EDF3FB", "ink": "#163D78", "ink_2": "#2C5390",
+   "ink_3": "#46679C", "line": "#C6D6EE", "positive": "#1A7A4A", "negative": "#B83227", "warning": "#865400",
+   "code_bg": "#0B2A57", "code_ink": "#F2F6FF", "letterbox": "#071B38", "shadow": "none",
+   "extra": {"--grid-minor": "#F1F5FB", "--grid-major": "#DCE6F5"},
+   "alt": {"surface": "#FFFFFF", "surface_2": "#E6EEF9"}
+  }
+ },
+ "palettes": {
+  "highlighter": {"name": "Highlighter", "dark": {"accent": "#FFD34D", "accent_2": "#FF8F8F"}, "light": {"accent": "#FFD34D", "accent_2": "#B83227", "accent_text": "#8A6400"}},
+  "redline": {"name": "Redline", "dark": {"accent": "#FF8F8F", "accent_2": "#FFD34D"}, "light": {"accent": "#C0392B", "accent_2": "#D49A00"}},
+  "cyan": {"name": "Cyan", "dark": {"accent": "#7FE3F0", "accent_2": "#FFD34D"}, "light": {"accent": "#0B7F99", "accent_2": "#C0392B"}},
+  "white": {"name": "White", "dark": {"accent": "#FFFFFF", "accent_2": "#FFD34D"}, "light": {"accent": "#2457A6", "accent_2": "#C0392B"}}
+ },
+ "chart": {
+  "dark": ["#7FE3F0", "#FF9B9B", "#B5F0C8", "#C8B8FF", "#FFFFFF", "#FFD34D"],
+  "light": ["#2457A6", "#C0392B", "#C48A00", "#1A7A4A", "#6B4FB0", "#0B7F99"]
+ }
+}

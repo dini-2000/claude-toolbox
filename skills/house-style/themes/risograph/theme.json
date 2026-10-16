@@ -1,0 +1,286 @@
+{
+ "name": "Risograph",
+ "summary": "A riso print: cream paper, two bright inks (pink and blue, or orange and teal) laid over each other, halftone dots, a heavy grotesque and a mono. Lively and handmade, for zines, art shows, community events and indie launches.",
+ "good_for": [
+  "zine",
+  "art-show",
+  "community",
+  "indie",
+  "gig",
+  "poster"
+ ],
+ "category": "retro",
+ "also": [
+  "creative"
+ ],
+ "defaults": {
+  "mode": "light",
+  "palette": "pink-blue"
+ },
+ "fonts": {
+  "display": [
+   "Archivo",
+   "sans"
+  ],
+  "body": [
+   "Work Sans",
+   "sans"
+  ],
+  "label": [
+   "Space Mono",
+   "mono"
+  ],
+  "stat": [
+   "Archivo",
+   "sans"
+  ],
+  "mono": [
+   "Space Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "900",
+  "--w-h1": "900",
+  "--w-h2": "700",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "400",
+  "--w-stat": "900",
+  "--track-display": "-0.03em",
+  "--track-h1": "-0.02em",
+  "--track-label": "0.04em",
+  "--label-case": "uppercase",
+  "--lh-display": "0.98",
+  "--lh-h1": "1.04",
+  "--lh-body": "1.5",
+  "--radius": "0px",
+  "--radius-sm": "0px",
+  "--border-w": "2px",
+  "--card-pad": "34px",
+  "--icon-stroke": "2"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F6F0E2",
+   "bg_alt": "#EEE6D3",
+   "surface": "#FBF7EE",
+   "surface_2": "#E8DEC8",
+   "ink": "#1E2A4A",
+   "ink_2": "#3A4562",
+   "ink_3": "#4F5973",
+   "line": "#D9CDB4",
+   "positive": "#1D7A4A",
+   "negative": "#C2185B",
+   "warning": "#8A5300",
+   "code_bg": "#1E2A4A",
+   "code_ink": "#EEE6D3",
+   "letterbox": "#121A30",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#1A1F33",
+   "bg_alt": "#1F253B",
+   "surface": "#252B43",
+   "surface_2": "#2F3651",
+   "ink": "#F6F0E2",
+   "ink_2": "#D8D2C6",
+   "ink_3": "#B2AC9F",
+   "line": "#3A4260",
+   "positive": "#7FD6A6",
+   "negative": "#FF7AB6",
+   "warning": "#FFC94D",
+   "code_bg": "#11152A",
+   "code_ink": "#F6F0E2",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "pink-blue": {
+   "name": "Pink and blue",
+   "light": {
+    "accent": "#D1007A",
+    "accent_2": "#0060B0"
+   },
+   "dark": {
+    "accent": "#FF5FB0",
+    "accent_2": "#5FB3FF"
+   }
+  },
+  "orange-teal": {
+   "name": "Orange and teal",
+   "light": {
+    "accent": "#C2410C",
+    "accent_2": "#00747A"
+   },
+   "dark": {
+    "accent": "#FF8A4C",
+    "accent_2": "#3FD1D1"
+   }
+  },
+  "green-purple": {
+   "name": "Green and purple",
+   "light": {
+    "accent": "#127A3E",
+    "accent_2": "#6A2FB5"
+   },
+   "dark": {
+    "accent": "#4CD68A",
+    "accent_2": "#B48CFF"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#D1007A",
+   "#0060B0",
+   "#F2B705",
+   "#127A3E",
+   "#6A2FB5",
+   "#8C8577"
+  ],
+  "dark": [
+   "#FF5FB0",
+   "#5FB3FF",
+   "#FFD84D",
+   "#4CD68A",
+   "#B48CFF",
+   "#B2AC9F"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "halftone",
+     "at": "br",
+     "w": 640,
+     "h": 480,
+     "x": 0,
+     "y": 0,
+     "color": "accent",
+     "opacity": 0.85,
+     "fade": "l"
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 300,
+     "x": 70,
+     "y": -60,
+     "color": "accent-2",
+     "opacity": 0.8
+    }
+   ],
+   "section": [
+    {
+     "motif": "halftone",
+     "at": "tr",
+     "w": 480,
+     "h": 420,
+     "x": 0,
+     "y": 0,
+     "color": "accent-2",
+     "opacity": 0.85,
+     "fade": "l"
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 260,
+     "x": 60,
+     "y": -70,
+     "color": "accent",
+     "opacity": 0.8
+    }
+   ],
+   "statement": [
+    {
+     "motif": "halftone",
+     "at": "tr",
+     "w": 300,
+     "h": 220,
+     "x": 0,
+     "y": 0,
+     "color": "accent",
+     "opacity": 0.85,
+     "fade": "l"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "halftone",
+     "at": "bl",
+     "w": 640,
+     "h": 480,
+     "x": 0,
+     "y": 0,
+     "color": "accent-2",
+     "opacity": 0.85,
+     "fade": "r"
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 300,
+     "x": 70,
+     "y": -60,
+     "color": "accent",
+     "opacity": 0.8
+    }
+   ]
+  },
+  "vars": {
+   "cover": {
+    "--cover-w": "68%"
+   },
+   "cover@narrow": {
+    "--cover-w": "100%",
+    "--k-hero": ".86"
+   }
+  },
+  "kicker": "tab",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "halftone",
+     "at": "br",
+     "w": 130,
+     "h": 100,
+     "x": 0,
+     "y": 0,
+     "color": "accent",
+     "opacity": 0.85,
+     "fade": "l"
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 60,
+     "x": 10,
+     "y": -10,
+     "color": "accent-2",
+     "opacity": 0.8
+    }
+   ],
+   "opener": [
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 9,
+     "x": 0,
+     "y": 0,
+     "color": "accent",
+     "opacity": 0.8
+    }
+   ],
+   "mark": {
+    "motif": "circle",
+    "size": 5,
+    "color": "accent"
+   }
+  }
+ }
+}

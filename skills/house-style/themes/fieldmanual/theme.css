@@ -1,0 +1,138 @@
+/* Field Manual: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="fieldmanual"] {
+  --m-bracket: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 100'%3E%3Cpath d='M0 0h40v7H7v86h33v7H0z'/%3E%3C/svg%3E");
+  --m-diagonal: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M-1 1 1-1M0 10 10 0M9 11l2-2' stroke='%23000' stroke-width='1.3'/%3E%3C/svg%3E");
+  --m-triangle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 4 98 92H2z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="fieldmanual"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: calc(46 * var(--art-px));
+  left: calc(50% - 100% / 2 + calc(0 * var(--art-px)));
+  bottom: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  -webkit-mask: var(--m-diagonal) 0 0 / calc(46 * var(--art-px)) calc(46 * var(--art-px)) repeat;
+  mask: var(--m-diagonal) 0 0 / calc(46 * var(--art-px)) calc(46 * var(--art-px)) repeat; }
+.pc-deck[data-theme="fieldmanual"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: calc(27.6 * var(--art-px));
+  left: calc(50% - 100% / 2 + calc(0 * var(--art-px)));
+  bottom: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  -webkit-mask: var(--m-diagonal) 0 0 / calc(27.6 * var(--art-px)) calc(27.6 * var(--art-px)) repeat;
+  mask: var(--m-diagonal) 0 0 / calc(27.6 * var(--art-px)) calc(27.6 * var(--art-px)) repeat; }
+.pc-deck[data-theme="fieldmanual"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: calc(calc(26 * var(--art-px)));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="fieldmanual"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: calc(calc(26 * var(--art-px)));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="fieldmanual"] .pc-section:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(300 * var(--art-px));
+  height: calc(46 * var(--art-px));
+  right: calc(0 * var(--art-px));
+  top: calc(60 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from -0.8% 14.6%, line to 2.2% -5.4%, line to 0.8% -14.6%, line to -2.2% 5.4%, close, move to 0.7% 104.6%, line to 16% 4.6%, line to 14.6% -4.6%, line to -0.7% 95.4%, close, move to 14.5% 114.6%, line to 17.6% 94.6%, line to 16.2% 85.4%, line to 13.1% 105.4%, close, move to 14.5% 14.6%, line to 17.6% -5.4%, line to 16.2% -14.6%, line to 13.1% 5.4%, close, move to 16% 104.6%, line to 31.4% 4.6%, line to 30% -4.6%, line to 14.6% 95.4%, close, move to 29.8% 114.6%, line to 32.9% 94.6%, line to 31.5% 85.4%, line to 28.4% 105.4%, close, move to 29.8% 14.6%, line to 32.9% -5.4%, line to 31.5% -14.6%, line to 28.4% 5.4%, close, move to 31.4% 104.6%, line to 46.7% 4.6%, line to 45.3% -4.6%, line to 30% 95.4%, close, move to 45.2% 114.6%, line to 48.2% 94.6%, line to 46.8% 85.4%, line to 43.8% 105.4%, close, move to 45.2% 14.6%, line to 48.2% -5.4%, line to 46.8% -14.6%, line to 43.8% 5.4%, close, move to 46.7% 104.6%, line to 62% 4.6%, line to 60.6% -4.6%, line to 45.3% 95.4%, close, move to 60.5% 114.6%, line to 63.6% 94.6%, line to 62.2% 85.4%, line to 59.1% 105.4%, close, move to 60.5% 14.6%, line to 63.6% -5.4%, line to 62.2% -14.6%, line to 59.1% 5.4%, close, move to 62% 104.6%, line to 77.4% 4.6%, line to 76% -4.6%, line to 60.6% 95.4%, close, move to 75.8% 114.6%, line to 78.9% 94.6%, line to 77.5% 85.4%, line to 74.4% 105.4%, close, move to 75.8% 14.6%, line to 78.9% -5.4%, line to 77.5% -14.6%, line to 74.4% 5.4%, close, move to 77.4% 104.6%, line to 92.7% 4.6%, line to 91.3% -4.6%, line to 76% 95.4%, close, move to 91.2% 114.6%, line to 94.2% 94.6%, line to 92.8% 85.4%, line to 89.8% 105.4%, close, move to 91.2% 14.6%, line to 94.2% -5.4%, line to 92.8% -14.6%, line to 89.8% 5.4%, close, move to 92.7% 104.6%, line to 108% 4.6%, line to 106.6% -4.6%, line to 91.3% 95.4%, close, move to 106.5% 114.6%, line to 109.6% 94.6%, line to 108.2% 85.4%, line to 105.1% 105.4%, close); }
+.pc-deck[data-theme="fieldmanual"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(180 * var(--art-px));
+  height: calc(27.6 * var(--art-px));
+  right: calc(0 * var(--art-px));
+  top: calc(36 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from -0.8% 14.6%, line to 2.2% -5.4%, line to 0.8% -14.6%, line to -2.2% 5.4%, close, move to 0.7% 104.6%, line to 16% 4.6%, line to 14.6% -4.6%, line to -0.7% 95.4%, close, move to 14.5% 114.6%, line to 17.6% 94.6%, line to 16.2% 85.4%, line to 13.1% 105.4%, close, move to 14.5% 14.6%, line to 17.6% -5.4%, line to 16.2% -14.6%, line to 13.1% 5.4%, close, move to 16% 104.6%, line to 31.4% 4.6%, line to 30% -4.6%, line to 14.6% 95.4%, close, move to 29.8% 114.6%, line to 32.9% 94.6%, line to 31.5% 85.4%, line to 28.4% 105.4%, close, move to 29.8% 14.6%, line to 32.9% -5.4%, line to 31.5% -14.6%, line to 28.4% 5.4%, close, move to 31.4% 104.6%, line to 46.7% 4.6%, line to 45.3% -4.6%, line to 30% 95.4%, close, move to 45.2% 114.6%, line to 48.2% 94.6%, line to 46.8% 85.4%, line to 43.8% 105.4%, close, move to 45.2% 14.6%, line to 48.2% -5.4%, line to 46.8% -14.6%, line to 43.8% 5.4%, close, move to 46.7% 104.6%, line to 62% 4.6%, line to 60.6% -4.6%, line to 45.3% 95.4%, close, move to 60.5% 114.6%, line to 63.6% 94.6%, line to 62.2% 85.4%, line to 59.1% 105.4%, close, move to 60.5% 14.6%, line to 63.6% -5.4%, line to 62.2% -14.6%, line to 59.1% 5.4%, close, move to 62% 104.6%, line to 77.4% 4.6%, line to 76% -4.6%, line to 60.6% 95.4%, close, move to 75.8% 114.6%, line to 78.9% 94.6%, line to 77.5% 85.4%, line to 74.4% 105.4%, close, move to 75.8% 14.6%, line to 78.9% -5.4%, line to 77.5% -14.6%, line to 74.4% 5.4%, close, move to 77.4% 104.6%, line to 92.7% 4.6%, line to 91.3% -4.6%, line to 76% 95.4%, close, move to 91.2% 114.6%, line to 94.2% 94.6%, line to 92.8% 85.4%, line to 89.8% 105.4%, close, move to 91.2% 14.6%, line to 94.2% -5.4%, line to 92.8% -14.6%, line to 89.8% 5.4%, close, move to 92.7% 104.6%, line to 108% 4.6%, line to 106.6% -4.6%, line to 91.3% 95.4%, close, move to 106.5% 114.6%, line to 109.6% 94.6%, line to 108.2% 85.4%, line to 105.1% 105.4%, close); }
+.pc-deck[data-theme="fieldmanual"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(60 * var(--art-px));
+  height: calc(360 * var(--art-px));
+  left: calc(40 * var(--art-px));
+  top: calc(50% - calc(360 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 0% 29.17%, line to 100% 29.17%, line to 100% 32.08%, line to 17.5% 32.08%, line to 17.5% 67.92%, line to 100% 67.92%, line to 100% 70.83%, line to 0% 70.83%, close); }
+.pc-deck[data-theme="fieldmanual"]:is([data-format="3x1"], [data-format="4x1"]) .pc-statement:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(36 * var(--art-px));
+  height: calc(216 * var(--art-px));
+  left: calc(24 * var(--art-px));
+  top: calc(50% - calc(216 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 0% 29.17%, line to 100% 29.17%, line to 100% 32.08%, line to 17.5% 32.08%, line to 17.5% 67.92%, line to 100% 67.92%, line to 100% 70.83%, line to 0% 70.83%, close); }
+.pc-deck[data-theme="fieldmanual"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: calc(46 * var(--art-px));
+  left: calc(50% - 100% / 2 + calc(0 * var(--art-px)));
+  top: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  -webkit-mask: var(--m-diagonal) 0 0 / calc(46 * var(--art-px)) calc(46 * var(--art-px)) repeat;
+  mask: var(--m-diagonal) 0 0 / calc(46 * var(--art-px)) calc(46 * var(--art-px)) repeat; }
+.pc-deck[data-theme="fieldmanual"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  height: calc(27.6 * var(--art-px));
+  left: calc(50% - 100% / 2 + calc(0 * var(--art-px)));
+  top: calc(0 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  -webkit-mask: var(--m-diagonal) 0 0 / calc(27.6 * var(--art-px)) calc(27.6 * var(--art-px)) repeat;
+  mask: var(--m-diagonal) 0 0 / calc(27.6 * var(--art-px)) calc(27.6 * var(--art-px)) repeat; }
+.pc-deck[data-theme="fieldmanual"] .pc-closing:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: calc(calc(26 * var(--art-px)));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="fieldmanual"] .pc-kicker {
+  width: fit-content;
+  padding: .38em .7em .42em;
+  border-radius: 2px;
+  background: var(--accent-text);
+  color: var(--kicker-on, var(--bg)); }
+.pc-deck[data-theme="fieldmanual"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 0;
+  background: var(--surface-2); }

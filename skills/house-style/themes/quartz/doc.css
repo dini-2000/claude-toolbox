@@ -1,0 +1,60 @@
+/* Quartz: document art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-doc[data-theme="quartz"] .pc-cover:not([data-cover="full"])::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 200mm;
+  height: 200mm;
+  right: -70mm;
+  top: -80mm;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.55; }
+.pc-doc[data-theme="quartz"] .pc-cover:not([data-cover="full"])::after {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 180mm;
+  height: 180mm;
+  left: -60mm;
+  bottom: -60mm;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-2, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.5; }
+.pc-doc[data-theme="quartz"] .pc-cover:not([data-cover="full"]) > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="quartz"] .pc-opener {
+  position: relative; }
+.pc-doc[data-theme="quartz"] .pc-opener::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 90mm;
+  height: 90mm;
+  right: -40mm;
+  top: -40mm;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent, var(--accent)) 70%, transparent), transparent);
+  border-radius: 50%;
+  opacity: 0.45; }
+.pc-doc[data-theme="quartz"] .pc-opener > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="quartz"] .pc-chapter > h1::after {
+  content: "";
+  display: block;
+  width: 6pt;
+  height: 6pt;
+  margin: 9pt 0 0;
+  background: var(--accent, var(--accent));
+  -webkit-mask: var(--m-circle) center / contain no-repeat;
+  mask: var(--m-circle) center / contain no-repeat; }
+.pc-doc[data-theme="quartz"] .pc-kicker {
+  width: fit-content;
+  padding: .38em .9em .42em;
+  border-radius: 999px;
+  background: var(--accent-text);
+  color: var(--kicker-on, var(--bg)); }

@@ -1,0 +1,8 @@
+/* Ledger in documents: a mono ticker running head over a rule, double rules under titles, banded tables. Built in by tools/build.py with engine/doc.css; the motif pictures come from theme.css. */
+@page { @top-left { font: 500 7.2pt var(--font-mono); letter-spacing: .04em; color: var(--ink); border-bottom: .6pt solid var(--ink); }
+  @top-right { font: 500 7.2pt var(--font-mono); text-transform: uppercase; letter-spacing: .04em; border-bottom: .6pt solid var(--ink); }
+  @bottom-right { font: 500 8pt var(--font-mono); } }
+.pc-doc[data-theme="ledger"] .pc-chapter > h1, .pc-doc[data-theme="ledger"] .pc-cover h1 { border-bottom: 3.2pt double currentColor; padding-bottom: 6pt; }
+.pc-doc[data-theme="ledger"] .pc-chapter h2 { border-bottom: .6pt solid var(--line); padding-bottom: 3pt; }
+.pc-doc[data-theme="ledger"] tbody tr:nth-child(even) td { background: var(--surface-2); }
+.pc-doc[data-theme="ledger"] .pc-opener .pc-opener-num { font-family: var(--font-mono); font-weight: 500; }

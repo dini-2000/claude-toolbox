@@ -1,0 +1,165 @@
+/* Minty: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="minty"] {
+  --m-blob: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M64 4c18 4 32 18 34 36 2 16-8 26-6 40 1 12-12 20-26 18-14-1-22 2-36 0C14 96 2 84 2 66s12-22 12-36S40-2 64 4z'/%3E%3C/svg%3E");
+  --m-blob-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30 6c14-6 26 4 40 4s26 8 28 24-10 24-8 38-8 26-26 26-30-6-44-12S0 70 2 52 16 12 30 6z'/%3E%3C/svg%3E");
+  --m-circle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="minty"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(640 * var(--art-px));
+  height: calc(640 * var(--art-px));
+  right: calc(-140 * var(--art-px));
+  bottom: calc(-120 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 64% 4%, curve to 98% 40% with 82% 8% / 96% 22%, curve to 92% 80% with 100% 56% / 90% 66%, curve to 66% 98% with 93% 92% / 80% 100%, curve to 30% 98% with 52% 97% / 44% 100%, curve to 2% 66% with 14% 96% / 2% 84%, curve to 14% 30% with 2% 48% / 14% 44%, curve to 64% 4% with 14% 16% / 40% -2%, close);
+  opacity: 0.35; }
+.pc-deck[data-theme="minty"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(384 * var(--art-px));
+  height: calc(384 * var(--art-px));
+  right: calc(-84 * var(--art-px));
+  bottom: calc(-72 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 64% 4%, curve to 98% 40% with 82% 8% / 96% 22%, curve to 92% 80% with 100% 56% / 90% 66%, curve to 66% 98% with 93% 92% / 80% 100%, curve to 30% 98% with 52% 97% / 44% 100%, curve to 2% 66% with 14% 96% / 2% 84%, curve to 14% 30% with 2% 48% / 14% 44%, curve to 64% 4% with 14% 16% / 40% -2%, close);
+  opacity: 0.35; }
+.pc-deck[data-theme="minty"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(300 * var(--art-px));
+  height: calc(300 * var(--art-px));
+  right: calc(120 * var(--art-px));
+  top: calc(-90 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 30% 6%, curve to 70% 10% with 44% 0% / 56% 10%, curve to 98% 34% with 84% 10% / 96% 18%, curve to 90% 72% with 100% 50% / 88% 58%, curve to 64% 98% with 92% 86% / 82% 98%, curve to 20% 86% with 46% 98% / 34% 92%, curve to 2% 52% with 6% 80% / 0% 70%, curve to 30% 6% with 4% 34% / 16% 12%, close);
+  opacity: 0.35; }
+.pc-deck[data-theme="minty"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(180 * var(--art-px));
+  height: calc(180 * var(--art-px));
+  right: calc(72 * var(--art-px));
+  top: calc(-54 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 30% 6%, curve to 70% 10% with 44% 0% / 56% 10%, curve to 98% 34% with 84% 10% / 96% 18%, curve to 90% 72% with 100% 50% / 88% 58%, curve to 64% 98% with 92% 86% / 82% 98%, curve to 20% 86% with 46% 98% / 34% 92%, curve to 2% 52% with 6% 80% / 0% 70%, curve to 30% 6% with 4% 34% / 16% 12%, close);
+  opacity: 0.35; }
+.pc-deck[data-theme="minty"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(560 * var(--art-px));
+  height: calc(560 * var(--art-px));
+  right: calc(-200 * var(--art-px));
+  top: calc(-180 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 64% 4%, curve to 98% 40% with 82% 8% / 96% 22%, curve to 92% 80% with 100% 56% / 90% 66%, curve to 66% 98% with 93% 92% / 80% 100%, curve to 30% 98% with 52% 97% / 44% 100%, curve to 2% 66% with 14% 96% / 2% 84%, curve to 14% 30% with 2% 48% / 14% 44%, curve to 64% 4% with 14% 16% / 40% -2%, close);
+  opacity: 0.3; }
+.pc-deck[data-theme="minty"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(336 * var(--art-px));
+  height: calc(336 * var(--art-px));
+  right: calc(-120 * var(--art-px));
+  top: calc(-108 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 64% 4%, curve to 98% 40% with 82% 8% / 96% 22%, curve to 92% 80% with 100% 56% / 90% 66%, curve to 66% 98% with 93% 92% / 80% 100%, curve to 30% 98% with 52% 97% / 44% 100%, curve to 2% 66% with 14% 96% / 2% 84%, curve to 14% 30% with 2% 48% / 14% 44%, curve to 64% 4% with 14% 16% / 40% -2%, close);
+  opacity: 0.3; }
+.pc-deck[data-theme="minty"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(280 * var(--art-px));
+  height: calc(280 * var(--art-px));
+  right: calc(-70 * var(--art-px));
+  top: calc(-70 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 30% 6%, curve to 70% 10% with 44% 0% / 56% 10%, curve to 98% 34% with 84% 10% / 96% 18%, curve to 90% 72% with 100% 50% / 88% 58%, curve to 64% 98% with 92% 86% / 82% 98%, curve to 20% 86% with 46% 98% / 34% 92%, curve to 2% 52% with 6% 80% / 0% 70%, curve to 30% 6% with 4% 34% / 16% 12%, close);
+  opacity: 0.35; }
+.pc-deck[data-theme="minty"]:is([data-format="3x1"], [data-format="4x1"]) .pc-statement:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(168 * var(--art-px));
+  height: calc(168 * var(--art-px));
+  right: calc(-42 * var(--art-px));
+  top: calc(-42 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 30% 6%, curve to 70% 10% with 44% 0% / 56% 10%, curve to 98% 34% with 84% 10% / 96% 18%, curve to 90% 72% with 100% 50% / 88% 58%, curve to 64% 98% with 92% 86% / 82% 98%, curve to 20% 86% with 46% 98% / 34% 92%, curve to 2% 52% with 6% 80% / 0% 70%, curve to 30% 6% with 4% 34% / 16% 12%, close);
+  opacity: 0.35; }
+.pc-deck[data-theme="minty"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(600 * var(--art-px));
+  height: calc(600 * var(--art-px));
+  left: calc(-200 * var(--art-px));
+  top: calc(-220 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 64% 4%, curve to 98% 40% with 82% 8% / 96% 22%, curve to 92% 80% with 100% 56% / 90% 66%, curve to 66% 98% with 93% 92% / 80% 100%, curve to 30% 98% with 52% 97% / 44% 100%, curve to 2% 66% with 14% 96% / 2% 84%, curve to 14% 30% with 2% 48% / 14% 44%, curve to 64% 4% with 14% 16% / 40% -2%, close);
+  opacity: 0.3; }
+.pc-deck[data-theme="minty"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(360 * var(--art-px));
+  height: calc(360 * var(--art-px));
+  left: calc(-120 * var(--art-px));
+  top: calc(-132 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 64% 4%, curve to 98% 40% with 82% 8% / 96% 22%, curve to 92% 80% with 100% 56% / 90% 66%, curve to 66% 98% with 93% 92% / 80% 100%, curve to 30% 98% with 52% 97% / 44% 100%, curve to 2% 66% with 14% 96% / 2% 84%, curve to 14% 30% with 2% 48% / 14% 44%, curve to 64% 4% with 14% 16% / 40% -2%, close);
+  opacity: 0.3; }
+.pc-deck[data-theme="minty"] .pc-closing:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(320 * var(--art-px));
+  height: calc(320 * var(--art-px));
+  right: calc(-60 * var(--art-px));
+  top: calc(-80 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 30% 6%, curve to 70% 10% with 44% 0% / 56% 10%, curve to 98% 34% with 84% 10% / 96% 18%, curve to 90% 72% with 100% 50% / 88% 58%, curve to 64% 98% with 92% 86% / 82% 98%, curve to 20% 86% with 46% 98% / 34% 92%, curve to 2% 52% with 6% 80% / 0% 70%, curve to 30% 6% with 4% 34% / 16% 12%, close);
+  opacity: 0.3; }
+.pc-deck[data-theme="minty"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(192 * var(--art-px));
+  height: calc(192 * var(--art-px));
+  right: calc(-36 * var(--art-px));
+  top: calc(-48 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 30% 6%, curve to 70% 10% with 44% 0% / 56% 10%, curve to 98% 34% with 84% 10% / 96% 18%, curve to 90% 72% with 100% 50% / 88% 58%, curve to 64% 98% with 92% 86% / 82% 98%, curve to 20% 86% with 46% 98% / 34% 92%, curve to 2% 52% with 6% 80% / 0% 70%, curve to 30% 6% with 4% 34% / 16% 12%, close);
+  opacity: 0.3; }
+.pc-deck[data-theme="minty"] .pc-cover {
+  --cover-w: 76%;
+  --k-hero: .92; }
+.pc-deck[data-theme="minty"]:is([data-format="1x1"], [data-format="4x5"], [data-format="9x16"], [data-format="a4p"], [data-format="5x7"], [data-format="letter-p"]) .pc-cover {
+  --cover-w: 100%;
+  --k-hero: .84; }
+.pc-deck[data-theme="minty"] .pc-kicker {
+  width: fit-content;
+  padding: .38em .9em .42em;
+  border-radius: 999px;
+  background: var(--accent-text);
+  color: var(--kicker-on, var(--bg)); }
+.pc-deck[data-theme="minty"] .pc-card:not(.pc-card--flat) {
+  box-shadow: 0 12px 34px rgba(0, 0, 0, .12);
+  border: 0; }

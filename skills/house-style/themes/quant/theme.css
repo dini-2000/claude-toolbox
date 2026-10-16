@@ -1,0 +1,123 @@
+/* Quant: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="quant"] {
+  --m-grid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M0 0h10v.5H.5V10H0z'/%3E%3C/svg%3E");
+  --m-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M38 0h24v38h38v24H62v38H38V62H0V38h38z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="quant"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  background: var(--line, var(--accent));
+  -webkit-mask: var(--m-grid) 0 0 / calc(60 * var(--art-px)) calc(60 * var(--art-px)) repeat;
+  mask: var(--m-grid) 0 0 / calc(60 * var(--art-px)) calc(60 * var(--art-px)) repeat;
+  opacity: 0.8; }
+.pc-deck[data-theme="quant"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  background: var(--line, var(--accent));
+  -webkit-mask: var(--m-grid) 0 0 / calc(36 * var(--art-px)) calc(36 * var(--art-px)) repeat;
+  mask: var(--m-grid) 0 0 / calc(36 * var(--art-px)) calc(36 * var(--art-px)) repeat;
+  opacity: 0.8; }
+.pc-deck[data-theme="quant"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(calc(10 * var(--art-px)));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="quant"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(520 * var(--art-px));
+  height: 100%;
+  right: calc(0 * var(--art-px));
+  top: calc(50% - 100% / 2 + calc(0 * var(--art-px)));
+  background: var(--line, var(--accent));
+  -webkit-mask: var(--m-grid) 0 0 / calc(60 * var(--art-px)) calc(60 * var(--art-px)) repeat, linear-gradient(to left, #000 35%, transparent);
+  mask: var(--m-grid) 0 0 / calc(60 * var(--art-px)) calc(60 * var(--art-px)) repeat, linear-gradient(to left, #000 35%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  opacity: 0.8; }
+.pc-deck[data-theme="quant"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(312 * var(--art-px));
+  height: 100%;
+  right: calc(0 * var(--art-px));
+  top: calc(50% - 100% / 2 + calc(0 * var(--art-px)));
+  background: var(--line, var(--accent));
+  -webkit-mask: var(--m-grid) 0 0 / calc(36 * var(--art-px)) calc(36 * var(--art-px)) repeat, linear-gradient(to left, #000 35%, transparent);
+  mask: var(--m-grid) 0 0 / calc(36 * var(--art-px)) calc(36 * var(--art-px)) repeat, linear-gradient(to left, #000 35%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+  opacity: 0.8; }
+.pc-deck[data-theme="quant"] .pc-section:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(calc(10 * var(--art-px)));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="quant"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(calc(10 * var(--art-px)));
+  background: var(--accent-2, var(--accent)); }
+.pc-deck[data-theme="quant"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  background: var(--line, var(--accent));
+  -webkit-mask: var(--m-grid) 0 0 / calc(60 * var(--art-px)) calc(60 * var(--art-px)) repeat;
+  mask: var(--m-grid) 0 0 / calc(60 * var(--art-px)) calc(60 * var(--art-px)) repeat;
+  opacity: 0.8; }
+.pc-deck[data-theme="quant"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: 0;
+  background: var(--line, var(--accent));
+  -webkit-mask: var(--m-grid) 0 0 / calc(36 * var(--art-px)) calc(36 * var(--art-px)) repeat;
+  mask: var(--m-grid) 0 0 / calc(36 * var(--art-px)) calc(36 * var(--art-px)) repeat;
+  opacity: 0.8; }
+.pc-deck[data-theme="quant"] .pc-closing:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(calc(10 * var(--art-px)));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="quant"] .pc-kicker {
+  width: fit-content;
+  padding: .34em .8em .38em;
+  border-radius: 999px;
+  border: .1em solid currentColor; }
+.pc-deck[data-theme="quant"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 2px solid var(--ink); }

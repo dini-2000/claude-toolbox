@@ -1,0 +1,151 @@
+/* Sketchy: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="sketchy"] {
+  --m-squiggle: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 34'%3E%3Cpath d='M5 17q11.25-16 22.5 0t22.5 0 22.5 0 22.5 0' fill='none' stroke='%23000' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E");
+  --m-star: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50.0 0.0L62.3 33.0L97.6 34.5L70.0 56.5L79.4 90.5L50.0 71.0L20.6 90.5L30.0 56.5L2.4 34.5L37.7 33.0Z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="sketchy"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(520 * var(--art-px));
+  height: calc(70 * var(--art-px));
+  left: var(--mx);
+  bottom: calc(110 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 33.29% 56.21%, line to 33.89% 50.29%, line to 34.44% 45.7%, line to 34.97% 42.14%, line to 35.45% 39.58%, line to 35.89% 37.93%, line to 36.28% 37.04%, line to 36.64% 36.76%, line to 37% 37.04%, line to 37.39% 37.93%, line to 37.83% 39.58%, line to 38.31% 42.14%, line to 38.83% 45.7%, line to 39.38% 50.29%, line to 39.99% 56.21%, line to 40.66% 62.77%, line to 41.38% 68.75%, line to 42.13% 73.83%, line to 42.92% 78%, line to 43.75% 81.15%, line to 44.63% 83.14%, line to 45.55% 83.82%, line to 46.46% 83.14%, line to 47.34% 81.15%, line to 48.18% 78%, line to 48.97% 73.83%, line to 49.71% 68.75%, line to 50.44% 62.77%, line to 51.1% 56.21%, line to 51.71% 50.29%, line to 52.26% 45.7%, line to 52.78% 42.14%, line to 53.27% 39.58%, line to 53.7% 37.93%, line to 54.09% 37.04%, line to 54.45% 36.76%, line to 54.81% 37.04%, line to 55.21% 37.93%, line to 55.64% 39.58%, line to 56.13% 42.14%, line to 56.65% 45.7%, line to 57.2% 50.29%, line to 57.8% 56.21%, line to 58.47% 62.77%, line to 59.19% 68.75%, line to 59.94% 73.83%, line to 60.73% 78%, line to 61.57% 81.15%, line to 62.45% 83.14%, line to 63.36% 83.82%, line to 64.27% 83.14%, line to 65.16% 81.15%, line to 65.99% 78%, line to 66.78% 73.83%, line to 67.53% 68.75%, line to 68.25% 62.77%, line to 68.92% 56.21%, line to 66.48% 47.4%, line to 66.44% 51.41%, line to 66.62% 55.2%, line to 66.98% 58.21%, line to 67.47% 59.96%, line to 68.01% 60.2%, line to 68.52% 58.88%, line to 66.71% 43.79%, line to 66.11% 49.71%, line to 65.56% 54.3%, line to 65.03% 57.86%, line to 64.55% 60.42%, line to 64.11% 62.07%, line to 63.72% 62.96%, line to 63.36% 63.24%, line to 63% 62.96%, line to 62.61% 62.07%, line to 62.17% 60.42%, line to 61.69% 57.86%, line to 61.17% 54.3%, line to 60.62% 49.71%, line to 60.01% 43.79%, line to 59.34% 37.23%, line to 58.62% 31.25%, line to 57.87% 26.17%, line to 57.08% 22%, line to 56.25% 18.85%, line to 55.37% 16.86%, line to 54.45% 16.18%, line to 53.54% 16.86%, line to 52.66% 18.85%, line to 51.82% 22%, line to 51.03% 26.17%, line to 50.29% 31.25%, line to 49.56% 37.23%, line to 48.9% 43.79%, line to 48.29% 49.71%, line to 47.74% 54.3%, line to 47.22% 57.86%, line to 46.73% 60.42%, line to 46.3% 62.07%, line to 45.91% 62.96%, line to 45.55% 63.24%, line to 45.19% 62.96%, line to 44.79% 62.07%, line to 44.36% 60.42%, line to 43.87% 57.86%, line to 43.35% 54.3%, line to 42.8% 49.71%, line to 42.2% 43.79%, line to 41.53% 37.23%, line to 40.81% 31.25%, line to 40.06% 26.17%, line to 39.27% 22%, line to 38.43% 18.85%, line to 37.55% 16.86%, line to 36.64% 16.18%, line to 35.73% 16.86%, line to 34.84% 18.85%, line to 34.01% 22%, line to 33.22% 26.17%, line to 32.47% 31.25%, line to 31.75% 37.23%, line to 31.08% 43.79%, line to 33.52% 52.6%, line to 33.56% 48.59%, line to 33.38% 44.8%, line to 33.02% 41.79%, line to 32.53% 40.04%, line to 31.99% 39.8%, line to 31.48% 41.12%, close); }
+.pc-deck[data-theme="sketchy"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(312 * var(--art-px));
+  height: calc(42 * var(--art-px));
+  left: var(--mx);
+  bottom: calc(66 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 33.29% 56.21%, line to 33.89% 50.29%, line to 34.44% 45.7%, line to 34.97% 42.14%, line to 35.45% 39.58%, line to 35.89% 37.93%, line to 36.28% 37.04%, line to 36.64% 36.76%, line to 37% 37.04%, line to 37.39% 37.93%, line to 37.83% 39.58%, line to 38.31% 42.14%, line to 38.83% 45.7%, line to 39.38% 50.29%, line to 39.99% 56.21%, line to 40.66% 62.77%, line to 41.38% 68.75%, line to 42.13% 73.83%, line to 42.92% 78%, line to 43.75% 81.15%, line to 44.63% 83.14%, line to 45.55% 83.82%, line to 46.46% 83.14%, line to 47.34% 81.15%, line to 48.18% 78%, line to 48.97% 73.83%, line to 49.71% 68.75%, line to 50.44% 62.77%, line to 51.1% 56.21%, line to 51.71% 50.29%, line to 52.26% 45.7%, line to 52.78% 42.14%, line to 53.27% 39.58%, line to 53.7% 37.93%, line to 54.09% 37.04%, line to 54.45% 36.76%, line to 54.81% 37.04%, line to 55.21% 37.93%, line to 55.64% 39.58%, line to 56.13% 42.14%, line to 56.65% 45.7%, line to 57.2% 50.29%, line to 57.8% 56.21%, line to 58.47% 62.77%, line to 59.19% 68.75%, line to 59.94% 73.83%, line to 60.73% 78%, line to 61.57% 81.15%, line to 62.45% 83.14%, line to 63.36% 83.82%, line to 64.27% 83.14%, line to 65.16% 81.15%, line to 65.99% 78%, line to 66.78% 73.83%, line to 67.53% 68.75%, line to 68.25% 62.77%, line to 68.92% 56.21%, line to 66.48% 47.4%, line to 66.44% 51.41%, line to 66.62% 55.2%, line to 66.98% 58.21%, line to 67.47% 59.96%, line to 68.01% 60.2%, line to 68.52% 58.88%, line to 66.71% 43.79%, line to 66.11% 49.71%, line to 65.56% 54.3%, line to 65.03% 57.86%, line to 64.55% 60.42%, line to 64.11% 62.07%, line to 63.72% 62.96%, line to 63.36% 63.24%, line to 63% 62.96%, line to 62.61% 62.07%, line to 62.17% 60.42%, line to 61.69% 57.86%, line to 61.17% 54.3%, line to 60.62% 49.71%, line to 60.01% 43.79%, line to 59.34% 37.23%, line to 58.62% 31.25%, line to 57.87% 26.17%, line to 57.08% 22%, line to 56.25% 18.85%, line to 55.37% 16.86%, line to 54.45% 16.18%, line to 53.54% 16.86%, line to 52.66% 18.85%, line to 51.82% 22%, line to 51.03% 26.17%, line to 50.29% 31.25%, line to 49.56% 37.23%, line to 48.9% 43.79%, line to 48.29% 49.71%, line to 47.74% 54.3%, line to 47.22% 57.86%, line to 46.73% 60.42%, line to 46.3% 62.07%, line to 45.91% 62.96%, line to 45.55% 63.24%, line to 45.19% 62.96%, line to 44.79% 62.07%, line to 44.36% 60.42%, line to 43.87% 57.86%, line to 43.35% 54.3%, line to 42.8% 49.71%, line to 42.2% 43.79%, line to 41.53% 37.23%, line to 40.81% 31.25%, line to 40.06% 26.17%, line to 39.27% 22%, line to 38.43% 18.85%, line to 37.55% 16.86%, line to 36.64% 16.18%, line to 35.73% 16.86%, line to 34.84% 18.85%, line to 34.01% 22%, line to 33.22% 26.17%, line to 32.47% 31.25%, line to 31.75% 37.23%, line to 31.08% 43.79%, line to 33.52% 52.6%, line to 33.56% 48.59%, line to 33.38% 44.8%, line to 33.02% 41.79%, line to 32.53% 40.04%, line to 31.99% 39.8%, line to 31.48% 41.12%, close); }
+.pc-deck[data-theme="sketchy"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(200 * var(--art-px));
+  height: calc(200 * var(--art-px));
+  right: calc(110 * var(--art-px));
+  top: calc(90 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close);
+  transform: rotate(14deg); }
+.pc-deck[data-theme="sketchy"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(120 * var(--art-px));
+  height: calc(120 * var(--art-px));
+  right: calc(66 * var(--art-px));
+  top: calc(54 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close);
+  transform: rotate(14deg); }
+.pc-deck[data-theme="sketchy"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(420 * var(--art-px));
+  height: calc(60 * var(--art-px));
+  left: var(--mx);
+  bottom: calc(100 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 32.26% 56.21%, line to 32.9% 50.29%, line to 33.49% 45.7%, line to 34.05% 42.14%, line to 34.56% 39.58%, line to 35.02% 37.93%, line to 35.44% 37.04%, line to 35.82% 36.76%, line to 36.2% 37.04%, line to 36.62% 37.93%, line to 37.08% 39.58%, line to 37.59% 42.14%, line to 38.15% 45.7%, line to 38.73% 50.29%, line to 39.37% 56.21%, line to 40.08% 62.77%, line to 40.85% 68.75%, line to 41.64% 73.83%, line to 42.48% 78%, line to 43.37% 81.15%, line to 44.31% 83.14%, line to 45.27% 83.82%, line to 46.24% 83.14%, line to 47.18% 81.15%, line to 48.06% 78%, line to 48.9% 73.83%, line to 49.7% 68.75%, line to 50.46% 62.77%, line to 51.17% 56.21%, line to 51.81% 50.29%, line to 52.4% 45.7%, line to 52.95% 42.14%, line to 53.47% 39.58%, line to 53.93% 37.93%, line to 54.34% 37.04%, line to 54.73% 36.76%, line to 55.11% 37.04%, line to 55.52% 37.93%, line to 55.99% 39.58%, line to 56.5% 42.14%, line to 57.06% 45.7%, line to 57.64% 50.29%, line to 58.28% 56.21%, line to 58.99% 62.77%, line to 59.76% 68.75%, line to 60.55% 73.83%, line to 61.39% 78%, line to 62.28% 81.15%, line to 63.21% 83.14%, line to 64.18% 83.82%, line to 65.15% 83.14%, line to 66.08% 81.15%, line to 66.97% 78%, line to 67.81% 73.83%, line to 68.61% 68.75%, line to 69.37% 62.77%, line to 70.08% 56.21%, line to 67.48% 47.4%, line to 67.45% 51.41%, line to 67.64% 55.2%, line to 68.02% 58.21%, line to 68.54% 59.96%, line to 69.11% 60.2%, line to 69.65% 58.88%, line to 67.74% 43.79%, line to 67.1% 49.71%, line to 66.51% 54.3%, line to 65.95% 57.86%, line to 65.44% 60.42%, line to 64.98% 62.07%, line to 64.56% 62.96%, line to 64.18% 63.24%, line to 63.8% 62.96%, line to 63.38% 62.07%, line to 62.92% 60.42%, line to 62.41% 57.86%, line to 61.85% 54.3%, line to 61.27% 49.71%, line to 60.63% 43.79%, line to 59.92% 37.23%, line to 59.15% 31.25%, line to 58.36% 26.17%, line to 57.52% 22%, line to 56.63% 18.85%, line to 55.69% 16.86%, line to 54.73% 16.18%, line to 53.76% 16.86%, line to 52.82% 18.85%, line to 51.94% 22%, line to 51.1% 26.17%, line to 50.3% 31.25%, line to 49.54% 37.23%, line to 48.83% 43.79%, line to 48.19% 49.71%, line to 47.6% 54.3%, line to 47.05% 57.86%, line to 46.53% 60.42%, line to 46.07% 62.07%, line to 45.66% 62.96%, line to 45.27% 63.24%, line to 44.89% 62.96%, line to 44.48% 62.07%, line to 44.01% 60.42%, line to 43.5% 57.86%, line to 42.94% 54.3%, line to 42.36% 49.71%, line to 41.72% 43.79%, line to 41.01% 37.23%, line to 40.24% 31.25%, line to 39.45% 26.17%, line to 38.61% 22%, line to 37.72% 18.85%, line to 36.79% 16.86%, line to 35.82% 16.18%, line to 34.85% 16.86%, line to 33.92% 18.85%, line to 33.03% 22%, line to 32.19% 26.17%, line to 31.39% 31.25%, line to 30.63% 37.23%, line to 29.92% 43.79%, line to 32.52% 52.6%, line to 32.55% 48.59%, line to 32.36% 44.8%, line to 31.98% 41.79%, line to 31.46% 40.04%, line to 30.89% 39.8%, line to 30.35% 41.12%, close); }
+.pc-deck[data-theme="sketchy"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(252 * var(--art-px));
+  height: calc(36 * var(--art-px));
+  left: var(--mx);
+  bottom: calc(60 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 32.26% 56.21%, line to 32.9% 50.29%, line to 33.49% 45.7%, line to 34.05% 42.14%, line to 34.56% 39.58%, line to 35.02% 37.93%, line to 35.44% 37.04%, line to 35.82% 36.76%, line to 36.2% 37.04%, line to 36.62% 37.93%, line to 37.08% 39.58%, line to 37.59% 42.14%, line to 38.15% 45.7%, line to 38.73% 50.29%, line to 39.37% 56.21%, line to 40.08% 62.77%, line to 40.85% 68.75%, line to 41.64% 73.83%, line to 42.48% 78%, line to 43.37% 81.15%, line to 44.31% 83.14%, line to 45.27% 83.82%, line to 46.24% 83.14%, line to 47.18% 81.15%, line to 48.06% 78%, line to 48.9% 73.83%, line to 49.7% 68.75%, line to 50.46% 62.77%, line to 51.17% 56.21%, line to 51.81% 50.29%, line to 52.4% 45.7%, line to 52.95% 42.14%, line to 53.47% 39.58%, line to 53.93% 37.93%, line to 54.34% 37.04%, line to 54.73% 36.76%, line to 55.11% 37.04%, line to 55.52% 37.93%, line to 55.99% 39.58%, line to 56.5% 42.14%, line to 57.06% 45.7%, line to 57.64% 50.29%, line to 58.28% 56.21%, line to 58.99% 62.77%, line to 59.76% 68.75%, line to 60.55% 73.83%, line to 61.39% 78%, line to 62.28% 81.15%, line to 63.21% 83.14%, line to 64.18% 83.82%, line to 65.15% 83.14%, line to 66.08% 81.15%, line to 66.97% 78%, line to 67.81% 73.83%, line to 68.61% 68.75%, line to 69.37% 62.77%, line to 70.08% 56.21%, line to 67.48% 47.4%, line to 67.45% 51.41%, line to 67.64% 55.2%, line to 68.02% 58.21%, line to 68.54% 59.96%, line to 69.11% 60.2%, line to 69.65% 58.88%, line to 67.74% 43.79%, line to 67.1% 49.71%, line to 66.51% 54.3%, line to 65.95% 57.86%, line to 65.44% 60.42%, line to 64.98% 62.07%, line to 64.56% 62.96%, line to 64.18% 63.24%, line to 63.8% 62.96%, line to 63.38% 62.07%, line to 62.92% 60.42%, line to 62.41% 57.86%, line to 61.85% 54.3%, line to 61.27% 49.71%, line to 60.63% 43.79%, line to 59.92% 37.23%, line to 59.15% 31.25%, line to 58.36% 26.17%, line to 57.52% 22%, line to 56.63% 18.85%, line to 55.69% 16.86%, line to 54.73% 16.18%, line to 53.76% 16.86%, line to 52.82% 18.85%, line to 51.94% 22%, line to 51.1% 26.17%, line to 50.3% 31.25%, line to 49.54% 37.23%, line to 48.83% 43.79%, line to 48.19% 49.71%, line to 47.6% 54.3%, line to 47.05% 57.86%, line to 46.53% 60.42%, line to 46.07% 62.07%, line to 45.66% 62.96%, line to 45.27% 63.24%, line to 44.89% 62.96%, line to 44.48% 62.07%, line to 44.01% 60.42%, line to 43.5% 57.86%, line to 42.94% 54.3%, line to 42.36% 49.71%, line to 41.72% 43.79%, line to 41.01% 37.23%, line to 40.24% 31.25%, line to 39.45% 26.17%, line to 38.61% 22%, line to 37.72% 18.85%, line to 36.79% 16.86%, line to 35.82% 16.18%, line to 34.85% 16.86%, line to 33.92% 18.85%, line to 33.03% 22%, line to 32.19% 26.17%, line to 31.39% 31.25%, line to 30.63% 37.23%, line to 29.92% 43.79%, line to 32.52% 52.6%, line to 32.55% 48.59%, line to 32.36% 44.8%, line to 31.98% 41.79%, line to 31.46% 40.04%, line to 30.89% 39.8%, line to 30.35% 41.12%, close); }
+.pc-deck[data-theme="sketchy"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(150 * var(--art-px));
+  height: calc(150 * var(--art-px));
+  right: calc(90 * var(--art-px));
+  top: calc(80 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close);
+  transform: rotate(-12deg); }
+.pc-deck[data-theme="sketchy"]:is([data-format="3x1"], [data-format="4x1"]) .pc-statement:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(90 * var(--art-px));
+  height: calc(90 * var(--art-px));
+  right: calc(54 * var(--art-px));
+  top: calc(48 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close);
+  transform: rotate(-12deg); }
+.pc-deck[data-theme="sketchy"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(220 * var(--art-px));
+  height: calc(220 * var(--art-px));
+  right: calc(120 * var(--art-px));
+  bottom: calc(100 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close);
+  transform: rotate(10deg); }
+.pc-deck[data-theme="sketchy"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(132 * var(--art-px));
+  height: calc(132 * var(--art-px));
+  right: calc(72 * var(--art-px));
+  bottom: calc(60 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close);
+  transform: rotate(10deg); }
+.pc-deck[data-theme="sketchy"] .pc-closing:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(360 * var(--art-px));
+  height: calc(56 * var(--art-px));
+  left: var(--mx);
+  top: calc(80 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 30.69% 56.21%, line to 31.39% 50.29%, line to 32.02% 45.7%, line to 32.63% 42.14%, line to 33.19% 39.58%, line to 33.69% 37.93%, line to 34.14% 37.04%, line to 34.56% 36.76%, line to 34.98% 37.04%, line to 35.43% 37.93%, line to 35.93% 39.58%, line to 36.49% 42.14%, line to 37.09% 45.7%, line to 37.73% 50.29%, line to 38.43% 56.21%, line to 39.2% 62.77%, line to 40.04% 68.75%, line to 40.9% 73.83%, line to 41.81% 78%, line to 42.78% 81.15%, line to 43.8% 83.14%, line to 44.85% 83.82%, line to 45.91% 83.14%, line to 46.93% 81.15%, line to 47.89% 78%, line to 48.8% 73.83%, line to 49.67% 68.75%, line to 50.5% 62.77%, line to 51.28% 56.21%, line to 51.97% 50.29%, line to 52.61% 45.7%, line to 53.22% 42.14%, line to 53.77% 39.58%, line to 54.28% 37.93%, line to 54.73% 37.04%, line to 55.15% 36.76%, line to 55.56% 37.04%, line to 56.01% 37.93%, line to 56.52% 39.58%, line to 57.08% 42.14%, line to 57.68% 45.7%, line to 58.32% 50.29%, line to 59.02% 56.21%, line to 59.79% 62.77%, line to 60.62% 68.75%, line to 61.49% 73.83%, line to 62.4% 78%, line to 63.37% 81.15%, line to 64.39% 83.14%, line to 65.44% 83.82%, line to 66.5% 83.14%, line to 67.51% 81.15%, line to 68.48% 78%, line to 69.39% 73.83%, line to 70.26% 68.75%, line to 71.09% 62.77%, line to 71.86% 56.21%, line to 69.04% 47.4%, line to 69% 51.41%, line to 69.21% 55.2%, line to 69.62% 58.21%, line to 70.18% 59.96%, line to 70.81% 60.2%, line to 71.4% 58.88%, line to 69.31% 43.79%, line to 68.61% 49.71%, line to 67.98% 54.3%, line to 67.37% 57.86%, line to 66.81% 60.42%, line to 66.31% 62.07%, line to 65.86% 62.96%, line to 65.44% 63.24%, line to 65.02% 62.96%, line to 64.57% 62.07%, line to 64.07% 60.42%, line to 63.51% 57.86%, line to 62.91% 54.3%, line to 62.27% 49.71%, line to 61.57% 43.79%, line to 60.8% 37.23%, line to 59.96% 31.25%, line to 59.1% 26.17%, line to 58.19% 22%, line to 57.22% 18.85%, line to 56.2% 16.86%, line to 55.15% 16.18%, line to 54.09% 16.86%, line to 53.07% 18.85%, line to 52.11% 22%, line to 51.2% 26.17%, line to 50.33% 31.25%, line to 49.5% 37.23%, line to 48.72% 43.79%, line to 48.03% 49.71%, line to 47.39% 54.3%, line to 46.78% 57.86%, line to 46.23% 60.42%, line to 45.72% 62.07%, line to 45.27% 62.96%, line to 44.85% 63.24%, line to 44.44% 62.96%, line to 43.99% 62.07%, line to 43.48% 60.42%, line to 42.92% 57.86%, line to 42.32% 54.3%, line to 41.68% 49.71%, line to 40.98% 43.79%, line to 40.21% 37.23%, line to 39.38% 31.25%, line to 38.51% 26.17%, line to 37.6% 22%, line to 36.63% 18.85%, line to 35.61% 16.86%, line to 34.56% 16.18%, line to 33.5% 16.86%, line to 32.49% 18.85%, line to 31.52% 22%, line to 30.61% 26.17%, line to 29.74% 31.25%, line to 28.91% 37.23%, line to 28.14% 43.79%, line to 30.96% 52.6%, line to 31% 48.59%, line to 30.79% 44.8%, line to 30.38% 41.79%, line to 29.82% 40.04%, line to 29.19% 39.8%, line to 28.6% 41.12%, close); }
+.pc-deck[data-theme="sketchy"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(216 * var(--art-px));
+  height: calc(33.6 * var(--art-px));
+  left: var(--mx);
+  top: calc(48 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 30.69% 56.21%, line to 31.39% 50.29%, line to 32.02% 45.7%, line to 32.63% 42.14%, line to 33.19% 39.58%, line to 33.69% 37.93%, line to 34.14% 37.04%, line to 34.56% 36.76%, line to 34.98% 37.04%, line to 35.43% 37.93%, line to 35.93% 39.58%, line to 36.49% 42.14%, line to 37.09% 45.7%, line to 37.73% 50.29%, line to 38.43% 56.21%, line to 39.2% 62.77%, line to 40.04% 68.75%, line to 40.9% 73.83%, line to 41.81% 78%, line to 42.78% 81.15%, line to 43.8% 83.14%, line to 44.85% 83.82%, line to 45.91% 83.14%, line to 46.93% 81.15%, line to 47.89% 78%, line to 48.8% 73.83%, line to 49.67% 68.75%, line to 50.5% 62.77%, line to 51.28% 56.21%, line to 51.97% 50.29%, line to 52.61% 45.7%, line to 53.22% 42.14%, line to 53.77% 39.58%, line to 54.28% 37.93%, line to 54.73% 37.04%, line to 55.15% 36.76%, line to 55.56% 37.04%, line to 56.01% 37.93%, line to 56.52% 39.58%, line to 57.08% 42.14%, line to 57.68% 45.7%, line to 58.32% 50.29%, line to 59.02% 56.21%, line to 59.79% 62.77%, line to 60.62% 68.75%, line to 61.49% 73.83%, line to 62.4% 78%, line to 63.37% 81.15%, line to 64.39% 83.14%, line to 65.44% 83.82%, line to 66.5% 83.14%, line to 67.51% 81.15%, line to 68.48% 78%, line to 69.39% 73.83%, line to 70.26% 68.75%, line to 71.09% 62.77%, line to 71.86% 56.21%, line to 69.04% 47.4%, line to 69% 51.41%, line to 69.21% 55.2%, line to 69.62% 58.21%, line to 70.18% 59.96%, line to 70.81% 60.2%, line to 71.4% 58.88%, line to 69.31% 43.79%, line to 68.61% 49.71%, line to 67.98% 54.3%, line to 67.37% 57.86%, line to 66.81% 60.42%, line to 66.31% 62.07%, line to 65.86% 62.96%, line to 65.44% 63.24%, line to 65.02% 62.96%, line to 64.57% 62.07%, line to 64.07% 60.42%, line to 63.51% 57.86%, line to 62.91% 54.3%, line to 62.27% 49.71%, line to 61.57% 43.79%, line to 60.8% 37.23%, line to 59.96% 31.25%, line to 59.1% 26.17%, line to 58.19% 22%, line to 57.22% 18.85%, line to 56.2% 16.86%, line to 55.15% 16.18%, line to 54.09% 16.86%, line to 53.07% 18.85%, line to 52.11% 22%, line to 51.2% 26.17%, line to 50.33% 31.25%, line to 49.5% 37.23%, line to 48.72% 43.79%, line to 48.03% 49.71%, line to 47.39% 54.3%, line to 46.78% 57.86%, line to 46.23% 60.42%, line to 45.72% 62.07%, line to 45.27% 62.96%, line to 44.85% 63.24%, line to 44.44% 62.96%, line to 43.99% 62.07%, line to 43.48% 60.42%, line to 42.92% 57.86%, line to 42.32% 54.3%, line to 41.68% 49.71%, line to 40.98% 43.79%, line to 40.21% 37.23%, line to 39.38% 31.25%, line to 38.51% 26.17%, line to 37.6% 22%, line to 36.63% 18.85%, line to 35.61% 16.86%, line to 34.56% 16.18%, line to 33.5% 16.86%, line to 32.49% 18.85%, line to 31.52% 22%, line to 30.61% 26.17%, line to 29.74% 31.25%, line to 28.91% 37.23%, line to 28.14% 43.79%, line to 30.96% 52.6%, line to 31% 48.59%, line to 30.79% 44.8%, line to 30.38% 41.79%, line to 29.82% 40.04%, line to 29.19% 39.8%, line to 28.6% 41.12%, close); }
+.pc-deck[data-theme="sketchy"] .pc-kicker {
+  width: fit-content;
+  padding: .34em .8em .38em;
+  border-radius: 999px;
+  border: .1em solid currentColor; }
+.pc-deck[data-theme="sketchy"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 2px solid var(--ink); }

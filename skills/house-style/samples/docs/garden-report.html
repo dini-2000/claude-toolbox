@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" class="pc-deck pc-doc" data-theme="seminar" data-palette="green" data-type="report" data-page="a4" data-numbered
+      data-title="Northside Community Garden: 2026 season report" data-short-title="2026 season report">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Northside Community Garden: 2026 season report</title>
+<meta name="author" content="Northside Community Garden committee">
+<meta name="description" content="The garden's 2026 season: harvest, site works, money and membership, with the 2027 fee proposal.">
+<link rel="stylesheet" href="../../engine/doc.css">
+<link rel="stylesheet" href="../../themes/seminar/tokens.css">
+<script src="../../icons/lucide.js"></script>
+</head>
+<body>
+
+<section class="pc-cover" data-cover="band">
+  <p class="pc-kicker">Annual report to members</p>
+  <div class="pc-cover-band">
+    <h1>Northside Community Garden: the 2026 season</h1>
+    <p class="pc-sub">What we grew, what it cost, and what changes in 2027</p>
+  </div>
+  <div class="pc-meta">
+    <b>Garden committee</b>
+    For the annual members' meeting, 14 November 2026
+  </div>
+</section>
+
+<nav class="pc-toc" data-depth="2"></nav>
+
+<section class="pc-chapter" data-unnumbered>
+  <h1>Summary</h1>
+  <p class="pc-lead">2026 was the garden's biggest season since it opened. Members logged 4.6 tonnes of produce, a quarter of it went to the food bank, and for the first time since 2019 nobody is waiting for a plot.</p>
+  <div class="pc-keyfigs" style="--n: 4">
+    <div><b class="pc-stat">4.6 t</b><p>produce logged at the shed, up from 3.1 t in 2025</p></div>
+    <div><b class="pc-stat">212</b><p>members, up from 168</p></div>
+    <div><b class="pc-stat">3,140</b><p>volunteer hours on shared jobs</p></div>
+    <div><b class="pc-stat">91%</b><p>of plots let: 58 of 64</p></div>
+  </div>
+  <p>The four rain tanks fitted in February cut our mains water by about a third over the summer. Six raised beds by the east gate opened in May, and eleven members now garden from a seat. We spent $10,500 against a budget of $10,650, and the bank balance rose by $500 over the year.</p>
+  <p>The committee proposes a plot fee of $55 for 2027, up from $50, to pay for the composting toilet and the polytunnel. Members vote on it at the meeting (see <a class="pc-ref" href="#fee">The 2027 fee</a>).</p>
+</section>
+
+<section class="pc-chapter">
+  <h1>The season in numbers</h1>
+  <p class="pc-lead">Harvest, sharing and water, from the shed log and the meter readings.</p>
+  <h2>Harvest</h2>
+  <p>Members weigh what they take home at the shed scale and write it in the log<span class="pc-fn">The log counts what members chose to weigh, so the true harvest is higher. About one plot in six logged nothing in June, when the scale was being repaired.</span>. The season ran from April to October, and August was the peak, at 1,140 kg.</p>
+  <figure class="pc-chart pc-fig" data-type="column" data-labels="Apr,May,Jun,Jul,Aug,Sep,Oct" data-values="120,310,540,820,1140,980,690" data-suffix=" kg" data-highlight="Aug">
+    <figcaption>Produce logged at the shed by month, April to October 2026, in kilograms.</figcaption>
+  </figure>
+  <p>Tomatoes, courgettes and beans made up most of the weight, as in every year since 2021. The new beds by the east gate added 180 kg on their own, mostly salad and herbs.</p>
+  <h2>Sharing the harvest</h2>
+  <p>Members gave 1.2 tonnes of fresh produce to the Northside Food Bank, about 2,400 meals<span class="pc-fn">Meals are estimated at 500 grams of produce each, the food bank's own measure.</span>. Volunteers made 31 Saturday drop-offs, one every week from May, and the food bank now serves about 140 households a week.</p>
+  <div class="pc-pull">A quarter of everything we grew went to the food bank.<cite>Harvest log, 2026</cite></div>
+  <h2>Water</h2>
+  <p>The rain tanks hold 20,000 litres in all. From June to September the garden used about a third less mains water than in 2025, and the water bill came in $300 under budget.</p>
+  <h3>How volunteers decide what to water</h3>
+  <p>Twelve soil sensors report every hour. Each morning the shed screen lists the beds below 30% moisture, so volunteers water only those. The script is short:</p>
+<pre class="pc-code" data-lang="python"><code>def beds_to_water(readings, dry=30):
+    """Beds whose soil moisture fell below `dry` percent."""
+    latest = {}
+    for r in readings:                 # one reading per sensor per hour
+        latest[r.bed] = r.moisture
+    return sorted(b for b, m in latest.items() if m &lt; dry)</code></pre>
+</section>
+
+<section class="pc-chapter">
+  <div class="pc-opener">
+    <span class="pc-opener-num"></span>
+    <h1>What changed on site</h1>
+    <p class="pc-lead">Two years of building work, with one more to go.</p>
+  </div>
+  <h2>Works finished and planned</h2>
+  <ol class="pc-timeline">
+    <li><b>Nov 2025</b>City grant of $4,000 for water storage</li>
+    <li><b>Feb 2026</b>Four rain tanks fitted, 20,000 litres in all</li>
+    <li><b>May 2026</b>Six accessible raised beds open by the east gate</li>
+    <li><b>Oct 2026</b>Tool shed rebuilt with a ramp</li>
+    <li><b>Apr 2027</b>Composting toilet by the east gate (planned)</li>
+    <li><b>Jul 2027</b>Polytunnel for seedlings (planned)</li>
+  </ol>
+  <h2>Raised beds</h2>
+  <p>Before May, every plot was at ground level, so members who use a wheelchair or can't kneel had nothing they could work. The six new beds stand 75 cm high on firm, wide paths, 20 metres from the car park. The tap and the tool shed are within reach of every bed, and the cherry tree shades them after 3 pm.</p>
+  <figure class="pc-fig">
+    <img src="../img/garden-beds.svg" alt="Plan of the six raised beds beside the east gate, the shed and the car park">
+    <figcaption>The raised beds sit beside the east gate, the shed and the tap.</figcaption>
+  </figure>
+  <div class="pc-callout" data-kind="tip">
+    <p class="pc-callout-label"><i class="pc-icon" data-icon="accessibility"></i>Booking a raised bed</p>
+    <p>Two of the six beds are kept for new members who need them. Ask any committee member, or leave a note in the shed box.</p>
+  </div>
+  <h2>Before winter</h2>
+  <p>Seven of the ten winter jobs are done, two are booked and one was dropped.</p>
+  <ul class="pc-checks">
+    <li>Water off and every pipe drained</li>
+    <li>New locks on the shed and both gates</li>
+    <li class="is-todo">Tree survey of the north hedge, booked for 20 November</li>
+    <li class="is-todo">Path repairs by the pond, booked for 4 December</li>
+    <li class="is-no">Bonfire area: closed for good, by members' vote in June</li>
+  </ul>
+</section>
+
+<section class="pc-chapter">
+  <h1>Where the money went</h1>
+  <h2>Income</h2>
+  <p>Income for the year was $11,000. Grants paid for almost half of it: the city's water storage grant and a smaller grant from the county for the raised beds.</p>
+  <figure class="pc-chart pc-fig" data-type="donut" data-labels="Grants,Plot fees,Plant sale,Donations" data-values="5200,3100,1800,900" data-prefix="$" style="height: 56mm">
+    <figcaption>Income in 2026 by source, $11,000 in all.</figcaption>
+  </figure>
+  <h2>Spending</h2>
+  <p>We spent $10,500, $150 under budget. The raised beds and the shed each cost $200 more than planned, and lower water bills made up the difference.</p>
+  <table class="pc-tab">
+    <caption>Spending against budget, 2026</caption>
+    <thead><tr><th>Item</th><th class="is-num">Budget</th><th class="is-num">Spent</th><th class="is-num">Left over</th></tr></thead>
+    <tbody>
+      <tr><td>Rain tanks and fitting</td><td class="is-num">$4,000</td><td class="is-num">$3,900</td><td class="is-num">$100</td></tr>
+      <tr><td>Raised beds</td><td class="is-num">$2,400</td><td class="is-num">$2,600</td><td class="is-num">&minus;$200</td></tr>
+      <tr><td>Tool shed and tools</td><td class="is-num">$1,500</td><td class="is-num">$1,700</td><td class="is-num">&minus;$200</td></tr>
+      <tr><td>Seeds and plants</td><td class="is-num">$1,000</td><td class="is-num">$900</td><td class="is-num">$100</td></tr>
+      <tr><td>Water bills</td><td class="is-num">$900</td><td class="is-num">$600</td><td class="is-num">$300</td></tr>
+      <tr><td>Insurance and workshops</td><td class="is-num">$850</td><td class="is-num">$800</td><td class="is-num">$50</td></tr>
+      <tr class="pc-total"><td>Total</td><td class="is-num">$10,650</td><td class="is-num">$10,500</td><td class="is-num">$150</td></tr>
+    </tbody>
+  </table>
+  <h2>Cash and next year</h2>
+  <p>The bank balance rose from $2,000 to $2,500. For 2027 we have raised the full cost of the fruit trees, 60% of the composting toilet and 35% of the polytunnel<span class="pc-fn">Pledges count once the money is in the bank. Two pledges for the polytunnel, $400 in all, are not counted yet.</span>.</p>
+  <figure class="pc-chart pc-fig" data-type="progress" data-labels="Fruit trees,Composting toilet,Polytunnel" data-values="100,60,35" data-suffix="%" style="height: 40mm">
+    <figcaption>Funding raised so far for the 2027 projects, as a share of each project's cost.</figcaption>
+  </figure>
+</section>
+
+<section class="pc-chapter">
+  <h1>Membership and the 2027 fee</h1>
+  <h2>How a new member gets a plot</h2>
+  <ol class="pc-steps">
+    <li><b>Join the list.</b> Online, or at the gate on a Saturday morning.</li>
+    <li><b>Walk the site.</b> A one-hour induction with a volunteer: tools, water, compost and the shared jobs.</li>
+    <li><b>Take a plot.</b> Plots go in the order people joined, with two raised beds kept for members who need them.</li>
+  </ol>
+  <h2 id="fee">The 2027 fee</h2>
+  <p>The committee proposes a plot fee of $55 for 2027, up from $50. At 58 plots, the extra $5 raises $290 a year, which closes the gap on the composting toilet by the end of 2027.</p>
+  <dl class="pc-facts">
+    <div><dt>Proposal</dt><dd>Plot fee of $55 a year from January 2027</dd></div>
+    <div><dt>Raised beds</dt><dd>Fee stays at $30, as now</dd></div>
+    <div><dt>Hardship</dt><dd>Members can ask the treasurer for a reduced fee, in confidence</dd></div>
+    <div><dt>Vote</dt><dd>At the annual members' meeting, 14 November 2026</dd></div>
+  </dl>
+  <div class="pc-callout">
+    <p class="pc-callout-label"><i class="pc-icon" data-icon="vote"></i>How the vote works</p>
+    <p>Each plot holder has one vote. Members who can't come can vote by post or email to the secretary by 12 November.</p>
+  </div>
+</section>
+
+<section class="pc-chapter pc-appendix">
+  <h1>Plot records</h1>
+  <p>Plots let at the end of each season since the garden opened.</p>
+  <table class="pc-tab">
+    <caption>Plots let and members, 2021 to 2026</caption>
+    <thead><tr><th>Season</th><th class="is-num">Plots</th><th class="is-num">Let</th><th class="is-num">Members</th><th class="is-num">Waiting list</th></tr></thead>
+    <tbody>
+      <tr><td>2021</td><td class="is-num">48</td><td class="is-num">40</td><td class="is-num">96</td><td class="is-num">22</td></tr>
+      <tr><td>2022</td><td class="is-num">48</td><td class="is-num">44</td><td class="is-num">118</td><td class="is-num">17</td></tr>
+      <tr><td>2023</td><td class="is-num">56</td><td class="is-num">49</td><td class="is-num">131</td><td class="is-num">12</td></tr>
+      <tr><td>2024</td><td class="is-num">56</td><td class="is-num">52</td><td class="is-num">150</td><td class="is-num">9</td></tr>
+      <tr><td>2025</td><td class="is-num">64</td><td class="is-num">55</td><td class="is-num">168</td><td class="is-num">4</td></tr>
+      <tr><td>2026</td><td class="is-num">64</td><td class="is-num">58</td><td class="is-num">212</td><td class="is-num">0</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<script src="../../engine/runtime.js"></script>
+</body>
+</html>

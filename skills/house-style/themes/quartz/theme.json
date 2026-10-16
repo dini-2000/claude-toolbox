@@ -1,0 +1,253 @@
+{
+ "name": "Quartz",
+ "summary": "Frosted glass panels over a soft violet glow, with a hot pink accent and a rounded modern sans. Dreamy and polished, for portfolios, design reviews, creative briefs and launch moods.",
+ "good_for": [
+  "portfolio",
+  "design-review",
+  "brief",
+  "moodboard",
+  "launch",
+  "creative"
+ ],
+ "category": "creative",
+ "credit": "colours from Bootswatch Quartz by Thomas Park (MIT licence)",
+ "defaults": {
+  "mode": "dark",
+  "palette": "rose"
+ },
+ "fonts": {
+  "display": [
+   "Plus Jakarta Sans",
+   "sans"
+  ],
+  "body": [
+   "Plus Jakarta Sans",
+   "sans"
+  ],
+  "label": [
+   "Plus Jakarta Sans",
+   "sans"
+  ],
+  "stat": [
+   "Plus Jakarta Sans",
+   "sans"
+  ],
+  "mono": [
+   "JetBrains Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "800",
+  "--w-h1": "700",
+  "--w-h2": "700",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "700",
+  "--w-stat": "800",
+  "--track-display": "-0.03em",
+  "--track-h1": "-0.02em",
+  "--track-label": "0.06em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.04",
+  "--lh-h1": "1.1",
+  "--lh-body": "1.5",
+  "--radius": "18px",
+  "--radius-sm": "12px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.75"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F6F5FF",
+   "bg_alt": "#ECEBFB",
+   "surface": "#FFFFFF",
+   "surface_2": "#E6E4F8",
+   "ink": "#1F1A3D",
+   "ink_2": "#3E3866",
+   "ink_3": "#575180",
+   "line": "#D8D5F2",
+   "positive": "#13855F",
+   "negative": "#C0283E",
+   "warning": "#975A00",
+   "code_bg": "#1F1A3D",
+   "code_ink": "#ECEBFB",
+   "letterbox": "#151129",
+   "shadow": "0 8px 30px rgba(104, 109, 195, .18)"
+  },
+  "dark": {
+   "bg": "#2A2560",
+   "bg_alt": "#322C70",
+   "surface": "#3B357C",
+   "surface_2": "#463F8A",
+   "ink": "#FFFFFF",
+   "ink_2": "#E3E1F7",
+   "ink_3": "#C4C1E8",
+   "line": "#5A53A0",
+   "positive": "#41D7A7",
+   "negative": "#FF8FA3",
+   "warning": "#FFC107",
+   "code_bg": "#1C1844",
+   "code_ink": "#FFFFFF",
+   "letterbox": "#120F2E",
+   "shadow": "0 8px 30px rgba(0, 0, 0, .25)"
+  }
+ },
+ "palettes": {
+  "rose": {
+   "name": "Rose",
+   "light": {
+    "accent": "#C21F6B",
+    "accent_2": "#5458B8"
+   },
+   "dark": {
+    "accent": "#F06AA6",
+    "accent_2": "#39CBFB"
+   }
+  },
+  "aqua": {
+   "name": "Aqua",
+   "light": {
+    "accent": "#0B7FA6",
+    "accent_2": "#C21F6B"
+   },
+   "dark": {
+    "accent": "#39CBFB",
+    "accent_2": "#F06AA6"
+   }
+  },
+  "mint": {
+   "name": "Mint",
+   "light": {
+    "accent": "#11806A",
+    "accent_2": "#5458B8"
+   },
+   "dark": {
+    "accent": "#41D7A7",
+    "accent_2": "#A9ABF0"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#C21F6B",
+   "#5458B8",
+   "#0B7FA6",
+   "#11806A",
+   "#C26A00",
+   "#575180"
+  ],
+  "dark": [
+   "#F06AA6",
+   "#39CBFB",
+   "#41D7A7",
+   "#FFC107",
+   "#C6C8FF",
+   "#E3E1F7"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "glow",
+     "at": "tr",
+     "size": 1000,
+     "x": -320,
+     "y": -380,
+     "color": "accent",
+     "opacity": 0.55
+    },
+    {
+     "motif": "glow",
+     "at": "bl",
+     "size": 900,
+     "x": -300,
+     "y": -320,
+     "color": "accent-2",
+     "opacity": 0.5
+    }
+   ],
+   "section": [
+    {
+     "motif": "glow",
+     "at": "r",
+     "size": 1000,
+     "x": -400,
+     "color": "accent",
+     "opacity": 0.5
+    }
+   ],
+   "statement": [
+    {
+     "motif": "glow",
+     "at": "c",
+     "size": 1100,
+     "color": "accent-2",
+     "opacity": 0.4
+    }
+   ],
+   "closing": [
+    {
+     "motif": "glow",
+     "at": "br",
+     "size": 1000,
+     "x": -320,
+     "y": -380,
+     "color": "accent",
+     "opacity": 0.55
+    },
+    {
+     "motif": "glow",
+     "at": "tl",
+     "size": 900,
+     "x": -300,
+     "y": -320,
+     "color": "accent-2",
+     "opacity": 0.5
+    }
+   ]
+  },
+  "kicker": "pill",
+  "cards": "soft",
+  "doc": {
+   "cover": [
+    {
+     "motif": "glow",
+     "at": "tr",
+     "size": 200,
+     "x": -70,
+     "y": -80,
+     "color": "accent",
+     "opacity": 0.55
+    },
+    {
+     "motif": "glow",
+     "at": "bl",
+     "size": 180,
+     "x": -60,
+     "y": -60,
+     "color": "accent-2",
+     "opacity": 0.5
+    }
+   ],
+   "opener": [
+    {
+     "motif": "glow",
+     "at": "tr",
+     "size": 90,
+     "x": -40,
+     "y": -40,
+     "color": "accent",
+     "opacity": 0.45
+    }
+   ],
+   "mark": {
+    "motif": "circle",
+    "size": 6,
+    "color": "accent"
+   }
+  }
+ }
+}

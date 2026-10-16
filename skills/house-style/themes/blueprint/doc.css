@@ -1,0 +1,12 @@
+/* Blueprint in documents: a grid-paper cover, mono heads, a title-block foot with the title and "Sheet n of N". Built in by tools/build.py with engine/doc.css; the motif pictures come from theme.css. */
+@page { @top-left { font-family: var(--font-mono); } @top-right { font-family: var(--font-mono); }
+  @bottom-left { content: var(--doc-title-head, ""); font: 500 7.2pt var(--font-mono); text-transform: uppercase; letter-spacing: .05em; color: var(--ink-2); border-top: .6pt solid var(--ink-3); vertical-align: top; padding-top: 2mm; margin-top: 4mm; }
+  @bottom-right { content: "Sheet " counter(page) " of " counter(pages); font: 500 7.2pt var(--font-mono); text-transform: uppercase; letter-spacing: .05em; border-top: .6pt solid var(--ink-3); vertical-align: top; padding-top: 2mm; margin-top: 4mm; } }
+@page :first { @bottom-left { content: none } }
+@page pc-cover { @bottom-left { content: none } }
+@page pc-full { @bottom-left { content: none } }
+/* grid paper: a clip path of hairline strips, since Chrome drops hairline gradients from the PDF and Preview mis-draws big masks */
+.pc-doc[data-theme="blueprint"] .pc-cover:not([data-cover="full"])::before { content: ""; position: absolute; z-index: 0; inset: 0; background: color-mix(in srgb, var(--ink) 15%, transparent);
+  clip-path: var(--grid-5mm-clip); }
+.pc-doc[data-theme="blueprint"] .pc-cover:not([data-cover="full"]) > :not(.pc-media) { position: relative; z-index: 1; }
+.pc-doc[data-theme="blueprint"] .pc-opener .pc-opener-num { font-family: var(--font-mono); font-weight: 500; }

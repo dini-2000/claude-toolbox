@@ -1,0 +1,57 @@
+/* Sketchy: document art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-doc[data-theme="sketchy"] .pc-cover:not([data-cover="full"])::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 90mm;
+  height: 12mm;
+  left: 0mm;
+  bottom: 24mm;
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 33.45% 56.21%, line to 34.04% 50.29%, line to 34.59% 45.7%, line to 35.11% 42.14%, line to 35.59% 39.58%, line to 36.02% 37.93%, line to 36.41% 37.04%, line to 36.76% 36.76%, line to 37.12% 37.04%, line to 37.51% 37.93%, line to 37.94% 39.58%, line to 38.42% 42.14%, line to 38.94% 45.7%, line to 39.49% 50.29%, line to 40.08% 56.21%, line to 40.75% 62.77%, line to 41.46% 68.75%, line to 42.2% 73.83%, line to 42.98% 78%, line to 43.81% 81.15%, line to 44.68% 83.14%, line to 45.59% 83.82%, line to 46.49% 83.14%, line to 47.37% 81.15%, line to 48.19% 78%, line to 48.97% 73.83%, line to 49.72% 68.75%, line to 50.43% 62.77%, line to 51.09% 56.21%, line to 51.69% 50.29%, line to 52.24% 45.7%, line to 52.76% 42.14%, line to 53.24% 39.58%, line to 53.67% 37.93%, line to 54.05% 37.04%, line to 54.41% 36.76%, line to 54.77% 37.04%, line to 55.16% 37.93%, line to 55.59% 39.58%, line to 56.07% 42.14%, line to 56.58% 45.7%, line to 57.13% 50.29%, line to 57.73% 56.21%, line to 58.39% 62.77%, line to 59.11% 68.75%, line to 59.85% 73.83%, line to 60.63% 78%, line to 61.46% 81.15%, line to 62.33% 83.14%, line to 63.24% 83.82%, line to 64.14% 83.14%, line to 65.01% 81.15%, line to 65.84% 78%, line to 66.62% 73.83%, line to 67.36% 68.75%, line to 68.08% 62.77%, line to 68.74% 56.21%, line to 66.32% 47.4%, line to 66.29% 51.41%, line to 66.46% 55.2%, line to 66.82% 58.21%, line to 67.3% 59.96%, line to 67.83% 60.2%, line to 68.34% 58.88%, line to 66.55% 43.79%, line to 65.96% 49.71%, line to 65.41% 54.3%, line to 64.89% 57.86%, line to 64.41% 60.42%, line to 63.98% 62.07%, line to 63.59% 62.96%, line to 63.24% 63.24%, line to 62.88% 62.96%, line to 62.49% 62.07%, line to 62.06% 60.42%, line to 61.58% 57.86%, line to 61.06% 54.3%, line to 60.51% 49.71%, line to 59.92% 43.79%, line to 59.25% 37.23%, line to 58.54% 31.25%, line to 57.8% 26.17%, line to 57.02% 22%, line to 56.19% 18.85%, line to 55.32% 16.86%, line to 54.41% 16.18%, line to 53.51% 16.86%, line to 52.63% 18.85%, line to 51.81% 22%, line to 51.03% 26.17%, line to 50.28% 31.25%, line to 49.57% 37.23%, line to 48.91% 43.79%, line to 48.31% 49.71%, line to 47.76% 54.3%, line to 47.24% 57.86%, line to 46.76% 60.42%, line to 46.33% 62.07%, line to 45.95% 62.96%, line to 45.59% 63.24%, line to 45.23% 62.96%, line to 44.84% 62.07%, line to 44.41% 60.42%, line to 43.93% 57.86%, line to 43.42% 54.3%, line to 42.87% 49.71%, line to 42.27% 43.79%, line to 41.61% 37.23%, line to 40.89% 31.25%, line to 40.15% 26.17%, line to 39.37% 22%, line to 38.54% 18.85%, line to 37.67% 16.86%, line to 36.76% 16.18%, line to 35.86% 16.86%, line to 34.99% 18.85%, line to 34.16% 22%, line to 33.38% 26.17%, line to 32.64% 31.25%, line to 31.92% 37.23%, line to 31.26% 43.79%, line to 33.68% 52.6%, line to 33.71% 48.59%, line to 33.54% 44.8%, line to 33.18% 41.79%, line to 32.7% 40.04%, line to 32.17% 39.8%, line to 31.66% 41.12%, close); }
+.pc-doc[data-theme="sketchy"] .pc-cover:not([data-cover="full"])::after {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 40mm;
+  height: 40mm;
+  right: 16mm;
+  top: 16mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 0%, line to 62.3% 33%, line to 97.6% 34.5%, line to 70% 56.5%, line to 79.4% 90.5%, line to 50% 71%, line to 20.6% 90.5%, line to 30% 56.5%, line to 2.4% 34.5%, line to 37.7% 33%, close);
+  transform: rotate(14deg); }
+.pc-doc[data-theme="sketchy"] .pc-cover:not([data-cover="full"]) > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="sketchy"] .pc-opener {
+  position: relative; }
+.pc-doc[data-theme="sketchy"] .pc-opener::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 40mm;
+  height: 6mm;
+  left: 0mm;
+  top: 0mm;
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 31.38% 56.21%, line to 32.05% 50.29%, line to 32.67% 45.7%, line to 33.25% 42.14%, line to 33.79% 39.58%, line to 34.27% 37.93%, line to 34.71% 37.04%, line to 35.11% 36.76%, line to 35.51% 37.04%, line to 35.95% 37.93%, line to 36.43% 39.58%, line to 36.97% 42.14%, line to 37.56% 45.7%, line to 38.17% 50.29%, line to 38.84% 56.21%, line to 39.59% 62.77%, line to 40.39% 68.75%, line to 41.23% 73.83%, line to 42.11% 78%, line to 43.04% 81.15%, line to 44.02% 83.14%, line to 45.04% 83.82%, line to 46.05% 83.14%, line to 47.04% 81.15%, line to 47.97% 78%, line to 48.85% 73.83%, line to 49.68% 68.75%, line to 50.48% 62.77%, line to 51.23% 56.21%, line to 51.9% 50.29%, line to 52.52% 45.7%, line to 53.1% 42.14%, line to 53.64% 39.58%, line to 54.13% 37.93%, line to 54.56% 37.04%, line to 54.96% 36.76%, line to 55.36% 37.04%, line to 55.8% 37.93%, line to 56.29% 39.58%, line to 56.83% 42.14%, line to 57.41% 45.7%, line to 58.02% 50.29%, line to 58.7% 56.21%, line to 59.44% 62.77%, line to 60.24% 68.75%, line to 61.08% 73.83%, line to 61.96% 78%, line to 62.89% 81.15%, line to 63.87% 83.14%, line to 64.89% 83.82%, line to 65.91% 83.14%, line to 66.89% 81.15%, line to 67.82% 78%, line to 68.7% 73.83%, line to 69.54% 68.75%, line to 70.34% 62.77%, line to 71.08% 56.21%, line to 68.36% 47.4%, line to 68.32% 51.41%, line to 68.52% 55.2%, line to 68.92% 58.21%, line to 69.46% 59.96%, line to 70.06% 60.2%, line to 70.63% 58.88%, line to 68.62% 43.79%, line to 67.95% 49.71%, line to 67.33% 54.3%, line to 66.75% 57.86%, line to 66.21% 60.42%, line to 65.73% 62.07%, line to 65.29% 62.96%, line to 64.89% 63.24%, line to 64.49% 62.96%, line to 64.05% 62.07%, line to 63.57% 60.42%, line to 63.03% 57.86%, line to 62.44% 54.3%, line to 61.83% 49.71%, line to 61.16% 43.79%, line to 60.41% 37.23%, line to 59.61% 31.25%, line to 58.77% 26.17%, line to 57.89% 22%, line to 56.96% 18.85%, line to 55.98% 16.86%, line to 54.96% 16.18%, line to 53.95% 16.86%, line to 52.96% 18.85%, line to 52.03% 22%, line to 51.15% 26.17%, line to 50.32% 31.25%, line to 49.52% 37.23%, line to 48.77% 43.79%, line to 48.1% 49.71%, line to 47.48% 54.3%, line to 46.9% 57.86%, line to 46.36% 60.42%, line to 45.87% 62.07%, line to 45.44% 62.96%, line to 45.04% 63.24%, line to 44.64% 62.96%, line to 44.2% 62.07%, line to 43.71% 60.42%, line to 43.17% 57.86%, line to 42.59% 54.3%, line to 41.98% 49.71%, line to 41.3% 43.79%, line to 40.56% 37.23%, line to 39.76% 31.25%, line to 38.92% 26.17%, line to 38.04% 22%, line to 37.11% 18.85%, line to 36.13% 16.86%, line to 35.11% 16.18%, line to 34.09% 16.86%, line to 33.11% 18.85%, line to 32.18% 22%, line to 31.3% 26.17%, line to 30.46% 31.25%, line to 29.66% 37.23%, line to 28.92% 43.79%, line to 31.64% 52.6%, line to 31.68% 48.59%, line to 31.48% 44.8%, line to 31.08% 41.79%, line to 30.54% 40.04%, line to 29.94% 39.8%, line to 29.37% 41.12%, close); }
+.pc-doc[data-theme="sketchy"] .pc-opener > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="sketchy"] .pc-chapter > h1::after {
+  content: "";
+  display: block;
+  width: 7pt;
+  height: 7pt;
+  margin: 9pt 0 0;
+  background: var(--accent, var(--accent));
+  -webkit-mask: var(--m-star) center / contain no-repeat;
+  mask: var(--m-star) center / contain no-repeat; }
+.pc-doc[data-theme="sketchy"] .pc-kicker {
+  width: fit-content;
+  padding: .34em .8em .38em;
+  border-radius: 999px;
+  border: .1em solid currentColor; }

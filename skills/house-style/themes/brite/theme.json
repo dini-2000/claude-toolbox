@@ -1,0 +1,262 @@
+{
+ "name": "Brite",
+ "summary": "Neo-brutalist: thick black outlines, hard offset shadows and loud lime, cyan and yellow fills. Bold and playful, for creative pitches, hackathons, product demos and social posts.",
+ "good_for": [
+  "pitch",
+  "hackathon",
+  "demo",
+  "social",
+  "launch",
+  "workshop"
+ ],
+ "category": "bold",
+ "credit": "colours from Bootswatch Brite by Thomas Park (MIT licence)",
+ "defaults": {
+  "mode": "light",
+  "palette": "lime"
+ },
+ "fonts": {
+  "display": [
+   "Space Grotesk",
+   "sans"
+  ],
+  "body": [
+   "DM Sans",
+   "sans"
+  ],
+  "label": [
+   "Space Grotesk",
+   "sans"
+  ],
+  "stat": [
+   "Space Grotesk",
+   "sans"
+  ],
+  "mono": [
+   "Space Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "700",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "700",
+  "--w-stat": "700",
+  "--track-display": "-0.03em",
+  "--track-h1": "-0.02em",
+  "--track-label": "0.04em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.0",
+  "--lh-h1": "1.06",
+  "--lh-body": "1.5",
+  "--radius": "8px",
+  "--radius-sm": "6px",
+  "--border-w": "3px",
+  "--card-pad": "34px",
+  "--icon-stroke": "2.25"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF",
+   "bg_alt": "#F7F7F2",
+   "surface": "#FFFFFF",
+   "surface_2": "#F1F1EA",
+   "ink": "#000000",
+   "ink_2": "#222222",
+   "ink_3": "#3D3D3D",
+   "line": "#000000",
+   "positive": "#1F7A3A",
+   "negative": "#C53030",
+   "warning": "#9A5B00",
+   "code_bg": "#000000",
+   "code_ink": "#F7F7F2",
+   "letterbox": "#000000",
+   "shadow": "6px 6px 0 #000000"
+  },
+  "dark": {
+   "bg": "#141414",
+   "bg_alt": "#1B1B1B",
+   "surface": "#202020",
+   "surface_2": "#2A2A2A",
+   "ink": "#FFFFFF",
+   "ink_2": "#DADADA",
+   "ink_3": "#B5B5B5",
+   "line": "#FFFFFF",
+   "positive": "#68D391",
+   "negative": "#F56565",
+   "warning": "#FFC700",
+   "code_bg": "#000000",
+   "code_ink": "#F7F7F2",
+   "letterbox": "#000000",
+   "shadow": "6px 6px 0 #FFFFFF"
+  }
+ },
+ "palettes": {
+  "lime": {
+   "name": "Lime",
+   "light": {
+    "accent": "#A2E436",
+    "accent_2": "#22D2ED"
+   },
+   "dark": {
+    "accent": "#A2E436",
+    "accent_2": "#22D2ED"
+   }
+  },
+  "cyan": {
+   "name": "Cyan",
+   "light": {
+    "accent": "#22D2ED",
+    "accent_2": "#FFC700"
+   },
+   "dark": {
+    "accent": "#22D2ED",
+    "accent_2": "#FFC700"
+   }
+  },
+  "sun": {
+   "name": "Sun",
+   "light": {
+    "accent": "#FFC700",
+    "accent_2": "#F56565"
+   },
+   "dark": {
+    "accent": "#FFC700",
+    "accent_2": "#F56565"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#000000",
+   "#5FA80F",
+   "#0E9BB3",
+   "#D9A400",
+   "#E04E4E",
+   "#7A7A7A"
+  ],
+  "dark": [
+   "#FFFFFF",
+   "#A2E436",
+   "#22D2ED",
+   "#FFC700",
+   "#F56565",
+   "#9A9A9A"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "burst",
+     "at": "br",
+     "size": 520,
+     "x": -110,
+     "y": -120,
+     "color": "accent",
+     "rotate": 12
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 150,
+     "x": 90,
+     "y": 70,
+     "color": "accent-2"
+    }
+   ],
+   "section": [
+    {
+     "motif": "bar",
+     "at": "l",
+     "size": 36,
+     "color": "accent"
+    },
+    {
+     "motif": "star",
+     "at": "tr",
+     "size": 260,
+     "x": 80,
+     "y": 60,
+     "color": "accent-2",
+     "rotate": -10
+    }
+   ],
+   "statement": [
+    {
+     "motif": "checks",
+     "at": "tr",
+     "w": 260,
+     "h": 160,
+     "x": 60,
+     "y": 50,
+     "color": "ink",
+     "opacity": 0.9
+    }
+   ],
+   "closing": [
+    {
+     "motif": "burst",
+     "at": "bl",
+     "size": 460,
+     "x": -120,
+     "y": -130,
+     "color": "accent",
+     "rotate": -8
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 160,
+     "x": 90,
+     "y": 70,
+     "color": "accent-2"
+    }
+   ]
+  },
+  "vars": {
+   "cover": {
+    "--cover-w": "68%"
+   }
+  },
+  "kicker": "outline",
+  "cards": "shadow",
+  "doc": {
+   "cover": [
+    {
+     "motif": "burst",
+     "at": "br",
+     "size": 110,
+     "x": -26,
+     "y": -26,
+     "color": "accent",
+     "rotate": 12
+    },
+    {
+     "motif": "circle",
+     "at": "tr",
+     "size": 34,
+     "x": 14,
+     "y": 14,
+     "color": "accent-2"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 4,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "star",
+    "size": 7,
+    "color": "ink"
+   }
+  }
+ }
+}

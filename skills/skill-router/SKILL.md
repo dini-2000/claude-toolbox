@@ -1,6 +1,6 @@
 ---
 name: skill-router
-description: Finds and loads the right specialist playbook from the 582 on-demand skills in ~/.claude/skills, which are kept out of the skill list to save context. Use when a task is in a specialist area (finance and market data, strategy or board advice, research, SEO, marketing, copywriting, engineering, cloud, security, compliance and audits, design, product, sales, data) and no listed skill already covers it, at the start of a substantive task, or when the user asks for the best skill or names a skill that is not in the list.
+description: Finds and loads the right specialist playbook from the 583 on-demand skills in ~/.claude/skills, which are kept out of the skill list to save context. Use when a task is in a specialist area (finance and market data, strategy or board advice, research, SEO, marketing, copywriting, engineering, cloud, security, compliance and audits, design, product, sales, data) and no listed skill already covers it, at the start of a substantive task, or when the user asks for the best skill or names a skill that is not in the list.
 ---
 
 # Skill router
@@ -33,7 +33,7 @@ Claude Toolbox is installed with `disable-model-invocation: true` on every skill
 - Engineering: senior-architect, senior-backend, senior-frontend, senior-fullstack, code-reviewer, adversarial-reviewer, tdd-guide, zero-hallucination-coder, database-designer, rag-architect, mcp-builder, performance-profiler, tech-debt-tracker
 - Cloud, DevOps and security: aws-solution-architect, azure-cloud-architect, gcp-cloud-architect, senior-devops, docker-development, kubernetes-operator, terraform-patterns, ci-cd-pipeline-builder, senior-security, cloud-security, threat-detection, incident-commander
 - Testing (Playwright commands are pw-*): pw, webapp-testing, senior-qa, api-test-suite-builder
-- Design and UI: frontend-design, ui-ux-pro-max, design-system, canvas-design, algorithmic-art, theme-factory, apple-hig-expert, a11y-audit, web-artifacts-builder
+- Design and UI: house-style, frontend-design, ui-ux-pro-max, design-system, canvas-design, algorithmic-art, theme-factory, apple-hig-expert, a11y-audit, web-artifacts-builder
 - Data and analytics: statistical-analyst, senior-data-scientist, senior-data-engineer, product-analytics, analytics-tracking, data-quality-auditor, sql-database-assistant
 - Sales and customers: sales-engineer, deal-desk, prospecting, rfp-responder, contract-and-proposal-writer, customer-success-manager, churn-prevention
 - Agents, prompts and context: agent-designer, multi-agent-patterns, prompt-engineer-toolkit, senior-prompt-engineer, context-optimization, context-compression, caveman, evaluation, advanced-evaluation

@@ -1,0 +1,281 @@
+{
+ "name": "Confetti",
+ "summary": "A party on warm white: a chunky playful sans, magenta and blue with sunny yellow, scattered dots, stars and a squiggle. Joyful and loud, for birthdays, launches, celebrations, awards and team parties.",
+ "good_for": [
+  "party",
+  "birthday",
+  "celebration",
+  "awards",
+  "launch-party",
+  "team-event"
+ ],
+ "category": "events",
+ "also": [
+  "kids"
+ ],
+ "defaults": {
+  "mode": "light",
+  "palette": "party"
+ },
+ "fonts": {
+  "display": [
+   "Bricolage Grotesque",
+   "sans"
+  ],
+  "body": [
+   "Nunito Sans",
+   "sans"
+  ],
+  "label": [
+   "Nunito Sans",
+   "sans"
+  ],
+  "stat": [
+   "Bricolage Grotesque",
+   "sans"
+  ],
+  "mono": [
+   "DM Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "800",
+  "--w-h1": "800",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "700",
+  "--w-label": "800",
+  "--w-stat": "800",
+  "--track-display": "-0.03em",
+  "--track-h1": "-0.02em",
+  "--track-label": "0.06em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.0",
+  "--lh-h1": "1.06",
+  "--lh-body": "1.5",
+  "--radius": "18px",
+  "--radius-sm": "10px",
+  "--border-w": "2px",
+  "--card-pad": "34px",
+  "--icon-stroke": "2"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFBF4",
+   "bg_alt": "#FFF3E2",
+   "surface": "#FFFFFF",
+   "surface_2": "#FDECD3",
+   "ink": "#26123A",
+   "ink_2": "#4A3A5A",
+   "ink_3": "#5E4F6C",
+   "line": "#EEDCC4",
+   "positive": "#1D7A3A",
+   "negative": "#C8102E",
+   "warning": "#8F5B00",
+   "code_bg": "#26123A",
+   "code_ink": "#FFF3E2",
+   "letterbox": "#14091F",
+   "shadow": "0 4px 0 rgba(38, 18, 58, .12)"
+  },
+  "dark": {
+   "bg": "#1C0F2A",
+   "bg_alt": "#221333",
+   "surface": "#28183B",
+   "surface_2": "#33204A",
+   "ink": "#FFF5E8",
+   "ink_2": "#E4D6E9",
+   "ink_3": "#BFB0C8",
+   "line": "#3E2B55",
+   "positive": "#6FD08C",
+   "negative": "#FF7A85",
+   "warning": "#FFC94D",
+   "code_bg": "#120A1C",
+   "code_ink": "#FFF5E8",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "party": {
+   "name": "Party",
+   "light": {
+    "accent": "#C2185B",
+    "accent_2": "#1E5BD6"
+   },
+   "dark": {
+    "accent": "#FF6FAE",
+    "accent_2": "#7FB2FF"
+   }
+  },
+  "citrus": {
+   "name": "Citrus",
+   "light": {
+    "accent": "#D1495B",
+    "accent_2": "#00798C"
+   },
+   "dark": {
+    "accent": "#FF8A80",
+    "accent_2": "#5CD6E8"
+   }
+  },
+  "sherbet": {
+   "name": "Sherbet",
+   "light": {
+    "accent": "#7B3FC4",
+    "accent_2": "#E0661F"
+   },
+   "dark": {
+    "accent": "#C9A6FF",
+    "accent_2": "#FFA86B"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#C2185B",
+   "#1E5BD6",
+   "#F2B705",
+   "#1D9E75",
+   "#7B3FC4",
+   "#E0661F"
+  ],
+  "dark": [
+   "#FF6FAE",
+   "#7FB2FF",
+   "#FFD34D",
+   "#5FD3A8",
+   "#C9A6FF",
+   "#FFA86B"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "dots",
+     "at": "tr",
+     "w": 520,
+     "h": 360,
+     "x": 0,
+     "y": 0,
+     "color": "accent-2",
+     "opacity": 0.7,
+     "fade": "l",
+     "tile": 34
+    },
+    {
+     "motif": "star",
+     "at": "br",
+     "size": 260,
+     "x": -40,
+     "y": -50,
+     "color": "accent",
+     "rotate": 12
+    }
+   ],
+   "section": [
+    {
+     "motif": "dots",
+     "at": "tl",
+     "w": 520,
+     "h": 360,
+     "x": 0,
+     "y": 0,
+     "color": "accent-2",
+     "opacity": 0.7,
+     "fade": "r",
+     "tile": 34
+    },
+    {
+     "motif": "burst",
+     "at": "tr",
+     "size": 420,
+     "x": -110,
+     "y": -120,
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "squiggle",
+     "at": "bl",
+     "w": 360,
+     "h": 50,
+     "x": "var(--mx)",
+     "y": 100,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "dots",
+     "at": "tl",
+     "w": 520,
+     "h": 360,
+     "x": 0,
+     "y": 0,
+     "color": "accent-2",
+     "opacity": 0.7,
+     "fade": "r",
+     "tile": 34
+    },
+    {
+     "motif": "star",
+     "at": "tr",
+     "size": 220,
+     "x": 60,
+     "y": 50,
+     "color": "accent",
+     "rotate": -10
+    }
+   ]
+  },
+  "vars": {
+   "cover": {
+    "--cover-w": "70%"
+   }
+  },
+  "kicker": "pill",
+  "cards": "shadow",
+  "doc": {
+   "cover": [
+    {
+     "motif": "dots",
+     "at": "tr",
+     "w": 110,
+     "h": 80,
+     "x": 0,
+     "y": 0,
+     "color": "accent-2",
+     "opacity": 0.7,
+     "fade": "l"
+    },
+    {
+     "motif": "star",
+     "at": "br",
+     "size": 60,
+     "x": -8,
+     "y": -10,
+     "color": "accent",
+     "rotate": 12
+    }
+   ],
+   "opener": [
+    {
+     "motif": "star",
+     "at": "tr",
+     "size": 10,
+     "x": 0,
+     "y": 0,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "star",
+    "size": 7,
+    "color": "accent"
+   }
+  }
+ }
+}

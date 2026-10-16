@@ -1,0 +1,64 @@
+/* Grove: signature art. Colours, fonts and shapes come from tokens.css (built from theme.json).
+   Soft pebble shapes in pale accent tones grow from the corners: a small one at the top right of content slides,
+   larger pairs on covers, sections and closings, with a leaf on the cover. Kickers carry a small leaf, section
+   numbers are italic, emphasis in headlines turns italic in the accent, and cards are rounded with soft shadows. */
+.pc-deck[data-theme="grove"] {
+  --pebble: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M141 19c27 13 49 40 53 71 4 30-11 62-35 82-24 21-58 29-88 20-31-9-57-34-66-64-9-31 0-66 22-89 22-22 58-35 86-33 10 1 19 4 28 13z'/%3E%3C/svg%3E");
+  --pebble-2: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath d='M104 8c34 2 66 22 80 52 14 31 10 70-12 96-22 27-60 40-94 34-33-6-63-32-70-65-8-33 9-71 36-93 17-14 38-25 60-24z'/%3E%3C/svg%3E");
+  --leaf: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3Cmask id='v'%3E%3Crect width='200' height='200' fill='white'/%3E%3Cpath d='M30 170 Q 90 110 160 40' fill='none' stroke='black' stroke-width='7' stroke-linecap='round'/%3E%3C/mask%3E%3C/defs%3E%3Cpath mask='url(%23v)' d='M16 184C10 106 60 26 184 16c8 104-50 172-168 168z'/%3E%3C/svg%3E"); }
+
+/* Content slides: a small pebble peeking in at the top right */
+.pc-deck[data-theme="grove"] .pc-slide::before {
+  content: ""; position: absolute; z-index: -1; width: calc(330 * var(--art-px)); height: calc(330 * var(--art-px));
+  right: calc(-120 * var(--art-px)); top: calc(-140 * var(--art-px));
+  background: color-mix(in srgb, var(--accent) 16%, var(--bg));
+  clip-path: var(--pebble-clip); }
+.pc-deck[data-theme="grove"] .pc-slide:is(.pc-bleed, .pc-split)::before { content: none; }
+.pc-deck[data-theme="grove"] .pc-slide[data-surface="accent"]::before { background: color-mix(in srgb, var(--accent-ink) 14%, var(--bg)); }
+
+/* Covers: two pebbles and a leaf at the top right */
+.pc-deck[data-theme="grove"]:is([data-format="16x9"], [data-format="4x3"], [data-format="a4l"]) .pc-cover { --cover-w: 66%; }
+.pc-deck[data-theme="grove"] .pc-cover::before {
+  width: calc(860 * var(--art-px)); height: calc(860 * var(--art-px)); right: calc(-250 * var(--art-px)); top: calc(-300 * var(--art-px));
+  background: color-mix(in srgb, var(--accent) 22%, var(--bg)); }
+.pc-deck[data-theme="grove"] .pc-cover::after {
+  content: ""; position: absolute; z-index: -1; width: calc(380 * var(--art-px)); height: calc(380 * var(--art-px));
+  right: calc(300 * var(--art-px)); top: calc(160 * var(--art-px));
+  background: color-mix(in srgb, var(--accent-2) 26%, var(--bg));
+  clip-path: var(--pebble-2-clip); }
+/* Square and portrait covers: the pebbles shrink to the top band so the title has the lower half */
+.pc-deck[data-theme="grove"]:is([data-format="1x1"], [data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-cover::before {
+  width: calc(var(--W) * .62); height: calc(var(--W) * .62); right: calc(var(--W) * -.12); top: calc(var(--W) * -.16); }
+.pc-deck[data-theme="grove"]:is([data-format="1x1"], [data-format="9x16"], [data-format="4x5"], [data-format="a4p"]) .pc-cover::after {
+  width: calc(var(--W) * .3); height: calc(var(--W) * .3); right: calc(var(--W) * .4); top: calc(var(--W) * .22); }
+
+/* Section slides and closings: a large pebble behind the bottom right corner */
+.pc-deck[data-theme="grove"] .pc-slide:is(.pc-section, .pc-closing)::before {
+  width: calc(760 * var(--art-px)); height: calc(760 * var(--art-px)); top: auto; right: calc(-200 * var(--art-px)); bottom: calc(-260 * var(--art-px));
+  background: color-mix(in srgb, var(--accent) 18%, var(--bg)); }
+.pc-deck[data-theme="grove"] .pc-slide:is(.pc-section, .pc-closing)::after {
+  content: ""; position: absolute; z-index: -1; width: calc(230 * var(--art-px)); height: calc(230 * var(--art-px));
+  right: calc(520 * var(--art-px)); bottom: calc(120 * var(--art-px));
+  background: color-mix(in srgb, var(--accent-2) 30%, var(--bg));
+  clip-path: var(--leaf-clip); }
+.pc-deck[data-theme="grove"] .pc-closing[data-surface="inverse"]::before { background: color-mix(in srgb, var(--accent) 26%, var(--bg)); }
+.pc-deck[data-theme="grove"] .pc-slide:is(.pc-section, .pc-closing) > .pc-num { color: var(--ink-2); }
+
+/* Kickers carry a small leaf */
+.pc-deck[data-theme="grove"] .pc-kicker::before {
+  content: ""; display: inline-block; width: .95em; height: .95em; margin-right: .4em; vertical-align: -.14em;
+  background: currentColor; clip-path: var(--leaf-clip); }
+.pc-deck[data-theme="grove"] .pc-kicker:is(:lang(si), :lang(ta))::before { vertical-align: -.05em; }
+
+/* Headlines: emphasis turns italic in the accent; section numbers are italic */
+.pc-deck[data-theme="grove"] :is(.pc-title, .pc-say) em { font-style: italic; font-weight: 400; color: var(--accent-text); }
+.pc-deck[data-theme="grove"] .pc-section .pc-section-num {
+  font: italic 400 calc(var(--fs-hero) * 1.6)/0.9 var(--font-display); letter-spacing: -0.02em; font-variant-numeric: lining-nums; }
+.pc-deck[data-theme="grove"] .pc-quote blockquote { font-style: italic; }
+
+/* clip paths: written by tools/build_themes.py from the pictures above, since big CSS masks print wrong in Preview and Safari. Do not edit. */
+.pc-deck[data-theme="grove"], .pc-deck[data-theme="grove"] .pc-slide {
+  --leaf-clip: shape(evenodd from 8% 92%, curve to 92% 8% with 5% 53% / 30% 13%, curve to 8% 92% with 96% 60% / 67% 94%, close, move to 16.24% 86.24%, line to 20.55% 81.93%, line to 24.91% 77.56%, line to 29.32% 73.15%, line to 33.79% 68.69%, line to 38.3% 64.17%, line to 42.87% 59.6%, line to 47.49% 54.99%, line to 52.16% 50.32%, line to 56.88% 45.6%, line to 61.65% 40.83%, line to 66.47% 36.01%, line to 71.34% 31.14%, line to 76.26% 26.21%, line to 81.24% 21.24%, line to 78.38% 19.33%, line to 78.25% 20%, line to 78.38% 20.67%, line to 78.76% 21.24%, line to 79.33% 21.62%, line to 80% 21.75%, line to 80.67% 21.62%, line to 78.76% 18.76%, line to 73.79% 23.74%, line to 68.86% 28.66%, line to 63.99% 33.53%, line to 59.17% 38.35%, line to 54.4% 43.12%, line to 49.68% 47.84%, line to 45.01% 52.51%, line to 40.4% 57.13%, line to 35.83% 61.7%, line to 31.31% 66.21%, line to 26.85% 70.68%, line to 22.44% 75.09%, line to 18.07% 79.45%, line to 13.76% 83.76%, line to 16.62% 85.67%, line to 16.75% 85%, line to 16.62% 84.33%, line to 16.24% 83.76%, line to 15.67% 83.38%, line to 15% 83.25%, line to 14.33% 83.38%, close);
+  --pebble-clip: shape(from 70.5% 9.5%, curve to 97% 45% with 84% 16% / 95% 29.5%, curve to 79.5% 86% with 99% 60% / 91.5% 76%, curve to 35.5% 96% with 67.5% 96.5% / 50.5% 100.5%, curve to 2.5% 64% with 20% 91.5% / 7% 79%, curve to 13.5% 19.5% with -2% 48.5% / 2.5% 31%, curve to 56.5% 3% with 24.5% 8.5% / 42.5% 2%, curve to 70.5% 9.5% with 61.5% 3.5% / 66% 5%, close);
+  --pebble-2-clip: shape(from 52% 4%, curve to 92% 30% with 69% 5% / 85% 15%, curve to 86% 78% with 99% 45.5% / 97% 65%, curve to 39% 95% with 75% 91.5% / 56% 98%, curve to 4% 62.5% with 22.5% 92% / 7.5% 79%, curve to 22% 16% with 0% 46% / 8.5% 27%, curve to 52% 4% with 30.5% 9% / 41% 3.5%, close); }
+/* end of clip paths */

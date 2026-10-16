@@ -1,0 +1,261 @@
+{
+ "name": "Launch",
+ "summary": "A product launch on deep navy: a bold geometric sans, a violet glow rising behind the title, an orange or cyan second colour and rounded cards. Energetic and modern, for launches, demo days, fundraising pitches and product updates.",
+ "good_for": [
+  "launch",
+  "demo-day",
+  "fundraising",
+  "pitch",
+  "product-update",
+  "roadmap"
+ ],
+ "category": "startup",
+ "also": [
+  "tech"
+ ],
+ "defaults": {
+  "mode": "dark",
+  "palette": "rocket"
+ },
+ "fonts": {
+  "display": [
+   "Poppins",
+   "sans"
+  ],
+  "body": [
+   "Inter",
+   "sans"
+  ],
+  "label": [
+   "Poppins",
+   "sans"
+  ],
+  "stat": [
+   "Poppins",
+   "sans"
+  ],
+  "mono": [
+   "JetBrains Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "600",
+  "--w-label": "600",
+  "--w-stat": "700",
+  "--track-display": "-0.035em",
+  "--track-h1": "-0.02em",
+  "--track-label": "0.06em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.02",
+  "--lh-h1": "1.08",
+  "--lh-body": "1.5",
+  "--radius": "18px",
+  "--radius-sm": "10px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF",
+   "bg_alt": "#F6F5FB",
+   "surface": "#FFFFFF",
+   "surface_2": "#EFEDF8",
+   "ink": "#120F2B",
+   "ink_2": "#3A3654",
+   "ink_3": "#4E4A68",
+   "line": "#E0DDF0",
+   "positive": "#0E7C3A",
+   "negative": "#C62828",
+   "warning": "#8F5B00",
+   "code_bg": "#120F2B",
+   "code_ink": "#F6F5FB",
+   "letterbox": "#09071A",
+   "shadow": "0 8px 28px rgba(18, 15, 43, .08)"
+  },
+  "dark": {
+   "bg": "#0B0A1F",
+   "bg_alt": "#100E28",
+   "surface": "#151230",
+   "surface_2": "#1E1A3E",
+   "ink": "#F4F2FF",
+   "ink_2": "#CFCBE6",
+   "ink_3": "#A8A3C4",
+   "line": "#2A2550",
+   "positive": "#4ADE80",
+   "negative": "#FF6B6B",
+   "warning": "#FFB020",
+   "code_bg": "#05040F",
+   "code_ink": "#F4F2FF",
+   "letterbox": "#000000",
+   "shadow": "0 8px 28px rgba(0, 0, 0, .35)"
+  }
+ },
+ "palettes": {
+  "rocket": {
+   "name": "Rocket",
+   "light": {
+    "accent": "#6D28D9",
+    "accent_2": "#EA580C"
+   },
+   "dark": {
+    "accent": "#A78BFA",
+    "accent_2": "#FB923C"
+   }
+  },
+  "ocean": {
+   "name": "Ocean",
+   "light": {
+    "accent": "#0369A1",
+    "accent_2": "#6D28D9"
+   },
+   "dark": {
+    "accent": "#38BDF8",
+    "accent_2": "#A78BFA"
+   }
+  },
+  "lime": {
+   "name": "Lime",
+   "light": {
+    "accent": "#3F7D0B",
+    "accent_2": "#6D28D9"
+   },
+   "dark": {
+    "accent": "#A3E635",
+    "accent_2": "#A78BFA"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#6D28D9",
+   "#EA580C",
+   "#0369A1",
+   "#0E9F6E",
+   "#DB2777",
+   "#8B87A3"
+  ],
+  "dark": [
+   "#A78BFA",
+   "#FB923C",
+   "#38BDF8",
+   "#34D399",
+   "#F472B6",
+   "#8B87A3"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "glow",
+     "at": "br",
+     "size": 1100,
+     "x": -380,
+     "y": -420,
+     "color": "accent",
+     "opacity": 0.6
+    },
+    {
+     "motif": "ring",
+     "at": "tr",
+     "size": 220,
+     "x": 60,
+     "y": 50,
+     "color": "accent-2",
+     "opacity": 0.9
+    }
+   ],
+   "section": [
+    {
+     "motif": "glow",
+     "at": "r",
+     "size": 900,
+     "x": -420,
+     "color": "accent",
+     "opacity": 0.55
+    }
+   ],
+   "statement": [
+    {
+     "motif": "glow",
+     "at": "bl",
+     "size": 700,
+     "x": -260,
+     "y": -280,
+     "color": "accent-2",
+     "opacity": 0.4
+    }
+   ],
+   "closing": [
+    {
+     "motif": "glow",
+     "at": "bl",
+     "size": 1100,
+     "x": -400,
+     "y": -420,
+     "color": "accent",
+     "opacity": 0.6
+    },
+    {
+     "motif": "ring",
+     "at": "tr",
+     "size": 220,
+     "x": 60,
+     "y": 50,
+     "color": "accent-2",
+     "opacity": 0.9
+    }
+   ]
+  },
+  "vars": {
+   "cover": {
+    "--cover-w": "70%"
+   }
+  },
+  "kicker": "pill",
+  "cards": "soft",
+  "doc": {
+   "cover": [
+    {
+     "motif": "glow",
+     "at": "br",
+     "size": 220,
+     "x": -80,
+     "y": -90,
+     "color": "accent",
+     "opacity": 0.6
+    },
+    {
+     "motif": "ring",
+     "at": "tr",
+     "size": 40,
+     "x": 14,
+     "y": 12,
+     "color": "accent-2",
+     "opacity": 0.9
+    }
+   ],
+   "opener": [
+    {
+     "motif": "ring",
+     "at": "tr",
+     "size": 8,
+     "x": 0,
+     "y": 0,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "circle",
+    "size": 4,
+    "color": "accent"
+   }
+  }
+ }
+}

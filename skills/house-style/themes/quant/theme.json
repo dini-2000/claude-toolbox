@@ -1,0 +1,248 @@
+{
+ "name": "Quant",
+ "summary": "Dense and numeric: white or terminal black, a tight grotesque, a mono for figures and labels, faint grid lines and a ticker strip. Exact and data-heavy, for market updates, risk reports, trading reviews and analytics.",
+ "good_for": [
+  "markets",
+  "risk",
+  "trading",
+  "analytics",
+  "dashboard",
+  "kpi"
+ ],
+ "category": "finance",
+ "also": [
+  "tech"
+ ],
+ "defaults": {
+  "mode": "light",
+  "palette": "blue"
+ },
+ "fonts": {
+  "display": [
+   "Schibsted Grotesk",
+   "sans"
+  ],
+  "body": [
+   "Inter",
+   "sans"
+  ],
+  "label": [
+   "Geist Mono",
+   "mono"
+  ],
+  "stat": [
+   "Geist Mono",
+   "mono"
+  ],
+  "mono": [
+   "Geist Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "700",
+  "--w-h1": "700",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "600",
+  "--w-label": "500",
+  "--w-stat": "500",
+  "--track-display": "-0.03em",
+  "--track-h1": "-0.02em",
+  "--track-label": "0.04em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.04",
+  "--lh-h1": "1.1",
+  "--lh-body": "1.45",
+  "--radius": "2px",
+  "--radius-sm": "2px",
+  "--border-w": "1px",
+  "--card-pad": "32px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF",
+   "bg_alt": "#F6F7F9",
+   "surface": "#FFFFFF",
+   "surface_2": "#EEF0F3",
+   "ink": "#0B0F14",
+   "ink_2": "#323A45",
+   "ink_3": "#4B5563",
+   "line": "#DCE0E6",
+   "positive": "#0E7C3A",
+   "negative": "#C62828",
+   "warning": "#8F5B00",
+   "code_bg": "#0B0F14",
+   "code_ink": "#F6F7F9",
+   "letterbox": "#05070A",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#07090C",
+   "bg_alt": "#0C0F13",
+   "surface": "#11151A",
+   "surface_2": "#191E25",
+   "ink": "#E8ECF1",
+   "ink_2": "#C3CAD3",
+   "ink_3": "#9AA3AF",
+   "line": "#232A33",
+   "positive": "#3DDC84",
+   "negative": "#FF5A5F",
+   "warning": "#FFB020",
+   "code_bg": "#000000",
+   "code_ink": "#E8ECF1",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "blue": {
+   "name": "Blue",
+   "light": {
+    "accent": "#0F62FE",
+    "accent_2": "#0E7C3A"
+   },
+   "dark": {
+    "accent": "#78A9FF",
+    "accent_2": "#3DDC84"
+   }
+  },
+  "amber": {
+   "name": "Amber",
+   "light": {
+    "accent": "#9A5B00",
+    "accent_2": "#0F62FE"
+   },
+   "dark": {
+    "accent": "#FFB020",
+    "accent_2": "#78A9FF"
+   }
+  },
+  "green": {
+   "name": "Green",
+   "light": {
+    "accent": "#0E7C3A",
+    "accent_2": "#C62828"
+   },
+   "dark": {
+    "accent": "#3DDC84",
+    "accent_2": "#FF5A5F"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#0F62FE",
+   "#0E7C3A",
+   "#C62828",
+   "#8A3FFC",
+   "#9A5B00",
+   "#6F7782"
+  ],
+  "dark": [
+   "#78A9FF",
+   "#3DDC84",
+   "#FF5A5F",
+   "#BE95FF",
+   "#FFB020",
+   "#8D96A2"
+  ]
+ },
+ "art": {
+  "deck": {
+   "cover": [
+    {
+     "motif": "grid",
+     "at": "full",
+     "color": "line",
+     "opacity": 0.8,
+     "tile": 60
+    },
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 10,
+     "color": "accent"
+    }
+   ],
+   "section": [
+    {
+     "motif": "grid",
+     "at": "r",
+     "w": 520,
+     "h": "100%",
+     "color": "line",
+     "opacity": 0.8,
+     "tile": 60,
+     "fade": "l"
+    },
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 10,
+     "color": "accent"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 10,
+     "color": "accent-2"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "grid",
+     "at": "full",
+     "color": "line",
+     "opacity": 0.8,
+     "tile": 60
+    },
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 10,
+     "color": "accent"
+    }
+   ]
+  },
+  "kicker": "outline",
+  "cards": "outline",
+  "doc": {
+   "cover": [
+    {
+     "motif": "grid",
+     "at": "tr",
+     "w": 120,
+     "h": 90,
+     "x": 0,
+     "y": 0,
+     "color": "line",
+     "tile": 6,
+     "fade": "l"
+    },
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 3,
+     "color": "accent"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 1.5,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "plus",
+    "size": 5,
+    "color": "accent"
+   }
+  }
+ }
+}

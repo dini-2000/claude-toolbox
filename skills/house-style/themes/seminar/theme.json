@@ -1,0 +1,41 @@
+{
+ "name": "Seminar",
+ "summary": "Academic and exact: a book serif, a running head with numbered sections (2.3), numbered figure captions, footnote rules and book-style tables. For lectures, research talks, theses and training.",
+ "good_for": ["lesson", "talk", "report", "webinar", "problem-solution"],
+ "category": "academic",
+ "defaults": {"mode": "light", "palette": "navy"},
+ "fonts": {
+  "display": ["Source Serif 4", "serif"], "body": ["Source Serif 4", "serif"], "label": ["Source Sans 3", "sans"],
+  "stat": ["Source Serif 4", "serif"], "quote": ["Source Serif 4", "serif"], "mono": ["Geist Mono", "mono"]
+ },
+ "tokens": {
+  "--w-display": "600", "--w-h1": "600", "--w-h2": "600", "--w-body": "400", "--w-strong": "600", "--w-label": "600", "--w-stat": "600", "--w-quote": "400",
+  "--track-display": "-0.01em", "--track-h1": "-0.005em", "--track-label": "0.08em", "--label-case": "uppercase",
+  "--lh-display": "1.06", "--lh-h1": "1.12", "--lh-body": "1.45",
+  "--radius": "3px", "--radius-sm": "2px", "--border-w": "1.5px", "--card-pad": "32px", "--icon-stroke": "1.6",
+  "--card-shadow": "none", "--card-border-w": "1px", "--bullet-radius": "50%", "--media-radius": "0px"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF", "bg_alt": "#F6F5F1", "surface": "#FFFFFF", "surface_2": "#F3F2EE", "ink": "#1B1B1B", "ink_2": "#3F3F3F",
+   "ink_3": "#5E5E5E", "line": "#DCDAD3", "positive": "#1F6B43", "negative": "#9E1C12", "warning": "#855A00",
+   "code_bg": "#1E2229", "code_ink": "#ECEDEF", "letterbox": "#14171C", "shadow": "none"
+  },
+  "dark": {
+   "bg": "#14171C", "bg_alt": "#1A1E24", "surface": "#1C2027", "surface_2": "#232831", "ink": "#ECEDEF", "ink_2": "#C4C7CC",
+   "ink_3": "#9DA2AA", "line": "#2F343D", "positive": "#6CC896", "negative": "#F08A80", "warning": "#E8B85A",
+   "code_bg": "#0E1014", "code_ink": "#ECEDEF", "letterbox": "#0A0C0F", "shadow": "none",
+   "alt": {"surface": "#232831", "surface_2": "#2A303A"}
+  }
+ },
+ "palettes": {
+  "navy": {"name": "Navy", "light": {"accent": "#1D3557", "accent_2": "#8C1C13"}, "dark": {"accent": "#8FB0E0", "accent_2": "#E8877C"}},
+  "burgundy": {"name": "Burgundy", "light": {"accent": "#8C1C13", "accent_2": "#1D3557"}, "dark": {"accent": "#E8877C", "accent_2": "#8FB0E0"}},
+  "green": {"name": "College green", "light": {"accent": "#1F5A3D", "accent_2": "#9A6B00"}, "dark": {"accent": "#7CC59C", "accent_2": "#E2B65A"}},
+  "slate": {"name": "Slate", "light": {"accent": "#3D4A5C", "accent_2": "#8C1C13"}, "dark": {"accent": "#AEB9C8", "accent_2": "#E8877C"}}
+ },
+ "chart": {
+  "light": ["#1D3557", "#8C1C13", "#B07D1A", "#2A7F7A", "#6B6B6B", "#5B7FB5"],
+  "dark": ["#8FB0E0", "#E8877C", "#E2B65A", "#6CC2BC", "#A3A3A3", "#C4D3EC"]
+ }
+}

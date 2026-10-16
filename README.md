@@ -1,6 +1,6 @@
 # Claude Toolbox
 
-A one-stop collection of the best Claude Code skills, settings and optimizations, set up so they cost almost nothing until used. It holds 587 skills from 15 open-source collections, an essentials pack for anyone getting started, and settings that keep Claude's writing plain, save its progress before a usage limit and screen what it downloads.
+A one-stop collection of the best Claude Code skills, settings and optimizations, set up so they cost almost nothing until used. It holds 587 skills from 15 open-source collections, House Style (its own design kit for decks, documents and graphics), an essentials pack for anyone getting started, and settings that keep Claude's writing plain, save its progress before a usage limit and screen what it downloads.
 
 The skills belong to their original creators (see [Credits](#credits)). This repo collects them, fills in the files they were missing, fixes what was broken and packages the lot so one install sets it up.
 
@@ -10,7 +10,7 @@ The skills belong to their original creators (see [Credits](#credits)). This rep
 
 New to skills? Install the **essentials**: 26 skills for planning, building, debugging, reviewing, research and writing, plus the two essential settings. You can add the rest later.
 
-Want everything? Install **all 587**. Only five sit in Claude's skill list; the rest stay on disk until a task needs them, so a full install costs about as much context as the essentials.
+Want everything? Install **all 588**. Only five sit in Claude's skill list; the rest stay on disk until a task needs them, so a full install costs about as much context as the essentials.
 
 ## Install
 
@@ -63,6 +63,12 @@ The list lives in [`essentials.txt`](essentials.txt). Edit it before running `se
 | Extending Claude | `write-a-skill`, `mcp-builder` |
 
 The full install adds skills for finance and market data, strategy and board advice, SEO and marketing, sales, product, cloud and DevOps, security and compliance, design, data and more. [`skills/skill-router/INDEX.md`](skills/skill-router/INDEX.md) lists them all by area.
+
+## House Style
+
+`skills/house-style` is a design kit made for this toolbox. It builds slide decks, paged PDF documents and graphics in 60 themes, or in a theme made from your own logo, brand guide or PowerPoint template. A deck comes out as one HTML file with its PDF and an editable PowerPoint that matches it slide for slide. Documents (reports, proposals, letters, CVs, invoices, newsletters) come out as print-quality PDFs, with a CMYK PDF/X-4 copy for a print shop. Graphics (social posts, banners, posters, invitations, business cards) come out as PNG, JPG and PDF at each platform's size. A style picker in the browser lets you compare themes before you choose.
+
+A full install includes it. The essentials leave it out, since its fonts make it about 60 MB; to add it on its own, copy `skills/house-style` into `~/.claude/skills`. It needs Python 3 with `pymupdf`, `python-pptx` and `Pillow`, and Google Chrome, Chromium or Edge; LibreOffice is optional, for the PowerPoint checks. Run `python3 tools/selftest.py --quick` from its folder once to check it works on your computer, then call it as `/house-style` or ask for a deck, report or poster and let the skill search find it. [Its README](skills/house-style/README.md) lists every tool, theme and known limit.
 
 ## Settings
 
@@ -142,7 +148,7 @@ python3 _build/build_pack.py <raw pack dir> --repo=<this repo>  # write the buil
 python3 _build/build_pack.py <raw pack dir> --install           # install straight to ~/.claude/skills
 ```
 
-It needs `python3` and `/usr/bin/ruby` for the YAML check, and stops before writing if any skill fails validation. With `--repo` it replaces only the skill folders in `skills/` and the build files under `_build/`.
+It needs `python3` and `/usr/bin/ruby` for the YAML check, and stops before writing if any skill fails validation. With `--repo` it replaces only the skill folders in `skills/` and the build files under `_build/`, and keeps `skills/house-style`, which is not built from a source collection.
 
 ## Uninstall
 
@@ -164,4 +170,4 @@ Some skills in those collections adapt other people's work, and their `SKILL.md`
 
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) gives each source's licence text and the commits the files came from. Trail of Bits' skills are under CC BY-SA 4.0, so the adapted copies here stay under that licence. Check a source's licence before you redistribute its work.
 
-The toolbox's own work is under the MIT licence in [LICENSE](LICENSE): `setup.sh`, the essentials pack, the `skill-router` search, the build scripts in `_build/`, and the settings in `settings/`. Those are the download guard (`download_guard.py`, with the `safe_get.py` downloader and the `screen.py` checks), save-before-limit, the dictation check and the stop-slop hooks, which apply the rules from `hardikpandya/stop-slop`.
+The toolbox's own work is under the MIT licence in [LICENSE](LICENSE): `setup.sh`, the essentials pack, the `skill-router` search, the build scripts in `_build/`, and the settings in `settings/`. Those are the download guard (`download_guard.py`, with the `safe_get.py` downloader and the `screen.py` checks), save-before-limit, the dictation check and the stop-slop hooks, which apply the rules from `hardikpandya/stop-slop`. House Style's own code, themes and samples are under the same licence; the fonts, icons and libraries it holds, and the open themes it adapts, keep their own licences, listed in its README and in THIRD_PARTY_NOTICES.md.

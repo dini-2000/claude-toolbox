@@ -1,0 +1,43 @@
+{
+ "name": "Folio",
+ "summary": "Editorial: a serif display face over a crisp sans, folio lines, big italic section numbers and drop caps. For decks people read as much as watch.",
+ "good_for": ["report", "case-study", "portfolio", "board", "talk", "event"],
+ "category": "editorial",
+ "defaults": {"mode": "light", "palette": "ultramarine"},
+ "fonts": {
+  "display": ["Newsreader", "serif"], "body": ["Schibsted Grotesk", "sans"], "label": ["Schibsted Grotesk", "sans"],
+  "stat": ["Newsreader", "serif"], "quote": ["Newsreader", "serif"], "mono": ["IBM Plex Mono", "mono"]
+ },
+ "tokens": {
+  "--w-display": "500", "--w-h1": "500", "--w-h2": "600", "--w-body": "400", "--w-strong": "600", "--w-label": "600", "--w-stat": "400", "--w-quote": "400",
+  "--track-display": "-0.02em", "--track-h1": "-0.01em", "--track-label": "0.12em", "--label-case": "uppercase",
+  "--lh-display": "1.02", "--lh-h1": "1.08", "--lh-body": "1.45",
+  "--radius": "0px", "--radius-sm": "0px", "--border-w": "1.5px", "--card-pad": "32px", "--icon-stroke": "1.5",
+  "--card-shadow": "none"
+ },
+ "modes": {
+  "light": {
+   "bg": "#FFFFFF", "bg_alt": "#F4F4F2", "surface": "#FFFFFF", "surface_2": "#F2F2F0",
+   "ink": "#111111", "ink_2": "#3F3F3F", "ink_3": "#6B6B6B", "line": "#DADADA",
+   "positive": "#1E6B45", "negative": "#A3231C", "warning": "#8A5300",
+   "code_bg": "#151515", "code_ink": "#EDEDED", "letterbox": "#0B0B0B", "shadow": "none"
+  },
+  "dark": {
+   "bg": "#121212", "bg_alt": "#1A1A1A", "surface": "#1C1C1C", "surface_2": "#242424",
+   "ink": "#F2F2F2", "ink_2": "#C8C8C8", "ink_3": "#9A9A9A", "line": "#333333",
+   "positive": "#5BC98C", "negative": "#FF7B70", "warning": "#E8B04A",
+   "code_bg": "#0A0A0A", "code_ink": "#EDEDED", "letterbox": "#050505", "shadow": "none",
+   "alt": {"surface": "#242424", "surface_2": "#2C2C2C"}
+  }
+ },
+ "palettes": {
+  "ultramarine": {"name": "Ultramarine", "light": {"accent": "#1F3FBF", "accent_2": "#B5541C"}, "dark": {"accent": "#8FA2FF", "accent_2": "#F2A65A"}},
+  "oxblood": {"name": "Oxblood", "light": {"accent": "#7A1F2B", "accent_2": "#1F4D3A"}, "dark": {"accent": "#E58C97", "accent_2": "#7CC4A0"}},
+  "forest": {"name": "Forest", "light": {"accent": "#1F4D3A", "accent_2": "#9A5B00"}, "dark": {"accent": "#7CC4A0", "accent_2": "#E8B04A"}},
+  "saffron": {"name": "Saffron", "light": {"accent": "#E0A100", "accent_2": "#1F3FBF"}, "dark": {"accent": "#F2B705", "accent_2": "#8FA2FF"}}
+ },
+ "chart": {
+  "light": ["#1F3FBF", "#B5541C", "#1F4D3A", "#7A1F2B", "#6B6B6B", "#8A6D00"],
+  "dark": ["#8FA2FF", "#F2A65A", "#7CC4A0", "#E58C97", "#9A9A9A", "#E0C060"]
+ }
+}
