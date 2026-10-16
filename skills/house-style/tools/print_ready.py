@@ -243,6 +243,14 @@ def image(doc, x, o, col, warn):
     return 1
 
 
+def need(path):
+    """Stop with a plain note when the profile file is missing."""
+    if not path.is_file():
+        raise SystemExit('No colour profile at %s. PSO Uncoated v3 FOGRA52 does not come with the kit (ECI does not '
+                         'allow passing it on): download it from eci.org into assets/icc/, or give the print shop\'s '
+                         'own .icc' % path)
+
+
 def output_intent(doc, key):
     if key in PROFILES:
         name, ident, info = PROFILES[key]
@@ -250,10 +258,7 @@ def output_intent(doc, key):
     else:
         path = Path(key)
         ident = info = path.stem
-    if not path.is_file():
-        raise SystemExit('No colour profile at %s. PSO Uncoated v3 FOGRA52 does not come with the kit (ECI does not '
-                         'allow passing it on): download it from eci.org into assets/icc/, or give the print shop\'s '
-                         'own .icc' % path)
+    need(path)
     icc = path.read_bytes()
     if icc[16:20] != b'CMYK':
         raise SystemExit('%s is not a CMYK profile' % path)
@@ -334,6 +339,7 @@ def make(src, out=None, profile='fogra39', bleed=None, crop=False, proof=False, 
     doc = fitz.open(src)
     warn = []
     path = ICC / PROFILES[profile][0] if profile in PROFILES else Path(profile)
+    need(path)
     col = Colour(path)
     stats = convert(doc, col, warn)
     # boxes: an existing TrimBox wins, else --bleed insets it from the page edge

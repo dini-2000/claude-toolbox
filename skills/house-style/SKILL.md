@@ -20,22 +20,25 @@ graphic, and `guide/structures.json` gives each slide layout's markup.
 Run the tools from this kit folder and give files by their full path. On Windows, type `py` in place of `python3`.
 
 ## 1. Style
-There are three ways to choose the look, and the user can say which in words or in the picker:
-- **The user picks** ("I'll choose"): the picker below.
-- **Claude picks** ("choose for me", "you pick"): choose the built theme, palette and mode that suit the subject,
-  audience and goal (README's Themes table groups the 60 themes by category), say which and why in one line, and
-  build. "Try it in Folio" or "darker" afterwards is a rebuild with overrides.
-- **Claude designs something new** ("design something new", "surprise me", "go creative"): write a short concept
-  (audience, tone, the idea behind the look, type pair, palette, motifs, pictures), turn it into a style spec (A
-  theme of its own, below), and show the cover and two or three inner slides or pages in it beside the theme Claude
-  would otherwise pick, as the safe option. The user approves, steers ("warmer", "less busy") or takes the safe
-  option; "just go" skips this look.
+Claude chooses the look unless the user asks to pick it. Weigh what the kit offers for the piece (README's Themes
+table groups the 60 themes by category; the layouts, components, motifs, icons and fonts) and use as much or as
+little of it as suits the piece: build in a theme directly, borrow parts of one, take ideas for a design of your own,
+or set the kit aside. Name the choice and why in one line at delivery. "Try it in Folio" or "darker" afterwards is a
+rebuild with overrides.
+- **A built theme**: choose the theme, palette and mode that suit the subject, audience and goal, and build.
+- **Something new**: when no theme fits, or the user asks for it ("design something new", "surprise me", "go
+  creative"), write a short concept (audience, tone, the idea behind the look, type pair, palette, motifs, pictures)
+  and turn it into a style spec (A theme of its own, below). When the user asked for it, first show the cover and two
+  or three inner slides or pages in it beside the theme you would otherwise pick, as the safe option; the user
+  approves, steers ("warmer", "less busy") or takes the safe option, and "just go" skips this look.
+- **The user picks**: only when the user asks to pick a theme or choose the style themselves ("I'll choose", "show
+  me the themes"), or opens the picker with a command of their own. Then use the picker below.
 In every way Claude adapts the theme to the piece without changing the theme itself: layouts and components per
 slide or page, cover and section variants, the accent within the palette, a motif that suits the topic, chart styles
 and density. Name these choices in one line at delivery so the user can undo any. "Keep the theme exactly" means
 layouts and components only.
 
-**The picker.** Run `python3 tools/pick_style.py --medium deck|document|graphic --kind <kind> --title "<title>"
+**The picker** (only when the user asks to pick). Run `python3 tools/pick_style.py --medium deck|document|graphic --kind <kind> --title "<title>"
 --suggest <id>,<id>,<id>` as a background command, open the address it prints in the browser pane (or give it to
 the user), and wait for the command to print the pick. `--kind` is a deck structure from `guide/structures.json`, a
 document type (report, letter, cv ...) or a graphic format (1x1, 4x1 ...); `--suggest` names the three or four
@@ -47,14 +50,15 @@ project. Save the chosen style in the project's notes (theme, palette, mode, for
 without the picker. Opened from disk, the page shows a pick code for the user to paste. Without a browser, offer
 the top suggestions with AskUserQuestion.
 
-For a deck, also ask static, basic or complex motion unless the user has said or picked it (Motion below; basic is
-the default). Documents and graphics have no motion.
+Decks get basic motion (Motion below) unless the user says otherwise or picks another in the picker; name it in
+the delivery line. Ask static, basic or complex only when the user is picking the style. Documents and graphics
+have no motion.
 
 ## 2. Write
 Plain, specific language (Content rules below). Every medium takes `data-theme`, `data-palette`, `data-mode`.
 
-**Deck.** Start from the structure the picker gave (slide goals in order, each with a layout and a surface), or the
-user's outline. Either copy the slides you need from `samples/showcase.html` into a new file in the deck's own folder,
+**Deck.** Start from a structure from `guide/structures.json` (slide goals in order, each with a layout and a
+surface; the picker gives one when the user picked), or the user's outline. Either copy the slides you need from `samples/showcase.html` into a new file in the deck's own folder,
 with the same `<link>` and `<script>` lines pointed at this kit, and set `data-format` and `data-motion` on
 `<div class="pc-deck">`; or write Markdown and run `python3 tools/md_to_deck.py talk.md -o "<folder>/talk.html"`
 (`---` between slides, `<!-- notes: -->` blocks, a layout guessed from each slide or set with
