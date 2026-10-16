@@ -14,12 +14,34 @@ Want everything? Install **all 588**. Only five sit in Claude's skill list; the 
 
 ## Install
 
-Clone the repo to a folder of its own and run `setup.sh` from there:
+**New to the command line, or not sure what to do?** Open the Claude Code desktop app (the Code tab in the Claude app), paste this repo's link, https://github.com/dini-2000/claude-toolbox, and ask Claude to install it for you. Claude reads this page, asks whether you want the essentials or every skill, and runs the steps below, asking before each command.
+
+To install it yourself, follow the steps for your computer. Every command on this page runs in Terminal on a Mac or in Git Bash on Windows.
+
+### Mac
+
+Open Terminal (press Cmd+Space, type Terminal and press Return), then run:
 
 ```bash
 git clone https://github.com/dini-2000/claude-toolbox.git claude-toolbox
 cd claude-toolbox && ./setup.sh
 ```
+
+If macOS offers to install the command line developer tools, click Install, wait for it to finish and run the two lines again. The tools include Git and Python 3, which `setup.sh` needs.
+
+### Windows
+
+1. Install [Git for Windows](https://git-scm.com/downloads/win), which includes Git Bash, and [Python 3](https://www.python.org/downloads/windows/). In the Python installer, tick "Add python.exe to PATH" before you click Install.
+2. Open Git Bash from the Start menu, then run:
+
+```bash
+git clone https://github.com/dini-2000/claude-toolbox.git claude-toolbox
+cd claude-toolbox && ./setup.sh
+```
+
+`setup.sh` finds Python as `python3`, `python` or `py -3`. Where this page says `python3`, use whichever of those works on your computer.
+
+### Choosing what to install
 
 `setup.sh` asks two questions: the essentials or every skill, and which settings to turn on. It copies the skills into `~/.claude/skills` next to any you already have. To answer up front, pass flags:
 
@@ -27,8 +49,6 @@ cd claude-toolbox && ./setup.sh
 ./setup.sh --essentials --settings=essentials
 ./setup.sh --all --settings=all
 ```
-
-On Windows, run these in Git Bash, which comes with [Git for Windows](https://git-scm.com/downloads/win). `setup.sh` needs Python 3 and finds it as `python3`, `python` or `py -3`; where this page says `python3`, use whichever of those works.
 
 Already running an older copy of this collection? Follow [UPDATE.md](UPDATE.md): it removes the skills that were dropped and the per-prompt hooks older copies installed.
 
