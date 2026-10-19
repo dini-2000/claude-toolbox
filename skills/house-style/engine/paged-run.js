@@ -68,6 +68,41 @@
     return out + css.slice(last);
   }
 
+  function close(s, open) {                  // the } that closes the { at `open`
+    var d = 0;
+    return scan(s, open, function (c) { if (c === '{') d++; else if (c === '}' && --d === 0) return false; });
+  }
+
+  function at(s, from) {                     // the next @ outside strings and comments
+    return scan(s, from, function (c) { if (c === '@') return false; });
+  }
+
+  // Chrome merges a theme's `@page { @top-left { ... } }` with the engine's, but Paged.js keeps only the last block
+  // for a page and box, so a theme that adds a rule line would lose the engine's font, capitals and content. Each
+  // margin box therefore carries every earlier declaration for the same page selector and box, in source order.
+  function pages(css) {
+    var out = '', last = 0, seen = {};
+    for (var i = at(css, 0); i < css.length; i = at(css, i + 1)) {
+      if (css.substr(i, 5) !== '@page' || /[\w-]/.test(css[i + 5] || '')) continue;
+      var open = css.indexOf('{', i);
+      if (open < 0) break;
+      var sel = css.slice(i + 5, open).trim().replace(/\s+/g, ' '), end = close(css, open);
+      var body = css.slice(open + 1, end), nb = '', bl = 0;
+      for (var j = at(body, 0); j < body.length; j = at(body, j + 1)) {
+        var m = /^@([a-z-]+)\s*\{/.exec(body.slice(j));
+        if (!m) continue;
+        var o = j + m[0].length - 1, e = close(body, o), key = sel + '|' + m[1];
+        var all = (seen[key] ? seen[key] + ';\n' : '') + body.slice(o + 1, e).trim();
+        seen[key] = all;
+        nb += body.slice(bl, o + 1) + all;
+        bl = e; j = e;
+      }
+      out += css.slice(last, open + 1) + nb + body.slice(bl);
+      last = end; i = end;
+    }
+    return out + css.slice(last);
+  }
+
   function run() {
     var styles = Array.prototype.slice.call(document.querySelectorAll('style:not([data-pagedjs-inserted-styles])'));
     var css = styles.map(function (s) { return s.textContent; }).join('\n');
@@ -92,12 +127,18 @@
       e.setAttribute('data-pc-page', e.style.page);
       css += '\n[data-pc-page="' + e.style.page + '"] { page: ' + e.style.page + '; }';
     });
+    // Paged.js gives a page every page name laid out on it, so a chapter opener's page is both pc-ch-N and pc-opener,
+    // and of two named pages the later rule wins. The runtime's chapter heads (one rule a line) therefore go first, so
+    // the engine's empty opener and quiet heads win, as Chrome's single page name does.
+    var heads = [];
+    css = css.replace(/^@page pc-ch-\d+ \{.*\}\n?/gm, function (r) { heads.push(r); return ''; });
     var sheet = {};
-    sheet[location.href] = flatten(css);
+    sheet[location.href] = flatten(pages(heads.join('') + css));
     return window.PagedPolyfill.preview(undefined, [sheet]);
   }
 
   window.PC_PAGED = (window.PCDeck && PCDeck.ready ? PCDeck.ready() : Promise.resolve()).then(run);
   window.PC_PAGED.catch(function (e) { (window.__pcErrs = window.__pcErrs || []).push('Paged.js: ' + (e && e.message || e)); });
   window.PCFlattenCSS = flatten;
+  window.PCMergePages = pages;
 })();
