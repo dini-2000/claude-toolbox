@@ -1,6 +1,6 @@
 # Claude Toolbox
 
-A one-stop collection of the best Claude Code skills, settings and optimizations, set up so they cost almost nothing until used. It holds 587 skills from 15 open-source collections, House Style (its own design kit for decks, documents and graphics), an essentials pack for anyone getting started, and settings that keep Claude's writing plain, save its progress before a usage limit and screen what it downloads.
+A one-stop collection of the best Claude Code skills, settings and optimizations, set up so they cost almost nothing until used. It holds 588 skills from 16 open-source collections (the toolbox's own is one of them), an essentials pack for anyone getting started, and settings that keep Claude's writing plain, save its progress before a usage limit and screen what it downloads.
 
 The skills belong to their original creators (see [Credits](#credits)). This repo collects them, fills in the files they were missing, fixes what was broken and packages the lot so one install sets it up.
 
@@ -184,7 +184,7 @@ Run these from the clone. The first line removes the `CLAUDE.md` block and the s
 
 The skills belong to their original authors, under their own licences:
 
-`anthropics/skills` · `obra/superpowers` · `mattpocock/skills` · `addyosmani/agent-skills` · `trailofbits/skills` · `hardikpandya/stop-slop` · `coreyhaines31/marketingskills` · `nextlevelbuilder/ui-ux-pro-max-skill` · `remotion-dev/skills` · `muratcankoylan/agent-skills-for-context-engineering` · `AgriciDaniel/claude-seo` · `kepano/obsidian-skills` · `borghei/claude-skills` · `OctagonAI/skills` · `alirezarezvani/claude-skills`
+`anthropics/skills` · `obra/superpowers` · `mattpocock/skills` · `addyosmani/agent-skills` · `trailofbits/skills` · `hardikpandya/stop-slop` · `coreyhaines31/marketingskills` · `nextlevelbuilder/ui-ux-pro-max-skill` · `remotion-dev/skills` · `muratcankoylan/agent-skills-for-context-engineering` · `AgriciDaniel/claude-seo` · `kepano/obsidian-skills` · `borghei/claude-skills` · `OctagonAI/skills` · `alirezarezvani/claude-skills` · `dini-2000/claude-toolbox` (this repo: House Style and `skill-router`)
 
 Some skills in those collections adapt other people's work, and their `SKILL.md` names the original: Matt Pocock for `caveman`, `grill-me`, `grill-with-docs` and `write-a-skill`, adapted from his earlier versions, with `skills-handoff` based on his `handoff`; and, from the Pro Hub Challenge in `AgriciDaniel/claude-seo`, Lutfiya Miller for `seo-cluster`, Dan Colta for `seo-drift`, Matej Marjanovic for `seo-ecommerce` and Florian Schmitz for `seo-sxo`, with puneetindersingh for `seo-content-brief`.
 
