@@ -170,7 +170,7 @@ Embed conceptual DNA without announcing:
 - Large sizes for impact moments
 
 **Font integration:**
-- Search `./canvas-fonts` directory
+- Search `../canvas-design/canvas-fonts` (54 fonts under the SIL Open Font License, installed with the canvas-design skill)
 - Download needed fonts
 - Bring typography onto canvas
 - Part of art, not typeset digitally

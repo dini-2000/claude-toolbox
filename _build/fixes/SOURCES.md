@@ -2,7 +2,7 @@
 
 Setup lays these files over the fetched skills, after `vendor/`. A SKILL.md here replaces the skill's text, and setup adds `disable-model-invocation: true` to it. Modified files keep their original licence (THIRD_PARTY_NOTICES.md). When an upstream skill changes, start again from its new text and re-apply only the changes listed here that upstream still lacks.
 
-Upstreams: nextlevelbuilder/ui-ux-pro-max-skill at 477bcb28 (3 Oct 2026) for banner-design, brand and design-system; alirezarezvani/claude-skills at 19392f7a (26 Aug 2026) for epic-design and autoresearch-agent; addyosmani/agent-skills at aeac41d4 (13 Oct 2026) for performance-optimization and security-and-hardening; the pack's own built text for executing-plans (obra/superpowers), demo-video, engineering-advanced-skills, full-page-screenshot and universal-scraping-architect (alirezarezvani/claude-skills).
+Upstreams: nextlevelbuilder/ui-ux-pro-max-skill at 477bcb28 (3 Oct 2026) for banner-design, brand and design-system, and at 56ea9cf1 (15 Oct 2026) for design, slides and ui-styling; alirezarezvani/claude-skills at 19392f7a (26 Aug 2026) for epic-design and autoresearch-agent; addyosmani/agent-skills at aeac41d4 (13 Oct 2026) for performance-optimization and security-and-hardening; the pack's own built text for executing-plans (obra/superpowers), demo-video, engineering-advanced-skills, full-page-screenshot and universal-scraping-architect (alirezarezvani/claude-skills).
 
 | File | Based on | Change |
 |------|----------|--------|
@@ -12,6 +12,7 @@ Upstreams: nextlevelbuilder/ui-ux-pro-max-skill at 477bcb28 (3 Oct 2026) for ban
 | brand/SKILL.md | upstream 477bcb28 | None (the pack's copy was older) |
 | brand/scripts/sync-brand-to-tokens.cjs | upstream 477bcb28 | Brand name from the guidelines' title instead of "ClaudeKit Marketing - Primary"; starts from design-system's starter tokens when the project has none |
 | demo-video/SKILL.md | the pack's text | Cross-reference points at `pw` instead of the omitted browser-automation |
+| design/SKILL.md | upstream 56ea9cf1 | None (the pack's copy was older) |
 | design-system/SKILL.md | upstream cc3d1be7, plus 477bcb28's "Script Paths" section | Source of Truth table gives each file's origin; step e says when animations run; Chart.js example reads `--color-primary`; the reference deck is `generate-slide.py --demo` |
 | design-system/scripts/generate-slide.py | upstream 477bcb28 | Finds the project folder as the skill's other scripts do; links the tokens and animation CSS relative to its output; dark deck; glow classes named primary and accent; uses the animate-* classes with a viewport observer and count-up; notes on missing CSS; `.text-secondary` uses `--color-foreground-secondary` (`--color-secondary` is a surface colour); badges fit their text; centred slides are centred above the footer; space between content and footer; literal ✓ and ◆ (html-token-validator.py reads `&#9670;` as a hex colour); reads `--json` input as UTF-8 |
 | design-system/templates/design-tokens-starter.json | upstream 477bcb28 | Adds the tokens generate-slide.py uses: violet, font families, sizes 5xl and 6xl, weights, line heights, glow shadows, easing, gradients, accent and surface colours, `button.primary`, `slide.*`, dark surfaces |
@@ -26,7 +27,10 @@ Upstreams: nextlevelbuilder/ui-ux-pro-max-skill at 477bcb28 (3 Oct 2026) for ban
 | full-page-screenshot/SKILL.md | the pack's text | Cross-reference points at `pw` instead of the omitted browser-automation |
 | performance-optimization/references/optimization-patterns.md | upstream aeac41d4 | Links to performance-checklist.md point beside the file, where the shared checklist now sits, instead of the upstream repo's top-level references/ |
 | security-and-hardening/references/hardening-patterns.md | upstream aeac41d4 | Links to security-checklist.md point beside the file, where the shared checklist now sits, instead of the upstream repo's top-level references/ |
+| slides/SKILL.md | upstream 56ea9cf1 | None (the pack's copy was older) |
 | sharp-edges/SKILL.md | upstream e1f86a39 | Without the plugin, the sharp-edges-analyzer agent runs as a general-purpose subagent given agents/sharp-edges-analyzer.md, shipped inside the skill |
 | sharp-edges/agents/sharp-edges-analyzer.md | upstream e1f86a39 | `{baseDir}` paths point at the skill's folder, where the agent now sits, instead of the plugin root |
 | universal-scraping-architect/SKILL.md | the pack's text | Related skill is `pw` instead of the omitted browser-automation |
+| ui-styling/SKILL.md | upstream 56ea9cf1 | None (the pack's copy was older) |
+| ui-styling/references/canvas-design-system.md | upstream 56ea9cf1 | The font search points at `../canvas-design/canvas-fonts`. Upstream ships the same 54 fonts inside ui-styling (byte-identical to canvas-design's), and the pack installs them once |
 | yara-rule-authoring/SKILL.md | upstream e1f86a39 | The script documentation link points at the plugin README, shipped inside the skill |

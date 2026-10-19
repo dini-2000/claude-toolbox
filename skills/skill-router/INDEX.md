@@ -1759,7 +1759,7 @@ Sections: Summary; Evidence; Merge Danger; Sections
 
 ### slides
 Create strategic HTML presentations with Chart.js, design tokens, responsive layouts, copywriting formulas, and contextual slide strategies.
-Sections: When to Use; Subcommands; References (Knowledge Base); Routing
+Sections: When to Use; Subcommands; Script Paths; References (Knowledge Base); Routing
 
 ### stop-slop
 Flags: auto
@@ -1841,8 +1841,8 @@ Use when the user asks to create a demo video, product walkthrough, feature show
 Sections: Overview; When to Use This Skill; Core Workflow; Output Artifacts; Scene Design System; Quality Checklist; Anti-Patterns; Cross-References
 
 ### design
-Comprehensive design skill: brand identity, design tokens, UI styling, logo generation (55 styles, Gemini AI), corporate identity program (50 deliverables, CIP mockups), HTML presentations (Chart.js), banner design (22 styles, social/ads/web/print), icon design (15 styles, SVG, Gemini 3.1 Pro), social photos (HTML→screenshot, multi-platform). Actions: design logo, create CIP, generate mockups, build slides, design banner, generate icon, create social photos, social media images, brand identity, design system. Platforms: Facebook, Twitter, LinkedIn, YouTube, Instagram, Pinterest, TikTok, Threads, Google Ads.
-Sections: When to Use; Sub-skill Routing; Logo Design (Built-in); CIP Design (Built-in); Slides (Built-in); Banner Design (Built-in); Icon Design (Built-in); Social Photos (Built-in); Workflows; References
+Comprehensive design skill: brand identity, design tokens, UI styling, logo generation (55 styles, Gemini, Atlas Cloud, or MuAPI AI), corporate identity program (50 deliverables, CIP mockups), HTML presentations (Chart.js), banner design (22 styles, social/ads/web/print), icon design (15 styles, SVG, Gemini 3.1 Pro), social photos (HTML→screenshot, multi-platform). Actions: design logo, create CIP, generate mockups, build slides, design banner, generate icon, create social photos, social media images, brand identity, design system. Platforms: Facebook, Twitter, LinkedIn, YouTube, Instagram, Pinterest, TikTok, Threads, Google Ads.
+Sections: When to Use; Sub-skill Routing; Script Paths; Logo Design (Built-in); CIP Design (Built-in); Slides (Built-in); Banner Design (Built-in); Icon Design (Built-in); Social Photos (Built-in); Workflows
 
 ### design-system
 Token architecture, component specifications, and slide generation. Three-layer tokens (primitive→semantic→component), CSS variables, spacing/typography scales, component specs, strategic slide creation. Use for design tokens, systematic design, brand-compliant presentations.
@@ -1906,7 +1906,7 @@ Sections: Table of Contents; Trigger Terms; Workflows; Tool Reference; Quick Ref
 
 ### ui-styling
 Create beautiful, accessible user interfaces with shadcn/ui components (built on Radix UI + Tailwind), Tailwind CSS utility-first styling, and canvas-based visual designs. Use when building user interfaces, implementing design systems, creating responsive layouts, adding accessible components (dialogs, dropdowns, forms, tables), customizing themes and colors, implementing dark mode, generating visual designs and posters, or establishing consistent styling patterns across applications.
-Sections: Reference; When to Use This Skill; Core Stack; Quick Start; Component Library Guide; Theme & Customization; Accessibility Patterns; Tailwind Utilities; Responsive Design; Tailwind Customization
+Sections: Reference; When to Use This Skill; Core Stack; Script Paths; Quick Start; Component Library Guide; Theme & Customization; Accessibility Patterns; Tailwind Utilities; Responsive Design
 
 ### ui-ux-pro-max
 UI/UX design intelligence for web and mobile. Includes 50+ styles, 161 color palettes, 57 font pairings, 161 product types, 99 UX guidelines, and 25 chart types across 10 stacks (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui, and HTML/CSS). Actions: plan, build, create, design, implement, review, fix, improve, optimize, enhance, refactor, and check UI/UX code. Projects: website, landing page, dashboard, admin panel, e-commerce, SaaS, portfolio, blog, and mobile app. Elements: button, modal, navbar, sidebar, card, table, form, and chart. Styles: glassmorphism, claymorphism, minimalism, brutalism, neumorphism, bento grid, dark mode, responsive, skeuomorphism, and flat design. Topics: color systems, accessibility, animation, layout, typography, font pairing, spacing, interaction states, shadow, and gradient. Integrations: shadcn/ui MCP for component search and examples.
