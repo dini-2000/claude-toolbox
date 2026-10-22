@@ -221,6 +221,22 @@ for sel, want, via in (("tools/REGISTRY.md", ["tools/REGISTRY.md"], "tools"),
     check(got == want and listed == [via], f"github selection {sel}", (got, listed))
 sg.get_json, sg.resolve_ref, sg.kit_github = saved
 
+# resolve_ref against a stand-in for git ls-remote, which leaves out a peeled tag line unless it is asked for
+REFS = [("1" * 40, "HEAD"), ("1" * 40, "refs/heads/main"), ("2" * 40, "refs/heads/dev"), ("3" * 40, "refs/tags/v1"),
+        ("4" * 40, "refs/tags/v1^{}"), ("5" * 40, "refs/tags/light")]
+def fake_run(cmd, **kw):
+    pats = cmd[3:]
+    rows = [f"{s}\t{n}" for s, n in REFS if any(n == q or n.endswith("/" + q) for q in pats)]
+    return subprocess.CompletedProcess(cmd, 0, "\n".join(rows) + "\n", "")
+saved_run, sg.run = sg.run, fake_run
+for ref, want in (("v1", "4" * 40), ("light", "5" * 40), ("dev", "2" * 40), (None, "1" * 40), ("a" * 40, "a" * 40)):
+    try:
+        got = sg.resolve_ref("o/r", ref)
+    except sg.Fail as e:
+        got = str(e)
+    check(got == want, f"resolve_ref {ref or 'HEAD'} gives the commit", got)
+sg.run = saved_run
+
 # 8. save_bytes: bytes from an API response (a generated image) take the same quarantine, screen, release and ledger
 PNG = base64.b64decode("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==")
 imgs = f"{T}/images"

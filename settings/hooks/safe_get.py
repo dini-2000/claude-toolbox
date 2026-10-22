@@ -382,8 +382,10 @@ def plan_github(p, spec):
 def resolve_ref(repo, ref):
     if ref and re.fullmatch(r"[0-9a-f]{40}", ref):
         return ref
-    r = run(["git", "ls-remote", f"https://github.com/{repo}.git", ref or "HEAD"], timeout=60,
-            env=dict(os.environ, GIT_TERMINAL_PROMPT="0"))
+    # Given a pattern, ls-remote leaves out an annotated tag's peeled line unless that is asked for too; without it the
+    # tag object's SHA came back and raw.githubusercontent.com had no files at it.
+    r = run(["git", "ls-remote", f"https://github.com/{repo}.git", *([ref, f"{ref}^{{}}"] if ref else ["HEAD"])],
+            timeout=60, env=dict(os.environ, GIT_TERMINAL_PROMPT="0"))
     rows = [x.split("\t") for x in r.stdout.splitlines() if "\t" in x]
     want = ["HEAD"] if not ref else [f"refs/tags/{ref}^{{}}", f"refs/heads/{ref}", f"refs/tags/{ref}", ref]
     for w in want:
