@@ -1,0 +1,174 @@
+/* Mangrove Return: art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-deck[data-theme="mangrove"] {
+  --m-sapling: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 11.6C10.447 11.89 8.842 11.542 7.548 10.636C6.253 9.73 5.378 8.341 5.119 6.782C6.672 6.492 8.277 6.84 9.571 7.746C10.866 8.652 11.741 10.041 12 11.6ZM12 11.6C10.872 10.494 10.236 8.98 10.236 7.4C10.236 5.82 10.872 4.306 12 3.2C13.128 4.306 13.764 5.82 13.764 7.4C13.764 8.98 13.128 10.494 12 11.6ZM12 11.6C12.259 10.041 13.134 8.652 14.429 7.746C15.723 6.84 17.328 6.492 18.881 6.782C18.622 8.341 17.747 9.73 16.452 10.636C15.158 11.542 13.553 11.89 12 11.6ZM12.9 11.1L12.9 17.3L11.1 17.3L11.1 11.1ZM5.1 18.5C5.1 16.346 6.846 14.6 9 14.6C11.154 14.6 12.9 16.346 12.9 18.5L11.1 18.5C11.1 17.34 10.16 16.4 9 16.4C7.84 16.4 6.9 17.34 6.9 18.5L5.1 18.5ZM11.1 18.5C11.1 16.346 12.846 14.6 15 14.6C17.154 14.6 18.9 16.346 18.9 18.5L17.1 18.5C17.1 17.34 16.16 16.4 15 16.4C13.84 16.4 12.9 17.34 12.9 18.5L11.1 18.5Z'/%3E%3C/svg%3E");
+  --m-seal-disc: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M23 12C23 18.075 18.075 23 12 23C5.925 23 1 18.075 1 12C1 5.925 5.925 1 12 1C18.075 1 23 5.925 23 12Z'/%3E%3C/svg%3E");
+  --m-seal-tree: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 11.6C10.447 11.89 8.842 11.542 7.548 10.636C6.253 9.73 5.378 8.341 5.119 6.782C6.672 6.492 8.277 6.84 9.571 7.746C10.866 8.652 11.741 10.041 12 11.6ZM12 11.6C10.872 10.494 10.236 8.98 10.236 7.4C10.236 5.82 10.872 4.306 12 3.2C13.128 4.306 13.764 5.82 13.764 7.4C13.764 8.98 13.128 10.494 12 11.6ZM12 11.6C12.259 10.041 13.134 8.652 14.429 7.746C15.723 6.84 17.328 6.492 18.881 6.782C18.622 8.341 17.747 9.73 16.452 10.636C15.158 11.542 13.553 11.89 12 11.6ZM12.9 11.1L12.9 17.3L11.1 17.3L11.1 11.1ZM5.1 18.5C5.1 16.346 6.846 14.6 9 14.6C11.154 14.6 12.9 16.346 12.9 18.5L11.1 18.5C11.1 17.34 10.16 16.4 9 16.4C7.84 16.4 6.9 17.34 6.9 18.5L5.1 18.5ZM11.1 18.5C11.1 16.346 12.846 14.6 15 14.6C17.154 14.6 18.9 16.346 18.9 18.5L17.1 18.5C17.1 17.34 16.16 16.4 15 16.4C13.84 16.4 12.9 17.34 12.9 18.5L11.1 18.5ZM1 18.5L23 18.5L23 20.3L1 20.3L1 18.5Z'/%3E%3C/svg%3E");
+}
+.pc-deck[data-theme="mangrove"] .pc-cover:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(620 * var(--art-px));
+  height: calc(620 * var(--art-px));
+  right: calc(-70 * var(--art-px));
+  top: calc(50% - calc(620 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 95.83% 50%, curve to 50% 95.83% with 95.83% 75.31% / 75.31% 95.83%, curve to 4.17% 50% with 24.69% 95.83% / 4.17% 75.31%, curve to 50% 4.17% with 4.17% 24.69% / 24.69% 4.17%, curve to 95.83% 50% with 75.31% 4.17% / 95.83% 24.69%, close); }
+.pc-deck[data-theme="mangrove"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(372 * var(--art-px));
+  height: calc(372 * var(--art-px));
+  right: calc(-42 * var(--art-px));
+  top: calc(50% - calc(372 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 95.83% 50%, curve to 50% 95.83% with 95.83% 75.31% / 75.31% 95.83%, curve to 4.17% 50% with 24.69% 95.83% / 4.17% 75.31%, curve to 50% 4.17% with 4.17% 24.69% / 24.69% 4.17%, curve to 95.83% 50% with 75.31% 4.17% / 95.83% 24.69%, close); }
+.pc-deck[data-theme="mangrove"] .pc-cover:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(620 * var(--art-px));
+  height: calc(620 * var(--art-px));
+  right: calc(-70 * var(--art-px));
+  top: calc(50% - calc(620 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: var(--bg, var(--accent));
+  clip-path: shape(from 50% 48.33%, curve to 31.45% 44.32% with 43.53% 49.54% / 36.84% 48.09%, curve to 21.33% 28.26% with 26.05% 40.54% / 22.41% 34.75%, curve to 39.88% 32.27% with 27.8% 27.05% / 34.49% 28.5%, curve to 50% 48.33% with 45.27% 36.05% / 48.92% 41.84%, close, move to 50% 48.33%, curve to 42.65% 30.83% with 45.3% 43.72% / 42.65% 37.42%, curve to 50% 13.33% with 42.65% 24.25% / 45.3% 17.94%, curve to 57.35% 30.83% with 54.7% 17.94% / 57.35% 24.25%, curve to 50% 48.33% with 57.35% 37.42% / 54.7% 43.72%, close, move to 50% 48.33%, curve to 60.12% 32.27% with 51.08% 41.84% / 54.73% 36.05%, curve to 78.67% 28.26% with 65.51% 28.5% / 72.2% 27.05%, curve to 68.55% 44.32% with 77.59% 34.75% / 73.95% 40.54%, curve to 50% 48.33% with 63.16% 48.09% / 56.47% 49.54%, close, move to 53.75% 46.25%, line to 53.75% 72.08%, line to 46.25% 72.08%, line to 46.25% 46.25%, close, move to 21.25% 77.08%, curve to 37.5% 60.83% with 21.25% 68.11% / 28.52% 60.83%, curve to 53.75% 77.08% with 46.48% 60.83% / 53.75% 68.11%, line to 46.25% 77.08%, curve to 37.5% 68.33% with 46.25% 72.25% / 42.33% 68.33%, curve to 28.75% 77.08% with 32.67% 68.33% / 28.75% 72.25%, line to 21.25% 77.08%, close, move to 46.25% 77.08%, curve to 62.5% 60.83% with 46.25% 68.11% / 53.52% 60.83%, curve to 78.75% 77.08% with 71.47% 60.83% / 78.75% 68.11%, line to 71.25% 77.08%, curve to 62.5% 68.33% with 71.25% 72.25% / 67.33% 68.33%, curve to 53.75% 77.08% with 57.67% 68.33% / 53.75% 72.25%, line to 46.25% 77.08%, close, move to 4.17% 77.08%, line to 95.83% 77.08%, line to 95.83% 84.58%, line to 4.17% 84.58%, line to 4.17% 77.08%, close); }
+.pc-deck[data-theme="mangrove"]:is([data-format="3x1"], [data-format="4x1"]) .pc-cover:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(372 * var(--art-px));
+  height: calc(372 * var(--art-px));
+  right: calc(-42 * var(--art-px));
+  top: calc(50% - calc(372 * var(--art-px)) / 2 + calc(0 * var(--art-px)));
+  background: var(--bg, var(--accent));
+  clip-path: shape(from 50% 48.33%, curve to 31.45% 44.32% with 43.53% 49.54% / 36.84% 48.09%, curve to 21.33% 28.26% with 26.05% 40.54% / 22.41% 34.75%, curve to 39.88% 32.27% with 27.8% 27.05% / 34.49% 28.5%, curve to 50% 48.33% with 45.27% 36.05% / 48.92% 41.84%, close, move to 50% 48.33%, curve to 42.65% 30.83% with 45.3% 43.72% / 42.65% 37.42%, curve to 50% 13.33% with 42.65% 24.25% / 45.3% 17.94%, curve to 57.35% 30.83% with 54.7% 17.94% / 57.35% 24.25%, curve to 50% 48.33% with 57.35% 37.42% / 54.7% 43.72%, close, move to 50% 48.33%, curve to 60.12% 32.27% with 51.08% 41.84% / 54.73% 36.05%, curve to 78.67% 28.26% with 65.51% 28.5% / 72.2% 27.05%, curve to 68.55% 44.32% with 77.59% 34.75% / 73.95% 40.54%, curve to 50% 48.33% with 63.16% 48.09% / 56.47% 49.54%, close, move to 53.75% 46.25%, line to 53.75% 72.08%, line to 46.25% 72.08%, line to 46.25% 46.25%, close, move to 21.25% 77.08%, curve to 37.5% 60.83% with 21.25% 68.11% / 28.52% 60.83%, curve to 53.75% 77.08% with 46.48% 60.83% / 53.75% 68.11%, line to 46.25% 77.08%, curve to 37.5% 68.33% with 46.25% 72.25% / 42.33% 68.33%, curve to 28.75% 77.08% with 32.67% 68.33% / 28.75% 72.25%, line to 21.25% 77.08%, close, move to 46.25% 77.08%, curve to 62.5% 60.83% with 46.25% 68.11% / 53.52% 60.83%, curve to 78.75% 77.08% with 71.47% 60.83% / 78.75% 68.11%, line to 71.25% 77.08%, curve to 62.5% 68.33% with 71.25% 72.25% / 67.33% 68.33%, curve to 53.75% 77.08% with 57.67% 68.33% / 53.75% 72.25%, line to 46.25% 77.08%, close, move to 4.17% 77.08%, line to 95.83% 77.08%, line to 95.83% 84.58%, line to 4.17% 84.58%, line to 4.17% 77.08%, close); }
+.pc-deck[data-theme="mangrove"] .pc-section:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(520 * var(--art-px));
+  height: calc(520 * var(--art-px));
+  right: calc(40 * var(--art-px));
+  bottom: calc(-30 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 48.33%, curve to 31.45% 44.32% with 43.53% 49.54% / 36.84% 48.09%, curve to 21.33% 28.26% with 26.05% 40.54% / 22.41% 34.75%, curve to 39.88% 32.28% with 27.8% 27.05% / 34.49% 28.5%, curve to 50% 48.33% with 45.27% 36.05% / 48.92% 41.84%, close, move to 50% 48.33%, curve to 42.65% 30.83% with 45.3% 43.73% / 42.65% 37.42%, curve to 50% 13.33% with 42.65% 24.25% / 45.3% 17.94%, curve to 57.35% 30.83% with 54.7% 17.94% / 57.35% 24.25%, curve to 50% 48.33% with 57.35% 37.42% / 54.7% 43.73%, close, move to 50% 48.33%, curve to 60.12% 32.28% with 51.08% 41.84% / 54.73% 36.05%, curve to 78.67% 28.26% with 65.51% 28.5% / 72.2% 27.05%, curve to 68.55% 44.32% with 77.59% 34.75% / 73.95% 40.54%, curve to 50% 48.33% with 63.16% 48.09% / 56.47% 49.54%, close, move to 53.75% 46.25%, line to 53.75% 72.08%, line to 46.25% 72.08%, line to 46.25% 46.25%, close, move to 21.25% 77.08%, curve to 37.5% 60.83% with 21.25% 68.11% / 28.52% 60.83%, curve to 53.75% 77.08% with 46.48% 60.83% / 53.75% 68.11%, line to 46.25% 77.08%, curve to 37.5% 68.33% with 46.25% 72.25% / 42.33% 68.33%, curve to 28.75% 77.08% with 32.67% 68.33% / 28.75% 72.25%, line to 21.25% 77.08%, close, move to 46.25% 77.08%, curve to 62.5% 60.83% with 46.25% 68.11% / 53.53% 60.83%, curve to 78.75% 77.08% with 71.47% 60.83% / 78.75% 68.11%, line to 71.25% 77.08%, curve to 62.5% 68.33% with 71.25% 72.25% / 67.33% 68.33%, curve to 53.75% 77.08% with 57.67% 68.33% / 53.75% 72.25%, line to 46.25% 77.08%, close);
+  opacity: 0.16; }
+.pc-deck[data-theme="mangrove"]:is([data-format="3x1"], [data-format="4x1"]) .pc-section:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(312 * var(--art-px));
+  height: calc(312 * var(--art-px));
+  right: calc(24 * var(--art-px));
+  bottom: calc(-18 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 50% 48.33%, curve to 31.45% 44.32% with 43.53% 49.54% / 36.84% 48.09%, curve to 21.33% 28.26% with 26.05% 40.54% / 22.41% 34.75%, curve to 39.88% 32.28% with 27.8% 27.05% / 34.49% 28.5%, curve to 50% 48.33% with 45.27% 36.05% / 48.92% 41.84%, close, move to 50% 48.33%, curve to 42.65% 30.83% with 45.3% 43.72% / 42.65% 37.42%, curve to 50% 13.33% with 42.65% 24.25% / 45.3% 17.94%, curve to 57.35% 30.83% with 54.7% 17.94% / 57.35% 24.25%, curve to 50% 48.33% with 57.35% 37.42% / 54.7% 43.72%, close, move to 50% 48.33%, curve to 60.12% 32.28% with 51.08% 41.84% / 54.73% 36.05%, curve to 78.67% 28.26% with 65.51% 28.5% / 72.2% 27.05%, curve to 68.55% 44.32% with 77.59% 34.75% / 73.95% 40.54%, curve to 50% 48.33% with 63.16% 48.09% / 56.47% 49.54%, close, move to 53.75% 46.25%, line to 53.75% 72.08%, line to 46.25% 72.08%, line to 46.25% 46.25%, close, move to 21.25% 77.08%, curve to 37.5% 60.83% with 21.25% 68.11% / 28.52% 60.83%, curve to 53.75% 77.08% with 46.48% 60.83% / 53.75% 68.11%, line to 46.25% 77.08%, curve to 37.5% 68.33% with 46.25% 72.25% / 42.33% 68.33%, curve to 28.75% 77.08% with 32.67% 68.33% / 28.75% 72.25%, line to 21.25% 77.08%, close, move to 46.25% 77.08%, curve to 62.5% 60.83% with 46.25% 68.11% / 53.52% 60.83%, curve to 78.75% 77.08% with 71.47% 60.83% / 78.75% 68.11%, line to 71.25% 77.08%, curve to 62.5% 68.33% with 71.25% 72.25% / 67.33% 68.33%, curve to 53.75% 77.08% with 57.67% 68.33% / 53.75% 72.25%, line to 46.25% 77.08%, close);
+  opacity: 0.16; }
+.pc-deck[data-theme="mangrove"] .pc-section:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(calc(14 * var(--art-px)));
+  background: var(--accent-2, var(--accent)); }
+.pc-deck[data-theme="mangrove"] .pc-statement:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(120 * var(--art-px));
+  height: calc(120 * var(--art-px));
+  right: calc(110 * var(--art-px));
+  top: calc(90 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 50% 48.33%, curve to 31.45% 44.32% with 43.53% 49.54% / 36.84% 48.09%, curve to 21.33% 28.26% with 26.05% 40.54% / 22.41% 34.75%, curve to 39.88% 32.28% with 27.8% 27.05% / 34.49% 28.5%, curve to 50% 48.33% with 45.27% 36.05% / 48.92% 41.84%, close, move to 50% 48.33%, curve to 42.65% 30.83% with 45.3% 43.72% / 42.65% 37.42%, curve to 50% 13.33% with 42.65% 24.25% / 45.3% 17.94%, curve to 57.35% 30.83% with 54.7% 17.94% / 57.35% 24.25%, curve to 50% 48.33% with 57.35% 37.42% / 54.7% 43.72%, close, move to 50% 48.33%, curve to 60.12% 32.28% with 51.08% 41.84% / 54.73% 36.05%, curve to 78.67% 28.26% with 65.51% 28.5% / 72.2% 27.05%, curve to 68.55% 44.32% with 77.59% 34.75% / 73.95% 40.54%, curve to 50% 48.33% with 63.16% 48.09% / 56.47% 49.54%, close, move to 53.75% 46.25%, line to 53.75% 72.08%, line to 46.25% 72.08%, line to 46.25% 46.25%, close, move to 21.25% 77.08%, curve to 37.5% 60.83% with 21.25% 68.11% / 28.53% 60.83%, curve to 53.75% 77.08% with 46.47% 60.83% / 53.75% 68.11%, line to 46.25% 77.08%, curve to 37.5% 68.33% with 46.25% 72.25% / 42.33% 68.33%, curve to 28.75% 77.08% with 32.67% 68.33% / 28.75% 72.25%, line to 21.25% 77.08%, close, move to 46.25% 77.08%, curve to 62.5% 60.83% with 46.25% 68.11% / 53.52% 60.83%, curve to 78.75% 77.08% with 71.47% 60.83% / 78.75% 68.11%, line to 71.25% 77.08%, curve to 62.5% 68.33% with 71.25% 72.25% / 67.33% 68.33%, curve to 53.75% 77.08% with 57.67% 68.33% / 53.75% 72.25%, line to 46.25% 77.08%, close); }
+.pc-deck[data-theme="mangrove"]:is([data-format="3x1"], [data-format="4x1"]) .pc-statement:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(72 * var(--art-px));
+  height: calc(72 * var(--art-px));
+  right: calc(66 * var(--art-px));
+  top: calc(54 * var(--art-px));
+  background: var(--accent-2, var(--accent));
+  clip-path: shape(from 50% 48.33%, curve to 31.45% 44.32% with 43.53% 49.54% / 36.84% 48.09%, curve to 21.33% 28.26% with 26.05% 40.54% / 22.41% 34.75%, curve to 39.88% 32.27% with 27.8% 27.05% / 34.49% 28.5%, curve to 50% 48.33% with 45.27% 36.05% / 48.92% 41.84%, close, move to 50% 48.33%, curve to 42.65% 30.83% with 45.3% 43.72% / 42.65% 37.42%, curve to 50% 13.33% with 42.65% 24.25% / 45.3% 17.94%, curve to 57.35% 30.83% with 54.7% 17.94% / 57.35% 24.25%, curve to 50% 48.33% with 57.35% 37.42% / 54.7% 43.72%, close, move to 50% 48.33%, curve to 60.12% 32.27% with 51.08% 41.84% / 54.73% 36.05%, curve to 78.67% 28.26% with 65.51% 28.5% / 72.2% 27.05%, curve to 68.55% 44.32% with 77.59% 34.75% / 73.95% 40.54%, curve to 50% 48.33% with 63.16% 48.09% / 56.47% 49.54%, close, move to 53.75% 46.25%, line to 53.75% 72.08%, line to 46.25% 72.08%, line to 46.25% 46.25%, close, move to 21.25% 77.08%, curve to 37.5% 60.83% with 21.25% 68.11% / 28.52% 60.83%, curve to 53.75% 77.08% with 46.48% 60.83% / 53.75% 68.11%, line to 46.25% 77.08%, curve to 37.5% 68.33% with 46.25% 72.25% / 42.33% 68.33%, curve to 28.75% 77.08% with 32.67% 68.33% / 28.75% 72.25%, line to 21.25% 77.08%, close, move to 46.25% 77.08%, curve to 62.5% 60.83% with 46.25% 68.11% / 53.52% 60.83%, curve to 78.75% 77.08% with 71.47% 60.83% / 78.75% 68.11%, line to 71.25% 77.08%, curve to 62.5% 68.33% with 71.25% 72.25% / 67.33% 68.33%, curve to 53.75% 77.08% with 57.67% 68.33% / 53.75% 72.25%, line to 46.25% 77.08%, close); }
+.pc-deck[data-theme="mangrove"] .pc-slide:not(.pc-cover, .pc-section, .pc-statement, .pc-closing):not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(calc(8 * var(--art-px)));
+  background: var(--accent, var(--accent)); }
+.pc-deck[data-theme="mangrove"] .pc-closing:not(.pc-split, .pc-bleed)::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(300 * var(--art-px));
+  height: calc(300 * var(--art-px));
+  right: calc(100 * var(--art-px));
+  bottom: calc(90 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 95.83% 50%, curve to 50% 95.83% with 95.83% 75.31% / 75.31% 95.83%, curve to 4.17% 50% with 24.69% 95.83% / 4.17% 75.31%, curve to 50% 4.17% with 4.17% 24.69% / 24.69% 4.17%, curve to 95.83% 50% with 75.31% 4.17% / 95.83% 24.69%, close); }
+.pc-deck[data-theme="mangrove"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::before {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(180 * var(--art-px));
+  height: calc(180 * var(--art-px));
+  right: calc(60 * var(--art-px));
+  bottom: calc(54 * var(--art-px));
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 95.83% 50%, curve to 50% 95.83% with 95.83% 75.31% / 75.31% 95.83%, curve to 4.17% 50% with 24.69% 95.83% / 4.17% 75.31%, curve to 50% 4.17% with 4.17% 24.69% / 24.69% 4.17%, curve to 95.83% 50% with 75.31% 4.17% / 95.83% 24.69%, close); }
+.pc-deck[data-theme="mangrove"] .pc-closing:not(.pc-split, .pc-bleed)::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(300 * var(--art-px));
+  height: calc(300 * var(--art-px));
+  right: calc(100 * var(--art-px));
+  bottom: calc(90 * var(--art-px));
+  background: var(--bg, var(--accent));
+  clip-path: shape(from 50% 48.33%, curve to 31.45% 44.32% with 43.53% 49.54% / 36.84% 48.09%, curve to 21.33% 28.26% with 26.05% 40.54% / 22.41% 34.75%, curve to 39.88% 32.28% with 27.8% 27.05% / 34.49% 28.5%, curve to 50% 48.33% with 45.27% 36.05% / 48.92% 41.84%, close, move to 50% 48.33%, curve to 42.65% 30.83% with 45.3% 43.73% / 42.65% 37.42%, curve to 50% 13.33% with 42.65% 24.25% / 45.3% 17.94%, curve to 57.35% 30.83% with 54.7% 17.94% / 57.35% 24.25%, curve to 50% 48.33% with 57.35% 37.42% / 54.7% 43.73%, close, move to 50% 48.33%, curve to 60.12% 32.28% with 51.08% 41.84% / 54.73% 36.05%, curve to 78.67% 28.26% with 65.51% 28.5% / 72.2% 27.05%, curve to 68.55% 44.32% with 77.59% 34.75% / 73.95% 40.54%, curve to 50% 48.33% with 63.16% 48.09% / 56.47% 49.54%, close, move to 53.75% 46.25%, line to 53.75% 72.08%, line to 46.25% 72.08%, line to 46.25% 46.25%, close, move to 21.25% 77.08%, curve to 37.5% 60.83% with 21.25% 68.11% / 28.52% 60.83%, curve to 53.75% 77.08% with 46.48% 60.83% / 53.75% 68.11%, line to 46.25% 77.08%, curve to 37.5% 68.33% with 46.25% 72.25% / 42.33% 68.33%, curve to 28.75% 77.08% with 32.67% 68.33% / 28.75% 72.25%, line to 21.25% 77.08%, close, move to 46.25% 77.08%, curve to 62.5% 60.83% with 46.25% 68.11% / 53.52% 60.83%, curve to 78.75% 77.08% with 71.47% 60.83% / 78.75% 68.11%, line to 71.25% 77.08%, curve to 62.5% 68.33% with 71.25% 72.25% / 67.33% 68.33%, curve to 53.75% 77.08% with 57.67% 68.33% / 53.75% 72.25%, line to 46.25% 77.08%, close, move to 4.17% 77.08%, line to 95.83% 77.08%, line to 95.83% 84.58%, line to 4.17% 84.58%, line to 4.17% 77.08%, close); }
+.pc-deck[data-theme="mangrove"]:is([data-format="3x1"], [data-format="4x1"]) .pc-closing:not(.pc-split, .pc-bleed)::after {
+  inset: auto;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: calc(180 * var(--art-px));
+  height: calc(180 * var(--art-px));
+  right: calc(60 * var(--art-px));
+  bottom: calc(54 * var(--art-px));
+  background: var(--bg, var(--accent));
+  clip-path: shape(from 50% 48.33%, curve to 31.45% 44.32% with 43.53% 49.54% / 36.84% 48.09%, curve to 21.33% 28.26% with 26.05% 40.54% / 22.41% 34.75%, curve to 39.88% 32.28% with 27.8% 27.05% / 34.49% 28.5%, curve to 50% 48.33% with 45.28% 36.05% / 48.92% 41.84%, close, move to 50% 48.33%, curve to 42.65% 30.83% with 45.3% 43.72% / 42.65% 37.42%, curve to 50% 13.33% with 42.65% 24.25% / 45.3% 17.94%, curve to 57.35% 30.83% with 54.7% 17.94% / 57.35% 24.25%, curve to 50% 48.33% with 57.35% 37.42% / 54.7% 43.72%, close, move to 50% 48.33%, curve to 60.12% 32.28% with 51.08% 41.84% / 54.73% 36.05%, curve to 78.67% 28.26% with 65.51% 28.5% / 72.2% 27.05%, curve to 68.55% 44.32% with 77.59% 34.75% / 73.95% 40.54%, curve to 50% 48.33% with 63.16% 48.09% / 56.47% 49.54%, close, move to 53.75% 46.25%, line to 53.75% 72.08%, line to 46.25% 72.08%, line to 46.25% 46.25%, close, move to 21.25% 77.08%, curve to 37.5% 60.83% with 21.25% 68.11% / 28.52% 60.83%, curve to 53.75% 77.08% with 46.48% 60.83% / 53.75% 68.11%, line to 46.25% 77.08%, curve to 37.5% 68.33% with 46.25% 72.25% / 42.33% 68.33%, curve to 28.75% 77.08% with 32.67% 68.33% / 28.75% 72.25%, line to 21.25% 77.08%, close, move to 46.25% 77.08%, curve to 62.5% 60.83% with 46.25% 68.11% / 53.52% 60.83%, curve to 78.75% 77.08% with 71.47% 60.83% / 78.75% 68.11%, line to 71.25% 77.08%, curve to 62.5% 68.33% with 71.25% 72.25% / 67.33% 68.33%, curve to 53.75% 77.08% with 57.67% 68.33% / 53.75% 72.25%, line to 46.25% 77.08%, close, move to 4.17% 77.08%, line to 95.83% 77.08%, line to 95.83% 84.58%, line to 4.17% 84.58%, line to 4.17% 77.08%, close); }
+.pc-deck[data-theme="mangrove"] .pc-cover {
+  --cover-w: 64%; }
+.pc-deck[data-theme="mangrove"] .pc-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 1.4em;
+  height: .14em;
+  background: var(--accent);
+  vertical-align: .3em;
+  margin-right: .55em; }
+.pc-deck[data-theme="mangrove"] .pc-card:not(.pc-card--flat) {
+  box-shadow: none;
+  border: 0;
+  background: var(--surface-2); }

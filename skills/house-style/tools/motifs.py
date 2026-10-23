@@ -547,13 +547,27 @@ def motif_css(m, unit, bleed=False):
     return d
 
 
+def own_shapes(art):
+    """A recipe's own shapes ("shapes": {name: [view box, svg body]}), drawn with tools/mark.py; make_theme.py --spec
+    reads them from SVG files. They take any colour like the built-in shapes."""
+    out = {}
+    for name, v in ((art or {}).get('shapes') or {}).items():
+        if name in SHAPES or name in PATTERNS or not re.fullmatch(r'[a-z][a-z0-9-]*', name):
+            raise ValueError('art.shapes: %r clashes with a built-in motif or is not a name like "sprig"' % name)
+        view, body = v
+        if re.search(r'<(mask|clipPath|use|image|text)\b', body):
+            raise ValueError('art.shapes.%s: one-colour paths only (no masks, clips, text or images); give mark.py cuts as holes' % name)
+        out[name] = (view, body)
+    return out
+
+
 def used(art):
     names = set()
     for part in ('deck', 'doc'):
         for slot, ms in (art.get(part) or {}).items():
             for m in (ms if isinstance(ms, list) else [ms]):
                 names.add(m.get('motif'))
-    return sorted(n for n in names if n in SHAPES or n in PATTERNS)
+    return sorted(n for n in names if n in SHAPES or n in PATTERNS or n in ((art or {}).get('shapes') or {}))
 
 
 def pictures(names):
@@ -584,6 +598,16 @@ CARDS = {
 
 def recipe_css(theme):
     """(theme.css, doc.css) for a theme whose theme.json has an "art" block."""
+    own = own_shapes(theme['art'])
+    SHAPES.update(own)
+    try:
+        return _recipe_css(theme)
+    finally:
+        for name in own:
+            del SHAPES[name]
+
+
+def _recipe_css(theme):
     art, tid = theme['art'], theme['id']
     deck = '.pc-deck[data-theme="%s"]' % tid
     doc = '.pc-doc[data-theme="%s"]' % tid

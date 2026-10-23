@@ -162,15 +162,19 @@ def kb(n):
 
 # ---------- reading the deck's structure ----------
 
+PCX_PARTS = {'pcx-hbar', 'pcx-share', 'pcx-flow'}
+
+
 class Scan(HTMLParser):
-    """Finds slides, charts, marks, code and icons with their offsets in the source, for the drawn-in copy."""
+    """Finds slides, charts, marks, code, icons and the snippet parts (snippets/: pcx-hbar, pcx-share, pcx-flow)
+    with their offsets in the source, for the drawn-in copy."""
     TRACK = ('section', 'article', 'div', 'figure', 'span', 'pre', 'code', 'i')
 
     def __init__(self, text):
         super().__init__(convert_charrefs=False)
         self.text = text
         self.starts = [0] + [m.end() for m in re.finditer('\n', text)]
-        self.slides, self.charts, self.marks, self.codes, self.icons = [], [], [], [], []
+        self.slides, self.charts, self.marks, self.codes, self.icons, self.pcx = [], [], [], [], [], []
         self.open = {t: [] for t in self.TRACK}
         self.slide = self.chart = self.pre = None
 
@@ -191,6 +195,8 @@ class Scan(HTMLParser):
             kind, self.slide = 'slide', rec
             rec['has_num'] = False
             self.slides.append(rec)
+        elif tag == 'div' and PCX_PARTS.intersection(cls):
+            self.pcx.append(rec)
         elif tag == 'figure' and 'pc-chart' in cls:
             kind, self.chart = 'chart', rec
             self.charts.append(rec)
@@ -264,7 +270,7 @@ def keep_hyphens(text):
 
 PROBE = r'''<script>
 addEventListener('load', function () {
-  var out = { faces: [], slides: [], charts: [], marks: [], code: [], missing: [], errors: window.__pcErrs || [] };
+  var out = { faces: [], slides: [], charts: [], marks: [], code: [], pcx: [], missing: [], errors: window.__pcErrs || [] };
   var done = function () { var pre = document.createElement('pre'); pre.id = 'pc-probe'; pre.hidden = true; pre.textContent = JSON.stringify(out); document.body.appendChild(pre); };
   if (!window.PCDeck) { out.errors.push('The runtime did not start'); return done(); }
   PCDeck.ready().then(async function () {
@@ -292,6 +298,8 @@ addEventListener('load', function () {
     deck.querySelectorAll('.pc-tip, .pc-menu, .pc-toast').forEach(function (e) { e.hidden = false; e.style.visibility = 'hidden'; if (!e.textContent.trim()) e.textContent = 'Saved 0123456789'; });
     await document.fonts.ready; await new Promise(function (r) { setTimeout(r, 150); }); await document.fonts.ready;
     document.fonts.forEach(function (f) { if (f.status === 'loaded') out.faces.push([f.family.replace(/^["']|["']$/g, ''), f.style, String(f.weight)]); });
+    if (window.PCXParts) PCXParts.redraw();
+    deck.querySelectorAll('div.pcx-hbar, div.pcx-share, div.pcx-flow').forEach(function (p) { out.pcx.push(p.getAttribute('data-done') ? p.outerHTML : ''); });
   }).catch(function (e) { out.errors.push(String(e)); }).then(done);
 });
 </script>'''
@@ -330,6 +338,9 @@ def weight(w):
 
 
 # ---------- drawing into the page ----------
+
+OPEN_TAG = re.compile(r'<div(?:\s+[^\s=>]+(?:="[^"]*")?)*>')
+
 
 def draw_in(text, report, icons, problems):
     sc = Scan(text)
@@ -386,6 +397,15 @@ def draw_in(text, report, icons, problems):
                     ch['style'] = (style + '; ' if style else '') + 'font-size: ' + code['size']
                 patches.append((rec['start'], rec['open_end'], set_attrs(rec['tag'], ch)))
                 patches.append((rec['code_start'], rec['code_end'], code['html']))
+        # snippet parts: Chrome's drawn copy, with the source kept in a <template> that parts.js puts back and draws live
+        for rec, drawn in matched('pcx', sc.pcx, 'snippet parts'):
+            m = OPEN_TAG.match(drawn or '')
+            if m and 'close_end' in rec:
+                whole = (rec['start'], rec['close_end'])
+                patches = [p for p in patches if not (whole[0] <= p[0] and p[1] <= whole[1]
+                                                      and not (p[0] == p[1] and p[0] in whole))]
+                patches.append(whole + (m.group(0) + '<template class="pcx-src">' + text[whole[0]:whole[1]] + '</template>'
+                                        + drawn[m.end():],))
     patches.sort(key=lambda p: (p[0], p[1]), reverse=True)
     last = len(text) + 1
     for start, end, repl in patches:
@@ -533,29 +553,13 @@ def build(src, out=None, theme_id=None, palette=None, mode=None, fmt=None, motio
     if 'data-qr=' in text:   # QR codes become inline SVG (tools/qr.py, segno)
         import qr
         text = qr.inline_all(text)
-    # a theme or palette drawn from an open one is credited: theme first, then palette
+    # a theme or palette drawn from an open one keeps its notice in a hidden comment beside its inlined CSS; nothing
+    # the reader sees names it (SKILL.md, Content rules: no credits in the work)
     credit = '. '.join(lbl + c for lbl, c in (('Theme: ', theme.get('credit')), ('Palette: ', theme['palettes'][pal].get('credit'))) if c)
-    if credit and is_doc:   # a document credits it in a colophon line at its end and in the PDF properties
-        cred = html.escape(credit)
-        if 'name="theme-credit"' not in text:
-            text = re.sub(r'(<head[^>]*>)', r'\1<meta name="theme-credit" content="%s">' % cred.replace('\\', '\\\\'), text, count=1, flags=re.I)
-        if 'class="pc-credit"' not in text:
-            # inside the last chapter: anything after it falls on a page of its own, since each chapter is a named page
-            body_end = text.rfind('</body>')
-            at = text.rfind('</section>', 0, body_end) if body_end >= 0 else -1
-            at = at if at >= 0 else body_end
-            if at >= 0:
-                text = text[:at] + '<p class="pc-credit">%s</p>' % cred + text[at:]
-    if credit and not is_doc:   # a deck credits it in the last slide's notes
-        line = '<p>%s</p>' % html.escape(credit)
-        last = text.rfind('<section')
-        if last >= 0 and line not in text:
-            m = re.compile(r'<div class="pc-notes"[^>]*>.*?(?=</div>)', re.S).search(text, last)
-            end = text.find('</section>', last)
-            if m and (end < 0 or m.end() < end):
-                text = text[:m.end()] + line + text[m.end():]
-            elif end >= 0:
-                text = text[:end] + '<div class="pc-notes">%s</div>' % line + text[end:]
+    if credit:
+        note = '<!-- %s -->' % credit.replace('--', '- -')
+        if note not in text:
+            text = re.sub(r'(<head[^>]*>)', lambda m: m.group(1) + note, text, count=1, flags=re.I)
 
     # What Chrome draws and loads for this deck
     report = run_probe(src, text, view, PROBE) if probe else None

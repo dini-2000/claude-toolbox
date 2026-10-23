@@ -1,0 +1,235 @@
+{
+ "id": "mangrove",
+ "base": "tide",
+ "name": "Mangrove Return",
+ "summary": "Sand and lagoon green with silt orange, a lively grotesque for titles over a clear sans, and a drawn sapling emblem on the cover. Made in Creative mode for a coastal replanting project.",
+ "fonts": {
+  "display": [
+   "Bricolage Grotesque",
+   "sans"
+  ],
+  "body": [
+   "Instrument Sans",
+   "sans"
+  ],
+  "label": [
+   "Instrument Sans",
+   "sans"
+  ],
+  "stat": [
+   "Bricolage Grotesque",
+   "sans"
+  ],
+  "quote": [
+   "Instrument Serif",
+   "serif"
+  ],
+  "mono": [
+   "DM Mono",
+   "mono"
+  ]
+ },
+ "tokens": {
+  "--w-display": "800",
+  "--w-h1": "600",
+  "--w-h2": "600",
+  "--w-stat": "800",
+  "--track-display": "-0.025em",
+  "--track-h1": "-0.015em",
+  "--lh-display": "1.02",
+  "--radius": "10px",
+  "--radius-sm": "6px"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F5F2EA",
+   "bg_alt": "#EDE8DC",
+   "surface": "#FFFDF8",
+   "surface_2": "#E6E0D2",
+   "ink": "#15302A",
+   "ink_2": "#3A524B",
+   "ink_3": "#52665F",
+   "line": "#DCD5C5",
+   "code_bg": "#15302A",
+   "code_ink": "#EDE8DC",
+   "letterbox": "#0B1A17"
+  },
+  "dark": {
+   "bg": "#0E211D",
+   "bg_alt": "#122823",
+   "surface": "#16302A",
+   "surface_2": "#1E3B34",
+   "ink": "#EEF2EC",
+   "ink_2": "#C9D6CF",
+   "ink_3": "#9FB3AA",
+   "line": "#284840",
+   "code_bg": "#08130F",
+   "code_ink": "#EEF2EC",
+   "letterbox": "#000000"
+  }
+ },
+ "palettes": {
+  "mangrove": {
+   "name": "Mangrove",
+   "light": {
+    "accent": "#2F6B4F",
+    "accent_2": "#B4572B"
+   },
+   "dark": {
+    "accent": "#74C69A",
+    "accent_2": "#E8935F"
+   }
+  },
+  "estuary": {
+   "name": "Estuary",
+   "light": {
+    "accent": "#1E5F74",
+    "accent_2": "#9A6B12"
+   },
+   "dark": {
+    "accent": "#72C7DA",
+    "accent_2": "#E9C46A"
+   }
+  }
+ },
+ "defaults": {
+  "mode": "light",
+  "palette": "mangrove"
+ },
+ "chart": {
+  "light": [
+   "#2F6B4F",
+   "#B4572B",
+   "#1E5F74",
+   "#7A8A2E",
+   "#6B4E8A",
+   "#9A6B12"
+  ],
+  "dark": [
+   "#74C69A",
+   "#E8935F",
+   "#72C7DA",
+   "#C3D17A",
+   "#B9A0D6",
+   "#E9C46A"
+  ]
+ },
+ "art": {
+  "shapes": {
+   "seal-disc": "art/seal-disc.svg",
+   "seal-tree": "art/seal-tree.svg",
+   "sapling": "art/sapling.svg"
+  },
+  "deck": {
+   "cover": [
+    {
+     "motif": "seal-disc",
+     "at": "r",
+     "size": 620,
+     "x": -70,
+     "color": "accent"
+    },
+    {
+     "motif": "seal-tree",
+     "at": "r",
+     "size": 620,
+     "x": -70,
+     "color": "bg"
+    }
+   ],
+   "section": [
+    {
+     "motif": "sapling",
+     "at": "br",
+     "size": 520,
+     "x": 40,
+     "y": -30,
+     "color": "accent",
+     "opacity": 0.16
+    },
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 14,
+     "color": "accent-2"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "sapling",
+     "at": "tr",
+     "size": 120,
+     "x": 110,
+     "y": 90,
+     "color": "accent-2"
+    }
+   ],
+   "content": [
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 8,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "seal-disc",
+     "at": "br",
+     "size": 300,
+     "x": 100,
+     "y": 90,
+     "color": "accent"
+    },
+    {
+     "motif": "seal-tree",
+     "at": "br",
+     "size": 300,
+     "x": 100,
+     "y": 90,
+     "color": "bg"
+    }
+   ]
+  },
+  "kicker": "dash",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "seal-disc",
+     "at": "br",
+     "size": 118,
+     "x": -30,
+     "y": 16,
+     "color": "accent"
+    },
+    {
+     "motif": "seal-tree",
+     "at": "br",
+     "size": 118,
+     "x": -30,
+     "y": 16,
+     "color": "bg"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 2.5,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "sapling",
+    "size": 14,
+    "color": "accent"
+   }
+  },
+  "vars": {
+   "cover": {
+    "--cover-w": "64%"
+   }
+  }
+ }
+}

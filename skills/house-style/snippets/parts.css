@@ -1,0 +1,170 @@
+/* snippets/parts.css: slide parts the engine lacks, for any theme.
+   Link it after the theme's CSS, and parts.js before engine/runtime.js:
+     <link rel="stylesheet" href="<kit>/snippets/parts.css">   ...   <script src="<kit>/snippets/parts.js"></script>
+   build.py inlines both. Every colour, font and corner comes from the theme's tokens, so each part takes the look of
+   the theme it sits in. README.md here lists the parts and the attributes each takes. */
+
+/* Tokens, set on every surface so that they follow a pc-inverse card or slide */
+.pc-deck, .pc-slide, .pc-inverse {
+  --pcx-peer: color-mix(in oklab, var(--ink-3) 58%, var(--bg));            /* bars and parts for comparison */
+  --pcx-hatch: repeating-linear-gradient(135deg, var(--accent) 0 5px, color-mix(in srgb, var(--accent) 22%, var(--bg)) 5px 10px);
+  --pcx-fs: max(17px, calc(var(--fs-label) * .9));                          /* text inside the parts, never below 17 px */
+}
+
+/* ------------------------------------------------------------------ horizontal bars with estimates and a target
+   <div class="pcx-hbar" data-unit="%" data-max="100" data-target="60" data-build="draw">
+     <p data-v="44" class="is-hl">Ours</p><p data-v="52" class="is-est" data-show="about 52%">Region</p>...</div>
+   Rows: data-v, optional data-show (the text shown) and data-tip; is-hl (accent) or is-est (hatched estimate).
+   On the chart: data-unit, data-max, data-dp, data-target, data-target-label. Charts stacked one above the other
+   line up with style="--pcx-label-w: 240px". A chart with only highlighted rows is better as a native
+   <figure class="pc-chart" data-type="bar" data-highlight="...">. */
+.pcx-hbar { --gap: var(--pcx-hbar-gap, 12px); display: grid; grid-template-columns: var(--pcx-label-w, max-content) 1fr;
+  gap: var(--gap) 16px; align-items: center; font: var(--w-body) var(--fs-label)/1.15 var(--font-body); color: var(--ink); }
+.pcx-hbar > p { margin: 0; }
+.pcx-hbar-label { text-align: right; color: var(--ink-2); }
+.pcx-hbar-track { position: relative; height: 1.35em; display: flex; align-items: center; gap: 12px; }
+.pcx-hbar-bar { height: 1.2em; min-width: 3px; flex: none; background: var(--pcx-peer);
+  border-radius: 0 var(--pcx-bar-r, 4px) var(--pcx-bar-r, 4px) 0; transform-origin: 0 50%; }
+.pcx-hbar-val { font-weight: var(--w-strong); white-space: nowrap; font-variant-numeric: lining-nums; }
+.pcx-hbar-row--hl .pcx-hbar-bar { background: var(--accent); }
+.pcx-hbar-row--hl.pcx-hbar-label { color: var(--ink); font-weight: var(--w-strong); }
+.pcx-hbar-row--est .pcx-hbar-bar { background: var(--pcx-hatch); outline: 1.5px solid var(--accent); outline-offset: -1.5px; }
+.pcx-hbar--target { grid-template-columns: var(--pcx-label-w, max-content) 1fr max-content;
+  padding-top: calc(var(--gap) / 2 + 1.5em); }
+.pcx-hbar--target .pcx-hbar-track { align-self: stretch; height: auto; min-height: 1.35em; }
+.pcx-hbar--target .pcx-hbar-val { text-align: right; font-variant-numeric: lining-nums tabular-nums; }
+.pcx-hbar-target { position: absolute; top: calc(var(--gap) / -2); bottom: calc(var(--gap) / -2); width: 2px; margin-left: -1px;
+  background: var(--ink); }
+.pcx-hbar-target.is-first { top: -6px; }
+.pcx-hbar-target.is-last { bottom: -6px; }
+.pcx-hbar-target-label { position: absolute; bottom: calc(100% + 10px); translate: -50% 0; white-space: nowrap;
+  font: var(--w-label) var(--pcx-fs)/1.2 var(--font-label, var(--font-body)); color: var(--ink); }
+
+/* ------------------------------------------------------------------ share bar: one whole in up to five labelled parts
+   <div class="pcx-share" data-unit="%"><p data-v="58">Counter</p><p data-v="24" class="is-hl">Online</p>...</div>
+   Rows as for pcx-hbar. Parts are drawn as shares of their sum; the script warns over five parts, or when they do not
+   add up to 100% (or data-total). A small last part is labelled at the right end. Height: --pcx-share-h. */
+.pcx-share { font: var(--w-body) var(--pcx-fs)/1.25 var(--font-body); color: var(--ink-2); }
+.pcx-share > p { margin: 0; }
+.pcx-share-bar { display: flex; gap: 2px; height: var(--pcx-share-h, 40px); }
+.pcx-share-seg { flex: 0 1 0; min-width: 3px; background: var(--pcx-peer); }
+.pcx-share-seg:first-child { border-radius: var(--pcx-bar-r, 4px) 0 0 var(--pcx-bar-r, 4px); }
+.pcx-share-seg:last-child { border-radius: 0 var(--pcx-bar-r, 4px) var(--pcx-bar-r, 4px) 0; }
+.pcx-share-seg.is-hl { background: var(--accent); }
+.pcx-share-seg.is-est { background: var(--pcx-hatch); outline: 1.5px solid var(--accent); outline-offset: -1.5px; }
+.pcx-share-keys { display: grid; margin-top: 12px; }
+.pcx-share-key { grid-area: 1 / 1; justify-self: start; }
+.pcx-share-key.is-end { justify-self: end; text-align: right; }
+.pcx-share-key b { display: block; margin-bottom: 2px; white-space: nowrap; font: var(--w-strong) 1.25em/1.15 var(--font-body);
+  color: var(--ink); font-variant-numeric: lining-nums; }
+.pcx-share-key.is-hl { color: var(--ink); font-weight: var(--w-strong); }
+
+/* ------------------------------------------------------------------ flow map: columns of nodes and clickable journeys
+   <div class="pcx-flow" data-default="j1" style="left:..;top:..;width:..;height:..">
+     <div class="pcx-flow-map"><div class="pcx-flow-cols">
+       <div class="pcx-flow-col" data-title="Payers"><div class="pcx-flow-node" data-n="cit" data-icon="user">Citizens</div>...</div>
+       ...</div></div>
+     <aside class="pcx-flow-panel"><div class="pcx-flow-intro">...</div>
+       <div class="pcx-flow-journey" data-j="j1" data-name="Pay a fee" data-icon="landmark" data-routes="cit>bank>tsy | cit>app>tsy:partial">
+         <h3>...</h3><p>...</p></div>
+       <div class="pcx-flow-legend"><span><i></i>Main route</span><span><i class="is-partial"></i>Partial</span>...</div></aside></div>
+   Nodes: data-kind="rail|lane", data-status="partial|planned|no|emerging", data-tip, <small> for a second line.
+   Routes: "a>b>c | a>d:partial"; styles main (default), new, partial, emerging, lane. data-chips-label renames
+   "Follow a journey". Click a journey chip to follow it, click it again to clear; a static deck keeps data-default. */
+.pcx-flow { position: absolute; display: grid; grid-template-columns: 1fr var(--pcx-panel-w, 360px); column-gap: 32px;
+  font-family: var(--font-body); color: var(--ink); }
+.pcx-flow-map { position: relative; display: flex; flex-direction: column; min-width: 0; }
+.pcx-flow-chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 18px; }
+.pcx-flow-chips-label, .pcx-flow-head { font: var(--w-label) var(--pcx-fs)/1.2 var(--font-label, var(--font-body)); color: var(--ink-3);
+  letter-spacing: var(--track-label); text-transform: var(--label-case); }
+.pcx-flow-chips-label { margin-right: 4px; }
+.pcx-flow-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 13px 6px 10px; cursor: pointer; white-space: nowrap;
+  font: var(--w-label) var(--pcx-fs)/1.2 var(--font-body); color: var(--ink); background: var(--surface);
+  border: 1.5px solid var(--line); border-radius: 999px; }
+.pcx-flow-chip:hover { border-color: var(--accent); }
+.pcx-flow-chip:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.pcx-flow-chip .pc-icon { font-size: 1.05em; color: var(--accent-text); }
+.pcx-flow-chip.is-on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.pcx-flow-chip.is-on .pc-icon { color: inherit; }
+.pcx-flow-heads, .pcx-flow-cols { display: flex; gap: var(--pcx-flow-gap, 40px); }
+.pcx-flow-heads { margin-bottom: 10px; }
+.pcx-flow-head { flex: 1 1 0; min-width: 0; text-align: center; }
+.pcx-flow-cols { position: relative; flex: 1; }
+.pcx-flow.has-band .pcx-flow-cols { padding-top: 30px; }
+.pcx-flow-col { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; justify-content: space-around; gap: 8px; }
+.pcx-flow-node { position: relative; z-index: 1; display: flex; align-items: center; gap: 9px; min-height: 48px; padding: 7px 11px;
+  font: var(--w-label) var(--pcx-fs)/1.15 var(--font-body); background: var(--surface); border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm); transition: opacity .2s, border-color .2s; }
+.pcx-flow-node .pc-icon { flex: none; font-size: 1.15em; color: var(--accent-text); }
+.pcx-flow-node small { display: block; margin-top: 2px; font-size: max(17px, .92em); font-weight: var(--w-body); color: var(--ink-3); }
+.pcx-flow-node[data-kind="rail"] { background: var(--accent-soft); border-color: color-mix(in oklab, var(--accent) 35%, var(--bg)); }
+.pcx-flow-node[data-kind="lane"] { background: var(--surface-2); border-color: color-mix(in oklab, var(--ink-3) 30%, var(--bg)); }
+.pcx-flow-node[data-kind="lane"] .pc-icon { color: var(--ink-3); }
+.pcx-flow-node[data-status="partial"] { border-style: dashed; border-color: var(--warning); }
+.pcx-flow-node[data-status="planned"] { border: 2px dotted var(--accent); }
+.pcx-flow-node[data-status="no"] { border-style: dashed; border-color: var(--pcx-peer); }
+.pcx-flow-node[data-status="emerging"] { border-style: dashed; border-color: var(--ink); }
+.pcx-flow-node.is-on { border-color: var(--ink); box-shadow: 0 2px 10px color-mix(in srgb, var(--ink) 16%, transparent); }
+.pcx-flow.is-sel .pcx-flow-node:not(.is-on) { opacity: .38; }
+.pcx-flow-svg { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; z-index: 0; }
+.pcx-flow-net { fill: none; stroke: var(--accent); stroke-width: 1.4; opacity: .22; }
+.pcx-flow-net--lane { stroke: var(--pcx-peer); stroke-width: 10; opacity: .5; stroke-linecap: round; }
+.pcx-flow.is-sel .pcx-flow-net { opacity: .08; }
+.pcx-flow-svg g.pcx-flow-j { display: none; }
+.pcx-flow-svg g.pcx-flow-j.is-on { display: inline; }
+.pcx-route { fill: none; stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.pcx-route--main { stroke: var(--accent); stroke-dasharray: 14 8; }
+.pcx-route--new { stroke: var(--positive); stroke-dasharray: 14 8; }
+.pcx-route--partial { stroke: var(--warning); stroke-dasharray: 6 8; }
+.pcx-route--emerging { stroke: var(--ink); stroke-dasharray: 2 7; }
+.pcx-route--lane { stroke: color-mix(in oklab, var(--ink-3) 70%, var(--bg)); stroke-width: 9; opacity: .8; }
+.pcx-flow-panel { position: relative; min-width: 0; padding-top: 4px; }
+.pcx-flow-journey, .pcx-flow-intro { display: none; }
+.pcx-flow-journey.is-on, .pcx-flow-intro.is-on { display: block; }
+.pcx-flow-panel h3 { margin: 0 0 12px; font: var(--w-h2) var(--fs-small)/1.2 var(--font-display); color: var(--ink); }
+.pcx-flow-panel p { margin: 0 0 12px; font-size: var(--pcx-fs); line-height: 1.4; color: var(--ink-2); }
+.pcx-flow-legend { position: absolute; left: 0; right: 0; bottom: 0; display: grid; gap: 7px; font-size: var(--pcx-fs); color: var(--ink-3); }
+.pcx-flow-legend span { display: flex; align-items: center; gap: 10px; }
+.pcx-flow-legend i { display: inline-block; flex: none; width: 36px; height: 0; border-top: 4px dashed var(--accent); }
+.pcx-flow-legend i.is-lane { border-top: 9px solid color-mix(in oklab, var(--ink-3) 70%, var(--bg)); border-radius: 5px; opacity: .8; }
+.pcx-flow-legend i.is-partial { border-top-color: var(--warning); }
+.pcx-flow-legend i.is-new { border-top-color: var(--positive); }
+.pcx-flow-legend i.is-emerging { border-top: 4px dotted var(--ink); }
+
+/* ------------------------------------------------------------------ chart titles, notes under a chart, zebra rows
+   <p class="pcx-chart-title">Measure, unit, year</p> ... <p class="pcx-note">Hatched bar: an estimate.</p>
+   <table class="pc-table pcx-zebra"> shades every other row and keeps the text clear of the cell edges. */
+.pcx-chart-title { margin: 0 0 20px; font: var(--w-strong) max(19px, calc(var(--fs-text) * .82))/1.25 var(--font-body); color: var(--ink); }
+.pcx-note { margin: 16px 0 0; font-size: max(17px, calc(var(--fs-small) * .76)); line-height: 1.35; color: var(--ink-3); }
+.pc-table.pcx-zebra tbody tr:nth-child(odd) td { background: var(--surface-2); }
+.pc-table.pcx-zebra :is(th, td):first-child { padding-left: 18px; }
+.pc-table.pcx-zebra :is(th, td):last-child { padding-right: 18px; }
+.pc-table.pcx-zebra td { vertical-align: middle; }
+
+/* ------------------------------------------------------------------ status chips: text and a mark, never colour alone
+   <span class="pc-chip pc-chip--good pcx-status">Live</span>; pc-chip--warn for partial, pcx-chip--no, pcx-chip--planned,
+   pcx-chip--emerging. pcx-status adds the dot. */
+.pc-chip.pcx-status { --chip-fs: var(--pcx-fs); }
+.pcx-status::before { content: ""; flex: none; width: .55em; height: .55em; border-radius: 50%; background: currentColor; }
+.pc-chip.pcx-chip--no { background: var(--surface-2); color: var(--ink-3); }
+.pc-chip.pcx-chip--planned { background: transparent; color: var(--accent-text); border: 2px dotted var(--accent); }
+.pc-chip.pcx-chip--planned.pcx-status::before { background: transparent; border: 2px dotted currentColor; box-sizing: border-box; }
+.pc-chip.pcx-chip--emerging { background: transparent; color: var(--ink); border: 2px dashed var(--ink); }
+
+/* A card or box for something planned: a dotted accent edge */
+.pcx-planned { border: 2px dotted var(--accent) !important; box-shadow: none !important; }
+
+/* ------------------------------------------------------------------ code in a line of text, keys, figures in mono */
+.pc-slide :not(pre) > code, .pc-slide kbd, .pcx-mono { font-family: var(--font-mono); font-variant-ligatures: none; white-space: nowrap; }
+.pc-slide :not(pre) > code { font-size: .88em; padding: .06em .36em; border-radius: 6px; background: var(--surface-2); color: var(--ink);
+  box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.pc-slide kbd { font-size: .82em; font-weight: var(--w-label); padding: .08em .45em; border: 1.5px solid var(--line);
+  border-bottom-width: 3px; border-radius: 6px; background: var(--surface); color: var(--ink); }
+
+/* ------------------------------------------------------------------ hover tips: any element in a slide with data-tip */
+.pc-deck:not([data-motion="static"]) .pc-slide [data-tip] { cursor: help; }
+.pcx-tip { position: fixed; z-index: 40; max-width: 360px; padding: 8px 12px; border-radius: var(--radius-sm); pointer-events: none;
+  background: var(--ink); color: var(--bg); font: 500 15px/1.4 var(--font-body); box-shadow: 0 6px 18px rgba(0, 0, 0, .2); }
+.pc-deck[data-motion="static"] .pcx-flow-chip { cursor: default; }
+.pc-deck[data-motion="static"] .pcx-flow-chip:not(.is-on):hover { border-color: var(--line); }
+@media print { .pcx-tip { display: none !important; } }

@@ -90,7 +90,7 @@ Table: Pilot costs and fares, April to September 2026
 | Docks, signs and electricity | $19,600 |
 | Surveys and evaluation | $7,600 |
 | Fares paid by riders | &minus;$117,900 |
-| **Cost to the city** | $118,500 |
+| **Cost to the city** | **$118,500** |
 
 > [!NOTE] Costs per trip fall as use grows
 > Most costs are fixed for each bike. The cost to the city per trip fell from $5.10 in April to $1.35 in September^[September had about 12,000 trips. A scheme of 600 bikes would carry the same fixed costs per bike over more trips at each dock.].

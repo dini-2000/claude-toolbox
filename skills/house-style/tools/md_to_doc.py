@@ -32,7 +32,8 @@ Chapters start at each '# ' heading. Heading attributes in braces: '{#id}', '{-}
     footnotes        [^1] with '[^1]: text' anywhere, or inline ^[text]: notes at the end, the side or the page foot
     figures          an image alone on a line, '![alt](src "Caption")'; the caption is the title, else the alt text
     tables           pipe tables; ':---:' or '---:' columns of figures align right; 'Table: caption' before or after;
-                     a '**Total**' first cell marks a totals row
+                     a first cell of '**Total**', '**Subtotal**' or '**Grand total**', or a row bold in every cell,
+                     marks a totals row; a bold label alone, such as '**Fees**', stays an ordinary row
     callouts         GitHub alerts '> [!NOTE] Title', TIP, IMPORTANT, WARNING, CAUTION
     task lists       '- [x] done', '- [ ] to do', '- [-] dropped'
     definitions      'Term' then ': definition' lines, as a facts list

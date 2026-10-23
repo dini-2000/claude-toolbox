@@ -108,14 +108,17 @@ def faces():
     return out
 
 
-def lookup(pdf_font_name):
-    """The Face for a font name as a PDF gives it ("ABCDEF+SchibstedGrotesk-SemiBold"), or None."""
+def lookup(pdf_font_name, italic=None):
+    """The Face for a font name as a PDF gives it ("ABCDEF+SchibstedGrotesk-SemiBold"), or None. italic settles
+    a name cut short that two faces share ("...-SemiBol" for SemiBold and SemiBoldItalic)."""
     name = pdf_font_name.split('+')[-1]
     got = faces().get(name)
     if got is None:                                  # Chrome sometimes drops the style suffix of a Regular face
         got = faces().get(name + '-Regular')
     if got is None and len(name) >= 20:              # and PDF font names can be cut short ("...-SemiBol")
         hits = [f for ps, f in faces().items() if ps.startswith(name)]
+        if len(hits) > 1 and italic is not None:
+            hits = [f for f in hits if f.italic == italic]
         got = hits[0] if len(hits) == 1 else None
     return got
 

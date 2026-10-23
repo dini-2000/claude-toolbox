@@ -1690,7 +1690,7 @@ Sections: Overview; When to Apply; Quick Reference; Step-by-Step; Common Pattern
 
 ### house-style
 Design and build slide decks, paged PDF documents and graphics with this kit (talks, lessons, pitches, reports, papers, proposals, letters, CVs, invoices, newsletters, social posts, banners, posters, invitations, business cards), in one of 60 themes or a custom brand theme. Decks ship as one HTML file with its PDF and an editable PowerPoint; documents as print-quality PDFs; graphics as PNG, JPG and print-ready PDF with bleed.
-Sections: 1. Style; 2. Write; 3. Check; 4. Share; A theme of its own; Motion (decks); PowerPoint QC (decks, every time, before sharing); Sinhala and Tamil (basic support); Content rules; Choosing a chart
+Sections: First use; 1. Style; 2. Write; 3. Check; 4. Share; Attached files; Changing a deck's theme; Detail in every theme; A theme of its own; Drawn art (the craft loop)
 
 ### incremental-implementation
 Delivers changes incrementally in thin, verifiable slices. Use when implementing any feature or change that touches more than one file, or when picking up the next task from a plan. Use when rolling a change out behind a feature flag, when you're about to write a large amount of code at once, or when a task feels too big to land in one step.

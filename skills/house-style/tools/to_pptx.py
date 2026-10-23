@@ -451,7 +451,7 @@ def face_font(ps):
 def width_miss(sp, ps):
     """How far a kit face's advances miss a span's glyph positions, letter spacing taken out; None if
     the span is too short to tell."""
-    if ps not in fontinfo.faces():
+    if ps not in fontinfo.faces() or 'chars' not in sp:     # the check's text spans carry no glyph positions
         return None
     font, size = face_font(ps), sp['size']
     ch = [c for c in sp['chars'] if c[0] > 0]
@@ -473,6 +473,8 @@ def face_of(sp, page_fonts=()):
     fontname, flags = sp['font'], sp.get('flags') or 0
     name = fontname.split('+')[-1]
     full = [f for f in page_fonts if f == name or f.startswith(name + '-')]
+    if not full and len(name) >= 20:                     # cut short inside the style ("...-SemiBol"): the
+        full = [f for f in page_fonts if f.startswith(name)]     # page's own font list has the whole name
     if len(full) > 1:
         def weight(f):
             face = fontinfo.faces().get(f)
@@ -485,7 +487,7 @@ def face_of(sp, page_fonts=()):
             full = [min(miss, key=lambda m: (round(m[0], 3), abs(weight(m[1]) - aim)))[1]]
         else:                                                # tabular figures can match in every weight
             full = [min(same, key=lambda f: abs(weight(f) - aim))]
-    f = fontinfo.lookup(full[0] if len(full) == 1 else fontname)
+    f = fontinfo.lookup(full[0] if len(full) == 1 else fontname, bool(flags & 2))
     return f.psname if f else None
 
 
@@ -653,7 +655,7 @@ def make_line(seg):
     asc, desc = metrics(main['style'])
     x0, x1 = seg[0]['x'] + lead, seg[-1]['x1']
     return {'runs': out, 'x0': x0, 'x1': x1, 'y': seg[0]['y'], 'size': size, 'seq': min(g['seq'] for g in seg),
-            'text': ''.join(g['ch'] for g in seg), 'asc': asc, 'desc': desc}
+            'last': max(g['seq'] for g in seg), 'text': ''.join(g['ch'] for g in seg), 'asc': asc, 'desc': desc}
 
 
 def logical_lines(lines, entries):
@@ -733,8 +735,8 @@ def logical_lines(lines, entries):
         main = max((r for r in new if r['size'] == max(n['size'] for n in new)), key=lambda r: len(r['text']))
         asc, desc = metrics(main['style'])
         out.append(dict(parts[0], runs=new, text=text, x0=min(p['x0'] for p in parts),
-                        x1=max(p['x1'] for p in parts), seq=min(p['seq'] for p in parts), size=size,
-                        asc=asc, desc=desc))
+                        x1=max(p['x1'] for p in parts), seq=min(p['seq'] for p in parts),
+                        last=max(p['last'] for p in parts), size=size, asc=asc, desc=desc))
         drop.update(idx)
     return [ln for i, ln in enumerate(lines) if i not in drop] + out
 
@@ -895,7 +897,9 @@ def box_xml(sid, box):
     lines = box['lines']
     first = lines[0]
     align = box['align'] or 'l'
-    width = max(max(l['x1'] - l['x0'], fallback_width(l)) for l in lines)
+    # Google Slides and LibreOffice drop negative run spacing (spc), so each line also gets the room it takes untracked
+    width = max(max(l['x1'] - l['x0'] - sum(min(0, r.get('track') or 0) * len(r['text']) for r in l['runs']),
+                    fallback_width(l)) for l in lines)
     slack = width * 0.02 + 0.3 * first['size'] + 1
     if align == 'l':
         x = min(l['x0'] for l in lines)
@@ -1282,16 +1286,14 @@ def shade_xml(ids, block, clips, warn, page=None, dpage=None):
         radius = (prst[5] / 100000 * min(geo.width, geo.height)) if prst and prst[0] == 'roundRect' else 0
         base_items = clip['items']
         if not (bb + (-1, -1, 1, 1)).contains(geo):
-            # the path reaches past what Chrome drew, which an outer clip cut (a gradient in a cropped SVG picture)
-            items = []
-            for sb in subs:
-                cut = cut_polygon(flatten(sb), bb) if len(sb['ops']) > 1 else []
-                items += [('l', a, b) for a, b in zip(cut, cut[1:] + cut[:1])] if len(cut) >= 3 else []
-            if not items:
+            # The clip is matched by its box, which the clips around it have already cut down, but its path is
+            # whole (a gradient in a cropped SVG picture, or larger than its overflow: hidden box). Cut the path
+            # to what Chrome drew, and to the rounded or round clips around it.
+            wins = [[bb.tl, bb.tr, bb.br, bb.bl]] + [w for w in map(clip_window, clip.get('_stack', [])[:-1]) if w]
+            cut = cut_fill(fake_drawing(base_items, geo, (0, 0, 0)), wins)
+            if cut is None:
                 return []
-            pts = [p for it in items for p in it[1:]]
-            geo = fitz.Rect(min(p.x for p in pts), min(p.y for p in pts), max(p.x for p in pts), max(p.y for p in pts))
-            radius, base_items = 0, items
+            geo, radius, base_items = cut['rect'], 0, cut['items']
     else:
         geo, radius = bb, 0
         base_items = [('re', fitz.Rect(bb), 1)]
@@ -1422,6 +1424,8 @@ def paint_context(ext):
         if e['type'] == 'clip':
             if e.get('items'):
                 stack.append((lv, 'clip', e))
+                e['_stack'] = [obj for _, kind, obj in stack if kind == 'clip']    # for gradients, which find
+                                                                                   # their clip by its box
         elif e['type'] == 'group':
             g = {'opacity': e.get('opacity') if e.get('opacity') is not None else 1.0,
                  'rect': fitz.Rect(e['rect']), 'lo': last, 'hi': None, 'end': None}
@@ -1497,40 +1501,137 @@ def flatten(sub, n=12):
     return pts
 
 
-def clip_rect_of(c):
-    """The rectangle a clip is, or None for any other clip shape."""
-    polys = clip_polygons(c)
-    if len(polys) != 1 or len(polys[0]) not in (4, 5):
-        return None
-    xs, ys = sorted({round(p.x, 2) for p in polys[0]}), sorted({round(p.y, 2) for p in polys[0]})
-    return fitz.Rect(xs[0], ys[0], xs[-1], ys[-1]) if len(xs) == 2 and len(ys) == 2 else None
+def clip_window(c):
+    """A clip that is a rectangle, rounded rectangle or ellipse (overflow: hidden, a cropped picture), as a
+    convex polygon; None for any other clip shape, such as the trapezoids Chrome clips border sides with."""
+    if '_win' not in c:
+        subs = [sb for sb in subpaths({'items': c['items'], 'closePath': True, 'type': 'f'}) if len(sb['ops']) > 1]
+        c['_win'] = flatten(subs[0], 8) if detect_prst(subs) else None
+    return c['_win']
 
 
-def cut_polygon(pts, r):
-    """Sutherland-Hodgman: the part of a polygon inside rectangle r."""
-    def edge(pts, inside, cross):
+def _edges(win):
+    """Each edge of a convex polygon as (a, b, length, sign), the sign making inside positive."""
+    s = 1 if sum(a.x * b.y - b.x * a.y for a, b in zip(win, win[1:] + win[:1])) > 0 else -1
+    return [(a, b, math.hypot(b.x - a.x, b.y - a.y), s) for a, b in zip(win[-1:] + win[:-1], win)
+            if math.hypot(b.x - a.x, b.y - a.y) > 1e-6]
+
+
+def cut_polygon(pts, win):
+    """Sutherland-Hodgman: the part of a polygon inside the convex polygon win."""
+    for a, b, _, s in _edges(win):
+        side = [s * ((b.x - a.x) * (p.y - a.y) - (b.y - a.y) * (p.x - a.x)) for p in pts]
         out = []
-        for i in range(len(pts)):
-            cur, prev = pts[i], pts[i - 1]
-            if inside(cur):
-                if not inside(prev):
-                    out.append(cross(prev, cur))
+        for k in range(len(pts)):
+            cur, prev, sc, sp = pts[k], pts[k - 1], side[k], side[k - 1]
+            if (sc >= 0) != (sp >= 0):
+                t = sp / (sp - sc)
+                out.append(fitz.Point(prev.x + (cur.x - prev.x) * t, prev.y + (cur.y - prev.y) * t))
+            if sc >= 0:
                 out.append(cur)
-            elif inside(prev):
-                out.append(cross(prev, cur))
-        return out
-
-    def at_x(x):
-        return lambda a, b: fitz.Point(x, a.y + (b.y - a.y) * (x - a.x) / ((b.x - a.x) or 1e-9))
-
-    def at_y(y):
-        return lambda a, b: fitz.Point(a.x + (b.x - a.x) * (y - a.y) / ((b.y - a.y) or 1e-9), y)
-    for inside, cross in ((lambda p: p.x >= r.x0, at_x(r.x0)), (lambda p: p.x <= r.x1, at_x(r.x1)),
-                          (lambda p: p.y >= r.y0, at_y(r.y0)), (lambda p: p.y <= r.y1, at_y(r.y1))):
-        pts = edge(pts, inside, cross)
-        if not pts:
-            break
+        pts = out
+        if len(pts) < 3:
+            return []
     return pts
+
+
+def within(pts, win, tol=0.5):
+    return all(s * ((b.x - a.x) * (p.y - a.y) - (b.y - a.y) * (p.x - a.x)) >= -tol * n
+               for a, b, n, s in _edges(win) for p in pts)
+
+
+def cut_fill(d, wins):
+    """A filled path cut exactly to the convex windows wins, subpath by subpath; None if nothing is left."""
+    out, changed = [], False
+    for sb in subpaths(d):
+        poly = flatten(sb) if len(sb['ops']) > 1 else []
+        if len(poly) >= 3 and all(within(poly, w) for w in wins):
+            out.append(sb)
+            continue
+        changed = True
+        for w in wins:
+            poly = cut_polygon(poly, w) if len(poly) >= 3 else []
+        if len(poly) >= 3:
+            out.append({'ops': [('M', poly[0])] + [('L', p) for p in poly[1:]], 'closed': True})
+    return path_from(d, out) if changed else d
+
+
+def image_clips(ext, seq, r):
+    """The clips in force for an image that MuPDF boxes larger than what shows. Chrome prints an SVG pattern fill
+    (a hatched bar) as a bitmap of the whole SVG, drawn through the filled shape set as a clip, and MuPDF gives
+    the image the whole SVG's box. get_drawings lists no images, so look at the clips set after the last path
+    before the image: the first that sits inside the image's box and is clearly smaller (more than 2 pt) brings
+    the clips in force."""
+    cands = []
+    for e in ext:
+        sq = e.get('seqno')
+        if sq is not None:
+            if sq > seq:
+                break
+            cands = []
+        elif e['type'] == 'clip' and e.get('_stack'):
+            cands.append(e)
+    for c in cands:
+        sc = c.get('scissor')
+        if sc is not None and (r + (-1, -1, 1, 1)).contains(sc) and (r.width - sc.width > 2 or r.height - sc.height > 2):
+            return c['_stack']
+    return []
+
+
+def is_rect_clip(c):
+    subs = [sb for sb in subpaths({'items': c['items'], 'closePath': True, 'type': 'f'}) if len(sb['ops']) > 1]
+    prst = detect_prst(subs)
+    return bool(prst) and prst[0] == 'rect'
+
+
+def clip_masked(pix, clips, region):
+    """pix, which covers region, made transparent outside the clips. PyMuPDF draws the mask: a page of
+    pix's size in pixels, black, with white filled through the clips."""
+    w, h = pix.width, pix.height
+    sx, sy = w / region.width, h / region.height
+
+    def pt(p):
+        return '%.3f %.3f' % ((p.x - region.x0) * sx, h - (p.y - region.y0) * sy)
+    ops = ['0 g 0 0 %d %d re f q' % (w, h)]
+    for c in clips:
+        for sb in subpaths({'items': c['items'], 'closePath': True, 'type': 'f'}):
+            for o in sb['ops']:
+                ops.append(pt(o[1]) + (' m' if o[0] == 'M' else ' l') if o[0] in 'ML' else
+                           '%s %s %s c' % (pt(o[1]), pt(o[2]), pt(o[3])))
+            ops.append('h')
+        ops.append('W* n' if c.get('even_odd') else 'W n')
+    ops.append('1 g 0 0 %d %d re f Q' % (w, h))
+    doc = fitz.open()
+    page = doc.new_page(width=w, height=h)
+    xref = doc.get_new_xref()
+    doc.update_object(xref, '<<>>')
+    doc.update_stream(xref, '\n'.join(ops).encode())
+    doc.xref_set_key(page.xref, 'Contents', '%d 0 R' % xref)
+    mask = page.get_pixmap(colorspace=fitz.csGRAY, alpha=False)
+    if (mask.width, mask.height) != (w, h):
+        return pix
+    if pix.alpha:
+        a = pix.samples[pix.n - 1::pix.n]
+        mask = fitz.Pixmap(fitz.csGRAY, w, h, bytes(x * y // 255 for x, y in zip(a, mask.samples)), False)
+        pix = fitz.Pixmap(pix, 0)
+    return fitz.Pixmap(pix, mask)
+
+
+def path_from(d, subs):
+    """d with its path replaced by subs; None if subs is empty."""
+    if not subs:
+        return None
+    items = []
+    for sb in subs:
+        prev = sb['ops'][0][1]
+        for o in sb['ops'][1:]:
+            items.append(('l', prev, o[1]) if o[0] == 'L' else ('c', prev, o[1], o[2], o[3]))
+            prev = o[-1]
+        if sb['closed'] and (abs(prev.x - sb['ops'][0][1].x) > 0.01 or abs(prev.y - sb['ops'][0][1].y) > 0.01):
+            items.append(('l', prev, sb['ops'][0][1]))
+    pts = [p for it in items for p in it[1:]]
+    return dict(d, items=items, closePath=True,
+                rect=fitz.Rect(min(p.x for p in pts), min(p.y for p in pts), max(p.x for p in pts), max(p.y for p in pts)))
 
 
 def apply_clips(d, clips):
@@ -1538,30 +1639,23 @@ def apply_clips(d, clips):
     border four times, each copy clipped to one side, and centres each dash on the box edge
     with only its inner half visible. So sample points across each subpath, keep the subpaths
     that are really inside, and trim axis-aligned dashes to the part that shows."""
-    live = [c for c in clips if not ((c.get('scissor') or fitz.Rect()) + (-0.5, -0.5, 0.5, 0.5)).contains(d['rect'])]
+    def cuts(c):
+        sc = c.get('scissor')
+        if sc is None or not (sc + (-0.5, -0.5, 0.5, 0.5)).contains(d['rect']):
+            return True
+        # a rounded or round clip whose box holds a filled path still cuts the parts that reach its corners
+        # (a band at the top of a rounded card, the border ring of a see-through pill)
+        win = d.get('type') == 'f' and not is_rect_clip(c) and clip_window(c)
+        return bool(win) and not all(within(flatten(sb), win) for sb in subpaths(d) if len(sb['ops']) > 1)
+    live = [c for c in clips if cuts(c)]
     if not live:
         return d
+    if d.get('type') == 'f' and all(clip_window(c) for c in live):
+        # a filled shape under rectangular, rounded or round clips: an SVG picture cropped by its frame, or a
+        # shape larger than its overflow: hidden box. Cut it exactly, since sampling keeps or trims whole pieces.
+        return cut_fill(d, [clip_window(c) for c in live])
     subs = subpaths(d)
     out, changed = [], False
-    rects = [clip_rect_of(c) for c in live]
-    if all(rects) and d.get('type') == 'f':
-        # a filled shape under rectangular clips (overflow: hidden, a cropped SVG picture): cut it exactly
-        win = rects[0]
-        for r in rects[1:]:
-            win = win & r
-        for sb in subs:
-            poly = flatten(sb) if len(sb['ops']) > 1 else []
-            if len(poly) < 3:
-                continue
-            box = fitz.Rect(min(p.x for p in poly), min(p.y for p in poly), max(p.x for p in poly), max(p.y for p in poly))
-            if (win + (-0.5, -0.5, 0.5, 0.5)).contains(box):
-                out.append(sb)
-                continue
-            changed = True
-            cut = cut_polygon(poly, win) if box.intersects(win) else []
-            if len(cut) >= 3:
-                out.append({'ops': [('M', cut[0])] + [('L', q) for q in cut[1:]], 'closed': True})
-        subs = []
     for sb in subs:
         poly = sub_polygon(sb) if len(sb['ops']) > 1 else [sb['ops'][0][1]]
         box = fitz.Rect(min(p.x for p in poly), min(p.y for p in poly), max(p.x for p in poly), max(p.y for p in poly))
@@ -1588,19 +1682,7 @@ def apply_clips(d, clips):
             out.append(sb)
     if not changed:
         return d
-    if not out:
-        return None
-    items = []
-    for sb in out:
-        prev = sb['ops'][0][1]
-        for o in sb['ops'][1:]:
-            items.append(('l', prev, o[1]) if o[0] == 'L' else ('c', prev, o[1], o[2], o[3]))
-            prev = o[-1]
-        if sb['closed'] and (abs(prev.x - sb['ops'][0][1].x) > 0.01 or abs(prev.y - sb['ops'][0][1].y) > 0.01):
-            items.append(('l', prev, sb['ops'][0][1]))
-    pts = [p for it in items for p in it[1:]]
-    return dict(d, items=items, closePath=True,
-                rect=fitz.Rect(min(p.x for p in pts), min(p.y for p in pts), max(p.x for p in pts), max(p.y for p in pts)))
+    return path_from(d, out)
 
 
 def clip_rrect(clips, rect, tol=1.5):
@@ -1646,6 +1728,8 @@ def border_ring(d):
         straight = any(o[0] == 'L' and abs(o[-1] - pts[i - 1]) > max(b.width, b.height) / 4
                        for i, o in enumerate(sb['ops']) if i)
         sizes.append((b, curved and not straight, curved, pts))
+    if r.height <= 1.5 * max(b.height for b, *_ in sizes) or r.width <= 1.5 * max(b.width for b, *_ in sizes):
+        return None                        # one row of pieces along a line (a dashed SVG line): not a box
     half = min(r.width, r.height) / 2
     best = 0
     for rad in (0, half * 0.25, half * 0.5, half * 0.75, half):
@@ -1884,7 +1968,7 @@ def convert_slide(prs, slide, cdoc, cpage, apage, notes, warn, dpage=None, repea
     # Artwork: one picture at the back, or a plain background colour.
     if apage is not None:
         pix = apage.get_pixmap(matrix=fitz.Matrix(ART_ZOOM, ART_ZOOM), alpha=False)
-        if pix.is_unicolor:
+        if pix.samples == pix.samples[:pix.n] * (pix.width * pix.height):     # pix.is_unicolor reads pixel by pixel
             c = pix.pixel(0, 0)
             slide.background.fill.solid()
             slide.background.fill.fore_color.rgb = RGBColor(*c[:3])
@@ -1991,8 +2075,19 @@ def convert_slide(prs, slide, cdoc, cpage, apage, notes, warn, dpage=None, repea
                 sp['opacity'] = (sp.get('opacity') or 1) * op
     ROTATED.clear()
     glyphs = glyph_runs(trace, warn, [f[3].split('+')[-1] for f in cpage.get_fonts()])
+    fills = [(sq, fitz.Rect(o['rect'] if k == 'path' else o[1] if k == 'border' else o['bbox']))
+             for sq, k, o in items if k in ('path', 'border', 'shade')]
+
+    def under_line(r, ln):
+        return r.x0 < ln['x1'] and r.x1 > ln['x0'] and \
+            r.y0 < ln['y'] + ln['desc'] * ln['size'] and r.y1 > ln['y'] - ln['asc'] * ln['size']
+
     for b in build_boxes(logical_lines(build_lines(glyphs), dom), keep):
-        items.append((min(l['seq'] for l in b['lines']), 'text', b))
+        first, last = min(l['seq'] for l in b['lines']), max(l['last'] for l in b['lines'])
+        # A fill painted partway through the box's text (an inline code chip, a highlight, a bar under its own
+        # value) belongs behind that text, so the box goes in at its last glyph, above the fill
+        mid = any(first < sq < last and any(under_line(r, ln) for ln in b['lines']) for sq, r in fills)
+        items.append((last if mid else first, 'text', b))
     for r in ROTATED:
         items.append((r['seq'], 'rot', r))
 
@@ -2054,6 +2149,11 @@ def convert_slide(prs, slide, cdoc, cpage, apage, notes, warn, dpage=None, repea
             pix = pix or block_pixmap(block)
             place = fitz.Rect(block['bbox'])
             vis = place & r & pr if not r.is_infinite else place & pr
+            cuts = [] if r.is_infinite else image_clips(ext, seq, r)
+            for c in cuts:
+                if c.get('scissor') is not None:
+                    vis &= c['scissor']
+            cuts = [c for c in cuts if not is_rect_clip(c)]
             if pix is None or vis.is_empty:
                 continue
             if abs(vis.x0 - place.x0) > 0.3 or abs(vis.y0 - place.y0) > 0.3 or \
@@ -2068,6 +2168,8 @@ def convert_slide(prs, slide, cdoc, cpage, apage, notes, warn, dpage=None, repea
                 sub.copy(pix, ir)
                 sub.set_origin(0, 0)
                 pix = sub
+            if cuts:
+                pix = clip_masked(pix, cuts, vis)
             xml.append(('PIC', pix.tobytes('png'), vis, gop))
     flush()
 

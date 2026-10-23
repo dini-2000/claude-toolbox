@@ -7,6 +7,8 @@
     python3 tools/make_theme.py acme --logo brand/logo.png --base grid      colours read from a logo
     python3 tools/make_theme.py ion --reference "office:Ion"  copy an Office theme (--office lists them)
     python3 tools/make_theme.py talk --reference their-deck.pdf   copy a deck's colours and fonts (also .potx, .pptx, a picture)
+    python3 tools/make_theme.py berlin --reference "office:Berlin" --art   ... and its own slide artwork (PowerPoint only)
+    python3 tools/make_theme.py talk --reference template.potx --art --credit "Template: Name by Author, CC BY 4.0"
     python3 tools/make_theme.py --check acme                   check a custom theme again (an id or a style folder)
     python3 tools/make_theme.py --spec style.json [--out job/style] [--formats 16x9,a4-doc]
                                                               a theme from a style spec: a theme.json in part (fonts,
@@ -38,6 +40,7 @@ warning. Each font role takes the held weight nearest to the one the base theme 
 """
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
@@ -586,9 +589,25 @@ def make(a):
         rest = [c for c in base['chart'][mode] if all(bt.far_enough(c, x) for x in lead)]
         theme['chart'][mode] = (lead + rest)[:max(6, len(base['chart'][mode]))]
 
+    if a.credit:                                   # the base's own credit stays: its layout and artwork remain in use
+        theme['credit'] = '; '.join(c for c in (a.credit, base.get('credit')) if c)
+
     out_dir.mkdir(exist_ok=True)
+    art_css = ''
+    if a.art:
+        if not a.reference or Path(str(a.reference)).suffix.lower() not in PPT_EXT and not str(a.reference).lower().startswith('office:'):
+            sys.exit('--art needs --reference to be a PowerPoint theme, template or file (.thmx, .potx, .pptx) or office:<name>')
+        art_css, art_mode = template_art(theme, a.id, a.reference, out_dir, warn)
+        if art_mode:
+            if a.mode and a.mode != art_mode:
+                warn.append('--art: the template\'s artwork is %s, so it shows only in %s mode; --mode %s keeps %s\'s art'
+                            % (art_mode, art_mode, a.mode, base['name']))
+            theme['defaults']['mode'] = a.mode or art_mode
     (out_dir / 'theme.json').write_text(json.dumps(theme, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
     copy_art(base_dir, a.base, out_dir, a.id, name, base['name'])
+    if art_css:
+        with open(out_dir / 'theme.css', 'a', encoding='utf-8') as f:
+            f.write(art_css)
     print('Wrote %s and theme.css (%s on %s; palettes %s)' % (out_dir / 'theme.json', name, base['name'], ', '.join(theme['palettes'])))
     for w in warn:
         print('  ! ' + w)
@@ -614,12 +633,135 @@ def copy_art(base_dir, base_id, out_dir, tid, name, base_name):
             (out_dir / fn).unlink()
 
 
+PPT_EXT = ('.thmx', '.pptx', '.potx', '.pptm', '.potm', '.ppsx')
+ART_FORMATS = {1.7778: '16x9', 1.3333: '4x3'}
+ART_KINDS = {'content': '.pc-slide:not(.pc-cover, .pc-closing, .pc-section, .pc-statement, .pc-bleed)',
+             'cover': '.pc-slide:is(.pc-cover, .pc-closing)', 'section': '.pc-slide:is(.pc-section, .pc-statement)'}
+ON_BASE = ':is(:not([data-surface]), [data-surface="base"])'   # alt, accent and inverse slides keep their own colours
+
+
+def avg_colour(img, box=None):
+    from PIL import Image, ImageStat
+    im = Image.open(img).convert('RGB')
+    if box:
+        w, h = im.size
+        im = im.crop((int(w * box[0]), int(h * box[1]), int(w * (box[0] + box[2])), int(h * (box[1] + box[3]))))
+    return '#%02X%02X%02X' % tuple(int(v) for v in ImageStat.Stat(im).mean)
+
+
+def ground(img, box, mode, worst=.15):
+    """The ground text must read on inside a box of a layout picture: its light end in dark mode (light text), its dark
+    end in light mode, so a gradient or a pattern is judged where it is hardest, not by its average."""
+    from PIL import Image
+    im = Image.open(img).convert('RGB')
+    if box:
+        w, h = im.size
+        im = im.crop((int(w * box[0]), int(h * box[1]), int(w * (box[0] + box[2])), int(h * (box[1] + box[3]))))
+    im.thumbnail((96, 96))
+    px = sorted(im.getdata(), key=lambda c: bt.lum('#%02X%02X%02X' % c))
+    return '#%02X%02X%02X' % px[int(len(px) * (1 - worst if mode == 'dark' else worst))]
+
+
+def text_room(boxes, kind):
+    """Padding that keeps a slide's text inside the template's own text boxes (fractions of the slide), never inside
+    the kit's margins; and for a cover, the title placed high, centred or low as the template has it."""
+    x0, y0 = min(b[0] for b in boxes), min(b[1] for b in boxes)
+    x1, y1 = max(b[0] + b[2] for b in boxes), max(b[1] + b[3] for b in boxes)
+    out = []
+    for side, v, var, dim in (('left', x0, '--mx', '--W'), ('right', 1 - x1, '--mx', '--W'),
+                              ('top', y0, '--mt', '--H'), ('bottom', 1 - y1, '--mb', '--H')):
+        if 0 < v < .35:
+            out.append('padding-%s: max(var(%s), calc(var(%s) * %.4f));' % (side, var, dim, v))
+    if kind == 'cover':
+        mid = (y0 + y1) / 2
+        out.append('justify-content: %s; --cover-w: 100%%;' % ('flex-start' if mid < .4 else 'center' if mid < .62 else 'flex-end'))
+    return ' '.join(out)
+
+
+def template_art(theme, tid, ref, out_dir, warn):
+    """--art: a PowerPoint template's own slide artwork (tools/template_art.py draws its title, content and section
+    layouts) behind the slides of its format, in its mode, in place of the base theme's art there. Slide text keeps
+    to the template's text boxes. A layout whose text area is too busy or too light or dark for the theme's text is
+    left out. Returns (css, the artwork's mode), or ('', None)."""
+    import template_art as ta
+    if str(ref).lower().startswith('office:'):
+        ref = office_theme(str(ref)[7:])
+    folder = out_dir / 'art'
+    info = ta.render(Path(ref).expanduser(), folder)
+    fmt = ART_FORMATS.get(round(info['ratio'], 4))
+    if not fmt:
+        warn.append('--art: the template\'s slides are %s to 1, not 16:9 or 4:3, so its artwork is left out' % info['ratio'])
+        return '', None
+    lay = info['layouts']
+    lead = lay.get('content') or next(iter(lay.values()))
+    mode = 'dark' if bt.is_dark(avg_colour(folder / lead['file'])) else 'light'
+    ink = theme['modes'][mode]['ink']
+    # the mode's background becomes the hardest ground under the content layout's text, so tools/build_themes.py
+    # tunes the text, label and chart colours against the artwork itself, not the master's flat colour
+    was = theme['modes'][mode]['bg']
+    theme['modes'][mode]['bg'] = ground(folder / lead['file'], lead.get('body') or lead.get('title'), mode)
+    deck = '.pc-deck[data-theme="%s"][data-mode="%s"][data-format="%s"]' % (tid, mode, fmt)
+    css, used = ['\n/* The template\'s own artwork (make_theme.py --art, from %s): %s, %s mode only. */\n' % (info['source'], fmt, mode)], []
+    for kind, sel in ART_KINDS.items():
+        L = lay.get(kind)
+        if not L:
+            continue
+        boxes = [L[k] for k in ('title', 'body') if L.get(k)]
+        low = [(k, ground(folder / L['file'], L.get(k), mode), need) for k, need in (('title', 3.0), ('body', 4.5)) if L.get(k)] \
+            or [('slide', ground(folder / L['file'], None, mode), 4.5)]
+        bad = [(k, g, need) for k, g, need in low if bt.contrast(ink, g) < need]
+        if bad:
+            warn.append('--art: the %s layout (%s) is left out: its %s text would sit on %s, %.1f:1 against the %s text colour'
+                        % (kind, L['layout'], bad[0][0], bad[0][1], bt.contrast(ink, bad[0][1]), mode))
+            continue
+        s = '%s %s%s' % (deck, sel, ON_BASE)
+        css.append('%s { background: var(--bg) url("art/%s") center / cover no-repeat; }\n' % (s, L['file']))
+        css.append('%s::before, %s::after { content: none; }\n' % (s, s))
+        room = text_room(boxes, kind) if boxes else ''
+        if room:
+            css.append('%s:not(.pc-split) { %s }\n' % (s, room))
+            # the page number moves in with the text, and to the left foot if the art fills the right one
+            x0, x1 = min(b[0] for b in boxes), max(b[0] + b[2] for b in boxes)
+            spots = [('right', 'right: max(var(--mx), calc(var(--W) * %.4f));' % (1 - x1), [max(.02, x1 - .012), .95, .012, .025]),
+                     ('left', 'left: max(var(--mx), calc(var(--W) * %.4f)); right: auto;' % x0, [x0, .95, .012, .025])]
+            for side, rule, spot in spots:
+                num = theme['modes'][mode].get('ink_3') or ink   # page numbers print in --ink-3
+                if bt.contrast(num, ground(folder / L['file'], spot, mode, worst=.02)) >= 4.5:   # a small mark: its worst pixel counts
+                    css.append('%s:not(.pc-split) > .pc-num { %s }\n' % (s, rule))
+                    break
+        used.append(kind)
+    if used and was != theme['modes'][mode]['bg']:
+        print('Template artwork: %s background %s -> %s, the hardest ground under its text' % (mode, was, theme['modes'][mode]['bg']))
+    if not used:
+        theme['modes'][mode]['bg'] = was
+        return '', None
+    print('Template artwork (%s, %s mode): %s, in themes/%s/art/' % (fmt, mode, ', '.join(used), tid))
+    return ''.join(css), mode
+
+
 def merge(base, over):
     """over laid on base: nested objects merge key by key, except palettes and the art recipe, which replace."""
     out = dict(base)
     for k, v in over.items():
         out[k] = merge(out[k], v) if isinstance(v, dict) and isinstance(out.get(k), dict) and k not in ('palettes', 'art') else v
     return out
+
+
+def read_shape(p, name):
+    """A one-colour SVG (paths, circles, rects) as [view box, body] for a recipe's own shape."""
+    try:
+        svg = p.resolve().read_text(encoding='utf-8')
+    except OSError as e:
+        sys.exit('art.shapes.%s: cannot read %s: %s' % (name, p, e))
+    view = re.search(r'viewBox="([^"]+)"', svg)
+    if not view or re.search(r'<(mask|clipPath|use|image|text)\b', svg):
+        sys.exit('art.shapes.%s: %s needs a viewBox and one-colour paths only (tools/mark.py save_shape writes one)' % (name, p))
+    els = re.findall(r'<(?:path|circle|rect)\b[^>]*?/?>', svg)
+    drop = r'\s(?:fill(?!="none")|style|class|id|opacity|fill-opacity)="[^"]*"'   # the recipe gives the colour
+    body = ''.join(re.sub(r'\s*/?>$', '/>', re.sub(drop, '', e)) for e in els)
+    if not body:
+        sys.exit('art.shapes.%s: %s has no path, circle or rect' % (name, p))
+    return [' '.join(view.group(1).replace(',', ' ').split()), body]
 
 
 def make_spec(a):
@@ -662,7 +804,11 @@ def make_spec(a):
                     sys.exit('Palette %s, %s %s: %r is not a colour like #2F54EB' % (pid, mode, k, v))
     if theme['defaults'].get('palette') not in theme['palettes']:
         theme['defaults']['palette'] = next(iter(theme['palettes']))
-    theme['custom'] = {'base': base_id, 'source': str(src)}
+    shapes = (theme.get('art') or {}).get('shapes') or {}
+    for name, v in list(shapes.items()):   # drawn shapes (tools/mark.py save_shape) come in as [view box, body]
+        if isinstance(v, str):
+            shapes[name] = read_shape(src.parent / v, name)
+    theme['custom'] = {'base': base_id, 'source': os.path.relpath(src, out_dir)}   # relative: no home folder in shared files
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / 'theme.json').write_text(json.dumps(theme, indent=1, ensure_ascii=False) + '\n', encoding='utf-8')
     for key, fn in (('extra', 'extra.css'), ('extra_doc', 'extra-doc.css')):   # the style's own touches, next to the spec
@@ -728,6 +874,10 @@ def main():
     ap.add_argument('--base', help='the built theme whose layout and artwork it uses (default meridian, or folio for a serif reference)')
     ap.add_argument('--reference', help='copy the colours, fonts and mode of a PowerPoint theme or file (.thmx, .potx, .pptx), '
                                         'a PDF of a deck, a picture of a slide, or office:<name> (see --office)')
+    ap.add_argument('--art', action='store_true', help='with a PowerPoint --reference: use its own slide artwork (title, '
+                    'content and section layouts) in its format and mode, in place of the base theme\'s')
+    ap.add_argument('--credit', help='a credit line for the theme (a template\'s licence, e.g. "Template: Name by Author, CC BY 4.0"): '
+                    'kept in theme.json and a hidden comment in built files, never shown in the work')
     ap.add_argument('--no-check', action='store_true', help='skip the check after making the theme (decks in it will not publish until it passes)')
     ap.add_argument('--check', metavar='ID', help='check a custom theme again (an id, or a style folder): the showcase in every format, an outline deck, a PowerPoint')
     ap.add_argument('--spec', help='a style spec (JSON: a theme.json in part, with an art recipe) to build a theme from')

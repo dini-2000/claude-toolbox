@@ -346,6 +346,8 @@ House Style's own code, themes and samples are the toolbox's own work under the 
 - Icons: Lucide, ISC licence, in skills/house-style/icons/LICENSE-lucide.txt.
 - Paged.js 0.4.3, MIT, in skills/house-style/tools/vendor/pagedjs/LICENSE.md.
 - segno, BSD 3-clause, in skills/house-style/tools/vendor/segno-LICENSE.txt.
+- Flags: flag-icons 7.2.3 by Panayiotis Lipiridis, MIT, in skills/house-style/assets/flags/ with its LICENSE.
+- Maps: Natural Earth 5.1.2, public domain, in skills/house-style/assets/maps/.
 - Print profiles in skills/house-style/assets/icc/: Coated FOGRA39 from VIGC and GRACoL 2013 from Idealliance, both free to use, embed and share. PSO Uncoated v3 FOGRA52 from ECI may not be passed on, so House Style leaves it out and tells the user where to get it.
 - Themes and palettes adapted from open projects, all MIT, each credited in its theme.json and in what it builds: Bootswatch by Thomas Park, reveal.js by Hakim El Hattab and contributors, Marp by the Marp team, Dracula by Zeno Rocha and contributors, Solarized by Ethan Schoonover, Nord by Arctic Ice Studio and Sven Greb, Catppuccin by the Catppuccin team and Rosé Pine by the Rosé Pine team.
 - Its Markdown outline syntax follows the md-slides skill (MIT).

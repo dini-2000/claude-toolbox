@@ -120,7 +120,7 @@ and the runtime; `tools/doc_pdf.py` prints it.
   charts (`pc-chart`, the deck markup), timeline, steps, checklist, code, agenda, references (`pc-refs`), appendix
   (lettered), signature block, QR codes. Deck components such as cards (`pc-grid`) work too.
 - **Screen view**: opened in a browser, a built document shows as a column of pages; the PDF is what you share.
-- **Credits**: a theme ported from another project credits it in the PDF properties and a closing line.
+- **Credits**: none in the work. A theme ported from another project keeps its notice in `theme.json` and a hidden comment in the built HTML.
 
 ## Graphics
 A graphic is a deck with `data-medium="graphic"`: each slide is one design (a post, a banner, the front of a card),
@@ -209,12 +209,19 @@ instead (`data-page`).
 | `tools/qr.py` | QR codes (build.py inlines them; the command writes one as an SVG) |
 | `tools/to_pptx.py` | the 1:1 PowerPoint converter for decks (`--check`, `--powerpoint`, `--keep`) |
 | `tools/publish.py` | QC, then one-file HTML with the PDF and PowerPoint inside it, both saved beside it (`--check`, `--png`); stops on QC issues |
-| `tools/make_theme.py` | a custom theme copied from a reference (PowerPoint theme or file, PDF, picture; `--office` lists the Office themes on a Mac), or from a logo, brand guidelines, design tokens, flags or a style spec (`--spec style.json --out <job>/style`, a job's own theme used with `--theme-dir`); checks it in every format (`--check` again) |
-| `tools/motifs.py` | the shapes, patterns and frames theme art is made of, and the art recipe format |
+| `tools/make_theme.py` | a custom theme copied from a reference (PowerPoint theme or file, PDF, picture; `--office` lists the Office themes on a Mac), or from a logo, brand guidelines, design tokens, flags or a style spec (`--spec style.json --out <job>/style`, a job's own theme used with `--theme-dir`); `--art` lays a PowerPoint template's own artwork behind slides, contrast-checked, and `--credit` stores its credit; checks it in every format (`--check` again) |
+| `tools/motifs.py` | the shapes, patterns and frames theme art is made of, and the art recipe format (a recipe's own drawn shapes go in `art.shapes`) |
+| `tools/mark.py` | logos, emblems and icons drawn from exact shapes on a grid, with text as outlines; writes SVGs and one-colour shapes for recipes |
+| `tools/art_loop.py` | the craft loop: a sheet of each candidate mark at every size on light and dark, a construction view, measures and flags, and `--export` (PNGs and a favicon) |
 | `tools/build_themes.py` | rebuilds every theme's tokens and `themes/themes.json`, moving colours that fail contrast |
+| `tools/setup_check.py` | lists what this computer has and lacks for the kit (Python packages, Chrome, LibreOffice, PowerPoint on a Mac, the kit saved as a skill) and how to get anything missing |
 | `tools/selftest.py` | checks the kit works on this computer (decks, outline, PowerPoint, a graphic and its print) and draws an overview of every theme |
 | `tools/fetch_assets.py`, `build_icons.py` | add fonts and icons (downloads: ask the user first) |
 | `tools/add_fonts.py` | add font families already on the Mac (a folder of `<Family>-<Style>.ttf` files with OFL licences) |
+
+Parts the engine lacks (bars with estimates or a target, a share bar, a flow map, status chips, planned items) are in
+`snippets/` (`parts.css`, `parts.js`, README there); `tools/build.py` inlines them and draws them into the no-script
+copy.
 
 ## Known limits
 - Sinhala and Tamil: basic support only. Decks with either script need the extra checks in SKILL.md.
@@ -229,8 +236,8 @@ The kit's own code, themes and samples: MIT. What it holds from others:
 - Fonts: 84 families from Google Fonts, 83 under the SIL Open Font License 1.1 and Roboto Slab under Apache 2.0;
   each family's licence file sits in `fonts/`.
 - Icons: Lucide, ISC licence.
-- Themes ported from open projects, all MIT, each credited in its `theme.json` and in what it builds (the last
-  slide's speaker notes of a deck; the PDF properties and a closing line of a document):
+- Themes ported from open projects, all MIT, each credited in its `theme.json` and in a hidden comment in
+  the HTML it builds:
   - Bootswatch by Thomas Park: Brite, Flatly, Journal, Litera, Lux, Minty, Quartz, Sandstone, Sketchy, Superhero,
     United, Vapor; Solar also uses Ethan Schoonover's Solarized colours (MIT).
   - reveal.js by Hakim El Hattab and contributors: League, Night, Simple, Sky.
@@ -241,6 +248,8 @@ The kit's own code, themes and samples: MIT. What it holds from others:
   Pine palette).
 - Paged.js 0.4.3 (MIT) lays out documents with footnotes at the page foot: `tools/vendor/pagedjs/`.
 - segno (BSD 3-clause) draws QR codes: `tools/vendor/segno-LICENSE.txt`.
+- Flags in `assets/flags/`: flag-icons 7.2.3 by Panayiotis Lipiridis (MIT, `assets/flags/LICENSE`). Maps in
+  `assets/maps/` from Natural Earth 5.1.2 (public domain); `assets/README.md` says how to use both.
 - Print profiles in `assets/icc/`: Coated FOGRA39 (VIGC) and GRACoL 2013 (Idealliance), free to use, embed and
   share; PSO Uncoated v3 FOGRA52 (ECI) may be used and embedded but not passed on, so the kit does not include it.
 - The Markdown splitting and notes syntax follow md-slides (MIT).

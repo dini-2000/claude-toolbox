@@ -17,7 +17,8 @@ its content, or from a <!-- layout: name --> line, with name one of:
     statement  one sentence and nothing else (a title-less slide)
     quote      a '> ' blockquote, then '-- Name, role'
     checklist  '- [x] done' and '- [ ] to do' items
-    table      a Markdown table (right-aligned columns become figures)
+    table      a Markdown table (right-aligned columns become figures; a first cell of '**Total**', '**Subtotal**'
+               or '**Grand total**', or a row bold in every cell, marks a totals row; a bold first cell alone does not)
     code       a fenced code block, with text beside it if there is any
     cards      '### Heading' then a paragraph, two to four times
     split      text and one picture ('![alt](src)'), the picture on the side
@@ -261,6 +262,18 @@ def body_blocks(bl, build=None, skip=('h1', 'h2', 'h6')):
     return out
 
 
+# A totals row: the first cell is one bold span naming a total ('**Total**', '**Subtotal**', '**Grand total**',
+# '**Total (Rs mn)**'), or two or more filled cells are each one bold span ('| **All homes** | **18** |'). A bold
+# row label alone, such as '**Fees**', stays an ordinary row.
+TOTAL_CELL = re.compile(r'\*\*((?:grand\s+|sub-?)?totals?\b[^*]*)\*\*', re.I)
+BOLD_CELL = re.compile(r'\*\*([^*]+)\*\*')
+
+
+def is_total(r):
+    filled = [c for c in r if c]               # a bold label over empty cells heads a group, so needs a second cell
+    return bool(r) and (TOTAL_CELL.fullmatch(r[0]) is not None or len(filled) > 1 and all(map(BOLD_CELL.fullmatch, filled)))
+
+
 def table(rows):
     cells = [[c.strip() for c in r.strip().strip('|').split('|')] for r in rows]
     align = []
@@ -275,9 +288,10 @@ def table(rows):
         out.append('      <thead><tr>%s</tr></thead>' % ''.join('<th%s>%s</th>' % (num(k), inline(c)) for k, c in enumerate(head)))
     out.append('      <tbody>')
     for r in body:
-        total = r and re.fullmatch(r'\*\*.*\*\*', r[0])
+        total = is_total(r)
         out.append('        <tr%s>%s</tr>' % (' class="pc-total"' if total else '', ''.join(
-            '<td%s>%s</td>' % (num(k), inline(re.sub(r'^\*\*(.*)\*\*$', r'\1', c) if total else c)) for k, c in enumerate(r))))
+            '<td%s>%s</td>' % (num(k), inline(BOLD_CELL.sub(r'\1', c) if total and BOLD_CELL.fullmatch(c) else c))
+            for k, c in enumerate(r))))
     out.append('      </tbody>\n    </table>')
     return '\n'.join(out)
 

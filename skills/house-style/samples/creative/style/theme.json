@@ -1,0 +1,280 @@
+{
+ "name": "Mangrove Return",
+ "summary": "Sand and lagoon green with silt orange, a lively grotesque for titles over a clear sans, and a drawn sapling emblem on the cover. Made in Creative mode for a coastal replanting project.",
+ "good_for": [
+  "wellbeing",
+  "ocean",
+  "climate",
+  "retreat",
+  "travel",
+  "coaching"
+ ],
+ "category": "wellness",
+ "defaults": {
+  "mode": "light",
+  "palette": "mangrove"
+ },
+ "fonts": {
+  "display": [
+   "Bricolage Grotesque",
+   "sans"
+  ],
+  "body": [
+   "Instrument Sans",
+   "sans"
+  ],
+  "label": [
+   "Instrument Sans",
+   "sans"
+  ],
+  "stat": [
+   "Bricolage Grotesque",
+   "sans"
+  ],
+  "mono": [
+   "DM Mono",
+   "mono"
+  ],
+  "quote": [
+   "Instrument Serif",
+   "serif"
+  ]
+ },
+ "tokens": {
+  "--w-display": "800",
+  "--w-h1": "600",
+  "--w-h2": "600",
+  "--w-body": "400",
+  "--w-strong": "600",
+  "--w-label": "600",
+  "--w-stat": "800",
+  "--track-display": "-0.025em",
+  "--track-h1": "-0.015em",
+  "--track-label": "0.1em",
+  "--label-case": "uppercase",
+  "--lh-display": "1.02",
+  "--lh-h1": "1.14",
+  "--lh-body": "1.55",
+  "--radius": "10px",
+  "--radius-sm": "6px",
+  "--border-w": "1px",
+  "--card-pad": "34px",
+  "--icon-stroke": "1.5"
+ },
+ "modes": {
+  "light": {
+   "bg": "#F5F2EA",
+   "bg_alt": "#EDE8DC",
+   "surface": "#FFFDF8",
+   "surface_2": "#E6E0D2",
+   "ink": "#15302A",
+   "ink_2": "#3A524B",
+   "ink_3": "#52665F",
+   "line": "#DCD5C5",
+   "positive": "#1B7A4E",
+   "negative": "#B42318",
+   "warning": "#8A5A00",
+   "code_bg": "#15302A",
+   "code_ink": "#EDE8DC",
+   "letterbox": "#0B1A17",
+   "shadow": "none"
+  },
+  "dark": {
+   "bg": "#0E211D",
+   "bg_alt": "#122823",
+   "surface": "#16302A",
+   "surface_2": "#1E3B34",
+   "ink": "#EEF2EC",
+   "ink_2": "#C9D6CF",
+   "ink_3": "#9FB3AA",
+   "line": "#284840",
+   "positive": "#6FD3A0",
+   "negative": "#FF8A80",
+   "warning": "#F5C04A",
+   "code_bg": "#08130F",
+   "code_ink": "#EEF2EC",
+   "letterbox": "#000000",
+   "shadow": "none"
+  }
+ },
+ "palettes": {
+  "mangrove": {
+   "name": "Mangrove",
+   "light": {
+    "accent": "#2F6B4F",
+    "accent_2": "#B4572B"
+   },
+   "dark": {
+    "accent": "#74C69A",
+    "accent_2": "#E8935F"
+   }
+  },
+  "estuary": {
+   "name": "Estuary",
+   "light": {
+    "accent": "#1E5F74",
+    "accent_2": "#9A6B12"
+   },
+   "dark": {
+    "accent": "#72C7DA",
+    "accent_2": "#E9C46A"
+   }
+  }
+ },
+ "chart": {
+  "light": [
+   "#2F6B4F",
+   "#B4572B",
+   "#1E5F74",
+   "#7A8A2E",
+   "#6B4E8A",
+   "#9A6B12"
+  ],
+  "dark": [
+   "#74C69A",
+   "#E8935F",
+   "#72C7DA",
+   "#C3D17A",
+   "#B9A0D6",
+   "#E9C46A"
+  ]
+ },
+ "art": {
+  "shapes": {
+   "seal-disc": [
+    "0 0 24 24",
+    "<path d=\"M23 12C23 18.075 18.075 23 12 23C5.925 23 1 18.075 1 12C1 5.925 5.925 1 12 1C18.075 1 23 5.925 23 12Z\"/>"
+   ],
+   "seal-tree": [
+    "0 0 24 24",
+    "<path d=\"M12 11.6C10.447 11.89 8.842 11.542 7.548 10.636C6.253 9.73 5.378 8.341 5.119 6.782C6.672 6.492 8.277 6.84 9.571 7.746C10.866 8.652 11.741 10.041 12 11.6ZM12 11.6C10.872 10.494 10.236 8.98 10.236 7.4C10.236 5.82 10.872 4.306 12 3.2C13.128 4.306 13.764 5.82 13.764 7.4C13.764 8.98 13.128 10.494 12 11.6ZM12 11.6C12.259 10.041 13.134 8.652 14.429 7.746C15.723 6.84 17.328 6.492 18.881 6.782C18.622 8.341 17.747 9.73 16.452 10.636C15.158 11.542 13.553 11.89 12 11.6ZM12.9 11.1L12.9 17.3L11.1 17.3L11.1 11.1ZM5.1 18.5C5.1 16.346 6.846 14.6 9 14.6C11.154 14.6 12.9 16.346 12.9 18.5L11.1 18.5C11.1 17.34 10.16 16.4 9 16.4C7.84 16.4 6.9 17.34 6.9 18.5L5.1 18.5ZM11.1 18.5C11.1 16.346 12.846 14.6 15 14.6C17.154 14.6 18.9 16.346 18.9 18.5L17.1 18.5C17.1 17.34 16.16 16.4 15 16.4C13.84 16.4 12.9 17.34 12.9 18.5L11.1 18.5ZM1 18.5L23 18.5L23 20.3L1 20.3L1 18.5Z\"/>"
+   ],
+   "sapling": [
+    "0 0 24 24",
+    "<path d=\"M12 11.6C10.447 11.89 8.842 11.542 7.548 10.636C6.253 9.73 5.378 8.341 5.119 6.782C6.672 6.492 8.277 6.84 9.571 7.746C10.866 8.652 11.741 10.041 12 11.6ZM12 11.6C10.872 10.494 10.236 8.98 10.236 7.4C10.236 5.82 10.872 4.306 12 3.2C13.128 4.306 13.764 5.82 13.764 7.4C13.764 8.98 13.128 10.494 12 11.6ZM12 11.6C12.259 10.041 13.134 8.652 14.429 7.746C15.723 6.84 17.328 6.492 18.881 6.782C18.622 8.341 17.747 9.73 16.452 10.636C15.158 11.542 13.553 11.89 12 11.6ZM12.9 11.1L12.9 17.3L11.1 17.3L11.1 11.1ZM5.1 18.5C5.1 16.346 6.846 14.6 9 14.6C11.154 14.6 12.9 16.346 12.9 18.5L11.1 18.5C11.1 17.34 10.16 16.4 9 16.4C7.84 16.4 6.9 17.34 6.9 18.5L5.1 18.5ZM11.1 18.5C11.1 16.346 12.846 14.6 15 14.6C17.154 14.6 18.9 16.346 18.9 18.5L17.1 18.5C17.1 17.34 16.16 16.4 15 16.4C13.84 16.4 12.9 17.34 12.9 18.5L11.1 18.5Z\"/>"
+   ]
+  },
+  "deck": {
+   "cover": [
+    {
+     "motif": "seal-disc",
+     "at": "r",
+     "size": 620,
+     "x": -70,
+     "color": "accent"
+    },
+    {
+     "motif": "seal-tree",
+     "at": "r",
+     "size": 620,
+     "x": -70,
+     "color": "bg"
+    }
+   ],
+   "section": [
+    {
+     "motif": "sapling",
+     "at": "br",
+     "size": 520,
+     "x": 40,
+     "y": -30,
+     "color": "accent",
+     "opacity": 0.16
+    },
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 14,
+     "color": "accent-2"
+    }
+   ],
+   "statement": [
+    {
+     "motif": "sapling",
+     "at": "tr",
+     "size": 120,
+     "x": 110,
+     "y": 90,
+     "color": "accent-2"
+    }
+   ],
+   "content": [
+    {
+     "motif": "bar",
+     "at": "b",
+     "size": 8,
+     "color": "accent"
+    }
+   ],
+   "closing": [
+    {
+     "motif": "seal-disc",
+     "at": "br",
+     "size": 300,
+     "x": 100,
+     "y": 90,
+     "color": "accent"
+    },
+    {
+     "motif": "seal-tree",
+     "at": "br",
+     "size": 300,
+     "x": 100,
+     "y": 90,
+     "color": "bg"
+    }
+   ]
+  },
+  "kicker": "dash",
+  "cards": "flat",
+  "doc": {
+   "cover": [
+    {
+     "motif": "seal-disc",
+     "at": "br",
+     "size": 118,
+     "x": -30,
+     "y": 16,
+     "color": "accent"
+    },
+    {
+     "motif": "seal-tree",
+     "at": "br",
+     "size": 118,
+     "x": -30,
+     "y": 16,
+     "color": "bg"
+    }
+   ],
+   "opener": [
+    {
+     "motif": "bar",
+     "at": "t",
+     "size": 2.5,
+     "color": "accent"
+    }
+   ],
+   "mark": {
+    "motif": "sapling",
+    "size": 14,
+    "color": "accent"
+   }
+  },
+  "vars": {
+   "cover": {
+    "--cover-w": "64%"
+   }
+  }
+ },
+ "id": "mangrove",
+ "custom": {
+  "base": "tide",
+  "source": "../style.json",
+  "checked": {
+   "on": "2026-10-19 13:39",
+   "passed": true,
+   "formats": "16x9",
+   "results": "check"
+  }
+ }
+}

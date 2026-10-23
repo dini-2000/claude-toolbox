@@ -1,0 +1,50 @@
+/* Mangrove Return: document art from the recipe in theme.json (tools/motifs.py). Edit the recipe, or extra.css for the theme's own touches. */
+.pc-doc[data-theme="mangrove"] .pc-cover:not([data-cover="full"])::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 118mm;
+  height: 118mm;
+  right: -30mm;
+  bottom: 16mm;
+  background: var(--accent, var(--accent));
+  clip-path: shape(from 95.83% 50%, curve to 50% 95.83% with 95.83% 75.31% / 75.31% 95.83%, curve to 4.17% 50% with 24.69% 95.83% / 4.17% 75.31%, curve to 50% 4.17% with 4.17% 24.69% / 24.69% 4.17%, curve to 95.83% 50% with 75.31% 4.17% / 95.83% 24.69%, close); }
+.pc-doc[data-theme="mangrove"] .pc-cover:not([data-cover="full"])::after {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  width: 118mm;
+  height: 118mm;
+  right: -30mm;
+  bottom: 16mm;
+  background: var(--bg, var(--accent));
+  clip-path: shape(from 50% 48.33%, curve to 31.45% 44.32% with 43.53% 49.54% / 36.84% 48.09%, curve to 21.33% 28.26% with 26.05% 40.54% / 22.41% 34.75%, curve to 39.88% 32.28% with 27.8% 27.05% / 34.49% 28.5%, curve to 50% 48.33% with 45.28% 36.05% / 48.92% 41.84%, close, move to 50% 48.33%, curve to 42.65% 30.83% with 45.3% 43.73% / 42.65% 37.42%, curve to 50% 13.33% with 42.65% 24.25% / 45.3% 17.94%, curve to 57.35% 30.83% with 54.7% 17.94% / 57.35% 24.25%, curve to 50% 48.33% with 57.35% 37.42% / 54.7% 43.73%, close, move to 50% 48.33%, curve to 60.12% 32.28% with 51.08% 41.84% / 54.73% 36.05%, curve to 78.67% 28.26% with 65.51% 28.5% / 72.2% 27.05%, curve to 68.55% 44.32% with 77.59% 34.75% / 73.95% 40.54%, curve to 50% 48.33% with 63.16% 48.09% / 56.47% 49.54%, close, move to 53.75% 46.25%, line to 53.75% 72.08%, line to 46.25% 72.08%, line to 46.25% 46.25%, close, move to 21.25% 77.08%, curve to 37.5% 60.83% with 21.25% 68.11% / 28.52% 60.83%, curve to 53.75% 77.08% with 46.48% 60.83% / 53.75% 68.11%, line to 46.25% 77.08%, curve to 37.5% 68.33% with 46.25% 72.25% / 42.33% 68.33%, curve to 28.75% 77.08% with 32.67% 68.33% / 28.75% 72.25%, line to 21.25% 77.08%, close, move to 46.25% 77.08%, curve to 62.5% 60.83% with 46.25% 68.11% / 53.52% 60.83%, curve to 78.75% 77.08% with 71.47% 60.83% / 78.75% 68.11%, line to 71.25% 77.08%, curve to 62.5% 68.33% with 71.25% 72.25% / 67.33% 68.33%, curve to 53.75% 77.08% with 57.67% 68.33% / 53.75% 72.25%, line to 46.25% 77.08%, close, move to 4.17% 77.08%, line to 95.83% 77.08%, line to 95.83% 84.58%, line to 4.17% 84.58%, line to 4.17% 77.08%, close); }
+.pc-doc[data-theme="mangrove"] .pc-cover:not([data-cover="full"]) > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="mangrove"] .pc-opener {
+  position: relative; }
+.pc-doc[data-theme="mangrove"] .pc-opener::before {
+  z-index: 0;
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: calc(2.5mm);
+  background: var(--accent, var(--accent)); }
+.pc-doc[data-theme="mangrove"] .pc-opener > :not(.pc-media) {
+  position: relative;
+  z-index: 1; }
+.pc-doc[data-theme="mangrove"] .pc-chapter > h1::after {
+  content: "";
+  display: block;
+  width: 14pt;
+  height: 14pt;
+  margin: 9pt 0 0;
+  background: var(--accent, var(--accent));
+  -webkit-mask: var(--m-sapling) center / contain no-repeat;
+  mask: var(--m-sapling) center / contain no-repeat; }
